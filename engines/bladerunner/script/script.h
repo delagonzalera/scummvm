@@ -58,6 +58,9 @@ protected:
 	{}
 
 public:
+	virtual ~ScriptBase()
+	{}
+
 	virtual void InitializeScene() = 0;
 	virtual void SceneLoaded() = 0;
 	virtual void SceneFrameAdvanced(int frame) = 0;
@@ -66,8 +69,8 @@ public:
 #define DECLARE_SCRIPT(name) \
 class Script##name : public ScriptBase { \
 public: \
-	Script##name(BladeRunnerEngine *_vm) \
-		: ScriptBase(_vm) \
+	Script##name(BladeRunnerEngine *vm) \
+		: ScriptBase(vm) \
 	{} \
 	void InitializeScene(); \
 	void SceneLoaded(); \
