@@ -29,12 +29,16 @@
 #include "bladerunner/audio_speech.h"
 #include "bladerunner/chapters.h"
 #include "bladerunner/clues.h"
+#include "bladerunner/combat.h"
 #include "bladerunner/gameflags.h"
 #include "bladerunner/gameinfo.h"
 #include "bladerunner/image.h"
+#include "bladerunner/items.h"
+#include "bladerunner/lights.h"
 #include "bladerunner/mouse.h"
 #include "bladerunner/outtake.h"
 #include "bladerunner/scene.h"
+#include "bladerunner/scene_objects.h"
 #include "bladerunner/script/init.h"
 #include "bladerunner/script/script.h"
 #include "bladerunner/settings.h"
@@ -43,6 +47,7 @@
 #include "bladerunner/slice_renderer.h"
 #include "bladerunner/text_resource.h"
 #include "bladerunner/vqa_decoder.h"
+#include "bladerunner/waypoints.h"
 
 #include "common/array.h"
 #include "common/error.h"
@@ -65,6 +70,8 @@ BladeRunnerEngine::BladeRunnerEngine(OSystem *syst)
 
 	_script = new Script(this);
 	_settings = new Settings(this);
+	_lights = new Lights(this);
+	_combat = new Combat(this);
 }
 
 BladeRunnerEngine::~BladeRunnerEngine() {
@@ -148,7 +155,7 @@ bool BladeRunnerEngine::startup(bool hasSavegames) {
 		}
 	}
 
-	// TODO: World waypoints
+	_waypoints = new Waypoints(this, _gameInfo->getWaypointCount());
 
 	// TODO: Cover waypoints
 
@@ -162,14 +169,14 @@ bool BladeRunnerEngine::startup(bool hasSavegames) {
 
 	// TODO: Sine and cosine lookup tables for intervals of 1.0, 4.0, and 12.0
 
-	// TODO: View
+	_view = new View();
 
-	// TODO: Screen Index
+	_sceneObjects = new SceneObjects(this, _view);
 
 	_gameFlags = new GameFlags();
 	_gameFlags->setFlagCount(_gameInfo->getFlagCount());
 
-	// TODO: Items
+	_items = new Items(this);
 
 	// Setup sound output
 
@@ -206,9 +213,12 @@ bool BladeRunnerEngine::startup(bool hasSavegames) {
 	assert(actorCount < 99);
 	for (int i = 0; i != actorCount; ++i) {
 		_actors[i] = new Actor(this, i);
+		_actors[i]->setup(i);
 	}
 	_voiceoverActor = new Actor(this, 99);
 	_playerActor = _actors[_gameInfo->getPlayerId()];
+
+	_playerActor->setFPS(15);
 
 	// TODO: set _playerActor countdown timer 6
 
@@ -301,6 +311,7 @@ bool BladeRunnerEngine::startup(bool hasSavegames) {
 	initScript.SCRIPT_Initialize_Game();
 
 	// TODO: Load AI-ACT1.DLL
+	_aiScripts = new AIScripts(this);
 
 	initChapterAndScene();
 
@@ -309,6 +320,11 @@ bool BladeRunnerEngine::startup(bool hasSavegames) {
 
 void BladeRunnerEngine::initChapterAndScene() {
 	// TODO: Init actors...
+	for (int i = 0, end = _gameInfo->getActorCount(); i != end; ++i)
+		_aiScripts->Initialize(i);
+
+	for (int i = 0, end = _gameInfo->getActorCount(); i != end; ++i)
+		_actors[i]->changeAnimationMode(i);
 
 	_settings->setChapter(1);
 	_settings->setNewSetAndScene(_gameInfo->getInitialSetId(), _gameInfo->getInitialSceneId());
@@ -396,14 +412,17 @@ void BladeRunnerEngine::shutdown() {
 
 	// TODO: Delete KIA6PT.FON
 
-	// TODO: Delete Items
+	delete _items;
+	_items = 0;
 
 	delete _gameFlags;
 	_gameFlags = 0;
 
-	// TODO: Delete View
+	delete _view;
+	_view = 0;
 
-	// TODO: Delete Screen Index
+	delete _sceneObjects;
+	_sceneObjects = 0;
 
 	// TODO: Delete sine and cosine lookup tables
 
@@ -412,7 +431,8 @@ void BladeRunnerEngine::shutdown() {
 	delete[] _gameVars;
 	_gameVars = 0;
 
-	// TODO: Delete World waypoints
+	delete _waypoints;
+	_waypoints = 0;
 
 	// TODO: Delete Cover waypoints
 
@@ -493,7 +513,10 @@ void BladeRunnerEngine::gameTick() {
 		// TODO: VK
 		// TODO: Elevators
 		// TODO: Scores
-		// TODO: Call Script_Player_Walked_In if applicable
+
+		if (_scene->didPlayerWalkIn()) {
+			_script->PlayerWalkedIn();
+		}
 		// TODO: Gun range announcements
 		// TODO: ZBUF repair dirty rects
 
@@ -509,25 +532,28 @@ void BladeRunnerEngine::gameTick() {
 		_surface2.copyFrom(_surface1);
 		memcpy(_zBuffer2, _zBuffer1, 640*480*2);
 
-		// TODO: Render overlays (mostly in Replicant)
-		// TODO: Tick Actor AI and Timers (timers in Replicant)
+		// TODO: Render overlays
+		// TODO: Tick Actor AI and Timers
 
 		if (_settings->getNewScene() == -1 || _script->_inScriptCounter /* || in_ai */) {
 
-			// TODO: Tick and draw all actors in current set (drawing works in Replicant)
-
-			// HACK to draw McCoy
 			_sliceRenderer->setView(_scene->_view);
-			_playerActor->draw();
 
-			// TODO: Draw items (drawing works in Replicant)
-			// TODO: Draw item pickup (understood, drawing works in Replicant)
+			// Tick and draw all actors in current set
+			for (int i = 0, end = _gameInfo->getActorCount(); i != end; ++i) {
+				if (i == 0 || i == 23) // Currently limited to McCoy and Officer Leroy
+					_actors[i]->tick(backgroundChanged);
+			}
+
+			// TODO: Draw items
+			// TODO: Draw item pickup
 			// TODO: Draw dialogue menu
 
 			Common::Point p = _eventMan->getMousePos();
+			_mouse->tick(p.x, p.y);
 			_mouse->draw(_surface2, p.x, p.y);
 
-			// TODO: Process AUD (audio in Replicant)
+			// TODO: Process AUD
 			// TODO: Footstep sound
 
 			_system->copyRectToScreen((const byte *)_surface2.getBasePtr(0, 0), _surface2.pitch, 0, 0, 640, 480);
@@ -544,6 +570,12 @@ void BladeRunnerEngine::handleEvents() {
 	}
 }
 
+void BladeRunnerEngine::gameWaitForActive() {
+	while(!_windowIsActive) {
+		handleEvents();
+	}
+}
+
 void BladeRunnerEngine::loopActorSpeaking() {
 	if (!_audioSpeech->isPlaying())
 		return;
@@ -552,9 +584,17 @@ void BladeRunnerEngine::loopActorSpeaking() {
 
 	do {
 		gameTick();
+		if (shouldQuit())
+			break;
 	} while (_audioSpeech->isPlaying());
 
 	playerGainsControl();
+}
+
+void BladeRunnerEngine::loopActorWalkToXYZ(int actorId, float x, float y, float z, int a4, int a5, int a6, int a7) {
+	Actor *actor = _actors[actorId];
+
+	actor->loopWalkToXYZ(Vector3(x, y, z));
 }
 
 void BladeRunnerEngine::outtakePlay(int id, bool noLocalization, int container) {
@@ -636,7 +676,7 @@ void BladeRunnerEngine::playerLosesControl() {
 	if (++_playerLosesControlCounter == 1) {
 		_mouse->disable();
 	}
-	debug("Player Lost Control (%d)", _playerLosesControlCounter);
+	// debug("Player Lost Control (%d)", _playerLosesControlCounter);
 }
 
 void BladeRunnerEngine::playerGainsControl() {
@@ -647,7 +687,7 @@ void BladeRunnerEngine::playerGainsControl() {
 	if (_playerLosesControlCounter > 0)
 		--_playerLosesControlCounter;
 
-	debug("Player Gained Control (%d)", _playerLosesControlCounter);
+	// debug("Player Gained Control (%d)", _playerLosesControlCounter);
 
 	if (_playerLosesControlCounter == 0) {
 		_mouse->enable();

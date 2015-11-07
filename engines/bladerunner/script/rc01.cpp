@@ -26,19 +26,22 @@
 #include "bladerunner/audio_player.h"
 #include "bladerunner/bladerunner.h"
 
+#include "common/debug.h"
+
 namespace BladeRunner {
 
 void ScriptRC01::InitializeScene() {
+	// Game_Flag_Set(24);
 	if (!Game_Flag_Query(24)) {
 		Ambient_Sounds_Remove_All_Non_Looping_Sounds(1);
 		Ambient_Sounds_Remove_All_Looping_Sounds(1);
-		Outtake_Play(28, 1); // WSTLGO_E.VQA
-		Outtake_Play(41, 1); // BRLOGO_E.VQA
-		Outtake_Play( 0, 0); // INTRO_E.VQA
-		Outtake_Play(33, 1); // DSCENT_E.VQA
+		// Outtake_Play(28, 1); // WSTLGO_E.VQA
+		// Outtake_Play(41, 1); // BRLOGO_E.VQA
+		// Outtake_Play( 0, 0); // INTRO_E.VQA
+		// Outtake_Play(33, 1); // DSCENT_E.VQA
 	}
 
-	Game_Flag_Set(9); // Force flag 9 so McCoy will be in view
+	// Game_Flag_Set(9); // Force flag 9 so McCoy will be in view
 	if (Game_Flag_Query(9)) {
 		Setup_Scene_Information(-171.16,  5.55,  27.28, 616);
 	} else if (Game_Flag_Query(114)) {
@@ -46,6 +49,7 @@ void ScriptRC01::InitializeScene() {
 	} else {
 		Setup_Scene_Information( -10.98, -0.30, 318.15, 616);
 	}
+	// Setup_Scene_Information(-151.98, -0.30, 318.15, 616);
 
 	Scene_Exit_Add_2D_Exit(0, 314, 145, 340, 255, 0);
 	if (Game_Flag_Query(249))
@@ -152,6 +156,43 @@ void ScriptRC01::SceneFrameAdvanced(int frame) {
 
 	if (frame == 315)
 		Sound_Play(118, 40, 80, 80, 50);  // CARDOWN3.AUD
+}
+
+void ScriptRC01::SceneActorChangedGoal(int actorId, int newGoal, int oldGoal, bool currentSet) {
+}
+
+void ScriptRC01::PlayerWalkedIn()
+{
+	if (Game_Flag_Query(249) && !Game_Flag_Query(9) && !Game_Flag_Query(114)) {
+		// Extract to sub_4037AC():
+		Player_Loses_Control();
+		Game_Flag_Set(182);
+		Actor_Set_Immunity_To_Obstacles(0, true);
+		Loop_Actor_Walk_To_XYZ(0, -151.98, -0.30, 318.15, 0, 0, 0, 0);
+		Actor_Set_Immunity_To_Obstacles(0, false);
+		Player_Gains_Control();
+	}
+
+	if (Game_Flag_Query(114)) {
+		Player_Loses_Control();
+		Loop_Actor_Walk_To_XYZ(0, -415.98, -0.30, 262.15, 0, 0, 0, 0);
+		Player_Gains_Control();
+		Game_Flag_Reset(114);
+	}
+
+	if (Game_Flag_Query(9)) {
+		Player_Loses_Control();
+		Loop_Actor_Walk_To_XYZ(0, -203.45, 5.55, 85.05, 0, 0, 0, 0);
+		Player_Gains_Control();
+		Game_Flag_Reset(9);
+
+		if (Game_Flag_Query(1) && !Game_Flag_Query(4)) {
+			Actor_Voice_Over(1910, 99);
+			Actor_Voice_Over(1920, 99);
+			Actor_Voice_Over(1930, 99);
+			Game_Flag_Set(4);
+		}
+	}
 }
 
 } // End of namespace BladeRunner

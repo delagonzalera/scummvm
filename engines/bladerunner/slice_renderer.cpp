@@ -23,6 +23,8 @@
 #include "bladerunner/slice_renderer.h"
 
 #include "bladerunner/bladerunner.h"
+#include "bladerunner/lights.h"
+#include "bladerunner/set_effects.h"
 #include "bladerunner/slice_animations.h"
 
 #include "common/debug.h"
@@ -51,11 +53,28 @@ void dump(const char *str, Matrix4x3 m) {
 }
 #endif
 
+SliceRenderer::SliceRenderer(BladeRunnerEngine* vm) {
+	_vm = vm;
+	int i;
+
+	for (i = 0; i < 942; i++) { // yes, its going just to 942 and not 997
+		_animationsShadowEnabled[i] = true;
+	}
+}
+
 SliceRenderer::~SliceRenderer() {
 }
 
 void SliceRenderer::setView(const View &view) {
 	_view = view;
+}
+
+void SliceRenderer::setLights(Lights* lights){
+	_lights = lights;
+}
+
+void SliceRenderer::setSetEffects(SetEffects* setEffects){
+	_setEffects = setEffects;
 }
 
 void SliceRenderer::setupFrame(int animation, int frame, Vector3 position, float facing, float scale) {
@@ -404,6 +423,20 @@ void SliceRenderer::drawSlice(int slice, uint16 *frameLinePtr, uint16 *zbufLineP
 			p += 3;
 			previousVertexX = vertexX;
 		}
+	}
+}
+
+void SliceRenderer::preload(int animationId) {
+	int i;
+	int frameCount = _vm->_sliceAnimations->getFrameCount(animationId);
+	for (i = 0; i < frameCount; i++)
+		_vm->_sliceAnimations->getFramePtr(animationId, i);
+}
+
+void SliceRenderer::disableShadows(int* animationsIdsList, int listSize) {
+	int i;
+	for (i = 0; i < listSize; i++) {
+		_animationsShadowEnabled[animationsIdsList[i]] = false;
 	}
 }
 

@@ -38,8 +38,6 @@ GameFlags::~GameFlags() {
 void GameFlags::setFlagCount(int count) {
 	assert(count > 0);
 
-	debug("flagCount: %d", count);
-
 	flagCount = count;
 	flags = new uint32[count / 32 + 1];
 

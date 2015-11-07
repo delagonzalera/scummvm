@@ -104,6 +104,9 @@ public:
 
 	SlicePalette &getPalette(int i) { return _palettes[i]; };
 	void *getFramePtr(uint32 animation, uint32 frame);
+
+	float getFrameCount(int animation){ return _animations[animation].frameCount; }
+	float getFPS(int animation){ return _animations[animation].fps; }
 };
 
 } // End of namespace BladeRunner

@@ -23,6 +23,7 @@
 #include "bladerunner/set.h"
 
 #include "bladerunner/bladerunner.h"
+#include "bladerunner/scene_objects.h"
 
 #include "common/debug.h"
 #include "common/ptr.h"
@@ -104,6 +105,135 @@ bool Set::open(const Common::String &name) {
 	// TODO: Read LITE
 
 	return true;
+}
+
+void Set::addObjectsToScene(SceneObjects* sceneObjects)
+{
+	uint32 i;
+	for (i = 0; i < _objectCount; i++) {
+		sceneObjects->addObject(i + SCENE_OBJECTS_OBJECTS_OFFSET, &_objects[i]._bbox, _objects[i]._isClickable, _objects[i]._isObstacle, _objects[i]._unknown1, _objects[i]._isCombatTarget);
+	}
+}
+
+// Source: http://www.faqs.org/faqs/graphics/algorithms-faq/ section 2.03
+/*
+static
+bool pointInWalkbox(float x, float z, const Walkbox &w)
+{
+	uint32 i, j;
+	bool c = false;
+
+	for (i = 0, j = w._vertexCount - 1; i < w._vertexCount; j = i++) {
+		if ((((w._vertices[i].z <= z) && (z < w._vertices[j].z)) ||
+		     ((w._vertices[j].z <= z) && (z < w._vertices[i].z))) &&
+		    (x < (w._vertices[j].x - w._vertices[i].x) * (z - w._vertices[i].z) / (w._vertices[j].z - w._vertices[i].z) + w._vertices[i].x))
+		{
+			c = !c;
+		}
+	}
+	return c;
+}
+*/
+
+static
+bool isXZInWalkbox(float x, float z, const Walkbox &walkbox) {
+	int found = 0;
+	int i;
+
+	float lastX = walkbox._vertices[walkbox._vertexCount - 1].x;
+	float lastZ = walkbox._vertices[walkbox._vertexCount - 1].z;
+	for (i = 0; i < (int)walkbox._vertexCount; i++) {
+		float currentX = walkbox._vertices[i].x;
+		float currentZ = walkbox._vertices[i].z;
+
+		if ((currentZ > z && z >= lastZ) || (currentZ <= z && z < lastZ)) {
+			float lineX = (lastX - currentX) / (lastZ - currentZ) * (z - currentZ) + currentX;
+			if (x < lineX)
+				found++;
+		}
+
+	}
+	return found & 1;
+}
+
+float Set::getAltitudeAtXZ(float x, float z, bool *inWalkbox) {
+	float altitude = _walkboxes[0]._altitude;
+	*inWalkbox = false;
+
+	for (uint32 i = 0; i != _walkboxCount; ++i) {
+		const Walkbox &w = _walkboxes[i];
+
+		if (isXZInWalkbox(x, z, w)) {
+			*inWalkbox = true;
+			if (w._altitude > altitude) {
+				altitude = w._altitude;
+			}
+		}
+	}
+
+	return altitude;
+}
+
+int Set::findWalkbox(float x, float z) {
+	int result = -1;
+
+	for (uint32 i = 0; i != _walkboxCount; ++i) {
+		const Walkbox &w = _walkboxes[i];
+
+		if (isXZInWalkbox(x, z, w)) {
+			if (result == -1 || w._altitude > _walkboxes[result]._altitude) {
+				result = i;
+			}
+		}
+	}
+
+	return result;
+}
+
+int Set::findObject(char* objectName) {
+	int i;
+	for (i = 0; i < (int)_objectCount; i++) {
+		if (scumm_stricmp(objectName, _objects[i]._name) == 0) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+bool Set::objectSetHotMouse(int objectId) {
+	if(!_objects || objectId < 0 || objectId >= (int)_objectCount) {
+		return false;
+	}
+
+	_objects[objectId]._isHotMouse = true;
+	return true;
+}
+
+bool Set::objectGetBoundingBox(int objectId, BoundingBox *boundingBox) {
+	assert(boundingBox);
+
+	if (!_objects || objectId < 0 || objectId >= (int)_objectCount) {
+		boundingBox->setXYZ(0, 0, 0, 0, 0, 0);
+		return false;
+	}
+	float x0, y0, z0, x1, y1, z1;
+
+	_objects[objectId]._bbox.getXYZ(&x0, &y0, &z0, &x1, &y1, &z1);
+	boundingBox->setXYZ(x0, y0, z0, x1, y1, z1);
+
+	return true;
+}
+
+void Set::objectSetIsClickable(int objectId, bool isClickable) {
+	_objects[objectId]._isClickable = isClickable;
+}
+
+void Set::objectSetIsObstacle(int objectId, bool isObstacle) {
+	_objects[objectId]._isObstacle = isObstacle;
+}
+
+void Set::objectSetIsCombatTarget(int objectId, bool isCombatTarget) {
+	_objects[objectId]._isCombatTarget = isCombatTarget;
 }
 
 } // End of namespace BladeRunner

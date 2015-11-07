@@ -36,6 +36,8 @@ namespace Common {
 namespace BladeRunner {
 
 class BladeRunnerEngine;
+class Lights;
+class SetEffects;
 
 class SliceRenderer {
 	BladeRunnerEngine *_vm;
@@ -47,8 +49,10 @@ class SliceRenderer {
 	float     _scale;
 
 	View      _view;
+	Lights     *_lights;
+	SetEffects *_setEffects;
 
-	void                     *_sliceFramePtr;
+	void       *_sliceFramePtr;
 
 	// Animation frame data
 	Vector2 _frameFront;
@@ -75,20 +79,27 @@ class SliceRenderer {
 	int _t5[256];
 	int _c6;
 
+	bool _animationsShadowEnabled[997];
+
 	Matrix3x2 calculateFacingRotationMatrix();
 	void drawSlice(int slice, uint16 *frameLinePtr, uint16 *zbufLinePtr);
 
 public:
-	SliceRenderer(BladeRunnerEngine *vm)
-		: _vm(vm)
-	{}
+	SliceRenderer(BladeRunnerEngine *vm);
 	~SliceRenderer();
 
 	void setView(const View &view);
+	void setLights(Lights *lights);
+	void setSetEffects(SetEffects *setEffects);
+
 	void setupFrame(int animation, int frame, Vector3 position, float facing, float scale = 1.0f);
 	void calculateBoundingRect();
 
 	void drawFrame(Graphics::Surface &surface, uint16 *zbuffer);
+
+	void preload(int animationId);
+
+	void disableShadows(int* animationsIdsList, int listSize);
 };
 
 } // End of namespace BladeRunner

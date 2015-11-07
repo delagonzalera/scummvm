@@ -48,6 +48,7 @@ public:
 	bool loadStream(Common::SeekableReadStream *s);
 
 	void readNextPacket();
+	void readPacket(int frame);
 
 	const Graphics::Surface    *decodeVideoFrame();
 	const uint16               *decodeZBuffer();
@@ -63,6 +64,8 @@ public:
 
 	bool   hasAudio() const { return _header.channels != 0; }
 	uint16 frequency() const { return _header.freq; }
+
+	bool getLoopBeginAndEndFrame(int loop, int *begin, int *end);
 
 protected:
 

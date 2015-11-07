@@ -37,21 +37,28 @@
 namespace BladeRunner {
 
 class Actor;
+class AIScripts;
 class AmbientSounds;
 class AudioPlayer;
 class AudioSpeech;
 class Chapters;
 class Clues;
-class GameInfo;
+class Combat;
 class GameFlags;
+class GameInfo;
+class Items;
+class Lights;
 class Mouse;
 class Scene;
+class SceneObjects;
 class Script;
 class Settings;
 class Shape;
 class SliceAnimations;
 class SliceRenderer;
 class TextResource;
+class View;
+class Waypoints;
 
 class BladeRunnerEngine : public Engine {
 public:
@@ -59,6 +66,7 @@ public:
 	bool      _windowIsActive;
 	int       _playerLosesControlCounter;
 
+	AIScripts       *_aiScripts;
 	AmbientSounds   *_ambientSounds;
 	AudioPlayer     *_audioPlayer;
 	AudioSpeech     *_audioSpeech;
@@ -68,11 +76,18 @@ public:
 	GameInfo        *_gameInfo;
 	Mouse           *_mouse;
 	Scene           *_scene;
+	SceneObjects    *_sceneObjects;
 	Script          *_script;
 	Settings        *_settings;
 	SliceAnimations *_sliceAnimations;
 	SliceRenderer   *_sliceRenderer;
+	View            *_view;
 	int             *_gameVars;
+
+	Lights          *_lights;
+	Waypoints       *_waypoints;
+	Items           *_items;
+	Combat          *_combat;
 
 	TextResource    *_textActorNames;
 	TextResource    *_textCrimes;
@@ -97,6 +112,14 @@ public:
 
 	Common::RandomSource _rnd;
 
+	bool _playerActorIdle;
+	bool _playerDead;
+	bool _speechSkipped;
+	bool _gameOver;
+	int  _gameAutoSave;
+	bool _gameIsLoading;
+	bool _sceneIsLoading;
+
 private:
 	static const int kArchiveCount = 10;
 	MIXArchive _archives[kArchiveCount];
@@ -119,7 +142,10 @@ public:
 	void gameLoop();
 	void gameTick();
 	void handleEvents();
+	void gameWaitForActive();
 	void loopActorSpeaking();
+
+	void loopActorWalkToXYZ(int actorId, float x, float y, float z, int a4, int a5, int a6, int a7);
 
 	void outtakePlay(int id, bool no_localization, int container = -1);
 

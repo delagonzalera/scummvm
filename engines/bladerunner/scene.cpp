@@ -27,7 +27,9 @@
 #include "bladerunner/actor.h"
 #include "bladerunner/chapters.h"
 #include "bladerunner/gameinfo.h"
+#include "bladerunner/scene_objects.h"
 #include "bladerunner/script/script.h"
+#include "bladerunner/slice_renderer.h"
 
 #include "common/str.h"
 #include "common/stream.h"
@@ -47,10 +49,17 @@ bool Scene::open(int setId, int sceneId, bool isLoadingGame) {
 	if (isLoadingGame) {
 		// TODO: Set up overlays
 	} else {
+		_regions->clear();
+		_exits->clear();
+		// TODO: Reset aesc
 		// TODO: Clear regions
 		// TODO: Destroy all overlays
-		_defaultLoop = 0;
-		_frame = -1;
+		_defaultLoop         =  0;
+		_defaultLoopSet      =  0;
+		_field_20_loop_stuff =  0;
+		_specialLoopMode     = -1;
+		_specialLoop         = -1;
+		_frame               = -1;
 	}
 
 	Common::String vqaName;
@@ -75,8 +84,10 @@ bool Scene::open(int setId, int sceneId, bool isLoadingGame) {
 	if (!_set->open(setResourceName))
 		return false;
 
-	// TODO: Set view
+	_vm->_sliceRenderer->setView(*_vm->_view);
+
 	if (isLoadingGame) {
+		// TODO: Advance VQA frame
 		if (sceneId >= 73 && sceneId <= 76)
 			_vm->_script->InitializeScene();
 		return true;
@@ -85,23 +96,37 @@ bool Scene::open(int setId, int sceneId, bool isLoadingGame) {
 	// TODO: set VQADecoder parameters
 
 	// TODO: Set actor position from scene info
-	_vm->_playerActor->set_at_xyz(_actorStartPosition, _actorStartFacing);
+	_vm->_playerActor->setAtXYZ(_actorStartPosition, _actorStartFacing);
 
 	// TODO: Set actor set
 
 	_vm->_script->SceneLoaded();
 
-#if 0
+	_vm->_sceneObjects->clear();
+
 	// Init click map
 	int actorCount = _vm->_gameInfo->getActorCount();
 	for (int i = 0; i != actorCount; ++i) {
 		Actor *actor = _vm->_actors[i];
-		if (actor->getSet() == setId) {
-
+		if (actor->getSetId() == setId) {
+			_vm->_sceneObjects->addActor(
+				i,
+				actor->getBoundingBox(),
+				actor->getScreenRectangle(),
+				1,
+				0,
+				actor->isTargetable(),
+				actor->isRetired());
 		}
 	}
-	// TODO: Update click map for set, items
-#endif
+
+	_set->addObjectsToScene(_vm->_sceneObjects);
+	// TODO: add all items to scene
+	// TODO: calculate walking obstacles??
+
+	// if (_playerWalkedIn) { // TODO: Not _playerWalkedIn
+	// 	_vm->_script->PlayerWalkedIn();
+	// }
 
 	return true;
 }
@@ -113,12 +138,95 @@ int Scene::advanceFrame(Graphics::Surface &surface, uint16 *&zBuffer) {
 		memcpy(zBuffer, _vqaPlayer.getZBuffer(), 640*480*2);
 		_view = _vqaPlayer.getView();
 	}
+
+	if (frame < 0) {
+		return frame;
+	}
+	_frame = frame;
+
+	if (_specialLoopMode == 0 && frame == _vqaPlayer.getLoopEndFrame(_specialLoop)) {
+		_playerWalkedIn = true;
+		_specialLoopMode = -1;
+	}
+	if (_specialLoopMode == 0 && !_defaultLoopSet) {
+		_vqaPlayer.setLoop(_defaultLoop + 1);
+		_defaultLoopSet = true;
+	}
+
 	return frame;
 }
 
 void Scene::setActorStart(Vector3 position, int facing) {
 	_actorStartPosition = position;
 	_actorStartFacing = facing;
+}
+
+void Scene::loopSetDefault(int a) {
+	// warning("\t\t\tScene::loopSetDefault(%d)", a);
+	_defaultLoop = a;
+}
+
+void Scene::loopStartSpecial(int a, int b, int c) {
+	// warning("\t\t\tScene::loopStartSpecial(%d, %d, %d)", a, b, c);
+	_specialLoopMode = a;
+	_specialLoop = b;
+
+	if (_specialLoop == 1) {
+		// a1->on_loop_end_switch_to_set_id = sub_42BE08_options_get_set_enter_arg_1(&unk_48E910_options);
+		// a1->on_loop_end_switch_to_scene_id = sub_42BE00_options_get_set_enter_arg_2(&unk_48E910_options);
+	}
+
+	if (c) {
+		// _field_20_loop_stuff = 1;
+		// v6 = a1->_field_28_loop_special_loop_number;
+		// sub_453434_scene_method_loop(a1);
+	}
+}
+
+int Scene::findObject(char* objectName) {
+	return _set->findObject(objectName);
+}
+
+bool Scene::objectSetHotMouse(int objectId) {
+	return _set->objectSetHotMouse(objectId);
+}
+
+bool Scene::objectGetBoundingBox(int objectId, BoundingBox* boundingBox) {
+	return _set->objectGetBoundingBox(objectId, boundingBox);
+}
+
+void Scene::objectSetIsClickable(int objectId, bool isClickable, bool sceneLoaded) {
+	_set->objectSetIsClickable(objectId, isClickable);
+	if (sceneLoaded) {
+		_vm->_sceneObjects->setIsClickable(objectId + 198, isClickable);
+	}
+}
+
+void Scene::objectSetIsObstacle(int objectId, bool isObstacle, bool sceneLoaded, bool updateWalkpath) {
+	_set->objectSetIsObstacle(objectId, isObstacle);
+	if (sceneLoaded) {
+		_vm->_sceneObjects->setIsObstacle(objectId + 198, isObstacle);
+		if(updateWalkpath) {
+			_vm->_sceneObjects->updateWalkpath();
+		}
+	}
+}
+
+void Scene::objectSetIsObstacleAll(bool isObstacle, bool sceneLoaded) {
+	int i;
+	for (i = 0; i < (int)_set->getObjectCount(); i++) {
+		_set->objectSetIsObstacle(i, isObstacle);
+		if (sceneLoaded) {
+			_vm->_sceneObjects->setIsObstacle(i + 198, isObstacle);
+		}
+	}
+}
+
+void Scene::objectSetIsCombatTarget(int objectId, bool isCombatTarget, bool sceneLoaded) {
+	_set->objectSetIsCombatTarget(objectId, isCombatTarget);
+	if (sceneLoaded) {
+		_vm->_sceneObjects->setIsCombatTarget(objectId + 198, isCombatTarget);
+	}
 }
 
 } // End of namespace BladeRunner

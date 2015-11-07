@@ -128,7 +128,7 @@ bool SliceAnimations::PageFile::open(const Common::String &name) {
 		_pageOffsets[pageNumber] = dataOffset + i * _sliceAnimations->_pageSize;
 	}
 
-	debug("PageFile::Open: page file \"%s\" opened with %d pages", name.c_str(), pageCount);
+	// debug("PageFile::Open: page file \"%s\" opened with %d pages", name.c_str(), pageCount);
 
 	return true;
 }

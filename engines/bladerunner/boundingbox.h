@@ -33,6 +33,15 @@ class BoundingBox {
 public:
 	BoundingBox() {}
 	BoundingBox(float x0, float y0, float z0, float x1, float y1, float z1);
+
+	void expand(float x0, float y0, float z0, float x1, float y1, float z1);
+	bool inside(float x, float y, float z);
+
+	void setXYZ(float x0, float y0, float z0, float x1, float y1, float z1);
+	void getXYZ(float* x0, float* y0, float* z0, float* x1, float* y1, float* z1);
+
+	float getZ0();
+	float getZ1();
 };
 
 } // End of namespace BladeRunner

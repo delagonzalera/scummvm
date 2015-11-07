@@ -23,6 +23,8 @@
 #ifndef BLADERUNNER_MOUSE_H
 #define BLADERUNNER_MOUSE_H
 
+#include "bladerunner/vector.h"
+
 namespace Graphics {
 	struct Surface;
 }
@@ -56,6 +58,11 @@ public:
 
 	void draw(Graphics::Surface &surface, int x, int y);
 	void updateCursorFrame();
+
+	void tick(int x, int y);
+
+private:
+	Vector3 getXYZ(int x, int y);
 };
 
 } // End of namespace BladeRunner
