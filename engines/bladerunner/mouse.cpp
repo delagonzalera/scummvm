@@ -169,7 +169,6 @@ void Mouse::draw(Graphics::Surface &surface, int x, int y) {
 	_x = CLIP(x, 0, surface.w - 1);
 	_y = CLIP(y, 0, surface.h - 1);
 
-
 	if (_cursor < 0 || (uint)_cursor >= _vm->_shapes.size()) {
 		return;
 	}
@@ -262,20 +261,21 @@ void Mouse::tick(int x, int y)
 	int sceneObjectId = _vm->_sceneObjects->findByXYZ(&isClickable, &isObstacle, &isCombatTarget, mousePosition.x, mousePosition.y, mousePosition.z, 1, 0, 1);
 }
 
+// TEST: RC01 after intro: [290, 216] -> [-204.589249 51.450668 7.659241]
 Vector3 Mouse::getXYZ(int x, int y)
 {
 	if (_vm->_scene->getSetId() == -1)
-		return Vector3(0.0, 0.0, 0.0);
+		return Vector3(0.0f, 0.0f, 0.0f);
 
 	int screenRight = 640 - x;
-	int screenDown = 480 - y;
+	int screenDown  = 480 - y;
 
 	float zcoef = 1.0f / tan(_vm->_scene->_view._fovX / 2.0f);
 
-	float x3d = (2.0f / 640.0f * screenRight - 1)  * zcoef / (1*zcoef);
-	float y3d = (2.0f / 480.0f * screenDown - 1) / (4/3 * zcoef) * zcoef;
+	float x3d = (2.0f / 640.0f * screenRight - 1.0f);
+	float y3d = (2.0f / 480.0f * screenDown  - 1.0f) * 0.75f;
 
-	uint16 zbufval = _vm->_zBuffer1[x + y * 480];
+	uint16 zbufval = _vm->_zBuffer1[x + y * 640];
 
 	Vector3 pos;
 	pos.z = zbufval / 25.5f;
@@ -283,7 +283,9 @@ Vector3 Mouse::getXYZ(int x, int y)
 	pos.y = pos.z / zcoef * y3d;
 
 	Matrix4x3 matrix = _vm->_scene->_view._frameViewMatrix;
+
 	matrix.unknown();
+
 	return matrix * pos;
 }
 
