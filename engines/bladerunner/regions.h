@@ -45,11 +45,15 @@ public:
 	Regions();
 	~Regions();
 
+	void clear();
 	bool add(int index, Common::Rect rect, int type);
 	bool remove(int index);
-	void clear();
+
+	int getTypeAtXY(int x, int y);
+	int getRegionAtXY(int x, int y);
 
 	void setEnabled(bool enabled);
+	void enable();
 };
 
 } // End of namespace BladeRunner

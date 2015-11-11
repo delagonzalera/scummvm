@@ -259,13 +259,36 @@ void Mouse::tick(int x, int y)
 	int isObstacle = 0;
 	int isCombatTarget = 0;
 	int sceneObjectId = _vm->_sceneObjects->findByXYZ(&isClickable, &isObstacle, &isCombatTarget, mousePosition.x, mousePosition.y, mousePosition.z, 1, 0, 1);
+
+	int cursorId = 0;
+
+	int type = _vm->_scene->_exits->getTypeAtXY(x, y);
+	if (type != -1) {
+		switch (type) {
+			case 1:
+				cursorId = 13;
+				break;
+			case 2:
+				cursorId = 14;
+				break;
+			case 3:
+				cursorId = 15;
+				break;
+			default:
+				cursorId = 12;
+		}
+		setCursor(cursorId);
+		return;
+	}
+
+	setCursor(cursorId);
 }
 
 // TEST: RC01 after intro: [290, 216] -> [-204.589249 51.450668 7.659241]
 Vector3 Mouse::getXYZ(int x, int y)
 {
 	if (_vm->_scene->getSetId() == -1)
-		return Vector3(0.0f, 0.0f, 0.0f);
+		return Vector3();
 
 	int screenRight = 640 - x;
 	int screenDown  = 480 - y;
