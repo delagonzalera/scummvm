@@ -146,7 +146,7 @@ public:
 	void stopWalking(bool value);
 
 	void faceActor(int otherActorId, bool animate);
-	void faceObject(char *objectName, bool animate);
+	void faceObject(const char *objectName, bool animate);
 	void faceItem(int itemId, bool animate);
 	void faceWaypoint(int waypointId, bool animate);
 	void faceXYZ(float x, float y, float z, bool animate);

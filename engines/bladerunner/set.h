@@ -42,7 +42,7 @@ struct Object {
 	uint8       _isObstacle;
 	uint8       _isClickable;
 	uint8       _isHotMouse;
-	uint8       _isCombatTarget;
+	uint8       _isTarget;
 	uint8       _unknown1;
 };
 
@@ -78,13 +78,13 @@ public:
 	float getAltitudeAtXZ(float x, float z, bool *inWalkbox);
 
 	int findWalkbox(float x, float z);
-	int findObject(char* objectName);
+	int findObject(const char *objectName);
 
 	bool objectSetHotMouse(int objectId);
 	bool objectGetBoundingBox(int objectId, BoundingBox *boundingBox);
 	void objectSetIsClickable(int objectId, bool isClickable);
 	void objectSetIsObstacle(int objectId, bool isObstacle);
-	void objectSetIsCombatTarget(int objectId, bool isCombatTarget);
+	void objectSetIsTarget(int objectId, bool isTarget);
 };
 
 } // End of namespace BladeRunner

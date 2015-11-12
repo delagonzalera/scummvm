@@ -122,7 +122,69 @@ void ScriptRC01::InitializeScene() {
 }
 
 void ScriptRC01::SceneLoaded() {
-	if (!Game_Flag_Query(24)){
+	Obstacle_Object("HYDRANT02", 1);
+	Obstacle_Object("PARKING METER 04", 1);
+	Obstacle_Object("CHEVY PROP", 1);
+	Obstacle_Object("PARKING METER 01", 1);
+	Obstacle_Object("T-CAN01", 1);
+	Obstacle_Object("BARICADE01", 1);
+	Obstacle_Object("BARICADE02", 1);
+	Obstacle_Object("DOOR LEFT", 1);
+	Unobstacle_Object("BOX06", 1);
+	Clickable_Object("DOORWAY01");
+	Clickable_Object("DOOR LEFT");
+	Clickable_Object("HYDRANT02");
+	Clickable_Object("T-CAN01");
+	Clickable_Object("BARICADE01");
+	Clickable_Object("70_1");
+	Clickable_Object("70_2");
+	Clickable_Object("70_3");
+	Clickable_Object("70_5");
+	Clickable_Object("70_6");
+	Unclickable_Object("BARICADE02");
+	Unclickable_Object("BARICADE05");
+	Unclickable_Object("SPINNER BODY");
+	Unclickable_Object("HORSE01");
+	Unclickable_Object("DOORWAY01");
+	Unobstacle_Object("DOORWAY01", 1);
+
+	if (Game_Flag_Query(186))
+	{
+		Unclickable_Object("70_1");
+		Unclickable_Object("70_2");
+		Unclickable_Object("70_3");
+		Unclickable_Object("70_5");
+		Unclickable_Object("70_6");
+		Unclickable_Object("BARICADE01");
+		Unclickable_Object("BARICADE03");
+		Unclickable_Object("BARICADE04");
+		Unobstacle_Object("70_1", 1);
+		Unobstacle_Object("70_2", 1);
+		Unobstacle_Object("70_3", 1);
+		Unobstacle_Object("70_5", 1);
+		Unobstacle_Object("70_6", 1);
+		Unobstacle_Object("BARICADE01", 1);
+		Unobstacle_Object("BARICADE02", 1);
+		Unobstacle_Object("BARICADE03", 1);
+		Unobstacle_Object("BARICADE04", 1);
+		Unobstacle_Object("BARICADE05", 1);
+	}
+
+	if (!Game_Flag_Query(186))
+	{
+		Preload(13);
+		Preload(14);
+		Preload(19);
+		Preload(582);
+		Preload(589);
+	}
+
+	/*
+	if (!Game_Flag_Query(163))
+		Item_Add_To_World(66, 938, 69, -148.60f, -0.30f, 225.15f, 256, 24, 24, 0, 1, 0, 1);
+	*/
+
+	if (!Game_Flag_Query(24)) {
 		// ADQ_Flush();
 		Actor_Voice_Over(1830, 99);
 		Actor_Voice_Over(1850, 99);

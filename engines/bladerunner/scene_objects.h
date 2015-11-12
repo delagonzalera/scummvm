@@ -58,7 +58,7 @@ struct SceneObject
 	int _isClickable;
 	int _isObstacle;
 	int _unknown1;
-	int _isCombatTarget;
+	int _isTarget;
 	int _isMoving;
 	int _isRetired;
 };
@@ -74,22 +74,22 @@ private:
 public:
 	SceneObjects(BladeRunnerEngine *vm, View *view);
 	~SceneObjects();
-	bool addActor(int sceneObjectId, BoundingBox* boundingBox, Common::Rect* screenRectangle, uint8 isClickable, uint8 unknown1, uint8 isCombatTarget, uint8 isRetired);
-	bool addObject(int sceneObjectId, BoundingBox* boundingBox, uint8 isClickable, uint8 isObstacle, uint8 unknown1, uint8 isCombatTarget);
-	bool addItem(int sceneObjectId, BoundingBox* boundingBox, Common::Rect* screenRectangle, uint8 isCombatTarget, uint8 isObstacle);
+	bool addActor(int sceneObjectId, BoundingBox* boundingBox, Common::Rect* screenRectangle, uint8 isClickable, uint8 unknown1, uint8 isTarget, uint8 isRetired);
+	bool addObject(int sceneObjectId, BoundingBox* boundingBox, uint8 isClickable, uint8 isObstacle, uint8 unknown1, uint8 isTarget);
+	bool addItem(int sceneObjectId, BoundingBox* boundingBox, Common::Rect* screenRectangle, uint8 isTarget, uint8 isObstacle);
 	bool remove(int sceneObjectId);
 	void clear();
-	int findByXYZ(int *isClickable, int *isObstacle, int *isCombatTarget, float x, float y, float z, int mustBeClickable, int mustBeObstacle, int mustBeCombatTarget);
+	int findByXYZ(int *isClickable, int *isObstacle, int *isTarget, float x, float y, float z, int findClickables, int findObstacles, int findTargets);
 	void setMoving(int sceneObjectId, bool isMoving);
 	void setRetired(int sceneObjectId, bool isRetired);
 	bool isBetweenTwoXZ(int sceneObjectId, float x1, float z1, float x2, float z2);
 	void setIsClickable(int sceneObjectId, bool isClickable);
 	void setIsObstacle(int sceneObjectId, bool isObstacle);
-	void setIsCombatTarget(int sceneObjectId, bool isCombatTarget);
+	void setIsTarget(int sceneObjectId, bool isTarget);
 	void updateWalkpath();
 private:
 	int findById(int sceneObjectId);
-	bool addSceneObject(int sceneObjectId, SceneObjectType sceneObjectType, BoundingBox* boundingBox, Common::Rect* screenRectangle, uint8 isClickable, uint8 isObstacle, uint8 unknown1, uint8 isCombatTarget, uint unknown2, uint isRetired);
+	bool addSceneObject(int sceneObjectId, SceneObjectType sceneObjectType, BoundingBox* boundingBox, Common::Rect* screenRectangle, uint8 isClickable, uint8 isObstacle, uint8 unknown1, uint8 isTarget, uint unknown2, uint isRetired);
 	int findEmpty();
 };
 

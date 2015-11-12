@@ -183,7 +183,7 @@ void Scene::loopStartSpecial(int a, int b, int c) {
 	}
 }
 
-int Scene::findObject(char* objectName) {
+int Scene::findObject(const char *objectName) {
 	return _set->findObject(objectName);
 }
 
@@ -222,10 +222,10 @@ void Scene::objectSetIsObstacleAll(bool isObstacle, bool sceneLoaded) {
 	}
 }
 
-void Scene::objectSetIsCombatTarget(int objectId, bool isCombatTarget, bool sceneLoaded) {
-	_set->objectSetIsCombatTarget(objectId, isCombatTarget);
+void Scene::objectSetIsTarget(int objectId, bool isTarget, bool sceneLoaded) {
+	_set->objectSetIsTarget(objectId, isTarget);
 	if (sceneLoaded) {
-		_vm->_sceneObjects->setIsCombatTarget(objectId + 198, isCombatTarget);
+		_vm->_sceneObjects->setIsTarget(objectId + 198, isTarget);
 	}
 }
 

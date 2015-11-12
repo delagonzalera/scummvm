@@ -48,9 +48,9 @@ protected:
 	bool Region_Check(int left, int top, int right, int down);
 	// Object_Query_Click
 	// Object_Do_Ground_Click
-	bool Object_Mark_For_Hot_Mouse(char *objectName);
+	bool Object_Mark_For_Hot_Mouse(const char *objectName);
 	void Actor_Face_Actor(int actorId, int otherActorId, bool animate);
-	void Actor_Face_Object(int actorId, char *objectName, bool animate);
+	void Actor_Face_Object(int actorId, const char *objectName, bool animate);
 	void Actor_Face_Item(int actorId, int itemId, bool animate);
 	void Actor_Face_Waypoint(int actorId, int waypointId, bool animate);
 	void Actor_Face_XYZ(int actorId, float x, float y, float z, bool animate);
@@ -241,13 +241,13 @@ protected:
 	void Disable_Shadows(int *animationsIdsList, int listSize);
 	bool Query_System_Currently_Loading_Game();
 	void Actor_Retired_Here(int actorId, int width, int height, int retired, int retiredByActorId);
-	void Clickable_Object(char *objectName);
-	void Unclickable_Object(char *objectName);
-	void Obstacle_Object(char *objectName, bool updateWalkpath);
-	void Unobstacle_Object(char *objectName, bool updateWalkpath);
+	void Clickable_Object(const char *objectName);
+	void Unclickable_Object(const char *objectName);
+	void Obstacle_Object(const char *objectName, bool updateWalkpath);
+	void Unobstacle_Object(const char *objectName, bool updateWalkpath);
 	void Obstacle_Flag_All_Objects(bool isObstacle);
-	void Combat_Target_Object(char *objectName);
-	void Un_Combat_Target_Object(char *objectName);
+	void Combat_Target_Object(const char *objectName);
+	void Un_Combat_Target_Object(const char *objectName);
 	void Set_Fade_Color(float r, float g, float b);
 	void Set_Fade_Density(float density);
 	void Set_Fog_Color(char* fogName, float r, float g, float b);

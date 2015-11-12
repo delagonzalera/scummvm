@@ -35,23 +35,23 @@ void SceneObjects::clear() {
 		_sceneObjects[i]._isClickable = 0;
 		_sceneObjects[i]._isObstacle = 0;
 		_sceneObjects[i]._unknown1 = 0;
-		_sceneObjects[i]._isCombatTarget = 0;
+		_sceneObjects[i]._isTarget = 0;
 		_sceneObjects[i]._isMoving = 0;
 		_sceneObjects[i]._isRetired = 0;
 	}
 }
 
-bool SceneObjects::addActor(int sceneObjectId, BoundingBox* boundingBox, Common::Rect* screenRectangle, uint8 isClickable, uint8 isMoving, uint8 isCombatTarget, uint8 isRetired) {
-	return addSceneObject(sceneObjectId, SceneObjectTypeActor, boundingBox, screenRectangle, isClickable, 0, 0, isCombatTarget, isMoving, isRetired);
+bool SceneObjects::addActor(int sceneObjectId, BoundingBox* boundingBox, Common::Rect* screenRectangle, uint8 isClickable, uint8 isMoving, uint8 isTarget, uint8 isRetired) {
+	return addSceneObject(sceneObjectId, SceneObjectTypeActor, boundingBox, screenRectangle, isClickable, 0, 0, isTarget, isMoving, isRetired);
 }
 
-bool SceneObjects::addObject(int sceneObjectId, BoundingBox* boundingBox, uint8 isClickable, uint8 isObstacle, uint8 unknown1, uint8 isCombatTarget) {
+bool SceneObjects::addObject(int sceneObjectId, BoundingBox* boundingBox, uint8 isClickable, uint8 isObstacle, uint8 unknown1, uint8 isTarget) {
 	Common::Rect rect(-1, -1, -1, -1);
-	return addSceneObject(sceneObjectId, SceneObjectTypeObject, boundingBox, &rect, isClickable, isObstacle, unknown1, isCombatTarget, 0, 0);
+	return addSceneObject(sceneObjectId, SceneObjectTypeObject, boundingBox, &rect, isClickable, isObstacle, unknown1, isTarget, 0, 0);
 }
 
-bool SceneObjects::addItem(int sceneObjectId, BoundingBox* boundingBox, Common::Rect* screenRectangle, uint8 isCombatTarget, uint8 isObstacle) {
-	return addSceneObject(sceneObjectId, SceneObjectTypeItem, boundingBox, screenRectangle, isObstacle, 0, 0, isCombatTarget, 0, 0);
+bool SceneObjects::addItem(int sceneObjectId, BoundingBox* boundingBox, Common::Rect* screenRectangle, uint8 isTarget, uint8 isObstacle) {
+	return addSceneObject(sceneObjectId, SceneObjectTypeItem, boundingBox, screenRectangle, isObstacle, 0, 0, isTarget, 0, 0);
 }
 
 bool SceneObjects::remove(int sceneObjectId)
@@ -75,36 +75,33 @@ bool SceneObjects::remove(int sceneObjectId)
 	return true;
 }
 
-int SceneObjects::findByXYZ(int *isClickable, int *isObstacle, int *isCombatTarget, float x, float y, float z, int mustBeClickable, int mustBeObstacle, int mustBeCombatTarget) {
-	BoundingBox boundingBox;
+int SceneObjects::findByXYZ(int *isClickable, int *isObstacle, int *isTarget, float x, float y, float z, int findClickables, int findObstacles, int findTargets) {
 	*isClickable = 0;
-	*isObstacle = 0;
-	*isCombatTarget = 0;
+	*isObstacle  = 0;
+	*isTarget    = 0;
 
-	if (!_count)
-		return -1;
+	for (int i = 0; i < _count; i++) {
+		assert(_sceneObjectsSortedByDistance[i] < _count);
 
-	int i;
-	for (i = 0; i < _count; i++) {
-		//assert(_sceneObjectsSortedByDistance[i] < _count);
-		SceneObject *sceneObject = &_sceneObjects[_sceneObjectsSortedByDistance[i]];
-		if ((mustBeClickable && !sceneObject->_isClickable)
-			|| (mustBeObstacle && !sceneObject->_isObstacle)
-			|| (mustBeCombatTarget && !sceneObject->_isCombatTarget)) {
-			continue;
-		}
+		SceneObject &sceneObject = _sceneObjects[_sceneObjectsSortedByDistance[i]];
 
-		boundingBox = sceneObject->_boundingBox;
+		if ((findClickables && sceneObject._isClickable) ||
+		    (findObstacles  && sceneObject._isObstacle)  ||
+		    (findTargets    && sceneObject._isTarget))
+		{
+			BoundingBox boundingBox = sceneObject._boundingBox;
 
-		if (sceneObject->_sceneObjectType == SceneObjectTypeObject || sceneObject->_sceneObjectType == SceneObjectTypeItem) {
-			boundingBox.expand(-4.0, 0.0, -4.0, 4.0, 0.0, 4.0);
-		}
+			if (sceneObject._sceneObjectType == SceneObjectTypeObject || sceneObject._sceneObjectType == SceneObjectTypeItem) {
+				boundingBox.expand(-4.0, 0.0, -4.0, 4.0, 0.0, 4.0);
+			}
 
-		if (boundingBox.inside(x, y, z)) {
-			*isClickable = sceneObject->_isClickable;
-			*isObstacle = sceneObject->_isObstacle;
-			*isCombatTarget = sceneObject->_isCombatTarget;
-			return sceneObject->_sceneObjectId;
+			if (boundingBox.inside(x, y, z)) {
+				*isClickable = sceneObject._isClickable;
+				*isObstacle  = sceneObject._isObstacle;
+				*isTarget    = sceneObject._isTarget;
+
+				return sceneObject._sceneObjectId;
+			}
 		}
 	}
 
@@ -122,7 +119,7 @@ int SceneObjects::findById(int sceneObjectId)
 	return -1;
 }
 
-bool SceneObjects::addSceneObject(int sceneObjectId, SceneObjectType sceneObjectType, BoundingBox* boundingBox, Common::Rect* screenRectangle, uint8 isClickable, uint8 isObstacle, uint8 unknown1, uint8 isCombatTarget, uint isMoving, uint isRetired) {
+bool SceneObjects::addSceneObject(int sceneObjectId, SceneObjectType sceneObjectType, BoundingBox* boundingBox, Common::Rect* screenRectangle, uint8 isClickable, uint8 isObstacle, uint8 unknown1, uint8 isTarget, uint isMoving, uint isRetired) {
 	int index = findEmpty();
 	if (_count >= SCENE_OBJECTS_COUNT || index == -1) {
 		return false;
@@ -136,7 +133,7 @@ bool SceneObjects::addSceneObject(int sceneObjectId, SceneObjectType sceneObject
 	_sceneObjects[index]._isClickable = isClickable;
 	_sceneObjects[index]._isObstacle = isObstacle;
 	_sceneObjects[index]._unknown1 = unknown1;
-	_sceneObjects[index]._isCombatTarget = isCombatTarget;
+	_sceneObjects[index]._isTarget = isTarget;
 	_sceneObjects[index]._isMoving = isMoving;
 	_sceneObjects[index]._isRetired = isRetired;
 
@@ -223,12 +220,12 @@ void SceneObjects::setIsObstacle(int sceneObjectId, bool isObstacle) {
 	_sceneObjects[i]._isObstacle = isObstacle;
 }
 
-void SceneObjects::setIsCombatTarget(int sceneObjectId, bool isCombatTarget) {
+void SceneObjects::setIsTarget(int sceneObjectId, bool isTarget) {
 	int i = findById(sceneObjectId);
 	if (i == -1 || !_sceneObjects[i]._present) {
 		return;
 	}
-	_sceneObjects[i]._isCombatTarget = isCombatTarget;
+	_sceneObjects[i]._isTarget = isTarget;
 }
 
 

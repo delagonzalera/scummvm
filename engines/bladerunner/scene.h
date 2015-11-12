@@ -99,13 +99,13 @@ public:
 
 	bool didPlayerWalkIn() { bool r = _playerWalkedIn; _playerWalkedIn = false; return r; }
 
-	int findObject(char *objectName);
+	int findObject(const char *objectName);
 	bool objectSetHotMouse(int objectId);
 	bool objectGetBoundingBox(int objectId, BoundingBox *boundingBox);
 	void objectSetIsClickable(int objectId, bool isClickable, bool sceneLoaded);
 	void objectSetIsObstacle(int objectId, bool isObstacle, bool sceneLoaded, bool updateWalkpath);
 	void objectSetIsObstacleAll(bool isObstacle, bool sceneLoaded);
-	void objectSetIsCombatTarget(int objectId, bool isCombatTarget, bool sceneLoaded);
+	void objectSetIsTarget(int objectId, bool isTarget, bool sceneLoaded);
 };
 
 } // End of namespace BladeRunner

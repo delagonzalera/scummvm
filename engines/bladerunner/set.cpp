@@ -74,10 +74,10 @@ bool Set::open(const Common::String &name) {
 		_objects[i]._isObstacle = s->readByte();
 		_objects[i]._isClickable = s->readByte();
 		_objects[i]._isHotMouse = 0;
-		_objects[i]._isCombatTarget = 0;
+		_objects[i]._isTarget = 0;
 		s->skip(4);
 
-		// debug("OBJECT: %s", _objects[i]._name);
+		// debug("OBJECT: %s [%d%d%d%d]", _objects[i]._name, _objects[i]._isObstacle, _objects[i]._isClickable, _objects[i]._isHotMouse, _objects[i]._isTarget);
 	}
 
 	_walkboxCount = s->readUint32LE();
@@ -111,7 +111,7 @@ void Set::addObjectsToScene(SceneObjects* sceneObjects)
 {
 	uint32 i;
 	for (i = 0; i < _objectCount; i++) {
-		sceneObjects->addObject(i + SCENE_OBJECTS_OBJECTS_OFFSET, &_objects[i]._bbox, _objects[i]._isClickable, _objects[i]._isObstacle, _objects[i]._unknown1, _objects[i]._isCombatTarget);
+		sceneObjects->addObject(i + SCENE_OBJECTS_OBJECTS_OFFSET, &_objects[i]._bbox, _objects[i]._isClickable, _objects[i]._isObstacle, _objects[i]._unknown1, _objects[i]._isTarget);
 	}
 }
 
@@ -190,13 +190,16 @@ int Set::findWalkbox(float x, float z) {
 	return result;
 }
 
-int Set::findObject(char* objectName) {
+int Set::findObject(const char *objectName) {
 	int i;
 	for (i = 0; i < (int)_objectCount; i++) {
 		if (scumm_stricmp(objectName, _objects[i]._name) == 0) {
 			return i;
 		}
 	}
+
+	debug("Set::findObject didn't find \"%s\"", objectName);
+
 	return -1;
 }
 
@@ -232,8 +235,8 @@ void Set::objectSetIsObstacle(int objectId, bool isObstacle) {
 	_objects[objectId]._isObstacle = isObstacle;
 }
 
-void Set::objectSetIsCombatTarget(int objectId, bool isCombatTarget) {
-	_objects[objectId]._isCombatTarget = isCombatTarget;
+void Set::objectSetIsTarget(int objectId, bool isTarget) {
+	_objects[objectId]._isTarget = isTarget;
 }
 
 } // End of namespace BladeRunner

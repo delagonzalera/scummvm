@@ -374,7 +374,7 @@ void Actor::faceActor(int otherActorId, bool animate) {
 	faceXYZ(otherActor->_position.x, otherActor->_position.y, otherActor->_position.z, animate);
 }
 
-void Actor::faceObject(char *objectName, bool animate) {
+void Actor::faceObject(const char *objectName, bool animate) {
 	int objectId = _vm->_scene->findObject(objectName);
 	if (objectId == -1) {
 		return;

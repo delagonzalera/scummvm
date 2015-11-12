@@ -114,7 +114,7 @@ bool ScriptBase::Region_Check(int left, int top, int right, int down) {
 // ScriptBase::Object_Query_Click
 // ScriptBase::Object_Do_Ground_Click
 
-bool ScriptBase::Object_Mark_For_Hot_Mouse(char *objectName) {
+bool ScriptBase::Object_Mark_For_Hot_Mouse(const char *objectName) {
 	int objectId = _vm->_scene->findObject(objectName);
 	if (objectId == -1)
 		return false;
@@ -125,7 +125,7 @@ void ScriptBase::Actor_Face_Actor(int actorId, int otherActorId, bool animate) {
 	_vm->_actors[actorId]->faceActor(otherActorId, animate);
 }
 
-void ScriptBase::Actor_Face_Object(int actorId, char *objectName, bool animate) {
+void ScriptBase::Actor_Face_Object(int actorId, const char *objectName, bool animate) {
 	_vm->_actors[actorId]->faceObject(objectName, animate);
 }
 
@@ -803,28 +803,28 @@ void ScriptBase::Actor_Retired_Here(int actorId, int width, int height, int reti
 	_vm->_sceneObjects->setRetired(actorId, true);
 }
 
-void ScriptBase::Clickable_Object(char *objectName) {
+void ScriptBase::Clickable_Object(const char *objectName) {
 	int objectId = _vm->_scene->findObject(objectName);
 	if (objectId == -1)
 		return;
 	_vm->_scene->objectSetIsClickable(objectId, true, !_vm->_sceneIsLoading);
 }
 
-void ScriptBase::Unclickable_Object(char *objectName) {
+void ScriptBase::Unclickable_Object(const char *objectName) {
 	int objectId = _vm->_scene->findObject(objectName);
 	if (objectId == -1)
 		return;
 	_vm->_scene->objectSetIsClickable(objectId, false, !_vm->_sceneIsLoading);
 }
 
-void ScriptBase::Obstacle_Object(char *objectName, bool updateWalkpath) {
+void ScriptBase::Obstacle_Object(const char *objectName, bool updateWalkpath) {
 	int objectId = _vm->_scene->findObject(objectName);
 	if (objectId == -1)
 		return;
 	_vm->_scene->objectSetIsObstacle(objectId, true, !_vm->_sceneIsLoading, !_vm->_sceneIsLoading && updateWalkpath);
 }
 
-void ScriptBase::Unobstacle_Object(char *objectName, bool updateWalkpath) {
+void ScriptBase::Unobstacle_Object(const char *objectName, bool updateWalkpath) {
 	int objectId = _vm->_scene->findObject(objectName);
 	if (objectId == -1)
 		return;
@@ -835,18 +835,18 @@ void ScriptBase::Obstacle_Flag_All_Objects(bool isObstacle) {
 	_vm->_scene->objectSetIsObstacleAll(isObstacle, !_vm->_sceneIsLoading);
 }
 
-void ScriptBase::Combat_Target_Object(char *objectName) {
+void ScriptBase::Combat_Target_Object(const char *objectName) {
 	int objectId = _vm->_scene->findObject(objectName);
 	if (objectId == -1)
 		return;
-	_vm->_scene->objectSetIsCombatTarget(objectId, true, !_vm->_sceneIsLoading);
+	_vm->_scene->objectSetIsTarget(objectId, true, !_vm->_sceneIsLoading);
 }
 
-void ScriptBase::Un_Combat_Target_Object(char *objectName) {
+void ScriptBase::Un_Combat_Target_Object(const char *objectName) {
 	int objectId = _vm->_scene->findObject(objectName);
 	if (objectId == -1)
 		return;
-	_vm->_scene->objectSetIsCombatTarget(objectId, true, !_vm->_sceneIsLoading);
+	_vm->_scene->objectSetIsTarget(objectId, true, !_vm->_sceneIsLoading);
 }
 
 void ScriptBase::Set_Fade_Color(float r, float g, float b) {

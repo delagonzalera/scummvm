@@ -254,17 +254,21 @@ void Mouse::tick(int x, int y)
 		return;
 
 	Vector3 mousePosition = getXYZ(x, y);
-
-	int isClickable = 0;
-	int isObstacle = 0;
-	int isCombatTarget = 0;
-	int sceneObjectId = _vm->_sceneObjects->findByXYZ(&isClickable, &isObstacle, &isCombatTarget, mousePosition.x, mousePosition.y, mousePosition.z, 1, 0, 1);
-
 	int cursorId = 0;
 
-	int type = _vm->_scene->_exits->getTypeAtXY(x, y);
-	if (type != -1) {
-		switch (type) {
+	int isClickable = 0;
+	int isObstacle  = 0;
+	int isTarget    = 0;
+
+	int sceneObjectId = _vm->_sceneObjects->findByXYZ(&isClickable, &isObstacle, &isTarget, mousePosition.x, mousePosition.y, mousePosition.z, 1, 0, 1);
+	int exitType = _vm->_scene->_exits->getTypeAtXY(x, y);
+
+	if (sceneObjectId >= 0 && sceneObjectId <= 74) {
+		exitType = -1;
+	}
+
+	if (exitType != -1) {
+		switch (exitType) {
 			case 1:
 				cursorId = 13;
 				break;
@@ -276,6 +280,17 @@ void Mouse::tick(int x, int y)
 				break;
 			default:
 				cursorId = 12;
+		}
+		setCursor(cursorId);
+		return;
+	}
+
+	if (true /* not in combat */) {
+		if (sceneObjectId == 0
+		 || (sceneObjectId >= 0 && isClickable)
+		 || _vm->_scene->_regions->getRegionAtXY(x, y) >= 0)
+		{
+			cursorId = 1;
 		}
 		setCursor(cursorId);
 		return;
