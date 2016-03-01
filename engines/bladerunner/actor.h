@@ -23,8 +23,6 @@
 #ifndef BLADERUNNER_ACTOR_H
 #define BLADERUNNER_ACTOR_H
 
-#include "bladerunner/bladerunner.h"
-
 #include "bladerunner/vector.h"
 
 #include "common/rect.h"

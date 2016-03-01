@@ -23,10 +23,11 @@
 #ifndef BLADERUNNER_ACTOR_WALK_H
 #define BLADERUNNER_ACTOR_WALK_H
 
-#include "bladerunner/bladerunner.h"
 #include "bladerunner/vector.h"
 
 namespace BladeRunner {
+
+class BladeRunnerEngine;
 
 struct ActorWalkEntry
 {

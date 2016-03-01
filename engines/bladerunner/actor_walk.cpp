@@ -22,10 +22,10 @@
 
 #include "bladerunner/actor_walk.h"
 
+#include "bladerunner/bladerunner.h"
+
 #include "bladerunner/actor.h"
 #include "bladerunner/scene_objects.h"
-
-
 
 namespace BladeRunner {
 

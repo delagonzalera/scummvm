@@ -23,11 +23,12 @@
 #ifndef BLADERUNNER_FOG_H
 #define BLADERUNNER_FOG_H
 
-#include "bladerunner/bladerunner.h"
 #include "bladerunner/color.h"
 #include "bladerunner/matrix.h"
 
-#include "common/stream.h"
+namespace Common {
+	class ReadStream;
+}
 
 namespace BladeRunner {
 

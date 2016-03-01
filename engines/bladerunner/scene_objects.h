@@ -23,16 +23,14 @@
 #ifndef BLADERUNNER_SCENE_OBJECTS_H
 #define BLADERUNNER_SCENE_OBJECTS_H
 
-#include "bladerunner/bladerunner.h"
-
 #include "bladerunner/boundingbox.h"
-#include "bladerunner/view.h"
 
 #include "common/rect.h"
 
 namespace BladeRunner {
 
 class BladeRunnerEngine;
+class View;
 
 enum SceneObjectType
 {

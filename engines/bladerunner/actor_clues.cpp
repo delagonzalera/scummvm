@@ -1,5 +1,7 @@
 #include "bladerunner/actor_clues.h"
 
+#include "bladerunner/clues.h"
+
 namespace BladeRunner {
 
 ActorClues::ActorClues(BladeRunnerEngine *vm, int cluesType)

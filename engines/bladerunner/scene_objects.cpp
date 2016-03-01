@@ -22,6 +22,8 @@
 
 #include "bladerunner/scene_objects.h"
 
+#include "bladerunner/view.h"
+
 namespace BladeRunner {
 
 SceneObjects::SceneObjects(BladeRunnerEngine *vm, View *view) {

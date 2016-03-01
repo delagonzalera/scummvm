@@ -1,5 +1,7 @@
 #include "bladerunner/combat.h"
+
 #include "bladerunner/bladerunner.h"
+
 #include "bladerunner/actor.h"
 #include "bladerunner/settings.h"
 

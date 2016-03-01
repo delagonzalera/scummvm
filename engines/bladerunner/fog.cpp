@@ -1,5 +1,7 @@
 #include "bladerunner/fog.h"
 
+#include "common/stream.h"
+
 namespace BladeRunner {
 
 Fog::Fog()

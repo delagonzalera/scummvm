@@ -23,9 +23,9 @@
 #ifndef BLADERUNNER_COMBAT_H
 #define BLADERUNNER_COMBAT_H
 
-#include "bladerunner/bladerunner.h"
-
 namespace BladeRunner {
+
+class BladeRunnerEngine;
 
 class Combat {
 	BladeRunnerEngine *_vm;

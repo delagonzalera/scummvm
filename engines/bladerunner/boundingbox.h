@@ -23,7 +23,7 @@
 #ifndef BLADERUNNER_BOUNDING_BOX_H
 #define BLADERUNNER_BOUNDING_BOX_H
 
-#include "vector.h"
+#include "bladerunner/vector.h"
 
 namespace BladeRunner {
 
