@@ -72,6 +72,26 @@ void Script::SceneLoaded() {
 	_inScriptCounter--;
 }
 
+bool Script::ClickedOn3DObject(const char *objectName) {
+	if (_inScriptCounter > 0)
+		return true;
+
+	_inScriptCounter++;
+	bool result = _currentScript->ClickedOn3DObject(objectName);
+	_inScriptCounter--;
+	return result;
+}
+
+bool Script::ClickedOn2DRegion(int region) {
+	if (_inScriptCounter > 0)
+		return true;
+
+	_inScriptCounter++;
+	bool result = _currentScript->ClickedOn2DRegion(region);
+	_inScriptCounter--;
+	return result;
+}
+
 void Script::SceneFrameAdvanced(int frame) {
 	_inScriptCounter++;
 	_currentScript->SceneFrameAdvanced(frame);
@@ -111,8 +131,14 @@ bool ScriptBase::Region_Check(int left, int top, int right, int down) {
 	return false;
 }
 
-// ScriptBase::Object_Query_Click
-// ScriptBase::Object_Do_Ground_Click
+bool ScriptBase::Object_Query_Click(const char *objectName1, const char *objectName2) {
+	return strcmp(objectName1, objectName2) == 0;
+}
+
+void ScriptBase::Object_Do_Ground_Click() {
+	//This is not implemented in game
+	return;
+}
 
 bool ScriptBase::Object_Mark_For_Hot_Mouse(const char *objectName) {
 	int objectId = _vm->_scene->findObject(objectName);
@@ -447,7 +473,15 @@ int ScriptBase::Actor_Query_Animation_Mode(int actorId) {
 
 // ScriptBase::Loop_Actor_Walk_To_Actor
 // ScriptBase::Loop_Actor_Walk_To_Item
-// ScriptBase::Loop_Actor_Walk_To_Scene_Object
+
+bool ScriptBase::Loop_Actor_Walk_To_Scene_Object(int actorId, const char *objectName, int distance, int a4, int a5) {
+	_vm->gameWaitForActive();
+
+	_vm->_actors[actorId]->loopWalkToSceneObject(objectName);
+
+	return false;
+}
+
 // ScriptBase::Loop_Actor_Walk_To_Waypoint
 
 void ScriptBase::Loop_Actor_Walk_To_XYZ(int actorId, float x, float y, float z, int a4, int a5, int a6, int a7) {

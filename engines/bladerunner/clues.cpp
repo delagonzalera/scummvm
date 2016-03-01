@@ -46,7 +46,7 @@ Clues::Clues(BladeRunnerEngine *vm, const char *cluesResource, int clueCount)
 }
 
 Clues::~Clues() {
-	delete _cluesText;
+	delete   _cluesText;
 	delete[] _assetTypes;
 	delete[] _crimes;
 }

@@ -39,32 +39,32 @@ class Fog
 	friend class SetEffects;
 
 protected:
-	char _name[20];
-	int _framesCount;
-	int _animatedParameters;
-	Matrix4x3 _matrix;
-	Matrix4x3 _inverted;
-	Color _fogColor;
-	float _fogDensity;
-	float *_animationData;
-	float *_m11ptr;
-	float *_m12ptr;
-	float *_m13ptr;
-	float *_m14ptr;
-	float *_m21ptr;
-	float *_m22ptr;
-	float *_m23ptr;
-	float *_m24ptr;
-	float *_m31ptr;
-	float *_m32ptr;
-	float *_m33ptr;
-	float *_m34ptr;
+	char       _name[20];
+	int        _framesCount;
+	int        _animatedParameters;
+	Matrix4x3  _matrix;
+	Matrix4x3  _inverted;
+	Color      _fogColor;
+	float      _fogDensity;
+	float     *_animationData;
+	float     *_m11ptr;
+	float     *_m12ptr;
+	float     *_m13ptr;
+	float     *_m14ptr;
+	float     *_m21ptr;
+	float     *_m22ptr;
+	float     *_m23ptr;
+	float     *_m24ptr;
+	float     *_m31ptr;
+	float     *_m32ptr;
+	float     *_m33ptr;
+	float     *_m34ptr;
 
-	float _parameter1;
-	float _parameter2;
-	float _parameter3;
+	float      _parameter1;
+	float      _parameter2;
+	float      _parameter3;
 
-	Fog *_next;
+	Fog       *_next;
 
 public:
 	Fog();

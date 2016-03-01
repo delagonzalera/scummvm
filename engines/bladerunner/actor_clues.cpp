@@ -2,6 +2,8 @@
 
 #include "bladerunner/clues.h"
 
+#include "common/debug.h"
+
 namespace BladeRunner {
 
 ActorClues::ActorClues(BladeRunnerEngine *vm, int cluesType)
@@ -57,6 +59,8 @@ void ActorClues::acquire(int clueId, char flag2, int fromActorId)
 	_clues[clueIndex]._flags |= 0x01;
 	_clues[_count]._flags = (_clues[_count]._flags & ~0x02) | ((flag2 << 1) & 0x02);
 	_clues[clueIndex]._fromActorId = fromActorId;
+
+	debug("Actor acquired clue: \"%s\" from %d", _vm->_clues->getClueText(clueId), fromActorId);
 }
 
 void ActorClues::lose(int clueId)
@@ -147,6 +151,10 @@ int ActorClues::findClueIndex(int clueId)
 
 void ActorClues::add(int actorId, int clueId, int unknown, bool acquired, bool unknownFlag, int fromActorId)
 {
+	assert(_count < _maxCount);
+
+	debug("Actor %d added clue: \"%s\" from %d", actorId, _vm->_clues->getClueText(clueId), fromActorId);
+
 	_clues[_count]._clueId = clueId;
 	_clues[_count]._field1 = unknown;
 
@@ -160,6 +168,9 @@ void ActorClues::add(int actorId, int clueId, int unknown, bool acquired, bool u
 
 void ActorClues::remove(int index)
 {
+	if (_vm->_clues)
+		debug("Actor removed clue: \"%s\"", _vm->_clues->getClueText(_clues[index]._clueId));
+
 	_clues[index]._clueId = -1;
 	_clues[index]._field1 = 0;
 	_clues[index]._flags = 0;

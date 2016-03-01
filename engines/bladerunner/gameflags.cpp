@@ -46,18 +46,21 @@ void GameFlags::setFlagCount(int count) {
 }
 
 void GameFlags::set(int flag) {
+	debug("GameFlags::set(%d)", flag);
 	assert(flag >= 0 && flag <= flagCount);
 
 	flags[flag / 32] |= (1 << (flag % 32));
 }
 
 void GameFlags::reset(int flag) {
+	debug("GameFlags::reset(%d)", flag);
 	assert(flag >= 0 && flag <= flagCount);
 
 	flags[flag / 32] &= ~(1 << (flag % 32));
 }
 
 bool GameFlags::query(int flag) {
+	debug("GameFlags::query(%d): %d", flag, !!(flags[flag / 32] & (1 << (flag % 32))));
 	assert(flag >= 0 && flag <= flagCount);
 
 	return !!(flags[flag / 32] & (1 << (flag % 32)));

@@ -196,7 +196,65 @@ void Actor::loopWalkToXYZ(Vector3 destination)
 		_vm->gameTick();
 		if (!_walkInfo->isWalking() && !_walkInfo->isRunning())
 			break;
+		if (!_vm->_gameIsRunning)
+			break;
 	}
+}
+
+float distance(float, float, float, float);
+float distance(Vector3 &v1, Vector3 &v2);
+
+void Actor::loopWalkToSceneObject(const char *objectName, int destinationOffset)
+{
+	int sceneObject = _vm->_scene->_set->findObject(objectName);
+	if (sceneObject < 0)
+		return;
+
+	BoundingBox bbox;
+	if (!_vm->_scene->_set->objectGetBoundingBox(sceneObject, &bbox))
+		return;
+
+	float x0, y0, z0, x1, y1, z1;
+	bbox.getXYZ(&x0, &y0, &z0, &x1, &y1, &z1);
+
+	// debug("[%f %f] -> [%f %f %f, %f %f %f]", _position.x, _position.z, x0, y0, z0, x1, y1, z1);
+
+	float closest_distance = distance(_position.x, _position.z, x0, z0);
+	float closest_x = x0;
+	float closest_z = z0;
+
+	float d = distance(_position.x, _position.z, x1, z0);
+	// debug("%f - %f %f %f %f", d, _position.x, _position.z, x1, z0);
+	if (d < closest_distance) {
+		closest_x = x1;
+		closest_z = z0;
+		closest_distance = d;
+	}
+
+	d = distance(_position.x, _position.z, x1, z1);
+	// debug("%f - %f %f %f %f", d, _position.x, _position.z, x1, z0);
+	if (d < closest_distance) {
+		closest_x = x1;
+		closest_z = z1;
+		closest_distance = d;
+	}
+
+	d = distance(_position.x, _position.z, x0, z1);
+	// debug("%f - %f %f %f %f", d, _position.x, _position.z, x1, z0);
+	if (d < closest_distance) {
+		closest_x = x0;
+		closest_z = z1;
+		closest_distance = d;
+	}
+
+	// debug("%f = %f %f %f %f", closest_distance, _position.x, _position.z, closest_x, closest_z);
+
+	Vector3 destination(closest_x, _position.y, closest_z);
+
+	// Vector3 properDestination(-124.2592, -0.3046913, 204.0923);
+	// debug("delta: %f\n", distance(destination, properDestination));
+
+	loopWalkToXYZ(destination);
 }
 
 bool Actor::tick(bool forceDraw)
@@ -281,16 +339,16 @@ void Actor::setSetId(int setId) {
 	if(_setId > 0) {
 		for (i = 0; i < (int)_vm->_gameInfo->getActorCount(); i++) {
 			if (_vm->_actors[i]->_id != _id && _vm->_actors[i]->_setId == _setId) {
-				//actorScript->OtherAgentExitedThisScene( i, _id);
+				// TODO: actorScript->OtherAgentExitedThisScene( i, _id);
 			}
 		}
 	}
 	_setId = setId;
-	//actorScript->EnteredScene(_id, set);
+	// TODO: actorScript->EnteredScene(_id, set);
 	if (_setId > 0) {
 		for (i = 0; i < (int)_vm->_gameInfo->getActorCount(); i++) {
 			if (_vm->_actors[i]->_id != _id && _vm->_actors[i]->_setId == _setId) {
-				//actorScript->OtherAgentEnteredThisScene(i, _id);
+				// TODO: actorScript->OtherAgentEnteredThisScene(i, _id);
 			}
 		}
 	}
@@ -336,9 +394,21 @@ void Actor::setFacing(int facing, bool halfOrSet) {
 
 void Actor::setBoundingBox(Vector3 position, bool retired) {
 	if (retired) {
-		_bbox->setXYZ(position.x - (_retiredWidth / 2.0f), position.y, position.z - (_retiredWidth / 2.0f), position.x + (_retiredWidth / 2.0f), position.y + _retiredHeight, position.z + (_retiredWidth / 2.0f));
+		_bbox->setXYZ(position.x - (_retiredWidth / 2.0f),
+		              position.y,
+		              position.z - (_retiredWidth / 2.0f),
+
+		              position.x + (_retiredWidth / 2.0f),
+		              position.y + _retiredHeight,
+		              position.z + (_retiredWidth / 2.0f));
 	} else {
-		_bbox->setXYZ(position.x - 12.0f, position.y + 6.0f, position.z - 12.0f, position.x + 12.0f, position.y + 72.0f, position.z + 12.0f);
+		_bbox->setXYZ(position.x - 12.0f,
+		              position.y + 6.0f,
+		              position.z - 12.0f,
+
+		              position.x + 12.0f,
+		              position.y + 72.0f,
+		              position.z + 12.0f);
 	}
 }
 
@@ -606,7 +676,7 @@ void Actor::speechPlay(int sentenceId, bool voiceOver) {
 		balance = 0;
 	} else {
 		// Vector3 pos = _vm->_view->_frameViewMatrix * _position;
-		int screenX = 0; //, screenY = 0;
+		int screenX = 320; //, screenY = 0;
 		//TODO: transform to screen space using fov;
 		balance = 127 * (2 * screenX - 640) / 640;
 		balance = MIN(127, MAX(-127, balance));

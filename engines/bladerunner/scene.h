@@ -106,6 +106,7 @@ public:
 	void objectSetIsObstacle(int objectId, bool isObstacle, bool sceneLoaded, bool updateWalkpath);
 	void objectSetIsObstacleAll(bool isObstacle, bool sceneLoaded);
 	void objectSetIsTarget(int objectId, bool isTarget, bool sceneLoaded);
+	const char *objectGetName(int objectId);
 };
 
 } // End of namespace BladeRunner

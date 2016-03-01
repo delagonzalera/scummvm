@@ -239,4 +239,8 @@ void Set::objectSetIsTarget(int objectId, bool isTarget) {
 	_objects[objectId]._isTarget = isTarget;
 }
 
+const char *Set::objectGetName(int objectId) {
+	return _objects[objectId]._name;
+}
+
 } // End of namespace BladeRunner

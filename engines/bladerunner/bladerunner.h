@@ -142,6 +142,7 @@ public:
 	void gameLoop();
 	void gameTick();
 	void handleEvents();
+	void handleMouseClick(int x, int y);
 	void gameWaitForActive();
 	void loopActorSpeaking();
 

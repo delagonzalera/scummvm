@@ -35,10 +35,10 @@ void ScriptRC01::InitializeScene() {
 	if (!Game_Flag_Query(24)) {
 		Ambient_Sounds_Remove_All_Non_Looping_Sounds(1);
 		Ambient_Sounds_Remove_All_Looping_Sounds(1);
-		// Outtake_Play(28, 1); // WSTLGO_E.VQA
-		// Outtake_Play(41, 1); // BRLOGO_E.VQA
-		// Outtake_Play( 0, 0); // INTRO_E.VQA
-		// Outtake_Play(33, 1); // DSCENT_E.VQA
+		Outtake_Play(28, 1); // WSTLGO_E.VQA
+		Outtake_Play(41, 1); // BRLOGO_E.VQA
+		Outtake_Play( 0, 0); // INTRO_E.VQA
+		Outtake_Play(33, 1); // DSCENT_E.VQA
 	}
 
 	// Game_Flag_Set(9); // Force flag 9 so McCoy will be in view
@@ -148,8 +148,7 @@ void ScriptRC01::SceneLoaded() {
 	Unclickable_Object("DOORWAY01");
 	Unobstacle_Object("DOORWAY01", 1);
 
-	if (Game_Flag_Query(186))
-	{
+	if (Game_Flag_Query(186)) {
 		Unclickable_Object("70_1");
 		Unclickable_Object("70_2");
 		Unclickable_Object("70_3");
@@ -170,8 +169,7 @@ void ScriptRC01::SceneLoaded() {
 		Unobstacle_Object("BARICADE05", 1);
 	}
 
-	if (!Game_Flag_Query(186))
-	{
+	if (!Game_Flag_Query(186)) {
 		Preload(13);
 		Preload(14);
 		Preload(19);
@@ -196,6 +194,99 @@ void ScriptRC01::SceneLoaded() {
 		Game_Flag_Set(24);
 	}
 }
+
+void ScriptRC01::sub_403850()
+{
+	if (Game_Flag_Query(186))
+		return;
+
+	if (Loop_Actor_Walk_To_Scene_Object(0, "BARICADE03", 36, 1, 0))
+		return;
+
+	Actor_Set_Goal_Number(23, 0);
+	Actor_Face_Object(0, "BARICADE03", 1);
+	// Loop_Actor_Walk_To_Actor(23, 0, 36, 1, 0);
+	Actor_Face_Actor(23, 0, 1);
+	Actor_Says(0, 4500, 14);
+	I_Sez("MG: We don't want any of that abstract art oozing out onto the street.");
+	Actor_Says(23, 10, 14);
+	Actor_Set_Goal_Number(23, 1);
+}
+
+bool ScriptRC01::ClickedOn3DObject(const char *objectName) {
+	if (Object_Query_Click("BARICADE01", objectName)
+	 || Object_Query_Click("BARICADE03", objectName)
+	 || Object_Query_Click("BARICADE04", objectName)
+	 || Object_Query_Click("70_1", objectName)
+	 || Object_Query_Click("70_2", objectName)
+	 || Object_Query_Click("70_3", objectName)
+	 || Object_Query_Click("70_5", objectName)
+	 || Object_Query_Click("70_6", objectName))
+	{
+		sub_403850();
+		return true;
+	}
+
+	if (Object_Query_Click("HYDRANT02", objectName)) {
+		if (Loop_Actor_Walk_To_Scene_Object(0, "HYDRANT02", 60, 1, 0) == 0) {
+			if (Actor_Clue_Query(0, 26)) {
+				Actor_Says(0, 6975, 3);
+			} else {
+				Actor_Face_Object(0, "HYDRANT02", 1);
+				Actor_Voice_Over(1880, 99);
+				Actor_Voice_Over(1890, 99);
+				I_Sez("JM: That McCoy--he's one funny guy! Jet-black fire truck, hehehehe...");
+				Actor_Clue_Acquire(0, 26, 1, -1);
+			}
+		}
+		return true;
+	}
+
+	if (Object_Query_Click("DOOR LEFT", objectName))
+	{
+		if (!Loop_Actor_Walk_To_Scene_Object(0, "DOOR LEFT", 48, 1, 0))
+		{
+			Actor_Face_Object(0, "DOOR LEFT", 1);
+			if (Actor_Clue_Query(0, 2) || !Actor_Query_In_Set(23, 69) || Global_Variable_Query(1) != 1)
+			{
+				Actor_Says(0, 8570, 14);
+			}
+			else
+			{
+				Actor_Set_Goal_Number(23, 0);
+				Actor_Face_Actor(23, 0, 1);
+				Actor_Says(23, 0, 12);
+				Actor_Says(0, 4495, 13);
+				Actor_Clue_Acquire(0, 2, 1, 23);
+			}
+			Actor_Clue_Acquire(0, 1, 1, -1);
+		}
+		return true;
+	}
+
+	if (Object_Query_Click("T-CAN01", objectName))
+	{
+		if (!Loop_Actor_Walk_To_Scene_Object(0, "T-CAN01", 24, 1, 0))
+		{
+			Actor_Face_Object(0, "T-CAN01", 1);
+			Actor_Voice_Over(1810, 99);
+			Actor_Voice_Over(1820, 99);
+		}
+		return true;
+	}
+
+	return false;
+}
+
+bool ScriptRC01::ClickedOn2DRegion(int region) {
+	if (region == 0) {
+		sub_403850();
+		return 1;
+	}
+
+	return 0;
+}
+
 
 void ScriptRC01::SceneFrameAdvanced(int frame) {
 	if (frame == 1)

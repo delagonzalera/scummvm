@@ -85,6 +85,7 @@ public:
 	void objectSetIsClickable(int objectId, bool isClickable);
 	void objectSetIsObstacle(int objectId, bool isObstacle);
 	void objectSetIsTarget(int objectId, bool isTarget);
+	const char *objectGetName(int objectId);
 };
 
 } // End of namespace BladeRunner

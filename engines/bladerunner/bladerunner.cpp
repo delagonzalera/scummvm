@@ -68,6 +68,7 @@ BladeRunnerEngine::BladeRunnerEngine(OSystem *syst)
 	_gameIsRunning  = true;
 	_playerLosesControlCounter = 0;
 
+	_clues = NULL;
 	_script = new Script(this);
 	_settings = new Settings(this);
 	_lights = new Lights(this);
@@ -496,7 +497,7 @@ void BladeRunnerEngine::gameLoop() {
 	do {
 		/* TODO: check player death */
 		gameTick();
-	} while (_gameIsRunning && !shouldQuit());
+	} while (_gameIsRunning);
 }
 
 void BladeRunnerEngine::gameTick() {
@@ -532,6 +533,23 @@ void BladeRunnerEngine::gameTick() {
 		_surface2.copyFrom(_surface1);
 		memcpy(_zBuffer2, _zBuffer1, 640*480*2);
 
+#if 0
+		{
+			for (int y = 0; y != 480; ++y) {
+				for (int x = 0; x != 640; ++x) {
+					if (_scene->_regions->getRegionAtXY(x, y) >= 0) {
+						uint16 *p = (uint16*)_surface2.getBasePtr(x, y);
+						*p = 0x7C00;
+					}
+					if (_scene->_exits->getRegionAtXY(x, y) >= 0) {
+						uint16 *p = (uint16*)_surface2.getBasePtr(x, y);
+						*p = 0x7C08;
+					}
+				}
+			}
+		}
+#endif
+
 		// TODO: Render overlays
 		// TODO: Tick Actor AI and Timers
 
@@ -564,10 +582,58 @@ void BladeRunnerEngine::gameTick() {
 }
 
 void BladeRunnerEngine::handleEvents() {
+	if (shouldQuit()) {
+		_gameIsRunning = false;
+		return;
+	}
+
 	Common::Event event;
 	Common::EventManager *eventMan = _system->getEventManager();
 	while (eventMan->pollEvent(event)) {
+		switch (event.type) {
+			case Common::EVENT_LBUTTONDOWN:
+			case Common::EVENT_RBUTTONDOWN:
+				handleMouseClick(event.mouse.x, event.mouse.y);
+			default:
+				;
+		}
 	}
+}
+
+void BladeRunnerEngine::handleMouseClick(int x, int y) {
+	if (!playerHasControl() || _mouse->isDisabled())
+		return;
+
+	Vector3 mousePosition = _mouse->getXYZ(x, y);
+
+	int isClickable;
+	int isObstacle;
+	int isTarget;
+
+	int sceneObjectId = _sceneObjects->findByXYZ(&isClickable, &isObstacle, &isTarget, mousePosition.x, mousePosition.y, mousePosition.z, 1, 0, 1);
+	int exitType      = _scene->_exits->getTypeAtXY(x, y);
+
+	debug("%d %d", sceneObjectId, exitType);
+
+	if ((sceneObjectId < 0 || sceneObjectId > 73) && exitType >= 0) {
+		// clickedOnExit(exitType, x, y);
+		debug("clicked on exit %d %d %d", exitType, x, y);
+		return;
+	}
+
+	int regionIndex = _scene->_regions->getRegionAtXY(x, y);
+	if (regionIndex >= 0) {
+		debug("clicked on region %d %d %d", regionIndex, x, y);
+		_script->ClickedOn2DRegion(regionIndex);
+	}
+
+	if (sceneObjectId >= 198 && sceneObjectId <= 293) {
+		const char *objectName = _scene->objectGetName(sceneObjectId - 198);
+		debug("%s", objectName);
+		_script->ClickedOn3DObject(objectName);
+		return;
+	}
+
 }
 
 void BladeRunnerEngine::gameWaitForActive() {
@@ -584,9 +650,7 @@ void BladeRunnerEngine::loopActorSpeaking() {
 
 	do {
 		gameTick();
-		if (shouldQuit())
-			break;
-	} while (_audioSpeech->isPlaying());
+	} while (_gameIsRunning && _audioSpeech->isPlaying());
 
 	playerGainsControl();
 }

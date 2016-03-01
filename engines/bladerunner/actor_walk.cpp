@@ -31,8 +31,8 @@ namespace BladeRunner {
 
 static int angle_1024(float x1, float z1, float x2, float z2);
 static int angle_1024(Vector3 &v1, Vector3 &v2);
-static float distance(float x1, float x2, float z1, float z2);
-static float distance(Vector3 &v1, Vector3 &v2);
+float distance(float x1, float x2, float z1, float z2);
+float distance(Vector3 &v1, Vector3 &v2);
 
 ActorWalk::ActorWalk(BladeRunnerEngine *vm) {
 	_vm = vm;
@@ -138,14 +138,12 @@ bool ActorWalk::tick(int actorId, float stepDistance, bool flag)
 		return true;
 	}
 
-	float angle_rad = angle_1024(_current, _next) / 512.0 * M_PI;
-	float s = sinf(angle_rad);
-	float c = cosf(angle_rad);
+	float angle_rad = _facing / 512.0 * M_PI;
 
 	_current = Vector3(
-		_current.x + stepDistance * s,
+		_current.x + stepDistance * sinf(angle_rad),
 		_current.y,                    // TODO: Update from walkbox
-		_current.z + stepDistance * c
+		_current.z - stepDistance * cosf(angle_rad)
 	);
 
 	return false;
@@ -202,7 +200,7 @@ int ActorWalk::nextOnPath(int actorId, Vector3 from, Vector3 to, Vector3 *next)
 static
 int angle_1024(float x1, float z1, float x2, float z2)
 {
-	float angle_rad = atan2(x2 - x1, z2 - z1);
+	float angle_rad = atan2(x2 - x1, z1 - z2);
 	int a = int(512.0 * angle_rad / M_PI);
 	return (a + 1024) % 1024;
 }
@@ -213,8 +211,7 @@ int angle_1024(Vector3 &v1, Vector3 &v2)
 	return angle_1024(v1.x, v1.z, v2.x, v2.z);
 }
 
-static
-float distance(float x1, float x2, float z1, float z2)
+float distance(float x1, float z1, float x2, float z2)
 {
 	float dx = x1 - x2;
 	float dz = z1 - z2;
@@ -229,10 +226,9 @@ float distance(float x1, float x2, float z1, float z2)
 	return int_part + frac_part;
 }
 
-static
 float distance(Vector3 &v1, Vector3 &v2)
 {
-	return distance(v1.x, v2.x, v1.z, v2.z);
+	return distance(v1.x, v1.z, v2.x, v2.z);
 }
 
 } // End of namespace BladeRunner

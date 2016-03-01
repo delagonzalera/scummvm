@@ -229,4 +229,8 @@ void Scene::objectSetIsTarget(int objectId, bool isTarget, bool sceneLoaded) {
 	}
 }
 
+const char *Scene::objectGetName(int objectId) {
+	return _set->objectGetName(objectId);
+}
+
 } // End of namespace BladeRunner

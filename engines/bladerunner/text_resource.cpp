@@ -97,7 +97,7 @@ const char *TextResource::getText(uint32 id) {
 		}
 	}
 
-	return nullptr;
+	return "";
 }
 
 } // End of namespace BladeRunner

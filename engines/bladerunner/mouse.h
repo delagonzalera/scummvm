@@ -61,7 +61,7 @@ public:
 
 	void tick(int x, int y);
 
-private:
+// private:
 	Vector3 getXYZ(int x, int y);
 };
 

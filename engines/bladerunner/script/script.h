@@ -46,8 +46,8 @@ protected:
 	void Actor_Set_At_XYZ(int actorId, float x, float y, float z, int direction);
 	void Actor_Set_At_Waypoint(int actorId, int waypointId, int angle);
 	bool Region_Check(int left, int top, int right, int down);
-	// Object_Query_Click
-	// Object_Do_Ground_Click
+	bool Object_Query_Click(const char *objectName1, const char *objectName2);
+	void Object_Do_Ground_Click();
 	bool Object_Mark_For_Hot_Mouse(const char *objectName);
 	void Actor_Face_Actor(int actorId, int otherActorId, bool animate);
 	void Actor_Face_Object(int actorId, const char *objectName, bool animate);
@@ -103,7 +103,7 @@ protected:
 	int Actor_Query_Animation_Mode(int actorId);
 	// Loop_Actor_Walk_To_Actor
 	// Loop_Actor_Walk_To_Item
-	// Loop_Actor_Walk_To_Scene_Object
+	bool Loop_Actor_Walk_To_Scene_Object(int actorId, const char *objectName, int distance, int a4, int a5);
 	// Loop_Actor_Walk_To_Waypoint
 	void Loop_Actor_Walk_To_XYZ(int actorId, float x, float y, float z, int a4, int a5, int a6, int a7);
 	// Async_Actor_Walk_To_Waypoint
@@ -268,6 +268,8 @@ public:
 
 	virtual void InitializeScene() = 0;
 	virtual void SceneLoaded() = 0;
+	virtual bool ClickedOn3DObject(const char *objectName) = 0;
+	virtual bool ClickedOn2DRegion(int region) = 0;
 	virtual void SceneFrameAdvanced(int frame) = 0;
 	virtual void SceneActorChangedGoal(int actorId, int newGoal, int oldGoal, bool currentSet) = 0;
 	virtual void PlayerWalkedIn() = 0;
@@ -294,6 +296,8 @@ public:
 
 	void InitializeScene();
 	void SceneLoaded();
+	bool ClickedOn3DObject(const char *objectName);
+	bool ClickedOn2DRegion(int region);
 	void SceneFrameAdvanced(int frame);
 	void SceneActorChangedGoal(int actorId, int newGoal, int oldGoal, bool currentSet);
 	void PlayerWalkedIn();
@@ -307,12 +311,17 @@ public: \
 	{} \
 	void InitializeScene(); \
 	void SceneLoaded(); \
+	bool ClickedOn3DObject(const char *objectName); \
+	bool ClickedOn2DRegion(int region); \
 	void SceneFrameAdvanced(int frame); \
 	void SceneActorChangedGoal(int actorId, int newGoal, int oldGoal, bool currentSet); \
 	void PlayerWalkedIn(); \
-};
+private:
+#define END_SCRIPT };
 
 DECLARE_SCRIPT(RC01)
+	void sub_403850();
+END_SCRIPT
 
 #undef DECLARE_SCRIPT
 
