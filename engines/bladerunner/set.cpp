@@ -128,6 +128,7 @@ bool Set::open(const Common::String &name) {
 }
 
 void Set::addObjectsToScene(SceneObjects *sceneObjects) const {
+	debug("Set::addObjectsToScene: %d", _objectCount);
 	for (int i = 0; i < _objectCount; i++) {
 		sceneObjects->addObject(i + kSceneObjectOffsetObjects, &_objects[i].bbox, _objects[i].isClickable, _objects[i].isObstacle, _objects[i].unknown1, _objects[i].isTarget);
 	}

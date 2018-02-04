@@ -23,6 +23,7 @@
 #ifndef BLADERUNNER_OBSTACLES_H
 #define BLADERUNNER_OBSTACLES_H
 
+#include "bladerunner/rect.h"
 #include "bladerunner/vector.h"
 
 namespace BladeRunner {
@@ -30,24 +31,22 @@ namespace BladeRunner {
 class BladeRunnerEngine;
 
 class Obstacles {
-	static const int kPolygonCount = 50;
-	static const int kVertexCount = 160;
+	static const int kVertexCount        = 150;
+	static const int kPolygonCount       =  50;
+	static const int kPolygonVertexCount = 160;
 
 	struct Polygon {
 		bool    isPresent;
 		int     verticeCount;
-		float   left;
-		float   bottom;
-		float   right;
-		float   top;
-		Vector2 vertices[kVertexCount];
-		int     vertexType[kVertexCount];
+		Rect    rect;
+		Vector2 vertices[kPolygonVertexCount];
+		int     vertexType[kPolygonVertexCount];
 	};
 
 	BladeRunnerEngine *_vm;
 
-	Polygon  _polygons[kPolygonCount];
-	Polygon  _polygonsBackup[kPolygonCount];
+	Polygon *_polygons;
+	Polygon *_polygonsBackup;
 	Vector2 *_vertices;
 	int      _verticeCount;
 	int      _count;
@@ -58,10 +57,29 @@ public:
 	~Obstacles();
 
 	void clear();
-	void add(float x0, float z0, float x1, float z1);
+	void add(Rect rect);
+	void add(float x0, float z0, float x1, float z1) { add(Rect(x0, z0, x1, z1)); }
+	int findEmptyPolygon() const;
+	float getLength(float x0, float z0, float x1, float z1) const;
 	bool find(const Vector3 &from, const Vector3 &to, Vector3 *next) const;
+
+	bool findIntersectionNearest(int polygonIndex, Vector2 from, Vector2 to,
+                                 int *outVertexIndex, float *outDistance, Vector2 *out) const;
+	bool findIntersectionFarthest(int polygonIndex, Vector2 from, Vector2 to,
+                                  int *outVertexIndex, float *outDistance, Vector2 *out) const;
+
+	bool findPolygonVerticeByXZ(int *polygonIndex, int *verticeIndex, int *verticeCount, float x, float z) const;
+	bool findPolygonVerticeByXZWithinTolerance(float x, float z, int *polygonIndex, int *verticeIndex) const;
+
+	void clearVertices();
+	void copyVerticesReverse();
+	void copyVertices();
+
 	void backup();
 	void restore();
+	void reset();
+
+	void draw();
 };
 
 } // End of namespace BladeRunner

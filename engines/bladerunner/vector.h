@@ -132,6 +132,10 @@ inline float distance(float x1, float z1, float x2, float z2) {
 	return int_part + frac_part;
 }
 
+inline float distance(const Vector2 &v1, const Vector2 &v2) {
+	return distance(v1.x, v1.y, v2.x, v2.y);
+}
+
 inline float distance(const Vector3 &v1, const Vector3 &v2) {
 	return distance(v1.x, v1.z, v2.x, v2.z);
 }

@@ -1077,12 +1077,12 @@ float ScriptBase::World_Waypoint_Query_Z(int waypointId) {
 
 void ScriptBase::Combat_Cover_Waypoint_Set_Data(int combatCoverId, int type, int setId, int sceneId, float x, float y, float z) {
 	//TODO
-	warning("Combat_Cover_Waypoint_Set_Data(%d, %d, %d, %d, %f, %f, %f)", combatCoverId, type, setId, sceneId, x, y, z);
+	// warning("Combat_Cover_Waypoint_Set_Data(%d, %d, %d, %d, %f, %f, %f)", combatCoverId, type, setId, sceneId, x, y, z);
 }
 
 void ScriptBase::Combat_Flee_Waypoint_Set_Data(int combatFleeWaypointId, int type, int setId, int sceneId, float x, float y, float z, int a8) {
 	//TODO
-	warning("Combat_Cover_Waypoint_Set_Data(%d, %d, %d, %d, %f, %f, %f, %d)", combatFleeWaypointId, type, setId, sceneId, x, y, z, a8);
+	// warning("Combat_Cover_Waypoint_Set_Data(%d, %d, %d, %d, %f, %f, %f, %d)", combatFleeWaypointId, type, setId, sceneId, x, y, z, a8);
 }
 
 void ScriptBase::Police_Maze_Target_Track_Add(int itemId, float startX, float startY, float startZ, float endX, float endY, float endZ, int steps, signed int data[], bool a10) {
@@ -1244,6 +1244,7 @@ void ScriptBase::Unclickable_Object(const char *objectName) {
 
 void ScriptBase::Obstacle_Object(const char *objectName, bool updateWalkpath) {
 	int objectId = _vm->_scene->findObject(objectName);
+	debug("ScriptBase::Obstacle_Object(\"%s\", %d) %d", objectName, updateWalkpath, objectId);
 	if (objectId == -1)
 		return;
 	_vm->_scene->objectSetIsObstacle(objectId, true, !_vm->_sceneIsLoading, !_vm->_sceneIsLoading && updateWalkpath);

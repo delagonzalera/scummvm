@@ -168,6 +168,7 @@ bool Scene::open(int setId, int sceneId, bool isLoadingGame) {
 		}
 	}
 
+	debug("_set->addObjectsToScene");
 	_set->addObjectsToScene(_vm->_sceneObjects);
 	_vm->_items->addToSet(setId);
 	_vm->_sceneObjects->updateObstacles();
@@ -349,8 +350,10 @@ void Scene::objectSetIsClickable(int objectId, bool isClickable, bool sceneLoade
 
 void Scene::objectSetIsObstacle(int objectId, bool isObstacle, bool sceneLoaded, bool updateWalkpath) {
 	_set->objectSetIsObstacle(objectId, isObstacle);
+	debug("sceneLoaded: %d", sceneLoaded);
 	if (sceneLoaded) {
 		_vm->_sceneObjects->setIsObstacle(objectId + kSceneObjectOffsetObjects, isObstacle);
+		debug("updateWalkpath: %d", updateWalkpath);
 		if (updateWalkpath) {
 			_vm->_sceneObjects->updateObstacles();
 		}

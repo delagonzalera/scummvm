@@ -41,6 +41,7 @@ class Debugger : public GUI::Debugger{
 
 public:
 	bool _viewSceneObjects;
+	bool _viewObstacles;
 	bool _viewUI;
 	bool _viewZBuffer;
 

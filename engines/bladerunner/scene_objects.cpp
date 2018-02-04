@@ -177,6 +177,8 @@ int SceneObjects::findById(int sceneObjectId) const {
 }
 
 bool SceneObjects::addSceneObject(int sceneObjectId, SceneObjectType sceneObjectType, BoundingBox *boundingBox, Common::Rect *screenRectangle, bool isClickable, bool isObstacle, uint8 unknown1, bool isTarget, bool isMoving, bool isRetired) {
+	debug("addSceneObject: %d", sceneObjectId);
+
 	int index = findEmpty();
 	if (index == -1) {
 		return false;
@@ -212,6 +214,7 @@ bool SceneObjects::addSceneObject(int sceneObjectId, SceneObjectType sceneObject
 
 	_sceneObjectsSortedByDistance[i] = index;
 	++_count;
+	debug("_count: %d", _count);
 	return true;
 }
 
@@ -315,9 +318,11 @@ void SceneObjects::setIsTarget(int sceneObjectId, bool isTarget) {
 
 void SceneObjects::updateObstacles() {
 	_vm->_obstacles->clear();
+	debug("_count: %d", _count);
 	for (int i = 0; i < _count; ++i) {
 		int index = _sceneObjectsSortedByDistance[i];
 		const SceneObject *sceneObject = &_sceneObjects[index];
+		debug("isObstacle: %d", sceneObject->isObstacle);
 		if (sceneObject->isObstacle) {
 			float x0, y0, z0, x1, y1, z1;
 			sceneObject->boundingBox->getXYZ(&x0, &y0, &z0, &x1, &y1, &z1);
