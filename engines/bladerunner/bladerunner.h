@@ -75,6 +75,7 @@ class Mouse;
 class Music;
 class Obstacles;
 class Overlays;
+class PoliceMaze;
 class Scene;
 class SceneObjects;
 class SceneScript;
@@ -131,6 +132,7 @@ public:
 	Music              *_music;
 	Obstacles          *_obstacles;
 	Overlays           *_overlays;
+	PoliceMaze         *_policeMaze;
 	Scene              *_scene;
 	SceneObjects       *_sceneObjects;
 	SceneScript        *_sceneScript;
@@ -255,6 +257,11 @@ public:
 	bool playerHasControl();
 	void playerLosesControl();
 	void playerGainsControl();
+
+	bool saveGame(const Common::String &filename, byte *thumbnail);
+	void loadGame();
+	void newGame();
+	void autoSaveGame();
 
 	void ISez(const char *str);
 

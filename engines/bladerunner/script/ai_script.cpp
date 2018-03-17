@@ -329,4 +329,28 @@ void AIScripts::changeAnimationMode(int actor, int mode) {
 	_inScriptCounter--;
 }
 
+void AIScripts::queryAnimationState(int actor, int *animationState, int *animationFrame, int *animationStateNext, int *nextAnimation) {
+	if (actor >= _actorCount) {
+		return;
+	}
+
+	_inScriptCounter++;
+	if (_AIScripts[actor]) {
+		_AIScripts[actor]->QueryAnimationState(animationState, animationFrame, animationStateNext, nextAnimation);
+	}
+	_inScriptCounter--;
+}
+
+void AIScripts::setAnimationState(int actor, int animationState, int animationFrame, int animationStateNext, int animationNext) {
+	if (actor >= _actorCount) {
+		return;
+	}
+
+	_inScriptCounter++;
+	if (_AIScripts[actor]) {
+		_AIScripts[actor]->SetAnimationState(animationState, animationFrame, animationStateNext, animationNext);
+	}
+	_inScriptCounter--;
+}
+
 } // End of namespace BladeRunner

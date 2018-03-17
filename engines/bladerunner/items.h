@@ -30,6 +30,8 @@
 
 namespace BladeRunner {
 
+class SaveFile;
+
 class Items {
 	BladeRunnerEngine *_vm;
 
@@ -50,6 +52,7 @@ public:
 	bool isTarget(int itemId) const;
 	int findTargetUnderMouse(int mouseX, int mouseY) const;
 
+	void save(SaveFile &f);
 private:
 	int findItem(int itemId) const;
 };

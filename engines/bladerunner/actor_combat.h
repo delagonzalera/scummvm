@@ -28,6 +28,7 @@
 namespace BladeRunner {
 
 class BladeRunnerEngine;
+class SaveFile;
 
 class ActorCombat {
 	BladeRunnerEngine *_vm;
@@ -59,6 +60,8 @@ public:
 	~ActorCombat();
 
 	void setup();
+
+	void save(SaveFile &f);
 
 	void hitAttempt();
 

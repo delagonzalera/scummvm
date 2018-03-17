@@ -22,10 +22,10 @@
 
 #include "bladerunner/combat.h"
 
-
 #include "bladerunner/actor.h"
 #include "bladerunner/bladerunner.h"
 #include "bladerunner/game_constants.h"
+#include "bladerunner/savefile.h"
 #include "bladerunner/settings.h"
 
 namespace BladeRunner {
@@ -107,6 +107,17 @@ int Combat::getMissSound() {
 
 void Combat::shoot(int actorId, Vector3 &to, int screenX) {
 
+}
+
+void Combat::save(SaveFile &f) {
+	f.write(_active);
+	f.write(_enabled);
+	for (int i = 0; i != 9; ++i) {
+		f.write(_hitSoundId[i]);
+	}
+	for (int i = 0; i != 9; ++i) {
+		f.write(_missSoundId[i]);
+	}
 }
 
 } // End of namespace BladeRunner
