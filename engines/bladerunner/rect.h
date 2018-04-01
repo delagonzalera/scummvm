@@ -29,47 +29,44 @@
 
 namespace BladeRunner {
 
-struct Rect;
-bool overlaps(const Rect &a, const Rect &b);
-
 struct Rect {
-	float top;
-	float left;
-	float bottom;
-	float right;
+	float x0;
+	float y0;
+	float x1;
+	float y1;
 
 	Rect()
-		: top(0.0f), left(0.0f), bottom(0.0f), right(0.0f)
+		: x0(0.0f), y0(0.0f), x1(0.0f), y1(0.0f)
 	{}
-	Rect(float top, float left, float bottom, float right)
-		: top(top), left(left), bottom(bottom), right(right)
+	Rect(float x0, float y0, float x1, float y1)
+		: x0(x0), y0(y0), x1(x1), y1(y1)
 	{}
 
 	void expand(float d) {
-		top    -= d;
-		left   -= d;
-		bottom += d;
-		right  += d;
+		x0 -= d;
+		y0 -= d;
+		x1 += d;
+		y1 += d;
 	}
 
 	void trunc_2_decimals() {
-		top    = truncf(top    * 100.0f) / 100.0f;
-		left   = truncf(left   * 100.0f) / 100.0f;
-		bottom = truncf(bottom * 100.0f) / 100.0f;
-		right  = truncf(right  * 100.0f) / 100.0f;
+		x0 = truncf(x0 * 100.0f) / 100.0f;
+		y0 = truncf(y0 * 100.0f) / 100.0f;
+		x1 = truncf(x1 * 100.0f) / 100.0f;
+		y1 = truncf(y1 * 100.0f) / 100.0f;
 	}
 };
 
 inline bool overlaps(const Rect &a, const Rect &b) {
-	return a.left < b.right && a.right > b.left && a.top > b.bottom && a.bottom < b.top;
+	return !(a.y1 < b.y0 || a.y0 > b.y1 || a.x0 > b.x1 || a.x1 < b.x0);
 }
 
 inline Rect merge(const Rect &a, const Rect &b) {
 	Rect c;
-	c.top    = MIN(a.top,    b.top);
-	c.left   = MIN(a.left,   b.left);
-	c.bottom = MAX(a.bottom, b.bottom);
-	c.right  = MAX(a.right,  b.right);
+	c.x0 = MIN(a.x0, b.x0);
+	c.y0 = MIN(a.y0, b.y0);
+	c.x1 = MAX(a.x1, b.x1);
+	c.y1 = MAX(a.y1, b.y1);
 	return c;
 }
 

@@ -37,6 +37,14 @@ public:
 	Vector2(float ax, float ay) : x(ax), y(ay) {}
 };
 
+inline bool operator==(const Vector2 &a, const Vector2 &b) {
+	return a.x == b.x && a.y == b.y;
+}
+
+inline bool operator!=(const Vector2 &a, const Vector2 &b) {
+	return !(a == b);
+}
+
 class Vector3 {
 public:
 	float x;
