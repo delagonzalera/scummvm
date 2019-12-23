@@ -101,7 +101,7 @@ bool SceneScriptUG01::ClickedOn3DObject(const char *objectName, bool a2) {
 		 && !Game_Flag_Query(kFlagUG01SteamOff)
 		) {
 #if BLADERUNNER_ORIGINAL_BUGS
-			Actor_Says(kActorMcCoy, 8525, 13);
+			Actor_Says(kActorMcCoy, 8525, 13); // McCoy: Hmph.
 			Scene_Loop_Set_Default(kUG01LoopMainLoopNoSteam);
 			Scene_Loop_Start_Special(kSceneLoopModeOnce, kUG01LoopSteamDissapating, true);
 #else
@@ -114,7 +114,7 @@ bool SceneScriptUG01::ClickedOn3DObject(const char *objectName, bool a2) {
 #endif // BLADERUNNER_ORIGINAL_BUGS
 			Game_Flag_Set(kFlagUG01SteamOff);
 		} else {
-			Actor_Says(kActorMcCoy, 8525, 13);
+			Actor_Says(kActorMcCoy, 8525, 13); // McCoy: Hmph.
 		}
 	}
 	return false;

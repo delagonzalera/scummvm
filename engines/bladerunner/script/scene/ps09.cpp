@@ -81,9 +81,9 @@ bool SceneScriptPS09::ClickedOnActor(int actorId) {
 			Actor_Face_Actor(kActorGrigorian, kActorMcCoy, true);
 
 			if (!Game_Flag_Query(kFlagPS09GrigorianTalk1)) {
-				Actor_Says(kActorGrigorian, 0, 12);
-				Actor_Says(kActorMcCoy, 4235, 18);
-				Actor_Says(kActorGrigorian, 10, 13);
+				Actor_Says(kActorGrigorian,    0, 12); // Grigorian: Are they letting me out?
+				Actor_Says(kActorMcCoy,     4235, 18); // McCoy: I'm not the one who makes that decision.
+				Actor_Says(kActorGrigorian,   10, 13); // Grigorian: I suppose it's my turn to bear the cross for the cause.
 				Game_Flag_Set(kFlagPS09GrigorianTalk1);
 				return true;
 			}
@@ -94,8 +94,8 @@ bool SceneScriptPS09::ClickedOnActor(int actorId) {
 			 && !Actor_Clue_Query(kActorMcCoy, kClueGrigorianInterviewB1)
 			 && !Actor_Clue_Query(kActorMcCoy, kClueGrigorianInterviewB2)
 			) {
-				Actor_Says(kActorMcCoy, 4245, 14);
-				Actor_Says(kActorGrigorian, 20, 14);
+				Actor_Says(kActorMcCoy,     4245, 14); // McCoy: Who are you anyway?
+				Actor_Says(kActorGrigorian,   20, 14); // Grigorian: Please leave me alone. My migraine's acting up.
 				Game_Flag_Set(kFlagPS09GrigorianTalk2);
 				return true;
 			}
@@ -109,17 +109,17 @@ bool SceneScriptPS09::ClickedOnActor(int actorId) {
 			 )
 			) {
 				Game_Flag_Set(kFlagPS09GrigorianDialogue);
-				Actor_Says(kActorMcCoy, 4240, 13);
-				Actor_Says(kActorGrigorian, 550, 15);
-				Actor_Says(kActorGrigorian, 480, 16);
+				Actor_Says(kActorMcCoy,     4240, 13); // McCoy: You're Spencer Grigorian, right?
+				Actor_Says(kActorGrigorian,  550, 15); // Grigorian: No.
+				Actor_Says(kActorGrigorian,  480, 16); // Grigorian: I really think my lawyer should be here.
 				dialogueWithGrigorian();
 				return true;
 			}
 
 			if (Game_Flag_Query(kFlagGrigorianDislikeMcCoy)) {
-				Actor_Says(kActorMcCoy, 4270, 18);
-				Actor_Says(kActorGrigorian, 30, 14);
-				Actor_Says(kActorGrigorian, 40, 13);
+				Actor_Says(kActorMcCoy,     4270, 18); // McCoy: I got some more questions for you.
+				Actor_Says(kActorGrigorian,   30, 14); // Grigorian: Your associate, miss Steele, has already taken my statement.
+				Actor_Says(kActorGrigorian,   40, 13); // Grigorian: I have nothing more to say, unless I have an attorney present.
 				return true;
 			}
 
@@ -134,9 +134,9 @@ bool SceneScriptPS09::ClickedOnActor(int actorId) {
 				return true;
 			}
 
-			Actor_Says(kActorMcCoy, 4270, 18);
-			Actor_Says(kActorGrigorian, 30, 14);
-			Actor_Says(kActorGrigorian, 40, 13);
+			Actor_Says(kActorMcCoy,     4270, 18); // McCoy: I got some more questions for you.
+			Actor_Says(kActorGrigorian,   30, 14); // Grigorian: Your associate, miss Steele, has already taken my statement.
+			Actor_Says(kActorGrigorian,   40, 13); // Grigorian: I have nothing more to say, unless I have an attorney present.
 			return true;
 		}
 	}
@@ -147,9 +147,9 @@ bool SceneScriptPS09::ClickedOnActor(int actorId) {
 			Actor_Face_Actor(kActorIzo, kActorMcCoy, true);
 
 			if (!Game_Flag_Query(kFlagPS09IzoTalk1)) {
-				Actor_Says(kActorMcCoy, 4200, 14);
-				Actor_Says(kActorIzo, 570, kAnimationModeTalk);
-				Actor_Says(kActorMcCoy, 4205, 18);
+				Actor_Says(kActorMcCoy, 4200,                 14); // McCoy: You look right at home in there, Izo.
+				Actor_Says(kActorIzo,    570, kAnimationModeTalk); // Izo: I've been in much tighter spots than this, McCoy.
+				Actor_Says(kActorMcCoy, 4205,                 18); // McCoy: I'll bet. But this is only the beginning.
 				Game_Flag_Set(kFlagPS09IzoTalk1);
 				return true;
 			}
@@ -157,21 +157,21 @@ bool SceneScriptPS09::ClickedOnActor(int actorId) {
 			if ( Game_Flag_Query(kFlagPS09IzoTalk1)
 			 && !Game_Flag_Query(kFlagPS09IzoTalk2)
 			) {
-				Actor_Says(kActorMcCoy, 4210, 18);
-				Actor_Says(kActorIzo, 580, kAnimationModeTalk);
-				Actor_Says(kActorMcCoy, 4215, 14);
-				Actor_Says(kActorIzo, 590, kAnimationModeTalk);
-				Actor_Says(kActorIzo, 600, kAnimationModeTalk);
-				Actor_Says(kActorMcCoy, 4220, 18);
-				Actor_Says(kActorIzo, 610, kAnimationModeTalk);
-				Actor_Says(kActorMcCoy, 4225, 19);
-				Actor_Says(kActorIzo, 620, kAnimationModeTalk);
-				Actor_Says(kActorMcCoy, 4230, 14);
+				Actor_Says(kActorMcCoy, 4210,                 18); // McCoy: You ready to supply me some answers?
+				Actor_Says(kActorIzo,    580, kAnimationModeTalk); // Izo: I wish I had something to say.
+				Actor_Says(kActorMcCoy, 4215,                 14); // McCoy: I know your hands are dirty, Izo.
+				Actor_Says(kActorIzo,    590, kAnimationModeTalk); // Izo: Everybody in this world is trying to better himself. No matter what the terms are.
+				Actor_Says(kActorIzo,    600, kAnimationModeTalk); // Izo: If that counts as dirty, so be it.
+				Actor_Says(kActorMcCoy, 4220,                 18); // McCoy: The terms of your conviction won't be too clean.
+				Actor_Says(kActorIzo,    610, kAnimationModeTalk); // Izo: I'll be through with this place long before you, McCoy.
+				Actor_Says(kActorMcCoy, 4225,                 19); // McCoy: Yeah, I'm sure you've been saving up for a rainy day selling all those illegal weapons.
+				Actor_Says(kActorIzo,    620, kAnimationModeTalk); // Izo: One never knows when fate will conspire. You must be prepared.
+				Actor_Says(kActorMcCoy, 4230,                 14); // McCoy: You're a real trouper, Izo.
 				Game_Flag_Set(kFlagPS09IzoTalk2);
 				return true;
 			}
 
-			Actor_Says(kActorMcCoy, 4200, 13);
+			Actor_Says(kActorMcCoy, 4200, 13); // McCoy: You look right at home in there, Izo.
 			return true;
 		}
 	}
@@ -182,9 +182,9 @@ bool SceneScriptPS09::ClickedOnActor(int actorId) {
 			Actor_Face_Actor(kActorCrazylegs, kActorMcCoy, true);
 
 			if (!Game_Flag_Query(kFlagPS09CrazylegsTalk1)) {
-				Actor_Says(kActorMcCoy, 4415, 18);
-				Actor_Says(kActorCrazylegs, 1090, kAnimationModeTalk);
-				Actor_Says(kActorMcCoy, 4420, 18);
+				Actor_Says(kActorMcCoy,     4415,                 18); // McCoy: Guess you can't sell a whole lot of cars from down here, Crazy.
+				Actor_Says(kActorCrazylegs, 1090, kAnimationModeTalk); // Crazylegs: I'm being railroaded! All I did was conduct business as per usual.
+				Actor_Says(kActorMcCoy,     4420,                 18); // McCoy: Contacting business with Reps is against the Law.
 				Game_Flag_Set(kFlagPS09CrazylegsTalk1);
 			}
 
@@ -193,13 +193,13 @@ bool SceneScriptPS09::ClickedOnActor(int actorId) {
 			 && !Game_Flag_Query(kFlagPS09CrazylegsGrigorianTalk)
 			) {
 				Actor_Face_Actor(kActorGrigorian, kActorCrazylegs, true);
-				Actor_Says(kActorGrigorian, 420, 14);
+				Actor_Says(kActorGrigorian, 420, 14); // Grigorian: You don't have to be afraid of the truth, Larry.
 				Actor_Face_Actor(kActorCrazylegs, kActorGrigorian, true);
-				Actor_Says(kActorCrazylegs, 1120, kAnimationModeTalk);
+				Actor_Says(kActorCrazylegs, 1120, kAnimationModeTalk); // Crazylegs: I don't know what you're talking about.
 				Actor_Face_Actor(kActorMcCoy, kActorGrigorian, true);
-				Actor_Says(kActorMcCoy, 4435, 14);
-				Actor_Says(kActorGrigorian, 430, 16);
-				Actor_Says(kActorCrazylegs, 1130, kAnimationModeTalk);
+				Actor_Says(kActorMcCoy,     4435,                 14); // McCoy: You got a bad case of diarrhea of the mouth, Spencer.
+				Actor_Says(kActorGrigorian,  430,                 16); // Grigorian: In that case I'll zip my lips.
+				Actor_Says(kActorCrazylegs, 1130, kAnimationModeTalk); // Crazylegs: Damn good idea!
 				Game_Flag_Set(kFlagPS09CrazylegsGrigorianTalk);
 				return true;
 			}
@@ -207,16 +207,16 @@ bool SceneScriptPS09::ClickedOnActor(int actorId) {
 			if ( Game_Flag_Query(kFlagPS09CrazylegsTalk1)
 			 && !Game_Flag_Query(kFlagGrigorianArrested)
 			 && !Game_Flag_Query(kFlagPS09CrazylegsTalk2)) {
-				Actor_Says(kActorMcCoy, 4425, 18);
-				Actor_Says(kActorCrazylegs, 1100, kAnimationModeTalk);
-				Actor_Says(kActorMcCoy, 4430, 19);
-				Actor_Says(kActorCrazylegs, 1110, kAnimationModeTalk);
+				Actor_Says(kActorMcCoy,     4425,                 18); // McCoy: How about naming some names for me, Crazy.
+				Actor_Says(kActorCrazylegs, 1100, kAnimationModeTalk); // Crazylegs: Whatever happened I was ignorant, McCoy.
+				Actor_Says(kActorMcCoy,     4430,                 19); // McCoy: I figured you for a lot of things but ignorant wasn't one of them.
+				Actor_Says(kActorCrazylegs, 1110, kAnimationModeTalk); // Crazylegs: You'd know what I mean.
 				Game_Flag_Set(kFlagPS09CrazylegsTalk2);
 				return true;
 			}
 
-			Actor_Says(kActorMcCoy, 4425, 18);
-			Actor_Says(kActorCrazylegs, 1160, kAnimationModeTalk);
+			Actor_Says(kActorMcCoy,     4425,                 18); // McCoy: How about naming some names for me, Crazy.
+			Actor_Says(kActorCrazylegs, 1160, kAnimationModeTalk); // Crazylegs: Take a ride, McCoy. I already told you everything.
 			return true;
 		}
 	}
@@ -329,106 +329,106 @@ void SceneScriptPS09::dialogueWithGrigorian() {
 
 	switch (answer) {
 	case 170: // PROTEST
-		Actor_Says(kActorMcCoy, 4270, 13);
-		Actor_Says(kActorMcCoy, 4250, 18);
-		Actor_Says(kActorGrigorian, 50, 13);
-		Actor_Says(kActorMcCoy, 4275, 18);
-		Actor_Says(kActorMcCoy, 4280, 19);
+		Actor_Says(kActorMcCoy,     4270, 13); // McCoy: I got some more questions for you.
+		Actor_Says(kActorMcCoy,     4250, 18); // McCoy: Tell me about your protest at Tyrell's plant.
+		Actor_Says(kActorGrigorian,   50, 13); // Grigorian: I already told that other detective everything. Under duress.
+		Actor_Says(kActorMcCoy,     4275, 18); // McCoy: I want to know about the people who were there.
+		Actor_Says(kActorMcCoy,     4280, 19); // McCoy: The Rastafarian and the Asian guy with the sunglasses.
 		if (Game_Flag_Query(kFlagIzoIsReplicant)) {
-			Actor_Says(kActorGrigorian, 60, 14);
-			Actor_Says(kActorMcCoy, 4285, 13);
-			Actor_Says(kActorGrigorian, 70, 12);
-			Actor_Says(kActorMcCoy, 4290, 13);
-			Actor_Says(kActorGrigorian, 80, 13);
-			Actor_Says(kActorGrigorian, 90, 13);
-			Actor_Says(kActorMcCoy, 4295, 18);
-			Actor_Says(kActorGrigorian, 110, 14);
-			Actor_Says(kActorMcCoy, 4300, 17);
+			Actor_Says(kActorGrigorian,   60, 14); // Grigorian: I don't know them.
+			Actor_Says(kActorMcCoy,     4285, 13); // McCoy: Were they together?
+			Actor_Says(kActorGrigorian,   70, 12); // Grigorian: They seemed to be. I saw them talking.
+			Actor_Says(kActorMcCoy,     4290, 13); // McCoy: Before or after the explosion?
+			Actor_Says(kActorGrigorian,   80, 13); // Grigorian: Before. I didn't see them at all after.
+			Actor_Says(kActorGrigorian,   90, 13); // Grigorian: That's all I know, I swear. I wouldn't even know where to find explosives. I-- I'm not a violent man.
+			Actor_Says(kActorMcCoy,     4295, 18); // McCoy: Of course you aren't. You just want to let Replicants walk the streets.
+			Actor_Says(kActorGrigorian,  110, 14); // Grigorian: They're not killers, detective. They're innocents. They just want to live a decent productive life like you or me.
+			Actor_Says(kActorMcCoy,     4300, 17); // McCoy: It's that simple, huh?
 			return;
 		}
 		if (!Game_Flag_Query(kFlagIzoIsReplicant)) {
-			Actor_Says(kActorGrigorian, 130, 15);
-			Actor_Says(kActorGrigorian, 140, 13);
-			Actor_Says(kActorMcCoy, 4305, 13);
-			Actor_Says(kActorGrigorian, 150, 14);
-			Actor_Says(kActorGrigorian, 160, 12);
-			Actor_Says(kActorMcCoy, 4310, 13);
-			Actor_Says(kActorGrigorian, 170, 15);
-			Actor_Says(kActorGrigorian, 180, 16);
-			Actor_Says(kActorMcCoy, 4315, 18);
+			Actor_Says(kActorGrigorian,  130, 15); // Grigorian: I didn't know the Rastafarian.
+			Actor_Says(kActorGrigorian,  140, 13); // Grigorian: The Asian fellow was one of our ex members. Izo was his name.
+			Actor_Says(kActorMcCoy,     4305, 13); // McCoy: How long did you know him for?
+			Actor_Says(kActorGrigorian,  150, 14); // Grigorian: Let's see... I met him about five years ago.
+			Actor_Says(kActorGrigorian,  160, 12); // Grigorian: He seemed so smart and balanced. He really wanted to help the Replicant people.
+			Actor_Says(kActorMcCoy,     4310, 13); // McCoy: Then what?
+			Actor_Says(kActorGrigorian,  170, 15); // Grigorian: He started associating with the more militant factions.
+			Actor_Says(kActorGrigorian,  180, 16); // Grigorian: I was astounded when I heard he was supplying weapons to some of them.
+			Actor_Says(kActorMcCoy,     4315, 18); // McCoy: What kind of weapons?
 			if (_vm->_cutContent) {
-				Actor_Says(kActorGrigorian, 190, kAnimationModeTalk); // Everything and anything.
+				Actor_Says(kActorGrigorian, 190, kAnimationModeTalk); // Grigorian: Everything and anything.
 			}
-			Actor_Says(kActorGrigorian, 200, 13);
+			Actor_Says(kActorGrigorian, 200, 13); // Grigorian: Guns so new that even the police had hardly used them I heard.
 			return;
 		}
 		break;
 
 	case 180: // CARS
-		Actor_Says(kActorMcCoy, 4270, 18);
-		Actor_Says(kActorMcCoy, 4255, kAnimationModeTalk);
-		Actor_Says(kActorGrigorian, 210, 12);
-		Actor_Says(kActorGrigorian, 220, 13);
-		Actor_Says(kActorGrigorian, 230, 14);
-		Actor_Says(kActorMcCoy, 4320, 14);
+		Actor_Says(kActorMcCoy,     4270,                 18); // McCoy: I got some more questions for you.
+		Actor_Says(kActorMcCoy,     4255, kAnimationModeTalk); // McCoy: Lot of people involved in your cause, Spencer?
+		Actor_Says(kActorGrigorian,  210,                 12); // Grigorian: Yes sir. We're growing fast.
+		Actor_Says(kActorGrigorian,  220,                 13); // Grigorian: As more and more people realize that Replicants have cognitive and emotional legitimacy.
+		Actor_Says(kActorGrigorian,  230,                 14); // Grigorian: The "Citizens Against Replicant Slavery" will spearhead the movement towards--
+		Actor_Says(kActorMcCoy,     4320,                 14); // McCoy: Save the pitch for someone who gives a shit.
 		if (_vm->_cutContent) {
-			Actor_Says(kActorMcCoy, 4325, kAnimationModeTalk); // What else do you guys do besides wave signs
+			Actor_Says(kActorMcCoy, 4325, kAnimationModeTalk); // McCoy: What else do you guys do besides wave signs and get arrested?
 		}
-		Actor_Says(kActorGrigorian, 240, 16);
-		Actor_Says(kActorGrigorian, 250, 15);
-		Actor_Says(kActorMcCoy, 4330, 13);
-		Actor_Says(kActorGrigorian, 260, 13);
-		Actor_Says(kActorGrigorian, 270, 12);
+		Actor_Says(kActorGrigorian,  240, 16); // Grigorian: We're peaceful people, detective.
+		Actor_Says(kActorGrigorian,  250, 15); // Grigorian: We live by a code that men like you could never understand.
+		Actor_Says(kActorMcCoy,     4330, 13); // McCoy: Try me.
+		Actor_Says(kActorGrigorian,  260, 13); // Grigorian: Two centuries ago humans were held in slavery.
+		Actor_Says(kActorGrigorian,  270, 12); // Grigorian: Brave souls formed an Underground Railroad.
 		if (_vm->_cutContent) {
-			Actor_Says(kActorGrigorian, 280, 12); // A way for the slaves to escape
+			Actor_Says(kActorGrigorian, 280, 12); // Grigorian: A way for the slaves to escape cruelty and find freedom.
 		}
-		Actor_Says(kActorMcCoy, 4335, 18);
-		Actor_Says(kActorGrigorian, 290, 15);
-		Actor_Says(kActorMcCoy, 4340, 13);
+		Actor_Says(kActorMcCoy,     4335, 18); // McCoy: So you help Replicants escape the city.
+		Actor_Says(kActorGrigorian,  290, 15); // Grigorian: I'm talking figuratively, detective.
+		Actor_Says(kActorMcCoy,     4340, 13); // McCoy: Sure you are.
 		Actor_Modify_Friendliness_To_Other(kActorGrigorian, kActorMcCoy, -5);
 		if (Game_Flag_Query(kFlagCrazylegsArrested)) {
-			Actor_Says(kActorGrigorian, 300, 12);
+			Actor_Says(kActorGrigorian, 300, 12); // Grigorian: You support the cause, don't you Larry?
 			Actor_Face_Actor(kActorCrazylegs, kActorGrigorian, true);
-			Actor_Says(kActorCrazylegs, 1010, kAnimationModeTalk);
+			Actor_Says(kActorCrazylegs, 1010, kAnimationModeTalk); // Crazylegs: Hey, now don't bring me into it.
 			Actor_Face_Actor(kActorGrigorian, kActorCrazylegs, true);
-			Actor_Says(kActorGrigorian, 310, 16);
+			Actor_Says(kActorGrigorian, 310, 16); // Grigorian: You don't have to be ashamed of your feelings tow---
 			Actor_Face_Actor(kActorMcCoy, kActorCrazylegs, true);
-			Actor_Says(kActorMcCoy, 4345, 14);
+			Actor_Says(kActorMcCoy, 4345, 14); // McCoy: Are you supplying vehicles for this venture, Crazy?
 			Actor_Face_Actor(kActorCrazylegs, kActorMcCoy, true);
-			Actor_Says(kActorCrazylegs, 1020, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 4350, 18);
-			Actor_Says(kActorCrazylegs, 1030, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 4355, 19);
-			Actor_Says(kActorCrazylegs, 1040, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 4360, 16);
+			Actor_Says(kActorCrazylegs, 1020, kAnimationModeTalk); // Crazylegs: Well, for some kind of Underground Railroad why would I waste my inventory on that?
+			Actor_Says(kActorMcCoy,     4350,                 18); // McCoy: You tell me.
+			Actor_Says(kActorCrazylegs, 1030, kAnimationModeTalk); // Crazylegs: I don't care whether they're Reps or humans as long as the chinyen is real.
+			Actor_Says(kActorMcCoy,     4355,                 19); // McCoy: So you were ready to do business with the Reps who dropped by your place.
+			Actor_Says(kActorCrazylegs, 1040, kAnimationModeTalk); // Crazylegs: Hey, I didn't know what that broad was.
+			Actor_Says(kActorMcCoy,     4360,                 16); // McCoy: Tell it straight or I'm gonna make sure you get the same as he gets. Full conspiracy, payable for 25.
 			Actor_Says(kActorMcCoy, 4365, 14);
-			Actor_Says(kActorCrazylegs, 1050, kAnimationModeTalk);
-			Actor_Says(kActorCrazylegs, 1060, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 4370, 14);
-			Actor_Says(kActorCrazylegs, 1070, kAnimationModeTalk);
-			Actor_Says(kActorCrazylegs, 1080, kAnimationModeTalk);
+			Actor_Says(kActorCrazylegs, 1050, kAnimationModeTalk); // Crazylegs: Look. Now I believe in laissez-faire.
+			Actor_Says(kActorCrazylegs, 1060, kAnimationModeTalk); // Crazylegs: I believe everyone can do what they gotta do. For a price, okay?
+			Actor_Says(kActorMcCoy,     4370,                 14); // McCoy: You're a real humanitarian.
+			Actor_Says(kActorCrazylegs, 1070, kAnimationModeTalk); // Crazylegs: Hey, McCoy, I've lost the use of my legs defending these goddamn people Off-World.
+			Actor_Says(kActorCrazylegs, 1080, kAnimationModeTalk); // Crazylegs: I don't owe them anything.
 		} else {
-			Actor_Says(kActorGrigorian, 320, 13);
+			Actor_Says(kActorGrigorian, 320, 13); // Grigorian: We're not children, detective. We have resources.
 			if (_vm->_cutContent) {
-				Actor_Says(kActorGrigorian, 330, kAnimationModeTalk); // Friends with access to vehicles
+				Actor_Says(kActorGrigorian, 330, kAnimationModeTalk); // Grigorian: Friends with access to vehicles, to escape routes.
 			}
-			Actor_Says(kActorGrigorian, 340, 14);
-			Actor_Says(kActorGrigorian, 350, 12);
-			Actor_Says(kActorMcCoy, 4375, 18);
+			Actor_Says(kActorGrigorian,  340, 14); // Grigorian: The world is changing.
+			Actor_Says(kActorGrigorian,  350, 12); // Grigorian: People are waking up to the injustices perpetrated by a sick society that you have helped--
+			Actor_Says(kActorMcCoy,     4375, 18); // McCoy: A lot of them will wake up dead, if Reps are allowed to run amok on Terra, jerk.
 		}
 		break;
 
 	case 190: // NOTE
-		Actor_Says(kActorMcCoy, 4270, 18);
-		Actor_Says(kActorMcCoy, 4260, kAnimationModeTalk);
-		Actor_Says(kActorGrigorian, 360, 16);
-		Actor_Says(kActorMcCoy, 4380, 19);
-		Actor_Says(kActorMcCoy, 4385, 19);
-		Actor_Says(kActorGrigorian, 370, 13);
-		Actor_Says(kActorMcCoy, 4390, 19);
-		Actor_Says(kActorMcCoy, 4395, 18);
-		Actor_Says(kActorGrigorian, 380, 14);
-		Actor_Says(kActorGrigorian, 390, 12);
+		Actor_Says(kActorMcCoy,     4270,                 18); // McCoy: I got some more questions for you.
+		Actor_Says(kActorMcCoy,     4260, kAnimationModeTalk); // McCoy: You've been helping Reps, pal?
+		Actor_Says(kActorGrigorian,  360,                 16); // Grigorian: Through peaceful protest only.
+		Actor_Says(kActorMcCoy,     4380,                 19); // McCoy: So talk to me about the Reps with the black Sedan. I found your note in their car.
+		Actor_Says(kActorMcCoy,     4385,                 19); // McCoy: Help these lost souls. Isn't that what it said?
+		Actor_Says(kActorGrigorian,  370,                 13); // Grigorian: We still have freedom of speech in this country. I can write whatever I please.
+		Actor_Says(kActorMcCoy,     4390,                 19); // McCoy: This little exercise of your right smells like criminal conspiracy to me, pal.
+		Actor_Says(kActorMcCoy,     4395,                 18); // McCoy: How was Crazy-legs supposed to help them?
+		Actor_Says(kActorGrigorian,  380,                 14); // Grigorian: You'll have to ask him yourself. I'm not ashamed of what I did. And I'm sure he's not either.
+		Actor_Says(kActorGrigorian,  390,                 12); // Grigorian: (boop)
 		Actor_Modify_Friendliness_To_Other(kActorGrigorian, kActorMcCoy, -5);
 		break;
 
@@ -436,19 +436,19 @@ void SceneScriptPS09::dialogueWithGrigorian() {
 		if (_vm->_cutContent) {
 			Game_Flag_Set(kFlagPS09GrigorianVKChosen);
 		}
-		Actor_Says(kActorMcCoy, 4265, 14);
-		Actor_Says(kActorGrigorian, 400, 13);
-		Actor_Says(kActorMcCoy, 4400, 13);
-		Actor_Says(kActorGrigorian, 410, 16);
-		Actor_Says(kActorMcCoy, 4405, 14);
-		Actor_Says(kActorMcCoy, 4410, 15);
+		Actor_Says(kActorMcCoy,     4265, 14); // McCoy: I'm gonna give you a little test.
+		Actor_Says(kActorGrigorian,  400, 13); // Grigorian: The other detective, she already tested me earlier today.
+		Actor_Says(kActorMcCoy,     4400, 13); // McCoy: Aha, look, I gotta check out the equipment and you're the only stiff around.
+		Actor_Says(kActorGrigorian,  410, 16); // Grigorian: I object to this treatment! If you'll just call my lawyer, he'll take care--
+		Actor_Says(kActorMcCoy,     4405, 14); // McCoy: Your lawyer would tell you I got the authority to V-K the mayor, if I want.
+		Actor_Says(kActorMcCoy,     4410, 15); // McCoy: And he'd have to smile and nod and kiss my butt until I cleared him. So sit down!
 		Voight_Kampff_Activate(kActorGrigorian, 20);
 		Actor_Modify_Friendliness_To_Other(kActorGrigorian, kActorMcCoy, -10);
 		break;
 
 	case 210: // DONE
-		Actor_Says(kActorMcCoy, 8600, 18);
-		Actor_Says(kActorGrigorian, 20, 15);
+		Actor_Says(kActorMcCoy,     8600, 18); // McCoy: You keeping busy, pal?
+		Actor_Says(kActorGrigorian,   20, 15); // Grigorian: Please leave me alone. My migraine's acting up.
 		break;
 	}
 }

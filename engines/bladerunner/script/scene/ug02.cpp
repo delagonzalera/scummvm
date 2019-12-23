@@ -109,10 +109,10 @@ bool SceneScriptUG02::ClickedOn3DObject(const char *objectName, bool a2) {
 		if (!Game_Flag_Query(kFlagUG02WeaponsChecked)
 		 &&  Global_Variable_Query(kVariableChapter) < 4
 		) {
-			Actor_Voice_Over(2430, kActorVoiceOver);
-			Actor_Voice_Over(2440, kActorVoiceOver);
-			Actor_Voice_Over(2450, kActorVoiceOver);
-			Actor_Voice_Over(2460, kActorVoiceOver);
+			Actor_Voice_Over(2430, kActorVoiceOver); // Mainframe: There were Off-World rifles here and more.
+			Actor_Voice_Over(2440, kActorVoiceOver); // Mainframe: Grenades, explosives, modern rifles even some police-issue restricted weaponry.
+			Actor_Voice_Over(2450, kActorVoiceOver); // Mainframe: Izo wasn't some small-time fence but a big-time arms dealer.
+			Actor_Voice_Over(2460, kActorVoiceOver); // Mainframe: The exact arms that renegade Replicants would be looking for to survive in the big city.
 			Game_Flag_Set(kFlagUG02WeaponsChecked);
 			Actor_Clue_Acquire(kActorMcCoy, kClueWeaponsCache, true, -1);
 			return true;
@@ -122,34 +122,34 @@ bool SceneScriptUG02::ClickedOn3DObject(const char *objectName, bool a2) {
 			if ( Actor_Clue_Query(kActorMcCoy, kClueWeaponsCache)
 			 && !Actor_Clue_Query(kActorMcCoy, kClueIzosStashRaided)
 			) {
-				Actor_Voice_Over(2470, kActorVoiceOver);
-				Actor_Voice_Over(2480, kActorVoiceOver);
-				Actor_Voice_Over(2490, kActorVoiceOver);
-				Actor_Voice_Over(2500, kActorVoiceOver);
+				Actor_Voice_Over(2470, kActorVoiceOver); // Mainframe: Someone had really torn the place up. If it had been LPD...
+				Actor_Voice_Over(2480, kActorVoiceOver); // Mainframe: the real LPD, they would have confiscated the entire stash.
+				Actor_Voice_Over(2490, kActorVoiceOver); // Mainframe: Instead, Izo's Off-World weaponry was still there.
+				Actor_Voice_Over(2500, kActorVoiceOver); // Mainframe: but all the police-issue firepower was gone.
 				Actor_Clue_Acquire(kActorMcCoy, kClueIzosStashRaided, true, -1);
 			} else if (!Actor_Clue_Query(kActorMcCoy, kClueWeaponsCache)) {
-				Actor_Voice_Over(2510, kActorVoiceOver);
-				Actor_Voice_Over(2520, kActorVoiceOver);
+				Actor_Voice_Over(2510, kActorVoiceOver); // Mainframe: Someone had really torn the place up.
+				Actor_Voice_Over(2520, kActorVoiceOver); // Mainframe: I didn't think it was the LPD, since they would have confiscated all the firepower.
 #if BLADERUNNER_ORIGINAL_BUGS
-				Actor_Voice_Over(2530, kActorVoiceOver); // But there was no way to tell what was missing without Izo standing there checking his inventory.
+				Actor_Voice_Over(2530, kActorVoiceOver); // Mainframe: But there was no way to tell what was missing without Izo standing there checking his inventory.
 #else
 				// This voice over says that Izo is there in Chapter 4 checking out his weapon's cache
 				// This does not happen in the original game (Izo being there) although this case can be triggered
 				// TODO Restore this quote ONLY IF we restore the related cut-content so that Izo may appear here in Chapter 4.
-				//Actor_Voice_Over(2530, kActorVoiceOver); // But there was no way to tell what was missing without Izo standing there checking his inventory.
+				//Actor_Voice_Over(2530, kActorVoiceOver); // Mainframe: But there was no way to tell what was missing without Izo standing there checking his inventory.
 #endif // BLADERUNNER_ORIGINAL_BUGS
 			} else if (!Game_Flag_Query(kFlagUG02AmmoTaken)) {
 				Item_Pickup_Spin_Effect(kModelAnimationAmmoType02, 360, 440);
-				Actor_Says(kActorMcCoy, 8525, 14);
+				Actor_Says(kActorMcCoy, 8525, 14); // McCoy: Hmph.
 				Give_McCoy_Ammo(2, 18);
 				Game_Flag_Set(kFlagUG02AmmoTaken);
 			} else {
-				Actor_Says(kActorMcCoy, 8580, 14);
+				Actor_Says(kActorMcCoy, 8580, 14); // McCoy: Nothing else there.
 			}
 			return true;
 		}
 
-		Actor_Says(kActorMcCoy, 8580, 14);
+		Actor_Says(kActorMcCoy, 8580, 14); // McCoy: Nothing else there.
 	}
 	return false;
 }

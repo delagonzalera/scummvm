@@ -92,18 +92,18 @@ void AIScriptPhotographer::ClickedByPlayer() {
 	) {
 		AI_Movement_Track_Pause(kActorPhotographer);
 		Actor_Face_Actor(kActorMcCoy, kActorPhotographer, true);
-		Actor_Says(kActorMcCoy, 5300, 14);
+		Actor_Says(kActorMcCoy, 5300, 14); // McCoy: This earring yours?
 		Actor_Face_Actor(kActorPhotographer, kActorMcCoy, true);
-		Actor_Says(kActorPhotographer, 20, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 5305, 15);
+		Actor_Says(kActorPhotographer,   20, kAnimationModeTalk); // Photographer: Maybe it belonged to that other cop who was up here. The babe with the shades and the cigarettes.
+		Actor_Says(kActorMcCoy,        5305,                 15); // McCoy: Ain't her style. Call her "babe" to her face you're liable to end up with a severe limp.
 		Game_Flag_Set(kFlagTB06PhotographTalk1);
 		AI_Movement_Track_Unpause(kActorPhotographer);
 	} else {
 		AI_Movement_Track_Pause(kActorPhotographer);
 		Actor_Face_Actor(kActorMcCoy, kActorPhotographer, true);
 		Actor_Face_Actor(kActorPhotographer, kActorMcCoy, true);
-		Actor_Says(kActorMcCoy, 5310, 11);
-		Actor_Says(kActorPhotographer, 40, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy,        5310,                 11); // McCoy: You spot anything you think I ought to know about, tell me.
+		Actor_Says(kActorPhotographer,   40, kAnimationModeTalk); // Photographer: Absolutely.
 		AI_Movement_Track_Unpause(kActorPhotographer);
 	}
 }

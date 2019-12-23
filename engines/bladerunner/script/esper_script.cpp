@@ -49,8 +49,8 @@ void ESPERScript::SCRIPT_ESPER_DLL_Initialize() {
 	int v0 = 0;
 	if (Actor_Clue_Query(kActorMcCoy, kClueRuncitersVideo)) {
 		if (!Actor_Clue_Query(kActorMcCoy, kClueRuncitersViewA)) {
-			Actor_Says(kActorAnsweringMachine, 160, 3);
-			Actor_Says(kActorAnsweringMachine, 180, 3);
+			Actor_Says(kActorAnsweringMachine, 160, 3); // Answering Machine: Scanning video disc.
+			Actor_Says(kActorAnsweringMachine, 180, 3); // Answering Machine: Two enhanceable images found.
 			Actor_Clue_Acquire(kActorMcCoy, kClueRuncitersViewA, true, kActorRunciter);
 			v0 = 1;
 		}
@@ -62,8 +62,8 @@ void ESPERScript::SCRIPT_ESPER_DLL_Initialize() {
 	}
 	if (Actor_Clue_Query(kActorMcCoy, kClueEarlyQsClub)) {
 		if (!Actor_Clue_Query(kActorMcCoy, kClueOuterDressingRoom)) {
-			Actor_Says(kActorAnsweringMachine, 160, 3);
-			Actor_Says(kActorAnsweringMachine, 170, 3);
+			Actor_Says(kActorAnsweringMachine, 160, 3); // Answering Machine: Scanning video disc.
+			Actor_Says(kActorAnsweringMachine, 170, 3); // Answering Machine: One enhanceable image found.
 			Actor_Clue_Acquire(kActorMcCoy, kClueOuterDressingRoom, true, -1);
 			v0 = 1;
 		}
@@ -83,8 +83,8 @@ void ESPERScript::SCRIPT_ESPER_DLL_Initialize() {
 	}
 	if (Actor_Clue_Query(kActorMcCoy, kClueChinaBarSecurityDisc)) {
 		if (!Actor_Clue_Query(kActorMcCoy, kClueChinaBarSecurityPhoto)) {
-			Actor_Says(kActorAnsweringMachine, 160, 3);
-			Actor_Says(kActorAnsweringMachine, 170, 3);
+			Actor_Says(kActorAnsweringMachine, 160, 3); // Answering Machine: Scanning video disc.
+			Actor_Says(kActorAnsweringMachine, 170, 3); // Answering Machine: One enhanceable image found.
 			Actor_Clue_Acquire(kActorMcCoy, kClueChinaBarSecurityPhoto, true, kActorHawkersBarkeep);
 			v0 = 1;
 		}
@@ -92,8 +92,8 @@ void ESPERScript::SCRIPT_ESPER_DLL_Initialize() {
 	}
 	if (Actor_Clue_Query(kActorMcCoy, kClueTyrellSecurity)) {
 		if (!Actor_Clue_Query(kActorMcCoy, kClueTyrellSecurityPhoto)) {
-			Actor_Says(kActorAnsweringMachine, 160, 3);
-			Actor_Says(kActorAnsweringMachine, 170, 3);
+			Actor_Says(kActorAnsweringMachine, 160, 3); // Answering Machine: Scanning video disc.
+			Actor_Says(kActorAnsweringMachine, 170, 3); // Answering Machine: One enhanceable image found.
 			Actor_Clue_Acquire(kActorMcCoy, kClueTyrellSecurityPhoto, true, kActorTyrellGuard);
 			v0 = 1;
 		}
@@ -103,21 +103,21 @@ void ESPERScript::SCRIPT_ESPER_DLL_Initialize() {
 		ESPER_Add_Photo("KP06.IMG", 9, 9);
 	}
 	if (v0) {
-		Actor_Says(kActorAnsweringMachine, 200, 3);
+		Actor_Says(kActorAnsweringMachine, 200, 3); // Answering Machine: Adding enhanceable photographs to KIA database.
 	}
 }
 
 void ESPERScript::SCRIPT_ESPER_DLL_Photo_Selected(int photo) {
 	switch (photo) {
 	case 0:
-		Actor_Says(kActorAnsweringMachine, 220, 3);
+		Actor_Says(kActorAnsweringMachine, 220, 3); // Answering Machine: Runciter crime scene.
 		ESPER_Define_Special_Region(0, 490, 511, 496, 517, 400, 440, 580, 580, 380, 260, 900, 710, "RC02ESP1");
 		ESPER_Define_Special_Region(1, 473, 342, 479, 349, 400, 300, 580, 580, 350, 250, 900, 710, "RC02ESP2");
 		ESPER_Define_Special_Region(2, 444, 215, 461, 223, 380, 120, 570, 340, 354, 160, 577, 354, "RC02ESP3");
 		break;
 
 	case 1:
-		Actor_Says(kActorAnsweringMachine, 220, 3);
+		Actor_Says(kActorAnsweringMachine, 220, 3); // Answering Machine: Runciter crime scene.
 		ESPER_Define_Special_Region(3, 560, 210, 580, 220, 450, 130, 680, 540, 0, 0, 1279, 959, "RC02ESP4");
 		ESPER_Define_Special_Region(4, 584, 482, 595, 493, 460, 400, 660, 540, 0, 0, 1279, 959, "RC02ESP5");
 		ESPER_Define_Special_Region(5, 669, 322, 675, 329, 620, 230, 740, 390, 0, 0, 1279, 959, "RC02ESP6");
@@ -125,42 +125,42 @@ void ESPERScript::SCRIPT_ESPER_DLL_Photo_Selected(int photo) {
 		break;
 
 	case 2:
-		Actor_Says(kActorAnsweringMachine, 260, 3);
+		Actor_Says(kActorAnsweringMachine, 260, 3); // Answering Machine: Early Q's nightclub
 		ESPER_Define_Special_Region(7, 102, 809, 108, 861, 20, 720, 200, 930, 191, 95, 1085, 870, "NR06ESP1");
 		ESPER_Define_Special_Region(8, 661, 437, 664, 443, 530, 320, 720, 600, 330, 200, 945, 750, "NR06ESP2");
 		break;
 
 	case 3:
-		Actor_Says(kActorAnsweringMachine, 260, 3);
+		Actor_Says(kActorAnsweringMachine, 260, 3); // Answering Machine: Early Q's nightclub
 		ESPER_Define_Special_Region(9, 479, 381, 482, 385, 430, 320, 520, 470, 265, 200, 815, 720, "NR07ESP2");
 		ESPER_Define_Special_Region(10, 893, 298, 901, 306, 770, 230, 980, 500, 340, 216, 942, 747, "NR07ESP1");
 		break;
 
 	case 4:
-		Actor_Says(kActorAnsweringMachine, 240, 3);
+		Actor_Says(kActorAnsweringMachine, 240, 3); // Answering Machine: Hawker's Circle.
 		ESPER_Define_Special_Region(11, 420, 436, 434, 450, 350, 380, 520, 680, 257, 94, 1013, 804, "HC01ESP1");
 		ESPER_Define_Special_Region(12, 407, 489, 410, 509, 370, 450, 500, 560, 257, 94, 1013, 804, "HC01ESP2");
 		break;
 
 	case 5:
-		Actor_Says(kActorAnsweringMachine, 240, 3);
+		Actor_Says(kActorAnsweringMachine, 240, 3); // Answering Machine: Hawker's Circle.
 		ESPER_Define_Special_Region(13, 720, 485, 728, 491, 640, 390, 780, 630, 257, 94, 1013, 804, "HC01ESP3");
 		break;
 
 	case 6:
-		Actor_Says(kActorAnsweringMachine, 250, 3);
+		Actor_Says(kActorAnsweringMachine, 250, 3); // Answering Machine: China Bar.
 		ESPER_Define_Special_Region(14, 879, 221, 882, 225, 640, 0, 1000, 512, 265, 146, 1014, 813, "HC02ESP5");
 		ESPER_Define_Special_Region(15, 660, 550, 678, 572, 560, 480, 850, 910, 265, 146, 1014, 813, "HC02ESP2");
 		break;
 
 	case 7:
-		Actor_Says(kActorAnsweringMachine, 250, 3);
+		Actor_Says(kActorAnsweringMachine, 250, 3); // Answering Machine: China Bar.
 		ESPER_Define_Special_Region(16, 1171, 457, 1184, 466, 1060, 370, 1279, 730, 910, 300, 1279, 678, "HC02ESP3");
 		ESPER_Define_Special_Region(17, 328, 398, 340, 413, 250, 350, 460, 640, 100, 236, 530, 612, "HC02ESP4");
 		break;
 
 	case 8:
-		Actor_Says(kActorAnsweringMachine, 230, 3);
+		Actor_Says(kActorAnsweringMachine, 230, 3); // Answering Machine: Tyrell Grav Test Lab.
 		ESPER_Define_Special_Region(18, 166, 623, 177, 632, 38, 528, 320, 770, 26, 530, 313, 771, "TB06ESP1");
 		ESPER_Define_Special_Region(19, 156, 356, 164, 360, 60, 280, 250, 460, 14, 251, 257, 459, "TB06ESP2");
 		ESPER_Define_Special_Region(20, 395, 158, 410, 185, 270, 70, 760, 640, 125, 0, 560, 307, "TB06ESP3");
@@ -168,7 +168,7 @@ void ESPERScript::SCRIPT_ESPER_DLL_Photo_Selected(int photo) {
 		break;
 
 	case 9:
-		Actor_Says(kActorAnsweringMachine, 270, 3);
+		Actor_Says(kActorAnsweringMachine, 270, 3); // Answering Machine: Moonbus.
 		ESPER_Define_Special_Region(22, 1208, 330, 1218, 340, 1050, 160, 1279, 550, 956, 203, 1278, 497, "KP06ESP1");
 		ESPER_Define_Special_Region(23, 854, 371, 858, 375, 790, 320, 940, 560, 722, 220, 1000, 505, "KP06ESP2");
 		ESPER_Define_Special_Region(24, 615, 325, 648, 365, 440, 220, 820, 959, 326, 140, 948, 474, "KP06ESP3");
@@ -186,23 +186,23 @@ bool ESPERScript::SCRIPT_ESPER_DLL_Special_Region_Selected(int photo, int region
 	switch (photo) {
 	case 0:
 		if (region == 0) {
-			Actor_Voice_Over(4050, kActorVoiceOver);
+			Actor_Voice_Over(4050, kActorVoiceOver); // Mainframe: It's some kind of insect.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueDragonflyAnklet)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueDragonflyAnklet, true, -1);
 			}
 		} else if (region == 1) {
-			Actor_Voice_Over(4040, kActorVoiceOver);
+			Actor_Voice_Over(4040, kActorVoiceOver); // Mainframe: Hello there Lucy.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueLucy)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueLucy, true, -1);
 			}
 		} else if (region == 2) {
-			Actor_Voice_Over(4060, kActorVoiceOver);
+			Actor_Voice_Over(4060, kActorVoiceOver); // Mainframe: A sushi menu from Howie Lee's.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueSushiMenu)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueSushiMenu, true, -1);
 			}
@@ -212,30 +212,30 @@ bool ESPERScript::SCRIPT_ESPER_DLL_Special_Region_Selected(int photo, int region
 
 	case 1:
 		if (region == 3) {
-			Actor_Voice_Over(4080, kActorVoiceOver);
+			Actor_Voice_Over(4080, kActorVoiceOver); // Mainframe: He looks familiar.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueAnimalMurderSuspect)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueAnimalMurderSuspect, true, -1);
 			}
 		} else if (region == 4) {
-			Actor_Voice_Over(4110, kActorVoiceOver);
+			Actor_Voice_Over(4110, kActorVoiceOver); // Mainframe: Hmm. Muddy boots. Guess, he's from out of town.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueMilitaryBoots)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueMilitaryBoots, true, -1);
 			}
 		} else if (region == 5) {
-			Actor_Voice_Over(4120, kActorVoiceOver);
+			Actor_Voice_Over(4120, kActorVoiceOver); // Mainframe: Local license plate.
 			if (!Actor_Clue_Query(kActorMcCoy, kCluePartialLicenseNumber)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kCluePartialLicenseNumber, true, -1);
 			}
 		} else if (region == 6) {
-			Actor_Voice_Over(4070, kActorVoiceOver);
+			Actor_Voice_Over(4070, kActorVoiceOver); // Mainframe: A black ground car. Looks like it's been around the block a few times.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueCarColorAndMake)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueCarColorAndMake, true, -1);
 			}
@@ -245,16 +245,16 @@ bool ESPERScript::SCRIPT_ESPER_DLL_Special_Region_Selected(int photo, int region
 
 	case 2:
 		if (region == 8) {
-			Actor_Voice_Over(4260, kActorVoiceOver);
+			Actor_Voice_Over(4260, kActorVoiceOver); // Mainframe: Early, you sick bastard.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueEarlyQAndLucy)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueEarlyQAndLucy, true, -1);
 			}
 		} else if (region == 7) {
-			Actor_Voice_Over(4190, kActorVoiceOver);
+			Actor_Voice_Over(4190, kActorVoiceOver); // Mainframe: Where have I seen that before?
 			if (!Actor_Clue_Query(kActorMcCoy, kClueScorpionbox)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueScorpionbox, true, -1);
 			}
@@ -264,17 +264,17 @@ bool ESPERScript::SCRIPT_ESPER_DLL_Special_Region_Selected(int photo, int region
 
 	case 3:
 		if (region == 9) {
-			Actor_Voice_Over(4230, kActorVoiceOver);
+			Actor_Voice_Over(4230, kActorVoiceOver); // Mainframe: Flowers. So our little bearded pal is a nature lover.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueClovisflowers)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueClovisflowers, true, -1);
 			}
 			retValue = true;
 		} else if (region == 10) {
-			Actor_Voice_Over(4040, kActorVoiceOver);
+			Actor_Voice_Over(4040, kActorVoiceOver); // Mainframe: Hello there Lucy.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueLucyWithDektora)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueLucyWithDektora, true, -1);
 			}
@@ -284,16 +284,16 @@ bool ESPERScript::SCRIPT_ESPER_DLL_Special_Region_Selected(int photo, int region
 
 	case 4:
 		if (region == 11) {
-			Actor_Voice_Over(4090, kActorVoiceOver);
+			Actor_Voice_Over(4090, kActorVoiceOver); // Mainframe: She looks familiar.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueWomanInAnimoidRow)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueWomanInAnimoidRow, true, -1);
 			}
 		} else if (region == 12) {
-			Actor_Voice_Over(4180, kActorVoiceOver);
+			Actor_Voice_Over(4180, kActorVoiceOver); // Mainframe: Scorpions.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueScorpions)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueScorpions, true, -1);
 			}
@@ -302,9 +302,9 @@ bool ESPERScript::SCRIPT_ESPER_DLL_Special_Region_Selected(int photo, int region
 
 	case 5:
 		if (region == 13) {
-			Actor_Says(kActorMcCoy, 8830, 3);
+			Actor_Says(kActorMcCoy, 8830, 3); // McCoy: A strange scale.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueStrangeScale2)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueStrangeScale2, true, -1);
 			}
@@ -313,16 +313,16 @@ bool ESPERScript::SCRIPT_ESPER_DLL_Special_Region_Selected(int photo, int region
 
 	case 6:
 		if (region == 14) {
-			Actor_Says(kActorMcCoy, 6975, 3);
+			Actor_Says(kActorMcCoy, 6975, 3); // McCoy: Interesting.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueChinaBarSecurityCamera)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueChinaBarSecurityCamera, true, -1);
 			}
 		} else if (region == 15) {
-			Actor_Voice_Over(4220, kActorVoiceOver);
+			Actor_Voice_Over(4220, kActorVoiceOver); // Mainframe: That guy sure gets around.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueIzosFriend)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueIzosFriend, true, -1);
 			}
@@ -331,16 +331,16 @@ bool ESPERScript::SCRIPT_ESPER_DLL_Special_Region_Selected(int photo, int region
 
 	case 7:
 		if (region == 16) {
-			Actor_Voice_Over(4080, kActorVoiceOver);
+			Actor_Voice_Over(4080, kActorVoiceOver); // Mainframe: He looks familiar.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueIzo)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueIzo, true, -1);
 			}
 		} else if (region == 17) {
-			Actor_Voice_Over(4210, kActorVoiceOver);
+			Actor_Voice_Over(4210, kActorVoiceOver); // Mainframe: Guzza?
 			if (!Actor_Clue_Query(kActorMcCoy, kClueGuzza)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueGuzza, true, -1);
 			}
@@ -350,38 +350,38 @@ bool ESPERScript::SCRIPT_ESPER_DLL_Special_Region_Selected(int photo, int region
 	case 8:
 		switch (region) {
 		case 18:
-			Actor_Says(kActorMcCoy, 8775, 3);
+			Actor_Says(kActorMcCoy, 8775, 3); // McCoy: A takeout box from Kingston Kitchens.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueKingstonKitchenBox2)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueKingstonKitchenBox2, true, -1);
 			}
 			break;
 
 		case 19:
-			Actor_Voice_Over(4160, kActorVoiceOver);
+			Actor_Voice_Over(4160, kActorVoiceOver); // Mainframe: The dog collar has a name on it. "Rikki" maybe?
 			if (!Actor_Clue_Query(kActorMcCoy, kClueDogCollar2)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueDogCollar2, true, -1);
 			}
 			break;
 
 		case 20:
-			Actor_Voice_Over(2140, kActorVoiceOver);
-			Actor_Voice_Over(2150, kActorVoiceOver);
-			Actor_Voice_Over(2160, kActorVoiceOver);
+			Actor_Voice_Over(2140, kActorVoiceOver); // Mainframe: The earring was shaped like an insect.
+			Actor_Voice_Over(2150, kActorVoiceOver); // Mainframe: I didn't know much about jewelry but it looked like junk to me.
+			Actor_Voice_Over(2160, kActorVoiceOver); // Mainframe: Like the cheap crap sold at the stands  and shops of Animoid Row.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueBombingSuspect)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueBombingSuspect, true, -1);
 			}
 			break;
 
 		case 21:
-			Actor_Says(kActorMcCoy, 8890, 3);
+			Actor_Says(kActorMcCoy, 8890, 3); // McCoy: A bomb.
 			if (!Actor_Clue_Query(kActorMcCoy, kCluePlasticExplosive)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kCluePlasticExplosive, true, -1);
 			}
@@ -395,27 +395,27 @@ bool ESPERScript::SCRIPT_ESPER_DLL_Special_Region_Selected(int photo, int region
 	case 9:
 		switch (region) {
 		case 22:
-			Actor_Says(kActorMcCoy, 8705, 3);
+			Actor_Says(kActorMcCoy, 8705, 3); // McCoy: That's damn strange.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueMoonbusReflection)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueMoonbusReflection, true, -1);
 			}
 			break;
 
 		case 23:
-			Actor_Voice_Over(4240, kActorVoiceOver);
+			Actor_Voice_Over(4240, kActorVoiceOver); // Mainframe: That can't be me.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueMcCoyAtMoonbus)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueMcCoyAtMoonbus, true, -1);
 			}
 			break;
 
 		case 24:
-			Actor_Voice_Over(4220, kActorVoiceOver);
+			Actor_Voice_Over(4220, kActorVoiceOver); // Mainframe: That guy sure gets around.
 			if (!Actor_Clue_Query(kActorMcCoy, kClueClovisAtMoonbus)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueClovisAtMoonbus, true, -1);
 			}
@@ -423,7 +423,7 @@ bool ESPERScript::SCRIPT_ESPER_DLL_Special_Region_Selected(int photo, int region
 
 		case 25:
 			if (!Actor_Clue_Query(kActorMcCoy, kClueSadikAtMoonbus)) {
-				Actor_Says(kActorMcCoy, 6945, 3);
+				Actor_Says(kActorMcCoy, 6945, 3); // McCoy: Give me a hard copy of that.
 				Sound_Play(kSfxBR034_1A, 50, 0, 0, 50);
 				Actor_Clue_Acquire(kActorMcCoy, kClueSadikAtMoonbus, true, -1);
 			}

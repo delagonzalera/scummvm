@@ -212,7 +212,7 @@ void AIScriptMcCoy::ReceivedClue(int clueId, int fromActorId) {
 	 && !Actor_Clue_Query(kActorMcCoy, kClueGuzzaFramedMcCoy)
 	) {
 		Delay(500);
-		Actor_Voice_Over(3320, kActorVoiceOver);
+		Actor_Voice_Over(3320, kActorVoiceOver); // Mainframe: A little light started to flicker in my brain. Guzza was the one measuring me for the frame.
 		switch (clueId) {
 		case kClueWeaponsCache:
 			// fall through
@@ -225,21 +225,21 @@ void AIScriptMcCoy::ReceivedClue(int clueId, int fromActorId) {
 		case kClueIzosStashRaided:
 			// fall through
 		case kClueOriginalRequisitionForm:
-			Actor_Voice_Over(3340, kActorVoiceOver);
-			Actor_Voice_Over(3350, kActorVoiceOver);
-			Actor_Voice_Over(3360, kActorVoiceOver);
-			Actor_Voice_Over(3370, kActorVoiceOver);
-			Actor_Voice_Over(3380, kActorVoiceOver);
+			Actor_Voice_Over(3340, kActorVoiceOver); // Mainframe: He set up a Black Market network...
+			Actor_Voice_Over(3350, kActorVoiceOver); // Mainframe: Moving surplus LPD weapons through Izo and the Green Pawn.
+			Actor_Voice_Over(3360, kActorVoiceOver); // Mainframe: Nothing wrong with a little graft...
+			Actor_Voice_Over(3370, kActorVoiceOver); // Mainframe: but when I started stirring the pot...
+			Actor_Voice_Over(3380, kActorVoiceOver); // Mainframe: the heat got too intense in the kitchen and the sweat started coming.
 			break;
 
 		case kClueHomelessManKid:
-			Actor_Voice_Over(3330, kActorVoiceOver);
+			Actor_Voice_Over(3330, kActorVoiceOver); // Mainframe: The homeless guy only confirmed my worse suspicions.
 			break;
 
 		case kClueScaryChair:
-			Actor_Voice_Over(3390, kActorVoiceOver);
-			Actor_Voice_Over(3400, kActorVoiceOver);
-			Actor_Voice_Over(3420, kActorVoiceOver);
+			Actor_Voice_Over(3390, kActorVoiceOver); // Mainframe: I used to think Guzza was a pretty smart guy...
+			Actor_Voice_Over(3400, kActorVoiceOver); // Mainframe: but letting Baker and Holloway work their bogus interrogation deal with all that LPD equipment was a suicide move.
+			Actor_Voice_Over(3420, kActorVoiceOver); // Mainframe: And those two morons weren't sharp enough to keep the stuff out of my sight.
 			break;
 		}
 
@@ -247,25 +247,25 @@ void AIScriptMcCoy::ReceivedClue(int clueId, int fromActorId) {
 
 		if (clueId == kClueFolder) {
 			// if McCoy just got the folder
-			Actor_Voice_Over(2780, kActorVoiceOver);
-			Actor_Voice_Over(2800, kActorVoiceOver);
-			Actor_Voice_Over(2810, kActorVoiceOver);
+			Actor_Voice_Over(2780, kActorVoiceOver); // Mainframe: When my stomach stopped churning, I realized I had everything I needed to force the bastard to play ball with me.
+			Actor_Voice_Over(2800, kActorVoiceOver); // Mainframe: I knew that he would listen to reason, if applied with serious pressure.
+			Actor_Voice_Over(2810, kActorVoiceOver); // Mainframe: All I needed to do was call him.
 		} else if (Actor_Clue_Query(kActorMcCoy, kClueFolder)) {
 			// if McCoy already had the folder
-			Actor_Voice_Over(3430, kActorVoiceOver);
-			Actor_Voice_Over(3440, kActorVoiceOver);
-			Actor_Voice_Over(3450, kActorVoiceOver);
-			Actor_Voice_Over(3460, kActorVoiceOver);
-			Actor_Voice_Over(3470, kActorVoiceOver);
-			Actor_Voice_Over(3480, kActorVoiceOver);
-			Actor_Voice_Over(3490, kActorVoiceOver);
-			Actor_Voice_Over(3500, kActorVoiceOver);
+			Actor_Voice_Over(3430, kActorVoiceOver); // Mainframe: The info I'd gotten from Luther and Lance finally made some sense.
+			Actor_Voice_Over(3440, kActorVoiceOver); // Mainframe: The Reps must had found out about Guzza's career's sidelines...
+			Actor_Voice_Over(3450, kActorVoiceOver); // Mainframe: and pressured him to set me up in order to get me off their backs.
+			Actor_Voice_Over(3460, kActorVoiceOver); // Mainframe: This nasty business he was only too willing to do.
+			Actor_Voice_Over(3470, kActorVoiceOver); // Mainframe: But I wasn't gonna eat crow that easily.
+			Actor_Voice_Over(3480, kActorVoiceOver); // Mainframe: Yeah, what a difference a day makes.
+			Actor_Voice_Over(3490, kActorVoiceOver); // Mainframe: It was time to have my own little fun with Guzza.
+			Actor_Voice_Over(3500, kActorVoiceOver); // Mainframe: All I had to do was place a call and make the worm squirm.
 		} else {
 			// if McCoy never got the folder
-			Actor_Voice_Over(3510, kActorVoiceOver);
-			Actor_Voice_Over(3520, kActorVoiceOver);
-			Actor_Voice_Over(3530, kActorVoiceOver);
-			Actor_Voice_Over(3540, kActorVoiceOver);
+			Actor_Voice_Over(3510, kActorVoiceOver); // Mainframe: The picture was still a little blurry.
+			Actor_Voice_Over(3520, kActorVoiceOver); // Mainframe: Guzza must have had some connection to Clovis and his group...
+			Actor_Voice_Over(3530, kActorVoiceOver); // Mainframe: even though he always claimed to have hated Replicants.
+			Actor_Voice_Over(3540, kActorVoiceOver); // Mainframe: He wouldn't have helped out any skin-jobs unless they had something really juicy to lord over him.
 		}
 	}
 }
@@ -459,40 +459,40 @@ bool AIScriptMcCoy::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		Sound_Play(kSfxVIDFONE1, 30, 0, 0, 50);
 		Delay(1000);
 		Sound_Play(kSfxSPNBEEP9, 50, 0, 0, 50);
-		Actor_Says(kActorGuzza, 1380, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 6610, 13);
-		Actor_Says(kActorGuzza, 1390, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 6615, 18);
+		Actor_Says(kActorGuzza, 1380, kAnimationModeTalk); // Guzza: Yeah?
+		Actor_Says(kActorMcCoy, 6610,                 13); // McCoy: Been messing with peoples' lives lately?
+		Actor_Says(kActorGuzza, 1390, kAnimationModeTalk); // Guzza: McCoy! Where the hell have you been? We've been looking all over for you.
+		Actor_Says(kActorMcCoy, 6615,                 18); // McCoy: Yeah? Am I wanted dead or alive?
 		if (_vm->_cutContent) {
-			Actor_Says(kActorGuzza, 1400, kAnimationModeTalk);
-			Actor_Says(kActorGuzza, 1410, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 6620, 15);
+			Actor_Says(kActorGuzza, 1400, kAnimationModeTalk); // Guzza: I know there's been some confusion, kid.
+			Actor_Says(kActorGuzza, 1410, kAnimationModeTalk); // Guzza: Come on downtown and we'll sit down like gentlemen and figure this out.
+			Actor_Says(kActorMcCoy, 6620,                 15); // McCoy: If you're a gentleman, I'm a St. Bernard.
 		}
-		Actor_Says(kActorGuzza, 1420, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 6625, 11);
-		Actor_Says(kActorGuzza, 1430, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 6630, 12);
-		Actor_Says(kActorMcCoy, 6635, 17);
-		Actor_Says(kActorMcCoy, 6640, 13);
-		Actor_Says(kActorMcCoy, 6645, 19);
-		Actor_Says(kActorMcCoy, 6650, 18);
-		Actor_Says(kActorMcCoy, 6655, 11);
-		Actor_Says(kActorGuzza, 1440, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 6660, 17);
-		Actor_Says(kActorMcCoy, 6665, 13);
+		Actor_Says(kActorGuzza, 1420, kAnimationModeTalk); // Guzza: You don't know what you are, kid.
+		Actor_Says(kActorMcCoy, 6625,                 11); // McCoy: You can sell that Replicant shit to everybody else but I ain't buying.
+		Actor_Says(kActorGuzza, 1430, kAnimationModeTalk); // Guzza: If you're so clean, let's put you on the Machine. That will decide once and for all.
+		Actor_Says(kActorMcCoy, 6630,                 12); // McCoy: I'm through listening, Guzza. Now it's your turn.
+		Actor_Says(kActorMcCoy, 6635,                 17); // McCoy: I've been doing some investigating on my own. Came across some prime sources.
+		Actor_Says(kActorMcCoy, 6640,                 13); // McCoy: You know what I'm talking about. Those little illegal weapons deals with Izo.
+		Actor_Says(kActorMcCoy, 6645,                 19); // McCoy: You were raking in the chinyen selling LPD wares to scumbags and Reps.
+		Actor_Says(kActorMcCoy, 6650,                 18); // McCoy: Oh, yeah.
+		Actor_Says(kActorMcCoy, 6655,                 11); // McCoy: The department is gonna eat it up when they hear just how deep that corruption goes.
+		Actor_Says(kActorGuzza, 1440, kAnimationModeTalk); // Guzza: That's a load of crap.
+		Actor_Says(kActorMcCoy, 6660,                 17); // McCoy: Let's hope for your sake Bryant and the brass feel that way, when I lay this file on 'em.
+		Actor_Says(kActorMcCoy, 6665,                 13); // McCoy: Otherwise, it's a one-way ticket to the Off-World penal colony, fat man.
 		Delay(1000);
-		Actor_Says(kActorGuzza, 1450, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 6670, 14);
-		Actor_Says(kActorMcCoy, 6675, 11);
-		Actor_Says(kActorGuzza, 1460, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 6680, 12);
-		Actor_Says(kActorGuzza, 1470, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 6685, 13);
+		Actor_Says(kActorGuzza, 1450, kAnimationModeTalk); // Guzza: What do you want, McCoy?
+		Actor_Says(kActorMcCoy, 6670,                 14); // McCoy: Remove the frame, clear my name and get that guy out of my apartment!
+		Actor_Says(kActorMcCoy, 6675,                 11); // McCoy: I want my life back.
+		Actor_Says(kActorGuzza, 1460, kAnimationModeTalk); // Guzza: I can't do that.
+		Actor_Says(kActorMcCoy, 6680,                 12); // McCoy: You better start finding a way 'cause I got another call to make.
+		Actor_Says(kActorGuzza, 1470, kAnimationModeTalk); // Guzza: Okay, okay. How do we work this out? We can't talk over the damn phone.
+		Actor_Says(kActorMcCoy, 6685,                 13); // McCoy: The sewers. I know you wanna be comfortable and I figured it's kinda like your second home down there.
 		Delay(500);
-		Actor_Says(kActorMcCoy, 6695, 16);
-		Actor_Says(kActorMcCoy, 6700, 17);
-		Actor_Says(kActorGuzza, 1480, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 6705, 11);
+		Actor_Says(kActorMcCoy, 6695,                 16); // McCoy: At the bottom of the old elevator there's a gate.
+		Actor_Says(kActorMcCoy, 6700,                 17); // McCoy: Past it there's a chamber. It's got a round platform--
+		Actor_Says(kActorGuzza, 1480, kAnimationModeTalk); // Guzza: Yeah, I know it.
+		Actor_Says(kActorMcCoy, 6705,                 11); // McCoy: Be there! Alone. You'd better hold up your end or Bryant gets it all.
 		Sound_Play(kSfxSPNBEEP9, 50, 0, 0, 50);
 		return true;
 

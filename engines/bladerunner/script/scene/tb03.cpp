@@ -143,8 +143,8 @@ void SceneScriptTB03::ActorChangedGoal(int actorId, int newGoal, int oldGoal, bo
 void SceneScriptTB03::PlayerWalkedIn() {
 	if (Actor_Query_Goal_Number(kActorTyrellGuard) == kGoalTyrellGuardWait) {
 		Player_Set_Combat_Mode(false);
-		Actor_Says(kActorOfficerGrayford, 260, -1);
-		Actor_Says(kActorMcCoy, 170, 14);
+		Actor_Says(kActorOfficerGrayford, 260, -1); // Officer Grayford: We're gonna nail your ass, McCoy!
+		Actor_Says(kActorMcCoy,           170, 14); // McCoy: Damn.
 		Delay(1000);
 		Actor_Set_Goal_Number(kActorMcCoy, kGoalMcCoyArrested);
 	}

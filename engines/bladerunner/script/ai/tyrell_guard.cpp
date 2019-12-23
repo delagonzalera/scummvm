@@ -116,7 +116,7 @@ bool AIScriptTyrellGuard::GoalChanged(int currentGoalNumber, int newGoalNumber) 
 	case kGoalTyrellGuardWakeUpAndArrestMcCoy:
 		Actor_Change_Animation_Mode(kActorTyrellGuard, kAnimationModeIdle);
 		Delay(1000);
-		Actor_Says(kActorTyrellGuard, 320, 14);
+		Actor_Says(kActorTyrellGuard, 320, 14); // Tyrell Guard: Hey, you! Stop!
 		Actor_Change_Animation_Mode(kActorTyrellGuard, 50);
 		Ambient_Sounds_Play_Sound(kSfxTBALARM, 100, 0, 0, 0);
 		Delay(1000);
@@ -126,7 +126,7 @@ bool AIScriptTyrellGuard::GoalChanged(int currentGoalNumber, int newGoalNumber) 
 
 	case kGoalTyrellGuardWakeUp:
 		AI_Countdown_Timer_Reset(kActorTyrellGuard, kActorTimerAIScriptCustomTask0);
-		Actor_Says(kActorTyrellGuard, 310, 14);
+		Actor_Says(kActorTyrellGuard, 310, 14); // Tyrell Guard: Well-- er, hey, stop!
 		AI_Countdown_Timer_Start(kActorTyrellGuard, kActorTimerAIScriptCustomTask1, 20);
 		return true;
 

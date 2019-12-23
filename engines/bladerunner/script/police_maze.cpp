@@ -163,9 +163,9 @@ void PoliceMaze::tick() {
 		_isEnding = true;
 
 		if (_vm->_scene->getSceneId() == kScenePS13) {
-			Actor_Voice_Over(320, kActorAnsweringMachine);
+			Actor_Voice_Over(320, kActorAnsweringMachine); // Answering Machine: Completed all sequences. Proceed to exit.
 		} else {
-			Actor_Voice_Over(310, kActorAnsweringMachine);
+			Actor_Voice_Over(310, kActorAnsweringMachine); // Answering Machine: Completed sequence. Proceed to next station.
 		}
 	}
 

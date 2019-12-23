@@ -163,11 +163,11 @@ void SceneScriptMA07::PlayerWalkedIn() {
 	}
 
 	if (Game_Flag_Query(kFlagMcCoyFreedOfAccusations)) {
-		Actor_Voice_Over(1360, kActorVoiceOver);
-		Actor_Voice_Over(1370, kActorVoiceOver);
-		Actor_Voice_Over(1380, kActorVoiceOver);
-		Actor_Voice_Over(1390, kActorVoiceOver);
-		Actor_Voice_Over(1400, kActorVoiceOver);
+		Actor_Voice_Over(1360, kActorVoiceOver); // Mainframe: They didn't even put me on the Machine.
+		Actor_Voice_Over(1370, kActorVoiceOver); // Mainframe: The evidence Guzza coughed up was all I'd needed to convince them I wasn't a Rep.
+		Actor_Voice_Over(1380, kActorVoiceOver); // Mainframe: Bryant chewed me out for letting the Reps kill him...
+		Actor_Voice_Over(1390, kActorVoiceOver); // Mainframe: but after getting a look at Guzza's long career of corruption...
+		Actor_Voice_Over(1400, kActorVoiceOver); // Mainframe: he knew I'd done the Department a favor.
 		Delay(1000);
 		Game_Flag_Reset(kFlagMcCoyFreedOfAccusations);
 		Game_Flag_Set(kFlagMA06ToMA02);

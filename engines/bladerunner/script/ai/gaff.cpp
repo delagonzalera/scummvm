@@ -67,32 +67,32 @@ void AIScriptGaff::TimerExpired(int timer) {
 void AIScriptGaff::CompletedMovementTrack() {
 	if (Actor_Query_Goal_Number(kActorGaff) == kGoalGaffMA01ApproachMcCoy) {
 		Actor_Face_Actor(kActorGaff, kActorMcCoy, true);
-		Actor_Says(kActorGaff, 0, kAnimationModeTalk);
+		Actor_Says(kActorGaff, 0, kAnimationModeTalk); // Gaff: Rumor has it you've been earning your stripes, McCoy.
 		Loop_Actor_Walk_To_Actor(kActorMcCoy, kActorGaff, 36, false, true);
 		Actor_Face_Actor(kActorMcCoy, kActorGaff, true);
-		Actor_Says(kActorMcCoy, 670, kAnimationModeTalk);
-		Actor_Says(kActorGaff, 10, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 675, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy, 670, kAnimationModeTalk); // McCoy: Working on it.
+		Actor_Says(kActorGaff,   10, kAnimationModeTalk); // Gaff: Keep it up. You just might have a future in this business.
+		Actor_Says(kActorMcCoy, 675, kAnimationModeTalk); // McCoy: I understand it's got a hell of a retirement plan.
 		if (Game_Flag_Query(kFlagZubenRetired)) {
-			Actor_Says(kActorGaff, 50, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 695, kAnimationModeTalk);
-			Actor_Says(kActorGaff, 60, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 700, kAnimationModeTalk);
-			Actor_Says(kActorGaff, 70, kAnimationModeTalk);
+			Actor_Says(kActorGaff,   50, kAnimationModeTalk); // Gaff: You V-K the mark before retirement?
+			Actor_Says(kActorMcCoy, 695, kAnimationModeTalk); // McCoy: Didn't have to.
+			Actor_Says(kActorGaff,   60, kAnimationModeTalk); // Gaff: That's why they call it "the magic".
+			Actor_Says(kActorMcCoy, 700, kAnimationModeTalk); // McCoy: I'm starting to understand.
+			Actor_Says(kActorGaff,   70, kAnimationModeTalk); // Gaff: You ever retire human, your career is over. Remember that.
 			Actor_Clue_Acquire(kActorGaff, kClueMcCoyRetiredZuben, true, -1);
 		} else {
-			Actor_Says(kActorGaff, 80, kAnimationModeTalk);
-			Actor_Says(kActorGaff, 90, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 705, kAnimationModeTalk);
-			Actor_Says(kActorGaff, 100, kAnimationModeTalk);
+			Actor_Says(kActorGaff,   80, kAnimationModeTalk); // Gaff: Your target give you the slip?
+			Actor_Says(kActorGaff,   90, kAnimationModeTalk); // Gaff: What happened, McCoy? You feel sorry for it?
+			Actor_Says(kActorMcCoy, 705, kAnimationModeTalk); // McCoy: My game must have been off.
+			Actor_Says(kActorGaff,  100, kAnimationModeTalk); // Gaff: Go home and get some rest. I'm sure you need it.
 			Actor_Clue_Acquire(kActorGaff, kClueMcCoyLetZubenEscape, true, -1);
 		}
-		Actor_Says(kActorGaff, 20, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 680, kAnimationModeTalk);
-		Actor_Says(kActorGaff, 30, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 685, kAnimationModeTalk);
-		Actor_Says(kActorGaff, 40, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 690, kAnimationModeTalk);
+		Actor_Says(kActorGaff,   20, kAnimationModeTalk); // Gaff: I checked with U.N.R. Looks your Reps swung that moonbus massacre last month.
+		Actor_Says(kActorMcCoy, 680, kAnimationModeTalk); // McCoy: They ever find the moonbus?
+		Actor_Says(kActorGaff,   30, kAnimationModeTalk); // Gaff: Disappeared into thin air. Bryant thinks it crashed out in the Kipple.
+		Actor_Says(kActorMcCoy, 685, kAnimationModeTalk); // McCoy: How many Reps we're talking about?
+		Actor_Says(kActorGaff,   40, kAnimationModeTalk); // Gaff: Enough. They're Nexus-6s, so don't take too much slack.
+		Actor_Says(kActorMcCoy, 690, kAnimationModeTalk); // McCoy: Gotcha.
 		Actor_Clue_Acquire(kActorMcCoy, kClueGaffsInformation, true, kActorGaff);
 		CDB_Set_Crime(kClueZubenSquadPhoto, kCrimeMoonbusHijacking);
 		Actor_Clue_Acquire(kActorGaff, kClueMcCoyRetiredZuben, true, -1);
@@ -136,14 +136,14 @@ void AIScriptGaff::ClickedByPlayer() {
 		Actor_Face_Actor(kActorMcCoy, kActorGaff, true);
 		Actor_Face_Actor(kActorGaff, kActorMcCoy, true);
 		if (Random_Query(1, 3) == 1) {
-			Actor_Says(kActorMcCoy, 3970, 14);
-			Actor_Says(kActorGaff, 100, 13);
+			Actor_Says(kActorMcCoy, 3970, 14); // McCoy: Hey.
+			Actor_Says(kActorGaff,   100, 13); // Gaff: Go home and get some rest. I'm sure you need it.
 		} else if (Random_Query(1, 3) == 2) {
-			Actor_Says(kActorMcCoy, 3970, 14);
-			Actor_Says(kActorGaff, 110, 13);
+			Actor_Says(kActorMcCoy, 3970, 14); // McCoy: Hey.
+			Actor_Says(kActorGaff,   110, 13); // Gaff: Tough day, McCoy.
 		} else {
-			Actor_Says(kActorMcCoy, 3970, 14);
-			Actor_Says(kActorGaff, 180, 13);
+			Actor_Says(kActorMcCoy, 3970, 14); // McCoy: Hey.
+			Actor_Says(kActorGaff,   180, 13); // Gaff: You killed anyone yet?
 		}
 		AI_Movement_Track_Unpause(kActorGaff);
 		// return true;
@@ -285,24 +285,24 @@ bool AIScriptGaff::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 	case kGoalGaffMA07TalkToMcCoy:
 		Game_Flag_Set(kFlagMA07GaffTalk);
 		Actor_Face_Actor(kActorGaff, kActorMcCoy, true);
-		Actor_Says(kActorGaff, 110, 12);
+		Actor_Says(kActorGaff, 110, 12); // Gaff: Tough day, McCoy.
 		Actor_Face_Actor(kActorMcCoy, kActorGaff, true);
-		Actor_Says(kActorMcCoy, 2945, 14);
+		Actor_Says(kActorMcCoy, 2945, 14); // McCoy: You could say that.
 		Loop_Actor_Walk_To_Actor(kActorGaff, kActorMcCoy, 180, false, false);
-		Actor_Says(kActorGaff, 120, 16);
-		Actor_Says(kActorGaff, 130, 13);
-		Actor_Says(kActorMcCoy, 2950, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 2955, 16);
+		Actor_Says(kActorGaff,   120,                 16); // Gaff: Steele is looking for you. And Bryant.
+		Actor_Says(kActorGaff,   130,                 13); // Gaff: You've been keeping the whole department hopping. You and Guzza.
+		Actor_Says(kActorMcCoy, 2950, kAnimationModeTalk); // McCoy: I know.
+		Actor_Says(kActorMcCoy, 2955,                 16); // McCoy: You're looking for me, too, Gaff?
 		Actor_Says_With_Pause(kActorGaff, 140, 1.0f, 14);
 		Loop_Actor_Walk_To_Actor(kActorMcCoy, kActorGaff, 36, false, false);
-		Actor_Says(kActorGaff, 150, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 2960, 12);
+		Actor_Says(kActorGaff,   150, kAnimationModeTalk); // Gaff: You know you got some interesting neighbors, McCoy.
+		Actor_Says(kActorMcCoy, 2960,                 12); // McCoy: Yeah, well, I've been too busy to visit lately.
 		Actor_Says_With_Pause(kActorGaff, 160, 1.0f, 16);
-		Actor_Says(kActorMcCoy, 2965, 13);
+		Actor_Says(kActorMcCoy, 2965, 13); // McCoy: I'm thinking about it.
 		Actor_Says_With_Pause(kActorGaff, 170, 1.0f, kAnimationModeTalk);
 		Actor_Says_With_Pause(kActorGaff, 180, 1.0f, 12);
-		Actor_Says(kActorGaff, 190, 14);
-		Actor_Says(kActorGaff, 200, 15);
+		Actor_Says(kActorGaff, 190, 14); // Gaff: It's like I said before. You retire a human, your career is over.
+		Actor_Says(kActorGaff, 200, 15); // Gaff: Your life too, maybe.
 		Async_Actor_Walk_To_XYZ(kActorGaff, -388.44f, -162.8f, 165.08f, false, false);
 		Delay(4000);
 		Player_Gains_Control();

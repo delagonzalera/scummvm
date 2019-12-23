@@ -91,34 +91,34 @@ void AIScriptGenericWalkerB::ClickedByPlayer() {
 	Actor_Face_Actor(kActorMcCoy, kActorGenwalkerB, true);
 	switch (Random_Query(1, 10)) {
 	case 1:
-		Actor_Says(kActorMcCoy, 365, 3);
+		Actor_Says(kActorMcCoy, 365, 3); // McCoy: Excuse me, pal!
 		break;
 	case 2:
-		Actor_Says(kActorMcCoy, 755, 3);
+		Actor_Says(kActorMcCoy, 755, 3); // McCoy: Excuse me.
 		break;
 	case 3:
-		Actor_Says(kActorMcCoy, 940, 3);
+		Actor_Says(kActorMcCoy, 940, 3); // McCoy: I need to ask you--
 		break;
 	case 4:
-		Actor_Says(kActorMcCoy, 4560, 3);
+		Actor_Says(kActorMcCoy, 4560, 3); // McCoy: McCoy, LPD.
 		break;
 	case 5:
-		Actor_Says(kActorMcCoy, 4870, 3);
+		Actor_Says(kActorMcCoy, 4870, 3); // McCoy: Ray McCoy, Rep Detect.
 		break;
 	case 6:
-		Actor_Says(kActorMcCoy, 5125, 3);
+		Actor_Says(kActorMcCoy, 5125, 3); // McCoy: McCoy, LPD.
 		break;
 	case 7:
-		Actor_Says(kActorMcCoy, 8450, 3);
+		Actor_Says(kActorMcCoy, 8450, 3); // McCoy: Does this badge mean anything to you?
 		break;
 	case 8:
-		Actor_Says(kActorMcCoy, 1085, 3);
+		Actor_Says(kActorMcCoy, 1085, 3); // McCoy: You got anything that's a match for these?
 		break;
 	case 9:
-		Actor_Says(kActorMcCoy, 365, 3); // Re-used line, same as case 1
+		Actor_Says(kActorMcCoy, 365, 3); // McCoy: Excuse me, pal!
 		break;
 	case 10:
-		Actor_Says(kActorMcCoy, 7415, 3);
+		Actor_Says(kActorMcCoy, 7415, 3); // McCoy: Are you taking any drugs?
 		break;
 	}
 	//return false;

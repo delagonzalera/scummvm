@@ -119,21 +119,21 @@ bool SceneScriptHF01::ClickedOnActor(int actorId) {
 			ADQ_Flush();
 			Actor_Face_Actor(kActorMcCoy, kActorMurray, true);
 			if (!Game_Flag_Query(kFlagHF01MurrayMiaTalk)) {
-				Actor_Says(kActorMcCoy, 1455, 15);
-				Actor_Says(kActorMurray, 40, 13);
-				Actor_Says(kActorMcCoy, 1460, 13);
-				Actor_Says(kActorMurray, 50, 12);
+				Actor_Says(kActorMcCoy,  1455, 15); // McCoy: You guys still battling it out?
+				Actor_Says(kActorMurray,   40, 13); // Murray: That's what keeps our marriage alive and kicking, Ray. What can we do you for?
+				Actor_Says(kActorMcCoy,  1460, 13); // McCoy: The works.
+				Actor_Says(kActorMurray,   50, 12); // Murray: Coming right up.
 				Item_Pickup_Spin_Effect(kModelAnimationLichenDogWrapper, 396, 359);
 				Actor_Face_Heading(kActorMurray, 271, false);
-				Actor_Says(kActorMurray, 60, 12);
-				Actor_Says(kActorMcCoy, 1465, 15);
+				Actor_Says(kActorMurray,   60, 12); // Murray: You know anything about politics, Ray? Famous quotes, things like that?
+				Actor_Says(kActorMcCoy,  1465, 15); // McCoy: I try not to.
 				Actor_Face_Actor(kActorMurray, kActorMcCoy, true);
-				Actor_Says(kActorMurray, 70, 13);
-				Actor_Says(kActorMcCoy, 1470, 14);
-				Actor_Says(kActorMia, 30, kAnimationModeTalk);
-				Actor_Says(kActorMurray, 80, 15);
-				Actor_Says(kActorMia, 50, kAnimationModeTalk);
-				Actor_Says(kActorMurray, 110, 14);
+				Actor_Says(kActorMurray,   70,                 13); // Murray: How about the Checkers speech?
+				Actor_Says(kActorMcCoy,  1470,                 14); // McCoy: Never heard of it.
+				Actor_Says(kActorMia,      30, kAnimationModeTalk); // Mia: Hoover's Checkers speech.
+				Actor_Says(kActorMurray,   80,                 15); // Murray: Nixon's Checkers speech.
+				Actor_Says(kActorMia,      50, kAnimationModeTalk); // Mia: (snickers) You're forgetting a lot in your old age.
+				Actor_Says(kActorMurray,  110,                 14); // Murray: Right behind you, lady.
 				Game_Flag_Set(kFlagHF01MurrayMiaTalk);
 			} else {
 				dialogueWithMiaAndMurray();
@@ -148,7 +148,7 @@ bool SceneScriptHF01::ClickedOnActor(int actorId) {
 	) {
 		if (!Loop_Actor_Walk_To_Actor(kActorMcCoy, actorId, 28, true, false)) {
 			if (Actor_Query_Goal_Number(affectionTowardsActor) == 599) {
-				Actor_Says(kActorMcCoy, 8630, 13);
+				Actor_Says(kActorMcCoy, 8630, 13); // McCoy: What a waste.
 				return true;
 			}
 
@@ -330,7 +330,7 @@ void SceneScriptHF01::ActorChangedGoal(int actorId, int newGoal, int oldGoal, bo
 void SceneScriptHF01::PlayerWalkedIn() {
 	if (Game_Flag_Query(kFlagHF05PoliceArrived)) {
 		ADQ_Flush();
-		ADQ_Add(kActorOfficerGrayford, 280, kAnimationModeTalk);
+		ADQ_Add(kActorOfficerGrayford, 280, kAnimationModeTalk); // Officer Grayford: It's McCoy! Get him!
 		Actor_Put_In_Set(kActorOfficerLeary, kSetHF01);
 		Actor_Set_At_XYZ(kActorOfficerLeary, 8.2f, 8.0f, -346.67f, 1021);
 		Actor_Put_In_Set(kActorOfficerGrayford, kSetHF01);
@@ -368,22 +368,22 @@ void SceneScriptHF01::PlayerWalkedIn() {
 
 	if (Game_Flag_Query(kFlagCrazylegsArrestedTalk)) {
 		Game_Flag_Reset(kFlagCrazylegsArrestedTalk);
-		Actor_Voice_Over(950, kActorVoiceOver);
-		Actor_Voice_Over(960, kActorVoiceOver);
-		Actor_Voice_Over(970, kActorVoiceOver);
-		Actor_Voice_Over(980, kActorVoiceOver);
+		Actor_Voice_Over(950, kActorVoiceOver); // Mainframe: Crazylegs was a small fish looking to make a few bucks in a big ocean.
+		Actor_Voice_Over(960, kActorVoiceOver); // Mainframe: And he'd ended up swimming with the sharks.
+		Actor_Voice_Over(970, kActorVoiceOver); // Mainframe: Still the last couple of hours hadn't been a total loss.
+		Actor_Voice_Over(980, kActorVoiceOver); // Mainframe: I knew what the Reps were looking for. Some way to get out of the city.
 	} else if (!Game_Flag_Query(kFlagHF01MurrayMiaIntro)
 	        &&  Global_Variable_Query(kVariableChapter) < 4
 	) {
 		ADQ_Flush();
-		ADQ_Add(kActorMurray, 0, 14);
-		ADQ_Add(kActorMurray, 10, kAnimationModeTalk);
-		ADQ_Add(kActorMia, 0, kAnimationModeTalk);
+		ADQ_Add(kActorMurray,  0,                 14); // Murray: It was "The Trickster". He said: "Pat doesn't have a mink coat."
+		ADQ_Add(kActorMurray, 10, kAnimationModeTalk); // Murray: "She's got a good Republican cloth coat. That's all."
+		ADQ_Add(kActorMia,     0, kAnimationModeTalk); // Mia: You're wrong, sweetie. It was Herbert Hoover.
 		Actor_Face_Actor(kActorMurray, kActorMia, true);
-		ADQ_Add(kActorMurray, 20, 13);
-		ADQ_Add(kActorMia, 10, kAnimationModeTalk);
-		ADQ_Add(kActorMurray, 30, kAnimationModeTalk);
-		ADQ_Add(kActorMia, 20, kAnimationModeTalk);
+		ADQ_Add(kActorMurray, 20,                 13); // Murray: I'm sorry, but I was there.
+		ADQ_Add(kActorMia,    10, kAnimationModeTalk); // Mia: Bah-- If anything you were all of three years old back then.
+		ADQ_Add(kActorMurray, 30, kAnimationModeTalk); // Murray: I still remember it! Like it was yesterday.
+		ADQ_Add(kActorMia,    20, kAnimationModeTalk); // Mia: And he said fur coat not mink. I saw it on the Discovery disc.
 		Actor_Face_Heading(kActorMurray, 271, false);
 		Game_Flag_Set(kFlagHF01MurrayMiaIntro);
 	}
@@ -464,88 +464,88 @@ void SceneScriptHF01::dialogueWithMiaAndMurray() {
 
 	switch (answer) {
 	case 440: // LUCY PHOTO
-		Actor_Says(kActorMcCoy, 1480, 15);
-		Actor_Says(kActorMia, 70, kAnimationModeTalk);
-		Actor_Says(kActorMurray, 120, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 1505, 14);
-		Actor_Says(kActorMia, 80, kAnimationModeTalk);
-		Actor_Says(kActorMurray, 130, kAnimationModeTalk);
-		Actor_Says(kActorMia, 90, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 1510, 12);
+		Actor_Says(kActorMcCoy,  1480,                 15); // McCoy: You ever seen this girl around here, maybe in the arcade?
+		Actor_Says(kActorMia,      70, kAnimationModeTalk); // Mia: Oh, yes! I saw her come out of the arcade yesterday.
+		Actor_Says(kActorMurray,  120, kAnimationModeTalk); // Murray: No, it was the day before.
+		Actor_Says(kActorMcCoy,  1505,                 14); // McCoy: Maybe you saw her both days.
+		Actor_Says(kActorMia,      80, kAnimationModeTalk); // Mia: No, I'm positive. It was yesterday.
+		Actor_Says(kActorMurray,  130, kAnimationModeTalk); // Murray: You're positively wrong. It was two days ago, sure as God made little green apples.
+		Actor_Says(kActorMia,      90, kAnimationModeTalk); // Mia: You're getting Alzheimer's, sweetie.
+		Actor_Says(kActorMcCoy,  1510,                 12); // McCoy: Okay, okay. Just forget it.
 		break;
 
 	case 450: // LUCY
-		Actor_Says(kActorMcCoy, 1485, 16);
-		Actor_Says(kActorMia, 100, kAnimationModeTalk);
-		Actor_Says(kActorMurray, 140, 12);
-		Actor_Says(kActorMia, 110, kAnimationModeTalk);
-		Actor_Says(kActorMia, 120, kAnimationModeTalk);
-		Actor_Says(kActorMurray, 150, 14);
+		Actor_Says(kActorMcCoy,  1485,                 16); // McCoy: You seen a girl around here? About fourteen with pink hair... Maybe in the arcade?
+		Actor_Says(kActorMia,     100, kAnimationModeTalk); // Mia: I was fourteen with pink hair once. (snickers) A long time ago.
+		Actor_Says(kActorMurray,  140,                 12); // Murray: Don't think he means you.
+		Actor_Says(kActorMia,     110, kAnimationModeTalk); // Mia: Of course not, not now. We work outside Hysteria Hall, don't we?
+		Actor_Says(kActorMia,     120, kAnimationModeTalk); // Mia: Well, we must see twenty, thirty girls a day with pink hair.
+		Actor_Says(kActorMurray,  150,                 14); // Murray: And every other color in the rainbow.
 		break;
 
 	case 460: // CHEESE
-		Actor_Says(kActorMcCoy, 1490, 13);
-		Actor_Says(kActorMurray, 160, 15);
-		Actor_Says(kActorMia, 130, 13);
-		Actor_Says(kActorMurray, 170, 12);
-		Actor_Says(kActorMurray, 180, 13);
-		Actor_Says(kActorMurray, 190, 14);
-		Actor_Says(kActorMcCoy, 1515, 15);
-		Actor_Says(kActorMurray, 200, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 1520, 15);
-		Actor_Says(kActorMurray, 210, 13);
-		Actor_Says(kActorMurray, 220, 13);
-		Actor_Says(kActorMia, 140, 12);
-		Actor_Says(kActorMurray, 230, 13);
+		Actor_Says(kActorMcCoy,  1490,                 13); // McCoy: You know where I could score some cheese, like this stuff?
+		Actor_Says(kActorMurray,  160,                 15); // Murray: Oy, don't flash that around here!
+		Actor_Says(kActorMia,     130,                 13); // Mia: He's the police, sweetie.
+		Actor_Says(kActorMurray,  170,                 12); // Murray: Besides, the kids today...
+		Actor_Says(kActorMurray,  180,                 13); // Murray: just as soon twist a knife in your back side as to ask for chinyen for the tram home.
+		Actor_Says(kActorMurray,  190,                 14); // Murray: You show that cheese around here, you become a marked man.
+		Actor_Says(kActorMcCoy,  1515,                 15); // McCoy: Who sells it?
+		Actor_Says(kActorMurray,  200, kAnimationModeTalk); // Murray: Now, we aren't asking for any trouble, Ray.
+		Actor_Says(kActorMcCoy,  1520,                 15); // McCoy: I'm not working Bunco. I just want some information.
+		Actor_Says(kActorMurray,  210,                 13); // Murray: That nutty broad who runs Kingston Kitchen.
+		Actor_Says(kActorMurray,  220,                 13); // Murray: She's always bragging about her special ingredient.
+		Actor_Says(kActorMia,     140,                 12); // Mia: That stew she makes, it always did taste a little gamey.
+		Actor_Says(kActorMurray,  230,                 13); // Murray: And she charges an arm and leg for it, too.
 		Actor_Clue_Acquire(kActorMcCoy, kClueSpecialIngredient, false, kActorMurray);
 		break;
 
 	case 470: // LICHEN DOG WRAPPER
-		Actor_Says(kActorMcCoy, 1495, 14);
+		Actor_Says(kActorMcCoy, 1495, 14); // McCoy: I found this wrapper.
 		Actor_Face_Actor(kActorMurray, kActorMcCoy, true);
-		Actor_Says(kActorMurray, 240, 13);
+		Actor_Says(kActorMurray, 240, 13); // Murray: Yeah, that's from one of our 'dogs.
 		Actor_Face_Actor(kActorMurray, kActorMia, true);
 		break;
 
 	case 480: // DONE
-		Actor_Says(kActorMcCoy, 1500, 16);
+		Actor_Says(kActorMcCoy, 1500, 16); // McCoy: Be good you two.
 		break;
 	}
 }
 
 void SceneScriptHF01::talkWithDektora() {
-	Actor_Says(kActorDektora, 0, kAnimationModeTalk);
-	Actor_Says(kActorMcCoy, 1400, kAnimationModeTalk);
-	Actor_Says(kActorDektora, 10, kAnimationModeTalk);
-	Actor_Says(kActorMcCoy, 1405, kAnimationModeTalk);
-	Actor_Says(kActorDektora, 20, kAnimationModeTalk);
-	Actor_Says(kActorMcCoy, 1410, kAnimationModeTalk);
-	Actor_Says(kActorDektora, 30, kAnimationModeTalk);
-	Actor_Says(kActorMcCoy, 1415, kAnimationModeTalk);
-	Actor_Says(kActorDektora, 40, kAnimationModeTalk);
-	Actor_Says(kActorDektora, 50, kAnimationModeTalk);
-	Actor_Says(kActorDektora, 60, kAnimationModeTalk);
-	Actor_Says(kActorDektora, 70, kAnimationModeTalk);
-	Actor_Says(kActorMcCoy, 1420, kAnimationModeTalk);
-	Actor_Says(kActorDektora, 80, kAnimationModeTalk);
+	Actor_Says(kActorDektora,    0, kAnimationModeTalk); // Dektora: You made it.
+	Actor_Says(kActorMcCoy,   1400, kAnimationModeTalk); // McCoy: I promised you, didn't I?
+	Actor_Says(kActorDektora,   10, kAnimationModeTalk); // Dektora: You're one of the few people I've known who actually keep their promises.
+	Actor_Says(kActorMcCoy,   1405, kAnimationModeTalk); // McCoy: Where's Clovis?
+	Actor_Says(kActorDektora,   20, kAnimationModeTalk); // Dektora: He's not coming with us.
+	Actor_Says(kActorMcCoy,   1410, kAnimationModeTalk); // McCoy: You're gonna miss him?
+	Actor_Says(kActorDektora,   30, kAnimationModeTalk); // Dektora: I've practically forgotten him already.
+	Actor_Says(kActorMcCoy,   1415, kAnimationModeTalk); // McCoy: Some ways I wish I'd gotten to know him better.
+	Actor_Says(kActorDektora,   40, kAnimationModeTalk); // Dektora: Then you know him better than you think.
+	Actor_Says(kActorDektora,   50, kAnimationModeTalk); // Dektora: There's a strange bond that exists between the two of you.
+	Actor_Says(kActorDektora,   60, kAnimationModeTalk); // Dektora: I felt it from the start.
+	Actor_Says(kActorDektora,   70, kAnimationModeTalk); // Dektora: That's one of the reasons I was so drawn to you.
+	Actor_Says(kActorMcCoy,   1420, kAnimationModeTalk); // McCoy: Are you ready?
+	Actor_Says(kActorDektora,   80, kAnimationModeTalk); // Dektora: Like I'm beginning a whole new life.
 }
 
 void SceneScriptHF01::talkWithLucy() {
-	Actor_Says(kActorLucy, 0, kAnimationModeTalk);
-	Actor_Says(kActorMcCoy, 1425, kAnimationModeTalk);
-	Actor_Says(kActorLucy, 10, kAnimationModeTalk);
-	Actor_Says(kActorLucy, 20, kAnimationModeTalk);
-	Actor_Says(kActorMcCoy, 1430, kAnimationModeTalk);
-	Actor_Says(kActorLucy, 30, kAnimationModeTalk);
-	Actor_Says(kActorMcCoy, 1435, kAnimationModeTalk);
-	Actor_Says(kActorLucy, 40, kAnimationModeTalk);
-	Actor_Says(kActorLucy, 50, kAnimationModeTalk);
-	Actor_Says(kActorMcCoy, 1440, kAnimationModeTalk);
-	Actor_Says(kActorLucy, 60, kAnimationModeTalk);
-	Actor_Says(kActorLucy, 70, kAnimationModeTalk);
-	Actor_Says(kActorMcCoy, 1445, kAnimationModeTalk);
-	Actor_Says(kActorLucy, 80, kAnimationModeTalk);
-	Actor_Says(kActorLucy, 3030, kAnimationModeTalk);
+	Actor_Says(kActorLucy,     0, kAnimationModeTalk); // Lucy: I knew you'd come.
+	Actor_Says(kActorMcCoy, 1425, kAnimationModeTalk); // McCoy: I promised you, didn't I?
+	Actor_Says(kActorLucy,    10, kAnimationModeTalk); // Lucy: Father wanted me to stay with him.
+	Actor_Says(kActorLucy,    20, kAnimationModeTalk); // Lucy: But when I told him I was going with you, he gave us his blessing.
+	Actor_Says(kActorMcCoy, 1430, kAnimationModeTalk); // McCoy: He is an extraordinary guy.
+	Actor_Says(kActorLucy,    30, kAnimationModeTalk); // Lucy: I know.
+	Actor_Says(kActorMcCoy, 1435, kAnimationModeTalk); // McCoy: You're gonna miss him?
+	Actor_Says(kActorLucy,    40, kAnimationModeTalk); // Lucy: Of course, but now that I have you
+	Actor_Says(kActorLucy,    50, kAnimationModeTalk); // Lucy: everything will be all right, won't it?
+	Actor_Says(kActorMcCoy, 1440, kAnimationModeTalk); // McCoy: Sure it will.
+	Actor_Says(kActorLucy,    60, kAnimationModeTalk); // Lucy: Promise me that we're going to find that special place!
+	Actor_Says(kActorLucy,    70, kAnimationModeTalk); // Lucy: The one with the trees and the flowers and the beautiful clear lake.
+	Actor_Says(kActorMcCoy, 1445, kAnimationModeTalk); // McCoy: It exists somewhere.
+	Actor_Says(kActorLucy,    80, kAnimationModeTalk); // Lucy: It's so much more than a dream, isn't it?
+	Actor_Says(kActorLucy,  3030, kAnimationModeTalk); // Lucy: It's where we were always meant to be. And we'll be there, together.
 }
 
 } // End of namespace BladeRunner

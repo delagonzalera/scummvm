@@ -56,7 +56,7 @@ bool AIScriptMoraji::Update() {
 	}
 
 	if (Actor_Query_Goal_Number(kActorMoraji) == kGoalMorajiScream) {
-		Actor_Says(kActorMoraji, 80, 13);
+		Actor_Says(kActorMoraji, 80, 13); // Moraji: Run! Run!
 		_animationState = 9;
 		_animationFrame = -1;
 		Actor_Set_Goal_Number(kActorMoraji, kGoalMorajiGetUp);

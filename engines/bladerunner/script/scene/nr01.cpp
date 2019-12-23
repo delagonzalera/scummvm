@@ -133,7 +133,7 @@ bool SceneScriptNR01::ClickedOnExit(int exitId) {
 	if (exitId == 0) {
 		if (!Loop_Actor_Walk_To_XYZ(kActorMcCoy, -380.0f, 31.93f, -841.0f, 0, true, false, false)) {
 			if (Global_Variable_Query(kVariableChapter) > 3) {
-				Actor_Says(kActorMcCoy, 8522, 12);
+				Actor_Says(kActorMcCoy, 8522, 12); // McCoy: Locked.
 			} else {
 				Ambient_Sounds_Remove_All_Non_Looping_Sounds(true);
 				Ambient_Sounds_Remove_All_Looping_Sounds(1);
@@ -311,22 +311,22 @@ void SceneScriptNR01::PlayerWalkedIn() {
 		Actor_Set_Goal_Number(kActorSteele, kGoalSteeleNR01TalkToGordo);
 		Scene_2D_Region_Add(0, 450, 316, 464, 333);
 		Scene_2D_Region_Add(1, 233, 321, 240, 362);
-		ADQ_Add(kActorGordo, 70, 81);
-		ADQ_Add(kActorSteele, 990, kAnimationModeTalk);
-		ADQ_Add(kActorGordo, 80, 82);
-		ADQ_Add(kActorGordo, 90, 81);
-		ADQ_Add(kActorSteele, 1010, kAnimationModeTalk);
-		ADQ_Add(kActorGordo, 100, 81);
-		ADQ_Add(kActorSteele, 1020, kAnimationModeTalk);
-		ADQ_Add(kActorGordo, 110, 82);
-		ADQ_Add(kActorSteele, 1030, kAnimationModeTalk);
-		ADQ_Add(kActorSteele, 1040, kAnimationModeTalk);
-		ADQ_Add(kActorGordo, 120, 82);
+		ADQ_Add(kActorGordo,    70,                 81); // Gordo: Now this is what I call a captive audience!
+		ADQ_Add(kActorSteele,  990, kAnimationModeTalk); // Steele: You got nowhere to go, Gordo! You're a Replicant.
+		ADQ_Add(kActorGordo,    80,                 82); // Gordo: Everyone's a critic.
+		ADQ_Add(kActorGordo,    90,                 81); // Gordo: I've died on stage plenty of times. I'm used to it.
+		ADQ_Add(kActorSteele, 1010, kAnimationModeTalk); // Steele: Why don't you let her go then?
+		ADQ_Add(kActorGordo,   100,                 81); // Gordo: I didn't say I was ready.
+		ADQ_Add(kActorSteele, 1020, kAnimationModeTalk); // Steele: This is only gonna end one way, Gordo. You really wanna take an innocent with you?
+		ADQ_Add(kActorGordo,   110,                 82); // Gordo: Nobody's innocent down here, lady.
+		ADQ_Add(kActorSteele, 1030, kAnimationModeTalk); // Steele: I'd rather lose her than the dozen I'd lose if I let you go.
+		ADQ_Add(kActorSteele, 1040, kAnimationModeTalk); // Steele: You're a killer, pal. And you're not gonna change. That's how Tyrell build you.
+		ADQ_Add(kActorGordo,   120,                 82); // Gordo: An entertainer. That's all I ever was. That's all I ever wanted to be.
 	}
 
 	if (Game_Flag_Query(kFlagNR03McCoyThrownOut)) {
 		if (Game_Flag_Query(kFlagNR08TouchedDektora)) {
-			ADQ_Add(kActorHanoi, 150, kAnimationModeTalk);
+			ADQ_Add(kActorHanoi, 150, kAnimationModeTalk); // Hanoi: Look but don't touch!
 			Game_Flag_Reset(kFlagNR08TouchedDektora);
 		}
 		Game_Flag_Reset(kFlagNR03McCoyThrownOut);
@@ -350,64 +350,64 @@ void SceneScriptNR01::PlayerWalkedIn() {
 		Game_Flag_Reset(kFlagUG06toNR01);
 		if (Actor_Query_Goal_Number(kActorSteele) == kGoalSteeleNR01WaitForMcCoy) {
 			Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-			Actor_Says(kActorSteele, 1440, 13);
+			Actor_Says(kActorSteele, 1440, 13); // Steele: What the hell took you so long?
 			Loop_Actor_Walk_To_Actor(kActorMcCoy, kActorSteele, 48, false, true);
-			Actor_Says(kActorMcCoy, 3145, 13);
+			Actor_Says(kActorMcCoy, 3145, 13); // McCoy: Good thing you made your entrance when you did.
 			if (Global_Variable_Query(kVariableHollowayArrest) != 3) {
-				Actor_Says(kActorSteele, 1450, 12);
-				Actor_Says(kActorSteele, 1460, 13);
+				Actor_Says(kActorSteele, 1450, 12); // Steele: Good thing one of my snitches saw them escort you out of the club.
+				Actor_Says(kActorSteele, 1460, 13); // Steele: Otherwise you'd be three quarters in the bag right now.
 			}
-			Actor_Says(kActorMcCoy, 3150, 14);
-			Actor_Says(kActorSteele, 1470, 12);
-			Actor_Says(kActorSteele, 1480, 13);
-			Actor_Says(kActorMcCoy, 3155, 15);
-			Actor_Says(kActorSteele, 1500, 16);
-			Actor_Says(kActorMcCoy, 3160, 12);
+			Actor_Says(kActorMcCoy,  3150, 14); // McCoy: They must have been phony cops. Hired by the Reps for protection.
+			Actor_Says(kActorSteele, 1470, 12); // Steele: Cops? Yes. Phony? No. I remembered Baker.
+			Actor_Says(kActorSteele, 1480, 13); // Steele: He used to be an S.I.D. (Scientific Investigation Division) expert on Coercive Technique until he was fired from the force a couple of years ago.
+			Actor_Says(kActorMcCoy,  3155, 15); // McCoy: A mercenary?
+			Actor_Says(kActorSteele, 1500, 16); // Steele: Bingo.
+			Actor_Says(kActorMcCoy,  3160, 12); // McCoy: He won't have to worry about getting paid no more.
 			if (Game_Flag_Query(kFlagSteeleKnowsBulletBobIsDead)) {
-				Actor_Says(kActorSteele, 1330, 12);
-				Actor_Says(kActorSteele, 1340, 12);
-				Actor_Says(kActorSteele, 1350, 12);
-				Actor_Says(kActorMcCoy, 3120, 15);
-				Actor_Says(kActorSteele, 1360, 12);
-				Actor_Says(kActorSteele, 1370, 12);
-				Actor_Says(kActorMcCoy, 3125, 15);
-				Actor_Says(kActorSteele, 1380, 12);
-				Actor_Says(kActorMcCoy, 3130, 15);
-				Actor_Says(kActorSteele, 1390, 12);
-				Actor_Says(kActorSteele, 1400, 12);
-				Actor_Says(kActorSteele, 1410, 12);
-				Actor_Says(kActorMcCoy, 3135, 15);
-				Actor_Says(kActorSteele, 1420, 12);
-				Actor_Says(kActorMcCoy, 3140, 15);
-				Actor_Says(kActorSteele, 1430, 12);
+				Actor_Says(kActorSteele, 1330, 12); // Steele: We got a problem, though. There's an APB out for you.
+				Actor_Says(kActorSteele, 1340, 12); // Steele: You've been shooting civilians? Because that's what Guzza's saying.
+				Actor_Says(kActorSteele, 1350, 12); // Steele: He wants to put you on the Machine.
+				Actor_Says(kActorMcCoy,  3120, 15); // McCoy: You're gonna retire me, Steele?
+				Actor_Says(kActorSteele, 1360, 12); // Steele: You're not on my list yet. That means no retirement swag.
+				Actor_Says(kActorSteele, 1370, 12); // Steele: The uniforms know you're down here. They already towed your Spinner.
+				Actor_Says(kActorMcCoy,  3125, 15); // McCoy: I was wondering where it went.
+				Actor_Says(kActorSteele, 1380, 12); // Steele: Is it true, Slim? Did you kill somebody?
+				Actor_Says(kActorMcCoy,  3130, 15); // McCoy: What do you think?
+				Actor_Says(kActorSteele, 1390, 12); // Steele: I ain't sure yet. I like to be sure.
+				Actor_Says(kActorSteele, 1400, 12); // Steele: Something ain't right. That setup underground? I didn't see a V-K Machine down there.
+				Actor_Says(kActorSteele, 1410, 12); // Steele: Baker wasn't gonna take you downtown and he wasn't gonna test you.
+				Actor_Says(kActorMcCoy,  3135, 15); // McCoy: No kidding.
+				Actor_Says(kActorSteele, 1420, 12); // Steele: Go, if you're going. I'm gonna talk to Guzza before I do anything.
+				Actor_Says(kActorMcCoy,  3140, 15); // McCoy: Thanks.
+				Actor_Says(kActorSteele, 1430, 12); // Steele: Don't thank me yet. The next time you see me... (smacks lips twice)
 				Actor_Set_Goal_Number(kActorSteele, kGoalSteeleImmediatelyStartChapter4);
 			} else {
 				int v0 = Global_Variable_Query(kVariableHollowayArrest);
 				if (v0 == 1) { // Dektora called the fake cops
-					Actor_Says(kActorSteele, 1510, 15);
-					Actor_Says(kActorSteele, 1520, 14);
-					Actor_Says(kActorSteele, 1530, 13);
-					Actor_Says(kActorMcCoy, 3170, 13);
+					Actor_Says(kActorSteele, 1510, 15); // Steele: That stripper you interviewed. She's one of them.
+					Actor_Says(kActorSteele, 1520, 14); // Steele: Figure it out! She must have made the call to Baker and that other Bozo.
+					Actor_Says(kActorSteele, 1530, 13); // Steele: Let's attend to some business.
+					Actor_Says(kActorMcCoy,  3170, 13); // McCoy: I'm there.
 					Actor_Set_Goal_Number(kActorSteele, kGoalSteeleNR01GoToNR08);
 				} else if (v0 == 2) { // Gordo called the fake cops
-					Actor_Says(kActorSteele, 1590, 15);
-					Actor_Says(kActorMcCoy, 3195, 14);
-					Actor_Says(kActorSteele, 1600, 16);
-					Actor_Says(kActorMcCoy, 3200, 13);
-					Actor_Says(kActorSteele, 1610, 17);
-					Actor_Says(kActorSteele, 1620, 15);
-					Actor_Says(kActorSteele, 1630, 14);
-					Actor_Says(kActorMcCoy, 3205, 12);
+					Actor_Says(kActorSteele, 1590, 15); // Steele: That little weasel who works for Taffy?
+					Actor_Says(kActorMcCoy,  3195, 14); // McCoy: Gordo?
+					Actor_Says(kActorSteele, 1600, 16); // Steele: He's one of them. You should have popped him right there on the stage.
+					Actor_Says(kActorMcCoy,  3200, 13); // McCoy: Yeah. That would have been good publicity for the Department.
+					Actor_Says(kActorSteele, 1610, 17); // Steele: That's your problem, McCoy. You worry too much about what people think.
+					Actor_Says(kActorSteele, 1620, 15); // Steele: Now, excuse me while I go collect.
+					Actor_Says(kActorSteele, 1630, 14); // Steele: You in or out?
+					Actor_Says(kActorMcCoy,  3205, 12); // McCoy: In.
 					Actor_Set_Goal_Number(kActorSteele, kGoalSteeleNR01GoToNR02);
 				} else if (v0 == 3) { // Lucy called the fake cops
-					Actor_Says(kActorSteele, 1540, 15);
-					Actor_Says(kActorMcCoy, 3175, 13);
-					Actor_Says(kActorSteele, 1550, 13);
-					Actor_Says(kActorSteele, 1560, 16);
-					Actor_Says(kActorMcCoy, 3180, 15);
-					Actor_Says(kActorSteele, 1570, 12);
-					Actor_Says(kActorSteele, 1580, 14);
-					Actor_Says(kActorMcCoy, 3190, 12);
+					Actor_Says(kActorSteele, 1540, 15); // Steele: That girl, the one from the arcade. She's one of them.
+					Actor_Says(kActorMcCoy,  3175, 13); // McCoy: You sure? I didn't get a chance to put her on the Machine.
+					Actor_Says(kActorSteele, 1550, 13); // Steele: I've been sure since I've heard about all those dead animals in Runciter's shop.
+					Actor_Says(kActorSteele, 1560, 16); // Steele: You should have whacked her when you had the chance.
+					Actor_Says(kActorMcCoy,  3180, 15); // McCoy: Yeah, right in front of all the other children in the arcade. That would have been great publicity.
+					Actor_Says(kActorSteele, 1570, 12); // Steele: I bet she's still there, Slim.
+					Actor_Says(kActorSteele, 1580, 14); // Steele: You coming or not?
+					Actor_Says(kActorMcCoy,  3190, 12); // McCoy: Right behind you.
 					Actor_Set_Goal_Number(kActorSteele, kGoalSteeleNR01GoToHF03);
 				}
 			}
@@ -436,10 +436,10 @@ void SceneScriptNR01::PlayerWalkedIn() {
 
 	if (Game_Flag_Query(kFlagCrazylegsArrestedTalk)) {
 		Game_Flag_Reset(kFlagCrazylegsArrestedTalk);
-		Actor_Voice_Over(950, kActorVoiceOver);
-		Actor_Voice_Over(960, kActorVoiceOver);
-		Actor_Voice_Over(970, kActorVoiceOver);
-		Actor_Voice_Over(980, kActorVoiceOver);
+		Actor_Voice_Over(950, kActorVoiceOver); // Mainframe: Crazylegs was a small fish looking to make a few bucks in a big ocean.
+		Actor_Voice_Over(960, kActorVoiceOver); // Mainframe: And he'd ended up swimming with the sharks.
+		Actor_Voice_Over(970, kActorVoiceOver); // Mainframe: Still the last couple of hours hadn't been a total loss.
+		Actor_Voice_Over(980, kActorVoiceOver); // Mainframe: I knew what the Reps were looking for. Some way to get out of the city.
 	}
 
 	if (Actor_Query_Goal_Number(kActorGordo) == kGoalGordoNR01WaitAndGiveUp) {

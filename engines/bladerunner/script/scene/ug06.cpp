@@ -143,15 +143,15 @@ void SceneScriptUG06::PlayerWalkedIn() {
 	 && !Game_Flag_Query(kFlagUG06Chapter4Started)
 	) {
 		Player_Loses_Control();
-		Actor_Voice_Over(2620, kActorVoiceOver);
-		Actor_Voice_Over(2630, kActorVoiceOver);
-		Actor_Voice_Over(2640, kActorVoiceOver);
-		Actor_Voice_Over(2650, kActorVoiceOver);
-		Actor_Voice_Over(2660, kActorVoiceOver);
-		Actor_Voice_Over(2670, kActorVoiceOver);
-		Actor_Voice_Over(2680, kActorVoiceOver);
-		Actor_Voice_Over(2690, kActorVoiceOver);
-		Actor_Voice_Over(2700, kActorVoiceOver);
+		Actor_Voice_Over(2620, kActorVoiceOver); // Mainframe: You wake up one day and find it's all been a dream.
+		Actor_Voice_Over(2630, kActorVoiceOver); // Mainframe: Or you wake up and discover you've been asleep all the time and the nightmare is real.
+		Actor_Voice_Over(2640, kActorVoiceOver); // Mainframe: I didn't know what it was. I didn't know who I was.
+		Actor_Voice_Over(2650, kActorVoiceOver); // Mainframe: A cop dangling on the short end of the stick or a Rep whose memory banks had ran out.
+		Actor_Voice_Over(2660, kActorVoiceOver); // Mainframe: One thing I was sure of was that I didn't kill Izo.
+		Actor_Voice_Over(2670, kActorVoiceOver); // Mainframe: That I know I experienced. And this misinformation...
+		Actor_Voice_Over(2680, kActorVoiceOver); // Mainframe: maybe it was the key to everything that was happening.
+		Actor_Voice_Over(2690, kActorVoiceOver); // Mainframe: Maybe there was a lot more than what met my eye.
+		Actor_Voice_Over(2700, kActorVoiceOver); // Mainframe: All I had to do was stay alive long enough to find out.
 		Player_Gains_Control();
 		Game_Flag_Set(kFlagUG06Chapter4Started);
 		Autosave_Game(2);

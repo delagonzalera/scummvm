@@ -129,7 +129,7 @@ bool SceneScriptDR02::ClickedOn3DObject(const char *objectName, bool a2) {
 		) {
 			Game_Flag_Set(kFlagMcCoyCommentsOnEyeOfEyeworks);
 			Unclickable_Object("U2 EYE");
-			Actor_Voice_Over(660, kActorVoiceOver);
+			Actor_Voice_Over(660, kActorVoiceOver); // Mainframe: I just couldn't escape the feeling I was being watched.
 			return true;
 		}
 	}
@@ -178,7 +178,7 @@ bool SceneScriptDR02::ClickedOnExit(int exitId) {
 	if (exitId == 1) {
 		if (!Loop_Actor_Walk_To_XYZ(kActorMcCoy, -1162.0f, 7.18f, -322.0f, 0, true, false, false)) {
 			if (Global_Variable_Query(kVariableChapter) > 2) {
-				Actor_Says(kActorMcCoy, 8522, 15);
+				Actor_Says(kActorMcCoy, 8522, 15); // McCoy: Locked.
 			} else {
 				Game_Flag_Set(kFlagDR02toDR03);
 				Set_Enter(kSetDR03, kSceneDR03);

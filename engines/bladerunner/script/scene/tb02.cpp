@@ -110,10 +110,10 @@ bool SceneScriptTB02::ClickedOnActor(int actorId) {
 				if ( Game_Flag_Query(kFlagTB02ElevatorToTB05)
 				 && !Game_Flag_Query(kFlagTB05Entered)
 				) {
-					Actor_Says(kActorMcCoy, 5150, 18);
-					Actor_Says(kActorTyrellGuard, 60, 12);
-					Actor_Says(kActorTyrellGuard, 70, 13);
-					Actor_Says(kActorMcCoy, 5155, 13);
+					Actor_Says(kActorMcCoy,       5150, 18); // McCoy: One more thing.
+					Actor_Says(kActorTyrellGuard,   60, 12); // Tyrell Guard: I've told you everything I know, detective.
+					Actor_Says(kActorTyrellGuard,   70, 13); // Tyrell Guard: I gotta work! These monitors don't watch themselves.
+					Actor_Says(kActorMcCoy,       5155, 13); // McCoy: Yeah. It's a tough gig.
 					Actor_Modify_Friendliness_To_Other(kActorTyrellGuard, kActorMcCoy, -1);
 					return true;
 				}
@@ -122,8 +122,8 @@ bool SceneScriptTB02::ClickedOnActor(int actorId) {
 				 && !Game_Flag_Query(kFlagTB05Entered)
 				) {
 					Game_Flag_Set(kFlagTB02ElevatorToTB05);
-					Actor_Says(kActorMcCoy, 5160, 18);
-					Actor_Says(kActorTyrellGuard, 80, 14);
+					Actor_Says(kActorMcCoy,       5160, 18); // McCoy: Buzz me in again. I haven't made it up to Grav Test Lab yet.
+					Actor_Says(kActorTyrellGuard,   80, 14); // Tyrell Guard: All right.
 					Scene_Exit_Add_2D_Exit(1, 430, 235, 487, 396, 0);
 					return true;
 				}
@@ -132,10 +132,10 @@ bool SceneScriptTB02::ClickedOnActor(int actorId) {
 					dialogueWithTyrellGuard();
 				} else {
 					Actor_Face_Actor(kActorTyrellGuard, kActorMcCoy, true);
-					Actor_Says(kActorMcCoy, 5150, 18);
-					Actor_Says(kActorTyrellGuard, 60, 13);
-					Actor_Says(kActorTyrellGuard, 70, 12);
-					Actor_Says(kActorMcCoy, 5155, 13);
+					Actor_Says(kActorMcCoy,       5150, 18); // McCoy: One more thing.
+					Actor_Says(kActorTyrellGuard,   60, 13); // Tyrell Guard: I've told you everything I know, detective.
+					Actor_Says(kActorTyrellGuard,   70, 12); // Tyrell Guard: I gotta work! These monitors don't watch themselves.
+					Actor_Says(kActorMcCoy,       5155, 13); // McCoy: Yeah. It's a tough gig.
 					Actor_Modify_Friendliness_To_Other(kActorTyrellGuard, kActorMcCoy, -1);
 					Actor_Face_Heading(kActorTyrellGuard, 788, false);
 				}
@@ -143,11 +143,11 @@ bool SceneScriptTB02::ClickedOnActor(int actorId) {
 			}
 
 			if (chapter == 3) {
-				Actor_Says(kActorMcCoy, 5235, 18);
-				Actor_Says(kActorTyrellGuard, 280, 13);
-				Actor_Says(kActorTyrellGuard, 290, 12);
-				Actor_Says(kActorMcCoy, 5240, 18);
-				Actor_Says(kActorTyrellGuard, 300, 12);
+				Actor_Says(kActorMcCoy,       5235, 18); // McCoy: So, anyone else explode around here lately?
+				Actor_Says(kActorTyrellGuard,  280, 13); // Tyrell Guard: I eat any more of that cafeteria food, my stomach is liable to.
+				Actor_Says(kActorTyrellGuard,  290, 12); // Tyrell Guard: I'm gonna have to ask you to leave, sir.
+				Actor_Says(kActorMcCoy,       5240, 18); // McCoy: You're gonna throw me out?
+				Actor_Says(kActorTyrellGuard,  300, 12); // Tyrell Guard: If need be.
 				return false;
 			}
 
@@ -317,21 +317,21 @@ void SceneScriptTB02::PlayerWalkedIn() {
 	if (chapter == 2) {
 		if (!Game_Flag_Query(kFlagTB02GuardTalk1)) {
 			Player_Loses_Control();
-			Actor_Says(kActorMcCoy, 5125, 18);
-			Actor_Says(kActorTyrellGuard, 0, 50);
-			Actor_Says(kActorMcCoy, 5130, 13);
-			Actor_Says(kActorTyrellGuard, 10, 15);
+			Actor_Says(kActorMcCoy,       5125, 18); // McCoy: McCoy, LPD.
+			Actor_Says(kActorTyrellGuard,    0, 50); // Tyrell Guard: Er, yeah-- Just a minute.
+			Actor_Says(kActorMcCoy,       5130, 13); // McCoy: Where do I go?
+			Actor_Says(kActorTyrellGuard,   10, 15); // Tyrell Guard: Grav Test on the East Wing. 66th floor.
 			Item_Pickup_Spin_Effect(kModelAnimationVideoDisc, 351, 315);
-			Actor_Says(kActorTyrellGuard, 20, 23);
-			Actor_Says(kActorMcCoy, 5140, 17);
-			Actor_Says(kActorTyrellGuard, 30, 14);
-			Actor_Says(kActorTyrellGuard, 40, 13);
+			Actor_Says(kActorTyrellGuard,   20, 23); // Tyrell Guard: Ah-- here's the footage from the security cameras. You get a pretty good look at the man's face.
+			Actor_Says(kActorMcCoy,       5140, 17); // McCoy: How did he get past you guys?
+			Actor_Says(kActorTyrellGuard,   30, 14); // Tyrell Guard: He pretended to be a delivery man.
+			Actor_Says(kActorTyrellGuard,   40, 13); // Tyrell Guard: Dr. Eisenduller ordered in a lot, so it didn't seem unusual.
 			Loop_Actor_Walk_To_XYZ(kActorMcCoy, -140.0f, 0.0f, 1586.0f, 12, false, false, false);
 			Loop_Actor_Walk_To_XYZ(kActorMcCoy, -112.0f, 0.0f, 1586.0f, 12, false, false, false);
 			Actor_Face_Actor(kActorMcCoy, kActorTyrellGuard, true);
 			Actor_Face_Actor(kActorTyrellGuard, kActorMcCoy, true);
-			Actor_Says(kActorMcCoy, 5145, 13);
-			Actor_Says(kActorTyrellGuard, 50, 15);
+			Actor_Says(kActorMcCoy,       5145, 13); // McCoy: I may have more questions for you later on.
+			Actor_Says(kActorTyrellGuard,   50, 15); // Tyrell Guard: Yes, sir.
 			Actor_Face_Heading(kActorTyrellGuard, 788, false);
 			Actor_Clue_Acquire(kActorMcCoy, kClueTyrellSecurity, true, -1);
 			Game_Flag_Set(kFlagTB02GuardTalk1);
@@ -347,7 +347,7 @@ void SceneScriptTB02::PlayerWalkedIn() {
 		if ( Game_Flag_Query(kFlagTB05Entered)
 		 && !Game_Flag_Query(kFlagTB02ElevatorToTB05)
 		) {
-			Actor_Says(kActorTyrellGuard, 90, 18);
+			Actor_Says(kActorTyrellGuard, 90, 18); // Tyrell Guard: Messy up there, isn't it?
 			Game_Flag_Set(kFlagTB02ElevatorToTB05);
 			Scene_Exit_Add_2D_Exit(1, 430, 235, 487, 396, 0);
 		}
@@ -356,10 +356,10 @@ void SceneScriptTB02::PlayerWalkedIn() {
 		 && !Game_Flag_Query(kFlagTB02SteeleTalk)
 		) {
 			Loop_Actor_Walk_To_Actor(kActorSteele, kActorMcCoy, 36, true, false);
-			Actor_Says(kActorSteele, 2220, 14);
-			Actor_Says(kActorMcCoy, 5245, 13);
-			Actor_Says(kActorSteele, 2230, 12);
-			Actor_Says(kActorSteele, 2240, 13);
+			Actor_Says(kActorSteele, 2220, 14); // Steele: Lagging behind again?
+			Actor_Says(kActorMcCoy,  5245, 13); // McCoy: Guzza didn't say anything about me working with a partner.
+			Actor_Says(kActorSteele, 2230, 12); // Steele: (laughs) Oh, in a pig's ass, Slim. No, I'm following up on my own.
+			Actor_Says(kActorSteele, 2240, 13); // Steele: Could be it's linked to this Tyrell debacle.
 			dialogueWithSteele();
 			//return true;
 		}
@@ -371,9 +371,9 @@ void SceneScriptTB02::PlayerWalkedIn() {
 	 && !Game_Flag_Query(kFlagTB02GuardTalk2)
 	) {
 		Loop_Actor_Walk_To_XYZ(kActorMcCoy, -131.28f, 0.79f, 1448.25f, 12, true, false, false);
-		Actor_Says(kActorTyrellGuard, 260, 15);
-		Actor_Says(kActorMcCoy, 5225, 16);
-		Actor_Says(kActorTyrellGuard, 270, 14);
+		Actor_Says(kActorTyrellGuard,  260, 15); // Tyrell Guard: You got an appointment this time?
+		Actor_Says(kActorMcCoy,       5225, 16); // McCoy: Nope.
+		Actor_Says(kActorTyrellGuard,  270, 14); // Tyrell Guard: So why you're here?
 		Game_Flag_Set(kFlagTB02GuardTalk2);
 		Actor_Modify_Friendliness_To_Other(kActorTyrellGuard, kActorMcCoy, -1);
 	}
@@ -423,50 +423,50 @@ void SceneScriptTB02::dialogueWithTyrellGuard() {
 
 	switch (answer) {
 	case 100: // DONE
-		Actor_Says(kActorMcCoy, 5145, 13);
-		Actor_Says(kActorTyrellGuard, 50, 15);
+		Actor_Says(kActorMcCoy,       5145, 13); // McCoy: I may have more questions for you later on.
+		Actor_Says(kActorTyrellGuard,   50, 15); // Tyrell Guard: Yes, sir.
 		break;
 
 	case 700: // VICTIM
-		Actor_Says(kActorMcCoy, 5165, 11);
-		Actor_Says(kActorTyrellGuard, 100, 13);
-		Actor_Says(kActorTyrellGuard, 110, 12);
-		Actor_Says(kActorMcCoy, 5185, 15);
-		Actor_Says(kActorTyrellGuard, 120, 12);
-		Actor_Says(kActorTyrellGuard, 130, 14);
-		Actor_Says(kActorMcCoy, 5190, 16);
-		Actor_Says(kActorTyrellGuard, 140, 13);
-		Actor_Says(kActorTyrellGuard, 150, 14);
-		Actor_Says(kActorTyrellGuard, 170, 12);
+		Actor_Says(kActorMcCoy,       5165, 11); // McCoy: You friendly with Eisenduller?
+		Actor_Says(kActorTyrellGuard,  100, 13); // Tyrell Guard: Most of the employees I see coming in morning and night, but old Marcus...
+		Actor_Says(kActorTyrellGuard,  110, 12); // Tyrell Guard: er, I mean Dr. Eisenduller, he almost never left his lab.
+		Actor_Says(kActorMcCoy,       5185, 15); // McCoy: He afraid of somebody?
+		Actor_Says(kActorTyrellGuard,  120, 12); // Tyrell Guard: I think it had something to do with the air outside and the germs.
+		Actor_Says(kActorTyrellGuard,  130, 14); // Tyrell Guard: I once heard him complain about it.
+		Actor_Says(kActorMcCoy,       5190, 16); // McCoy: Smart. What was his job?
+		Actor_Says(kActorTyrellGuard,  140, 13); // Tyrell Guard: Grav Test Chief Engineer.
+		Actor_Says(kActorTyrellGuard,  150, 14); // Tyrell Guard: The lab runs tests to see how a Replicant would perform in different planetary gravitational fields. That kind of thing.
+		Actor_Says(kActorTyrellGuard,  170, 12); // Tyrell Guard: One of the other engineers could tell you more.
 		Actor_Clue_Acquire(kActorMcCoy, kClueVictimInformation, true, kActorTyrellGuard);
 		break;
 
 	case 710: // EARRING
-		Actor_Says(kActorMcCoy, 5170, 12);
-		Actor_Says(kActorTyrellGuard, 180, 12);
-		Actor_Says(kActorTyrellGuard, 190, 14);
+		Actor_Says(kActorMcCoy,       5170, 12); // McCoy: You know if anyone lost an earring like this one lately?
+		Actor_Says(kActorTyrellGuard,  180, 12); // Tyrell Guard: Not one of the employees, that's for sure.
+		Actor_Says(kActorTyrellGuard,  190, 14); // Tyrell Guard: The boss enforces a strict dress code around here.
 		if (Game_Flag_Query(kFlagTB06Visited)) {
-			Actor_Says(kActorMcCoy, 5195, 13);
-			Actor_Says(kActorTyrellGuard, 200, 13);
+			Actor_Says(kActorMcCoy,       5195, 13); // McCoy: How did Eisenduller's muumuu fit in?
+			Actor_Says(kActorTyrellGuard,  200, 13); // Tyrell Guard: Heh. Hey, you know company rules only apply to the lesser mortals.
 		}
 		break;
 
 	case 720: // TYRELL
-		Actor_Says(kActorMcCoy, 5175, 12);
-		Actor_Says(kActorTyrellGuard, 210, 14);
-		Actor_Says(kActorMcCoy, 5200, 13);
-		Actor_Says(kActorTyrellGuard, 220, 13);
-		Actor_Says(kActorMcCoy, 5205, 15);
-		Actor_Says(kActorTyrellGuard, 230, 12);
-		Actor_Says(kActorMcCoy, 5210, 12);
+		Actor_Says(kActorMcCoy,       5175, 12); // McCoy: How do I get in to see the big boss?
+		Actor_Says(kActorTyrellGuard,  210, 14); // Tyrell Guard: You don't, unless he wants to see you.
+		Actor_Says(kActorMcCoy,       5200, 13); // McCoy: Okay. How do I make him wanna to see me?
+		Actor_Says(kActorTyrellGuard,  220, 13); // Tyrell Guard: Well, you could call his personal assistant.
+		Actor_Says(kActorMcCoy,       5205, 15); // McCoy: Who is...?
+		Actor_Says(kActorTyrellGuard,  230, 12); // Tyrell Guard: Don't know offhand.
+		Actor_Says(kActorMcCoy,       5210, 12); // McCoy: Yeah, I get the picture.
 		break;
 
 	case 730: // SECURITY
-		Actor_Says(kActorMcCoy, 5180, 16);
-		Actor_Says(kActorTyrellGuard, 240, 12);
-		Actor_Says(kActorMcCoy, 5215, 18);
-		Actor_Says(kActorTyrellGuard, 250, 13);
-		Actor_Says(kActorMcCoy, 5220, 16);
+		Actor_Says(kActorMcCoy,       5180, 16); // McCoy: Do you know anything about Tyrell's computer system?
+		Actor_Says(kActorTyrellGuard,  240, 12); // Tyrell Guard: Security's tight as a drum, if that's what you're asking.
+		Actor_Says(kActorMcCoy,       5215, 18); // McCoy: Somebody tried to access restricted data from the terminal in Dr. Eisenduller's office.
+		Actor_Says(kActorTyrellGuard,  250, 13); // Tyrell Guard: But they couldn't get in.
+		Actor_Says(kActorMcCoy,       5220, 16); // McCoy: Yeah, looks like Dr. Tyrell keeps his files safer than he keeps his employees.
 		break;
 	}
 }
@@ -483,39 +483,39 @@ void SceneScriptTB02::dialogueWithSteele() {
 
 	switch (answer) {
 	case 100: // DONE
-		Actor_Says(kActorSteele, 2350, 13);
+		Actor_Says(kActorSteele, 2350, 13); // Steele: Ditto.
 		Actor_Modify_Friendliness_To_Other(kActorSteele, kActorMcCoy, -5);
 		Game_Flag_Set(kFlagTB02SteeleTalk);
 		break;
 
 	case 740: // HER CASE
-		Actor_Says(kActorMcCoy, 5250, 15);
+		Actor_Says(kActorMcCoy, 5250, 15); // McCoy: How's yours connected to mine?
 		if (Game_Flag_Query(kFlagSadikIsReplicant)) {
-			Actor_Says(kActorSteele, 2250, 12);
-			Actor_Says(kActorSteele, 2260, 13);
-			Actor_Says(kActorMcCoy, 5265, 12);
-			Actor_Says(kActorSteele, 2270, 16);
-			Actor_Says(kActorSteele, 2280, 13);
-			Actor_Says(kActorMcCoy, 5270, 16);
-			Actor_Says(kActorSteele, 2290, 14);
+			Actor_Says(kActorSteele, 2250, 12); // Steele: I'm still fitting the pieces together.
+			Actor_Says(kActorSteele, 2260, 13); // Steele: You know the moonbus massacre that went down last month?
+			Actor_Says(kActorMcCoy,  5265, 12); // McCoy: Gaff mentioned something about it.
+			Actor_Says(kActorSteele, 2270, 16); // Steele: The rogue skin-jobs probably flew to earth.
+			Actor_Says(kActorSteele, 2280, 13); // Steele: And one of them is a demolitions expert. Similar MO to your vic upstairs.
+			Actor_Says(kActorMcCoy,  5270, 16); // McCoy: Hell of a coincidence.
+			Actor_Says(kActorSteele, 2290, 14); // Steele: I'll call you, if I find out anything more about your case.
 			Actor_Clue_Acquire(kActorMcCoy, kClueCrystalsCase, true, kActorSteele);
 			Actor_Modify_Friendliness_To_Other(kActorSteele, kActorMcCoy, 1);
 			Game_Flag_Set(kFlagTB02SteeleTalk);
 		} else {
-			Actor_Says(kActorSteele, 2300, 12);
-			Actor_Says(kActorSteele, 2310, 15);
-			Actor_Says(kActorMcCoy, 5275, 14);
-			Actor_Says(kActorSteele, 2320, 12);
-			Actor_Says(kActorMcCoy, 5280, 13);
+			Actor_Says(kActorSteele, 2300, 12); // Steele: I'm still putting the pieces together. It's all stored in ESPER's mainframe.
+			Actor_Says(kActorSteele, 2310, 15); // Steele: You hear about the moonbus massacre?
+			Actor_Says(kActorMcCoy,  5275, 14); // McCoy: Gaff mentioned it.
+			Actor_Says(kActorSteele, 2320, 12); // Steele: Could be our cases are overlapping. I might keep you posted.
+			Actor_Says(kActorMcCoy,  5280, 13); // McCoy: Do that.
 			Actor_Modify_Friendliness_To_Other(kActorSteele, kActorMcCoy, 1);
 			Game_Flag_Set(kFlagTB02SteeleTalk);
 		}
 		break;
 
 	case 750: // MURDER
-		Actor_Says(kActorMcCoy, 5255, 11);
-		Actor_Says(kActorSteele, 2330, 13);
-		Actor_Says(kActorSteele, 2340, 14);
+		Actor_Says(kActorMcCoy,  5255, 11); // McCoy: You take a look at this crime scene?
+		Actor_Says(kActorSteele, 2330, 13); // Steele: Yeah, it's a real doozy, Slim. Worse than watching Guzza eat.
+		Actor_Says(kActorSteele, 2340, 14); // Steele: Make sure you skip a meal before you go up.
 		Game_Flag_Set(kFlagTB02SteeleTalk);
 		break;
 	}

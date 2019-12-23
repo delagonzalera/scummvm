@@ -185,12 +185,12 @@ bool SceneScriptKP07::ClickedOnActor(int actorId) {
 	} else {
 #if BLADERUNNER_ORIGINAL_BUGS
 		Actor_Face_Actor(kActorMcCoy, actorId, true);
-		Actor_Says(kActorMcCoy, 8590, 14);
+		Actor_Says(kActorMcCoy, 8590, 14); // McCoy: Not the talkative type.
 		return true;
 #else
 		if (!Player_Query_Combat_Mode()) {
 			Actor_Face_Actor(kActorMcCoy, actorId, true);
-			Actor_Says(kActorMcCoy, 8590, 14);
+			Actor_Says(kActorMcCoy, 8590, 14); // McCoy: Not the talkative type.
 			return true;
 		}
 #endif // BLADERUNNER_ORIGINAL_BUGS
@@ -231,9 +231,9 @@ void SceneScriptKP07::PlayerWalkedIn() {
 	if (!Game_Flag_Query(kFlagKP07Entered)) {
 		if (Game_Flag_Query(kFlagMcCoyIsHelpingReplicants)) {
 			Actor_Face_Actor(kActorMcCoy, kActorClovis, true);
-			Actor_Says(kActorClovis, 1240, 3);
-			Actor_Says(kActorMcCoy, 8500, 3);
-			Actor_Says(kActorClovis, 1250, 3);
+			Actor_Says(kActorClovis, 1240, 3); // Clovis: Welcome, brother. We have very little time.
+			Actor_Says(kActorMcCoy,  8500, 3); // McCoy: I spoke to Sadik. He's installing the power source right now.
+			Actor_Says(kActorClovis, 1250, 3); // Clovis: Excellent. And do you have something for me?
 			if (Actor_Query_Goal_Number(kActorSadik) == kGoalSadikKP06NeedsReactorCoreFromMcCoy) {
 				Actor_Put_In_Set(kActorSadik, kSetKP07);
 				Global_Variable_Increment(kVariableReplicantsSurvivorsAtMoonbus, 1);
@@ -242,7 +242,7 @@ void SceneScriptKP07::PlayerWalkedIn() {
 			}
 		} else {
 			Actor_Face_Actor(kActorMcCoy, kActorClovis, true);
-			Actor_Says(kActorClovis, 160, 3);
+			Actor_Says(kActorClovis, 160, 3); // Clovis: I've been expecting you.
 			Actor_Retired_Here(kActorClovis, 72, 60, 0, -1);
 		}
 		Game_Flag_Set(kFlagKP07Entered);

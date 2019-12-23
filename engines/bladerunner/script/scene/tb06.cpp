@@ -76,19 +76,19 @@ bool SceneScriptTB06::ClickedOnActor(int actorId) {
 	if (actorId == kActorMarcus) {
 		if (!Loop_Actor_Walk_To_Actor(kActorMcCoy, kActorMarcus, 24, true, false)) {
 			if (!Actor_Clue_Query(kActorMcCoy, kClueDetonatorWire)) {
-				Actor_Voice_Over(2300, kActorVoiceOver);
-				Actor_Voice_Over(2310, kActorVoiceOver);
+				Actor_Voice_Over(2300, kActorVoiceOver); // Mainframe: Obviously, he'd been killed with an explosive.
+				Actor_Voice_Over(2310, kActorVoiceOver); // Mainframe: And not just because he'd been plastered on the wall with a thousand strokes.
 				Item_Pickup_Spin_Effect(kModelAnimationDetonatorWire, 66, 397);
-				Actor_Voice_Over(2320, kActorVoiceOver);
+				Actor_Voice_Over(2320, kActorVoiceOver); // Mainframe: The detonator wire I pulled out of his skull told the whole story.
 				if (Game_Flag_Query(kFlagSadikIsReplicant)) {
-					Actor_Voice_Over(2330, kActorVoiceOver);
-					Actor_Voice_Over(2340, kActorVoiceOver);
+					Actor_Voice_Over(2330, kActorVoiceOver); // Mainframe: The killer was an expert. The charge had been big enough to do the job...
+					Actor_Voice_Over(2340, kActorVoiceOver); // Mainframe: but not big enough to shatter the soundproof walls of the float chamber.
 				}
-				Actor_Voice_Over(2350, kActorVoiceOver);
+				Actor_Voice_Over(2350, kActorVoiceOver); // Mainframe: But I wondered why the killer didn't just shoot him.
 				Actor_Clue_Acquire(kActorMcCoy, kClueDetonatorWire, true, -1);
 				return true;
 			}
-			Actor_Says(kActorMcCoy, 8665, 13);
+			Actor_Says(kActorMcCoy, 8665, 13); // McCoy: Disgusting.
 			return false;
 		}
 	}
@@ -102,7 +102,7 @@ bool SceneScriptTB06::ClickedOnItem(int itemId, bool a2) {
 			Actor_Clue_Acquire(kActorMcCoy, kClueDogCollar1, true, -1);
 			Item_Pickup_Spin_Effect(kModelAnimationDogCollar, 341, 368);
 			Item_Remove_From_World(kItemDogCollar);
-			Actor_Voice_Over(4160, kActorVoiceOver);
+			Actor_Voice_Over(4160, kActorVoiceOver); // Mainframe: The dog collar has a name on it. "Rikki" maybe?
 			Game_Flag_Set(kFlagTB06DogCollarTaken);
 			return true;
 		}
@@ -113,7 +113,7 @@ bool SceneScriptTB06::ClickedOnItem(int itemId, bool a2) {
 			Actor_Clue_Acquire(kActorMcCoy, kClueKingstonKitchenBox1, true, -1);
 			Item_Remove_From_World(kItemKitchenBox);
 			Item_Pickup_Spin_Effect(kModelAnimationKingstonKitchenBox, 390, 368);
-			Actor_Says(kActorMcCoy, 8775, kAnimationModeTalk);
+			Actor_Says(kActorMcCoy, 8775, kAnimationModeTalk); // McCoy: A takeout box from Kingston Kitchens.
 			Game_Flag_Set(kFlagTB06KitchenBoxTaken);
 			return true;
 		}
@@ -121,7 +121,7 @@ bool SceneScriptTB06::ClickedOnItem(int itemId, bool a2) {
 	if (itemId == kItemChopstickWrapper) { // this item is not here, it is in RC51
 		if (!Loop_Actor_Walk_To_Item(kActorMcCoy, kItemChopstickWrapper, 12, true, false)) {
 			Actor_Face_Item(kActorMcCoy, kItemChopstickWrapper, true);
-			Actor_Says(kActorMcCoy, 5285, kAnimationModeTalk);
+			Actor_Says(kActorMcCoy, 5285, kAnimationModeTalk); // McCoy: Burn marks.
 			return true;
 		}
 	}
@@ -132,9 +132,9 @@ bool SceneScriptTB06::ClickedOnItem(int itemId, bool a2) {
 	) {
 		if (!Loop_Actor_Walk_To_Item(kActorMcCoy, kItemDeadDogA, 24, true, false)) {
 			Actor_Face_Item(kActorMcCoy, kItemDeadDogA, true);
-			Actor_Voice_Over(2380, kActorVoiceOver);
-			Actor_Voice_Over(2390, kActorVoiceOver);
-			Actor_Voice_Over(2400, kActorVoiceOver);
+			Actor_Voice_Over(2380, kActorVoiceOver); // Mainframe: I'd seen more dead animals than live ones in the last 24 hours.
+			Actor_Voice_Over(2390, kActorVoiceOver); // Mainframe: And now it was dogs. Three of them.
+			Actor_Voice_Over(2400, kActorVoiceOver); // Mainframe: I thought about Maggie and nearly threw up.
 			if (_vm->_cutContent) {
 				Actor_Says_With_Pause(kActorMcCoy, 8516, 0.70f, kAnimationModeTalk); // Any idea if they were real dogs? (gets no answer)
 			}
@@ -178,7 +178,7 @@ void SceneScriptTB06::PlayerWalkedIn() {
 	 && !Game_Flag_Query(kFlagTB06Introduction)
 	) {
 		Actor_Face_Actor(kActorMcCoy, kActorMarcus, true);
-		Actor_Says(kActorMcCoy, 5290, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy, 5290, kAnimationModeTalk); // McCoy: Jesus.
 		Loop_Actor_Walk_To_XYZ(kActorMcCoy, -10.0f, 149.0f, -631.0f, 0, false, false, false);
 
 #if BLADERUNNER_ORIGINAL_BUGS
@@ -197,10 +197,10 @@ void SceneScriptTB06::PlayerWalkedIn() {
 			AI_Movement_Track_Pause(kActorPhotographer);
 			Actor_Face_Actor(kActorMcCoy, kActorPhotographer, true);
 			Actor_Face_Actor(kActorPhotographer, kActorMcCoy, true);
-			Actor_Says(kActorPhotographer, 0, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 5295, kAnimationModeTalk);
+			Actor_Says(kActorPhotographer,    0, kAnimationModeTalk); // Photographer: I've seen worse but not by much.
+			Actor_Says(kActorMcCoy,        5295, kAnimationModeTalk); // McCoy: Learn anything?
 			Actor_Face_Actor(kActorPhotographer, kActorMarcus, true);
-			Actor_Says(kActorPhotographer, 10, kAnimationModeTalk);
+			Actor_Says(kActorPhotographer, 10, kAnimationModeTalk); // Photographer: You could strain him through a sieve.
 			AI_Movement_Track_Unpause(kActorPhotographer);
 		}
 		Game_Flag_Set(kFlagTB06Introduction);

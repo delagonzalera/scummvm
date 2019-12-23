@@ -103,10 +103,10 @@ bool SceneScriptBB06::ClickedOn3DObject(const char *objectName, bool a2) {
 		if (!Loop_Actor_Walk_To_Scene_Object(kActorMcCoy, "BOX31", 24, true, false)) {
 			Actor_Face_Object(kActorMcCoy, "BOX31", true);
 			if (Game_Flag_Query(kFlagBB06AndroidDestroyed)) {
-				Actor_Voice_Over(60, kActorVoiceOver);
-				Actor_Voice_Over(70, kActorVoiceOver);
+				Actor_Voice_Over(60, kActorVoiceOver); // Mainframe: Plastic and wires. Not human and not a Replicant.
+				Actor_Voice_Over(70, kActorVoiceOver); // Mainframe: And I wasted another bullet.
 			} else {
-				Actor_Voice_Over(50, kActorVoiceOver);
+				Actor_Voice_Over(50, kActorVoiceOver); // Mainframe: It wasn't a Rep and it wasn't human. And it still gave me the willies.
 			}
 		}
 #else
@@ -128,10 +128,10 @@ bool SceneScriptBB06::ClickedOn3DObject(const char *objectName, bool a2) {
 			if (!Loop_Actor_Walk_To_Scene_Object(kActorMcCoy, "BOX31", 24, true, false)) {
 				Actor_Face_Object(kActorMcCoy, "BOX31", true);
 				if (Game_Flag_Query(kFlagBB06AndroidDestroyed)) {
-					Actor_Voice_Over(60, kActorVoiceOver);
-					Actor_Voice_Over(70, kActorVoiceOver);
+					Actor_Voice_Over(60, kActorVoiceOver); // Mainframe: Plastic and wires. Not human and not a Replicant.
+					Actor_Voice_Over(70, kActorVoiceOver); // Mainframe: And I wasted another bullet.
 				} else {
-					Actor_Voice_Over(50, kActorVoiceOver);
+					Actor_Voice_Over(50, kActorVoiceOver); // Mainframe: It wasn't a Rep and it wasn't human. And it still gave me the willies.
 				}
 			}
 		}

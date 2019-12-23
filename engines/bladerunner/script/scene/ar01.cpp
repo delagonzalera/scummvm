@@ -154,7 +154,7 @@ bool SceneScriptAR01::ClickedOnActor(int actorId) {
 	 || actorId == kActorHasan
 	) {
 		Actor_Face_Actor(kActorMcCoy, actorId, true);
-		Actor_Says(kActorMcCoy, 8910, 14);
+		Actor_Says(kActorMcCoy, 8910, 14); // McCoy: Hey you.
 		return true;
 	}
 
@@ -164,21 +164,21 @@ bool SceneScriptAR01::ClickedOnActor(int actorId) {
 			Actor_Face_Actor(kActorMcCoy, kActorFishDealer, true);
 			Actor_Face_Actor(kActorFishDealer, kActorMcCoy, true);
 			if (!Game_Flag_Query(kFlagAR01FishDealerTalk)) {
-				Actor_Says(kActorMcCoy, 0, 18);
-				Actor_Says(kActorFishDealer, 0, 14);
-				Actor_Says(kActorFishDealer, 10, 14);
-				Actor_Says(kActorFishDealer, 20, 14);
-				Actor_Says(kActorFishDealer, 30, 14);
-				Actor_Says(kActorMcCoy, 5, 17);
-				Actor_Says(kActorFishDealer, 40, 14);
-				Actor_Says(kActorMcCoy, 10, 13);
-				Actor_Says(kActorFishDealer, 50, 14);
-				Actor_Says(kActorMcCoy, 15, 17);
-				Actor_Says(kActorFishDealer, 60, 14);
-				Actor_Says(kActorFishDealer, 70, 14);
-				Actor_Says(kActorFishDealer, 80, 14);
-				Actor_Says(kActorFishDealer, 90, 14);
-				Actor_Says(kActorMcCoy, 25, 13);
+				Actor_Says(kActorMcCoy,       0, 18); // McCoy: You know who deals in insects down here?
+				Actor_Says(kActorFishDealer,  0, 14); // Fish Dealer: You don't want insects.
+				Actor_Says(kActorFishDealer, 10, 14); // Fish Dealer: They're no good companion. But fish, fish are good.
+				Actor_Says(kActorFishDealer, 20, 14); // Fish Dealer: I have every kind of fish for you.
+				Actor_Says(kActorFishDealer, 30, 14); // Fish Dealer: Blowfish, Dorado, miniature Sailfish. Very friendly.
+				Actor_Says(kActorMcCoy,       5, 17); // McCoy: No thanks. I got a dog at home.
+				Actor_Says(kActorFishDealer, 40, 14); // Fish Dealer: Fish just as good as dog.
+				Actor_Says(kActorMcCoy,      10, 13); // McCoy: No, my dog is real.
+				Actor_Says(kActorFishDealer, 50, 14); // Fish Dealer: Real?! Oh, you must make lots of money.
+				Actor_Says(kActorMcCoy,      15, 17); // McCoy: Let's get back to insects. Official LPD business.
+				Actor_Says(kActorFishDealer, 60, 14); // Fish Dealer: Ah! Down that end of Animal Row. You see big green sign?
+				Actor_Says(kActorFishDealer, 70, 14); // Fish Dealer: You try there.
+				Actor_Says(kActorFishDealer, 80, 14); // Fish Dealer: Good luck with dog, friend.
+				Actor_Says(kActorFishDealer, 90, 14); // Fish Dealer: Hope he stays healthy.
+				Actor_Says(kActorMcCoy,      25, 13); // McCoy: She.
 				Game_Flag_Set(kFlagAR01FishDealerTalk);
 				Actor_Set_Goal_Number(kActorFishDealer, 1);
 			} else {
@@ -186,13 +186,13 @@ bool SceneScriptAR01::ClickedOnActor(int actorId) {
 				    && !Actor_Clue_Query(kActorMcCoy, kClueFishLadyInterview)
 				    && (!_vm->_cutContent || !Game_Flag_Query(kFlagWrongInvestigation))
 				) {
-					Actor_Says(kActorMcCoy, 40, 11);
-					Actor_Says(kActorFishDealer, 120, 14);
-					Actor_Says(kActorMcCoy, 45, 17);
-					Actor_Says(kActorFishDealer, 130, 14);
-					Actor_Says(kActorFishDealer, 140, 14);
-					Actor_Says(kActorMcCoy, 50, 13);
-					Actor_Says(kActorFishDealer, 150, 14);
+					Actor_Says(kActorMcCoy,       40, 11); // McCoy: Is this scale from a fish?
+					Actor_Says(kActorFishDealer, 120, 14); // Fish Dealer: Same as other one. Not fish. Snake scale.
+					Actor_Says(kActorMcCoy,       45, 17); // McCoy: What other one?
+					Actor_Says(kActorFishDealer, 130, 14); // Fish Dealer: Other police show me scale from same snake.
+					Actor_Says(kActorFishDealer, 140, 14); // Fish Dealer: I sent him to Abdul Hasan.
+					Actor_Says(kActorMcCoy,       50, 13); // McCoy: How could you tell I was police?
+					Actor_Says(kActorFishDealer, 150, 14); // Fish Dealer: Both of you walking around, look confused. Like you're in wrong place.
 #if BLADERUNNER_ORIGINAL_BUGS
 					Actor_Clue_Acquire(kActorMcCoy, kClueFishLadyInterview, true, kActorMcCoy); // A bug? Shouldn't the last argument be -1 or kActorFishDealer here?
 #else
@@ -203,7 +203,7 @@ bool SceneScriptAR01::ClickedOnActor(int actorId) {
 						switch (Global_Variable_Query(kVariableFishDealerBanterTalk)) {
 						case 0:
 							Global_Variable_Increment(kVariableFishDealerBanterTalk, 1);
-							Actor_Says(kActorFishDealer, 230, 14);
+							Actor_Says(kActorFishDealer, 230, 14); // Fish Dealer: You buy fish? Highest quality.
 
 							Item_Pickup_Spin_Effect_From_Actor(kModelAnimationGoldfish, kActorFishDealer, 0, -40);
 							dialogueWithFishDealerBuyGoldfish();
@@ -212,37 +212,37 @@ bool SceneScriptAR01::ClickedOnActor(int actorId) {
 							Global_Variable_Increment(kVariableFishDealerBanterTalk, 1);
 							if (Player_Query_Agenda() == kPlayerAgendaSurly
 							    || Actor_Query_Friendliness_To_Other(kActorFishDealer, kActorMcCoy) <= 45 ) {
-								Actor_Says(kActorMcCoy, 8600, 17); // You keeping busy, pal?
-								Actor_Says(kActorFishDealer, 180, 14); // I can't stand all day gabbing away. My fish require attention.
-								Actor_Says(kActorMcCoy, 8450, 14); // Does this badge mean anything to you?
-								Actor_Says(kActorFishDealer, 190, 14); // Ah! You think you get better info somewhere else? You welcome to try.
+								Actor_Says(kActorMcCoy,      8600, 17); // McCoy: You keeping busy, pal?
+								Actor_Says(kActorFishDealer,  180, 14); // Fish Dealer: I can't stand all day gabbing away. My fish require attention.
+								Actor_Says(kActorMcCoy,      8450, 14); // McCoy: Does this badge mean anything to you?
+								Actor_Says(kActorFishDealer,  190, 14); // Fish Dealer: Ah! You think you get better info somewhere else? You welcome to try.
 							} else {
-								Actor_Says(kActorMcCoy, 8514, 11); // Got anything new to tell me?
-								Actor_Says(kActorFishDealer, 170, 14); // Afraid not. But been busy today. Maybe you ask me later.
+								Actor_Says(kActorMcCoy,      8514, 11); // McCoy: Got anything new to tell me?
+								Actor_Says(kActorFishDealer,  170, 14); // Fish Dealer: Afraid not. But been busy today. Maybe you ask me later.
 							}
 							break;
 
 						default:
 							if (Random_Query(1, 2) == 1) {
-								Actor_Says(kActorMcCoy, 30, 17);
-								Actor_Says(kActorFishDealer, 100, 14);
-								Actor_Says(kActorFishDealer, 110, 14);
-								Actor_Says(kActorMcCoy, 35, 13);
+								Actor_Says(kActorMcCoy,       30, 17); // McCoy: Anything unusual happening down here?
+								Actor_Says(kActorFishDealer, 100, 14); // Fish Dealer: Ah, business slow today. But tonight my people bring over baby barracudas.
+								Actor_Says(kActorFishDealer, 110, 14); // Fish Dealer: They're very cute. You should buy.
+								Actor_Says(kActorMcCoy,       35, 13); // McCoy: I'll pass.
 							} else {
-								Actor_Says(kActorMcCoy, 30, 17);
-								Actor_Says(kActorFishDealer, 220, 14);
+								Actor_Says(kActorMcCoy,       30, 17); // McCoy: Anything unusual happening down here?
+								Actor_Says(kActorFishDealer, 220, 14); // Fish Dealer: I haven't heard much. Row been very quiet.
 							}
 						}
 					} else {
 						// original behavior
 						if (Random_Query(1, 2) == 1) {
-							Actor_Says(kActorMcCoy, 30, 17);
-							Actor_Says(kActorFishDealer, 100, 14);
-							Actor_Says(kActorFishDealer, 110, 14);
-							Actor_Says(kActorMcCoy, 35, 13);
+							Actor_Says(kActorMcCoy,       30, 17); // McCoy: Anything unusual happening down here?
+							Actor_Says(kActorFishDealer, 100, 14); // Fish Dealer: Ah, business slow today. But tonight my people bring over baby barracudas.
+							Actor_Says(kActorFishDealer, 110, 14); // Fish Dealer: They're very cute. You should buy.
+							Actor_Says(kActorMcCoy,       35, 13); // McCoy: I'll pass.
 						} else {
-							Actor_Says(kActorMcCoy, 30, 17);
-							Actor_Says(kActorFishDealer, 220, 14);
+							Actor_Says(kActorMcCoy,       30, 17); // McCoy: Anything unusual happening down here?
+							Actor_Says(kActorFishDealer, 220, 14); // Fish Dealer: I haven't heard much. Row been very quiet.
 						}
 					}
 				}
@@ -302,7 +302,7 @@ bool SceneScriptAR01::ClickedOnExit(int exitId) {
 			Loop_Actor_Walk_To_Actor(kActorIzo, kActorMcCoy, 48, false, true);
 			Actor_Face_Actor(kActorIzo, kActorMcCoy, true);
 			Actor_Change_Animation_Mode(kActorIzo, kAnimationModeCombatAttack);
-			Actor_Says(kActorMcCoy, 1800, 21);
+			Actor_Says(kActorMcCoy, 1800, 21); // McCoy: No, wait!
 			Actor_Change_Animation_Mode(kActorMcCoy, 48);
 			Player_Gains_Control();
 			Actor_Retired_Here(kActorMcCoy, 12, 48, 1, kActorIzo);
@@ -310,11 +310,11 @@ bool SceneScriptAR01::ClickedOnExit(int exitId) {
 			if ( Game_Flag_Query(kFlagDNARowAvailable)
 			 && !Game_Flag_Query(kFlagDNARowAvailableTalk)
 			) {
-				Actor_Voice_Over(4310, kActorVoiceOver);
-				Actor_Voice_Over(4320, kActorVoiceOver);
-				Actor_Voice_Over(4330, kActorVoiceOver);
-				Actor_Voice_Over(4340, kActorVoiceOver);
-				Actor_Voice_Over(4350, kActorVoiceOver);
+				Actor_Voice_Over(4310, kActorVoiceOver); // Mainframe: I was fresh out of leads.
+				Actor_Voice_Over(4320, kActorVoiceOver); // Mainframe: Poking around Hawker's Circle had been a waste of time.
+				Actor_Voice_Over(4330, kActorVoiceOver); // Mainframe: I had nothing to connect this Izo character to the Eisenduller murder.
+				Actor_Voice_Over(4340, kActorVoiceOver); // Mainframe: But if the Replicants had done in one Tyrell scientist, maybe they'd go after another.
+				Actor_Voice_Over(4350, kActorVoiceOver); // Mainframe: And the subcontractors down on DNA Row didn't have Tyrell security to protect them.
 				Game_Flag_Set(kFlagDNARowAvailableTalk);
 			}
 			Game_Flag_Reset(kFlagMcCoyInChinaTown);
@@ -496,14 +496,14 @@ void SceneScriptAR01::dialogueWithFishDealerBuyGoldfish() {
 	Dialogue_Menu_Disappear();
 
 	if (answerValue == 530) { // BUY
-		Actor_Says(kActorMcCoy, 7000, 12);
+		Actor_Says(kActorMcCoy, 7000, 12); // McCoy: Yeah, okay. I'll take it.
 		if (Query_Difficulty_Level() != kGameDifficultyEasy) {
 			Global_Variable_Decrement(kVariableChinyen, 105);
 		}
 		Actor_Clue_Acquire(kActorMcCoy, kClueGoldfish, true, kActorFishDealer);
 		Actor_Modify_Friendliness_To_Other(kActorFishDealer, kActorMcCoy, 5);
 	} else if (answerValue == 540) { // NO THANKS
-		Actor_Says(kActorMcCoy, 7005, 13);
+		Actor_Says(kActorMcCoy, 7005, 13); // McCoy: No, thanks. I'm a little short right now.
 		Actor_Modify_Friendliness_To_Other(kActorFishDealer, kActorMcCoy, -5);
 	}
 }

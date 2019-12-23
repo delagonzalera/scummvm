@@ -80,17 +80,17 @@ bool SceneScriptKP06::ClickedOnActor(int actorId) {
 	) {
 		if (Actor_Clue_Query(kActorSadik, kCluePowerSource)) {
 			Actor_Face_Actor(kActorMcCoy, kActorSadik, true);
-			Actor_Says(kActorMcCoy, 8610, 15);
-			Actor_Says(kActorSadik, 290, kAnimationModeTalk);
+			Actor_Says(kActorMcCoy, 8610,                 15); // McCoy: What's the word, friend?
+			Actor_Says(kActorSadik,  290, kAnimationModeTalk); // Sadik: Go in. You see Clovis. He not got too much time left.
 		} else if (Actor_Clue_Query(kActorMcCoy, kCluePowerSource)) {
-			Actor_Says(kActorSadik, 280, kAnimationModeTalk);
-			Actor_Says(kActorSadik, 290, kAnimationModeTalk);
+			Actor_Says(kActorSadik, 280, kAnimationModeTalk); // Sadik: You for real I'm thinking.
+			Actor_Says(kActorSadik, 290, kAnimationModeTalk); // Sadik: Go in. You see Clovis. He not got too much time left.
 			Actor_Clue_Acquire(kActorSadik, kCluePowerSource, true, kActorMcCoy);
 		} else {
-			Actor_Says(kActorMcCoy, 2320, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 2325, kAnimationModeTalk);
-			Actor_Says(kActorSadik, 300, kAnimationModeTalk);
-			Actor_Says(kActorSadik, 310, kAnimationModeTalk);
+			Actor_Says(kActorMcCoy, 2320, kAnimationModeTalk); // McCoy: You got a protective suit or something?
+			Actor_Says(kActorMcCoy, 2325, kAnimationModeTalk); // McCoy: If I handle any radioactive waste, I'm liable to melt.
+			Actor_Says(kActorSadik,  300, kAnimationModeTalk); // Sadik: (laughs) You don't need no suit, mon. Your skin, it be plenty good enough.
+			Actor_Says(kActorSadik,  310, kAnimationModeTalk); // Sadik: The Maker built you right.
 		}
 	}
 	return false;
@@ -131,8 +131,8 @@ bool SceneScriptKP06::ClickedOnExit(int exitId) {
 				Set_Enter(kSetKP07, kSceneKP07);
 			}
 		} else if (Actor_Clue_Query(kActorMcCoy, kCluePowerSource)) {
-			Actor_Says(kActorSadik, 280, kAnimationModeTalk);
-			Actor_Says(kActorSadik, 290, kAnimationModeTalk);
+			Actor_Says(kActorSadik, 280, kAnimationModeTalk); // Sadik: You for real I'm thinking.
+			Actor_Says(kActorSadik, 290, kAnimationModeTalk); // Sadik: Go in. You see Clovis. He not got too much time left.
 			Actor_Clue_Acquire(kActorSadik, kCluePowerSource, true, kActorMcCoy);
 			Loop_Actor_Walk_To_XYZ(kActorMcCoy, -731.0f, 8.26f, -657.0f, 0, false, true, false);
 			Player_Set_Combat_Mode(false);
@@ -167,23 +167,23 @@ void SceneScriptKP06::PlayerWalkedIn() {
 		// Ending - leave with Steele
 		if (Actor_Query_Goal_Number(kActorSteele) == kGoalSteeleWaitingForEnd) {
 			Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-			Actor_Says(kActorSteele, 2530, 13);
+			Actor_Says(kActorSteele, 2530, 13); // Steele: Jesus, Slim, I almost blew your brains out.
 			Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
-			Actor_Says(kActorMcCoy, 6200, 11);
-			Actor_Says(kActorSteele, 2540, 15);
-			Actor_Says(kActorSteele, 2550, 12);
-			Actor_Says(kActorMcCoy, 6205, 14);
+			Actor_Says(kActorMcCoy,  6200, 11); // McCoy: Do it. You just might be doing me a favor.
+			Actor_Says(kActorSteele, 2540, 15); // Steele: You finish him?
+			Actor_Says(kActorSteele, 2550, 12); // Steele: I think you got a promotion coming. Not to mention all those retirement bonuses.
+			Actor_Says(kActorMcCoy,  6205, 14); // McCoy: As long as I get something like... twenty hours of sleep in the process.
 			if (Actor_Query_Friendliness_To_Other(kActorSteele, kActorMcCoy) < 50) {
-				Actor_Says(kActorSteele, 2560, 12);
-				Actor_Says(kActorMcCoy, 6210, 14);
-				Actor_Says(kActorSteele, 2570, 13);
-				Actor_Says(kActorMcCoy, 6215, 14);
-				Actor_Says(kActorSteele, 2580, 15);
-				Actor_Says(kActorSteele, 2590, 12);
+				Actor_Says(kActorSteele, 2560, 12); // Steele: I gotta admit. I had my doubts about you.
+				Actor_Says(kActorMcCoy,  6210, 14); // McCoy: What are you saying, Steele? You still wanna put me on the Machine?
+				Actor_Says(kActorSteele, 2570, 13); // Steele: Take it easy, will ya?
+				Actor_Says(kActorMcCoy,  6215, 14); // McCoy: I plan to. I'm going home.
+				Actor_Says(kActorSteele, 2580, 15); // Steele: I gotta say, McCoy. You had me fooled. I thought for sure you were a Rep.
+				Actor_Says(kActorSteele, 2590, 12); // Steele: Don't get me wrong. I mean, you're one crazy dude. But I like that.
 			}
 			Async_Actor_Walk_To_Waypoint(kActorMcCoy, 551, 0, false);
 			Delay(1000);
-			Actor_Says(kActorMcCoy, 6220, -1);
+			Actor_Says(kActorMcCoy, 6220, -1); // McCoy: I'm going home, Steele. I'm finished.
 			Delay(3000);
 			Ambient_Sounds_Remove_All_Non_Looping_Sounds(true);
 			Ambient_Sounds_Remove_All_Looping_Sounds(1);
@@ -192,29 +192,29 @@ void SceneScriptKP06::PlayerWalkedIn() {
 		} else { // Ending - talk with Gaff and leaving alone
 			Actor_Set_Goal_Number(kActorGaff, kGoalGaffGone);
 			Actor_Face_Actor(kActorGaff, kActorMcCoy, true);
-			Actor_Says(kActorGaff, 220, 13);
+			Actor_Says(kActorGaff, 220, 13); // Gaff: I see Steele didn't make it.
 			Actor_Face_Actor(kActorMcCoy, kActorGaff, true);
-			Actor_Says(kActorMcCoy, 6245, 11);
-			Actor_Says(kActorGaff, 230, 14);
+			Actor_Says(kActorMcCoy, 6245, 11); // McCoy: I could have used you about ten minutes ago.
+			Actor_Says(kActorGaff,   230, 14); // Gaff: You didn't need any help, McCoy.
 			if (Game_Flag_Query(kFlagMcCoyAttackedReplicants)) {
-				Actor_Says(kActorMcCoy, 6250, 15);
-				Actor_Says(kActorGaff, 240, 13);
+				Actor_Says(kActorMcCoy, 6250, 15); // McCoy: I thought I was all over, when Steele showed up.
+				Actor_Says(kActorGaff,   240, 13); // Gaff: I saw the corpse back there.
 				Delay(1000);
-				Actor_Says(kActorMcCoy, 6255, 17);
-				Actor_Says(kActorGaff, 250, 14);
+				Actor_Says(kActorMcCoy, 6255, 17); // McCoy: I never thought she'd turn out to be a Rep sympathizer.
+				Actor_Says(kActorGaff,   250, 14); // Gaff: People are unpredictable.
 				Delay(1000);
 			}
-			Actor_Says(kActorGaff, 260, 12);
-			Actor_Says(kActorMcCoy, 6260, 15);
-			Actor_Says(kActorGaff, 270, 13);
-			Actor_Says(kActorGaff, 280, 15);
-			Actor_Says(kActorMcCoy, 6265, 14);
-			Actor_Says(kActorGaff, 290, 14);
-			Actor_Says(kActorGaff, 300, 15);
-			Actor_Says(kActorMcCoy, 6270, 11);
+			Actor_Says(kActorGaff,   260, 12); // Gaff: Chief Bryant wants to talk to you. He says you're really ready now.
+			Actor_Says(kActorMcCoy, 6260, 15); // McCoy: It never ends, does it?
+			Actor_Says(kActorGaff,   270, 13); // Gaff: Uh-uh,  you're a real Blade Runner now. Full retirement bonuses and everything.
+			Actor_Says(kActorGaff,   280, 15); // Gaff: You've done a man's job, sir.
+			Actor_Says(kActorMcCoy, 6265, 14); // McCoy: How come I don't feel good about it?
+			Actor_Says(kActorGaff,   290, 14); // Gaff: Who knows?
+			Actor_Says(kActorGaff,   300, 15); // Gaff: Buy yourself another animal maybe. A real one, not a Tyrell fake.
+			Actor_Says(kActorMcCoy, 6270, 11); // McCoy: She wasn't fake.
 			Async_Actor_Walk_To_Waypoint(kActorMcCoy, 550, 0, false);
 			Async_Actor_Walk_To_Waypoint(kActorGaff, 551, 0, false);
-			Actor_Says(kActorGaff, 310, -1);
+			Actor_Says(kActorGaff, 310, -1); // Gaff: Whatever you want to believe, McCoy.
 			Delay(3000);
 			Outtake_Play(kOuttakeEnd7, false, -1);
 #if BLADERUNNER_ORIGINAL_BUGS

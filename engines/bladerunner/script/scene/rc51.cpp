@@ -78,7 +78,7 @@ bool SceneScriptRC51::MouseClick(int x, int y) {
 bool SceneScriptRC51::ClickedOn3DObject(const char *objectName, bool a2) {
 	if (Object_Query_Click("POSTER_2", objectName)) {
 		Actor_Face_Object(kActorMcCoy, "POSTER_2", true);
-		Actor_Says(kActorMcCoy, 8620, 3);
+		Actor_Says(kActorMcCoy, 8620, 3); // McCoy: Well, isn't that cute.
 		return true;
 	}
 	return false;
@@ -95,7 +95,7 @@ bool SceneScriptRC51::ClickedOnItem(int itemId, bool a2) {
 			Actor_Clue_Acquire(kActorMcCoy, kClueChopstickWrapper, true, -1);
 			Item_Remove_From_World(kItemChopstickWrapper);
 			Item_Pickup_Spin_Effect(kModelAnimationChopstickWrapper, 437, 407);
-			Actor_Voice_Over(2010, kActorVoiceOver);
+			Actor_Voice_Over(2010, kActorVoiceOver); // Mainframe: Howie Lee's. In Chinatown. I'd eaten there myself.
 			Game_Flag_Set(kFlagRC51ChopstickWrapperTaken);
 			return true;
 		}
@@ -107,8 +107,8 @@ bool SceneScriptRC51::ClickedOnItem(int itemId, bool a2) {
 			Actor_Clue_Acquire(kActorMcCoy, kClueCandy, true, -1);
 			Item_Remove_From_World(kItemCandy);
 			Item_Pickup_Spin_Effect(kModelAnimationCandy, 445, 230);
-			Actor_Says(kActorMcCoy, 8735, 3);
-			Actor_Says(kActorMcCoy, 8529, 3);
+			Actor_Says(kActorMcCoy, 8735, 3); // McCoy: A candy bar.
+			Actor_Says(kActorMcCoy, 8529, 3); // McCoy: Yuck.
 			Game_Flag_Set(kFlagRC51CandyTaken);
 			return true;
 		}
@@ -120,8 +120,8 @@ bool SceneScriptRC51::ClickedOnItem(int itemId, bool a2) {
 			Actor_Clue_Acquire(kActorMcCoy, kClueToyDog, true, -1);
 			Item_Remove_From_World(kItemToyDog);
 			Item_Pickup_Spin_Effect(kModelAnimationToyDog, 55, 376);
-			Actor_Says(kActorMcCoy, 8525, 3);
-			Actor_Says(kActorMcCoy, 8740, 3);
+			Actor_Says(kActorMcCoy, 8525, 3); // McCoy: Hmph.
+			Actor_Says(kActorMcCoy, 8740, 3); // McCoy: A toy dog.
 			Game_Flag_Set(kFlagRC51ToyDogTaken);
 			return true;
 		}

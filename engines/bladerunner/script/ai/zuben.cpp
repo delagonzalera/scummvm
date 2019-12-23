@@ -69,7 +69,7 @@ bool AIScriptZuben::Update() {
 	 && Actor_Query_Is_In_Current_Set(kActorZuben)
 	) {
 		Actor_Face_Actor(kActorZuben, kActorHowieLee, true);
-		Actor_Says(kActorZuben, 0, 14);
+		Actor_Says(kActorZuben, 0, 14); // Zuben: Got to mix more out back.
 		if (Random_Query(1, 3) == 1) {
 			Actor_Clue_Acquire(kActorZuben, kClueMcCoysDescription, true, -1);
 		}
@@ -209,7 +209,7 @@ void AIScriptZuben::ClickedByPlayer() {
 			return;
 		}
 		Actor_Face_Actor(kActorMcCoy, kActorZuben, true);
-		Actor_Says(kActorMcCoy, 8529, 13);
+		Actor_Says(kActorMcCoy, 8529, 13); // McCoy: Yuck.
 	}
 
 	if (Global_Variable_Query(kVariableChapter) > 1
@@ -217,21 +217,21 @@ void AIScriptZuben::ClickedByPlayer() {
 	) {
 		if (Actor_Query_Friendliness_To_Other(kActorZuben, kActorMcCoy) <= 20) {
 			Actor_Face_Actor(kActorMcCoy, kActorZuben, true);
-			Actor_Says(kActorMcCoy, 8910, 11);
+			Actor_Says(kActorMcCoy, 8910, 11); // McCoy: Hey you.
 		} else if (!Game_Flag_Query(kFlagTalkToZuben)) {
 			AI_Movement_Track_Pause(kActorZuben);
 			Actor_Face_Actor(kActorZuben, kActorMcCoy, true);
-			Actor_Says(kActorZuben, 140, 14);
+			Actor_Says(kActorZuben, 140, 14); // Zuben: Stay away!
 			Actor_Face_Actor(kActorMcCoy, kActorZuben, true);
-			Actor_Says(kActorMcCoy, 7280, 11);
-			Actor_Says(kActorZuben, 150, 15);
-			Actor_Says(kActorMcCoy, 7285, 12);
+			Actor_Says(kActorMcCoy, 7280, 11); // McCoy: You remember me?
+			Actor_Says(kActorZuben,  150, 15); // Zuben: You chased Zuben.
+			Actor_Says(kActorMcCoy, 7285, 12); // McCoy: But I didn't kill you, did I?
 			dialogue();
 			Game_Flag_Set(kFlagTalkToZuben);
 			AI_Movement_Track_Unpause(kActorZuben);
 		} else {
 			Actor_Face_Actor(kActorMcCoy, kActorZuben, true);
-			Actor_Says(kActorMcCoy, 8910, 11);
+			Actor_Says(kActorMcCoy, 8910, 11); // McCoy: Hey you.
 		}
 		// return true;
 	}
@@ -259,7 +259,7 @@ void AIScriptZuben::OtherAgentEnteredCombatMode(int otherActorId, int combatMode
 		Non_Player_Actor_Combat_Mode_Off(kActorZuben);
 		Game_Flag_Reset(kFlagCT07ZubenAttack);
 		AI_Movement_Track_Flush(kActorZuben);
-		Actor_Says(kActorMcCoy, 455, 18);
+		Actor_Says(kActorMcCoy, 455, 18); // McCoy: Relax. Nobody's gonna get retired. Okay?
 		Actor_Modify_Friendliness_To_Other(kActorZuben, kActorMcCoy, 5);
 		Actor_Set_Goal_Number(kActorZuben, kGoalZubenCT07Spared);
 		// return true;
@@ -343,14 +343,14 @@ bool AIScriptZuben::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		AI_Movement_Track_Flush(kActorZuben);
 		Actor_Face_Actor(kActorZuben, kActorMcCoy, true);
 		Music_Stop(3);
-		Actor_Says(kActorZuben, 100, 19);
-		Actor_Says(kActorMcCoy, 470, 12);
-		Actor_Says(kActorZuben, 110, 18);
-		Actor_Says(kActorMcCoy, 475, 12);
-		Actor_Says(kActorZuben, 120, 15);
-		Actor_Says(kActorMcCoy, 480, 16);
-		Actor_Says(kActorZuben, 130, 17);
-		Actor_Says(kActorMcCoy, 485, 14);
+		Actor_Says(kActorZuben, 100, 19); // Zuben: What do you want from Zuben?
+		Actor_Says(kActorMcCoy, 470, 12); // McCoy: Just talk. That's all.
+		Actor_Says(kActorZuben, 110, 18); // Zuben: So talk.
+		Actor_Says(kActorMcCoy, 475, 12); // McCoy: There are things I want to know.
+		Actor_Says(kActorZuben, 120, 15); // Zuben: Aah, police...
+		Actor_Says(kActorMcCoy, 480, 16); // McCoy: I'm McCoy, LPD Rep detect unit.
+		Actor_Says(kActorZuben, 130, 17); // Zuben: Rep detect?
+		Actor_Says(kActorMcCoy, 485, 14); // McCoy: Sometimes we're called Blade Runners.
 		if (Random_Query(1, 3) < 3) {
 			Actor_Clue_Acquire(kActorZuben, kClueMcCoysDescription, true, -1);
 		}
@@ -1245,56 +1245,56 @@ void AIScriptZuben::dialogue() {
 	Dialogue_Menu_Disappear();
 	switch (answer) {
 	case 1490:
-		Actor_Says(kActorMcCoy, 7290, 12);
-		Actor_Says(kActorZuben, 180, 15);
-		Actor_Says(kActorMcCoy, 7310, 16);
-		Actor_Says(kActorZuben, 190, 15);
+		Actor_Says(kActorMcCoy, 7290, 12); // McCoy: Listen it's very important I talked to Clovis.
+		Actor_Says(kActorZuben,  180, 15); // Zuben: No way. You enemy of Clovis.
+		Actor_Says(kActorMcCoy, 7310, 16); // McCoy: No, I'm trying to help him and you.
+		Actor_Says(kActorZuben,  190, 15); // Zuben: We do good without you. Do good without anybody.
 		break;
 
 	case 1500:
-		Actor_Says(kActorMcCoy, 7295, 11);
-		Actor_Says(kActorZuben, 200, 12);
-		Actor_Says(kActorMcCoy, 7315, 16);
-		Actor_Says(kActorZuben, 210, 12);
+		Actor_Says(kActorMcCoy, 7295, 11); // McCoy: The girl. I need to know where's the girl.
+		Actor_Says(kActorZuben,  200, 12); // Zuben: Girl?
+		Actor_Says(kActorMcCoy, 7315, 16); // McCoy: Lucy.
+		Actor_Says(kActorZuben,  210, 12); // Zuben: She daughter. She with Clovis.
 		Delay(1000);
-		Actor_Says(kActorZuben, 220, 14);
-		Actor_Says(kActorMcCoy, 7320, 17);
+		Actor_Says(kActorZuben,  220, 14); // Zuben: You not hurt her.
+		Actor_Says(kActorMcCoy, 7320, 17); // McCoy: Is she a Replicant?
 		if (Game_Flag_Query(kFlagLucyIsReplicant)) {
-			Actor_Says(kActorZuben, 230, 14);
-			Actor_Says(kActorMcCoy, 7325, 17);
-			Actor_Says(kActorZuben, 240, 15);
-			Actor_Says(kActorMcCoy, 7330, 16);
+			Actor_Says(kActorZuben,  230, 14); // Zuben: Daughter sick. Only four years to live. Four years. Daughter Zuben whole family.
+			Actor_Says(kActorMcCoy, 7325, 17); // McCoy: I know.
+			Actor_Says(kActorZuben,  240, 15); // Zuben: But Clovis he fix.
+			Actor_Says(kActorMcCoy, 7330, 16); // McCoy: Let's hope so.
 			Actor_Clue_Acquire(kActorMcCoy, kClueZubenTalksAboutLucy1, false, kActorZuben);
 		} else {
-			Actor_Says(kActorZuben, 250, 14);
-			Actor_Says(kActorMcCoy, 7335, 14);
-			Actor_Says(kActorZuben, 260, 15);
-			Actor_Says(kActorMcCoy, 7340, 16);
-			Actor_Says(kActorZuben, 340, 15);
-			Actor_Says(kActorMcCoy, 7345, 12);
+			Actor_Says(kActorZuben,  250, 14); // Zuben: Daughter not like me.
+			Actor_Says(kActorMcCoy, 7335, 14); // McCoy: She's not a Replicant?
+			Actor_Says(kActorZuben,  260, 15); // Zuben: She good girl. She stay with Clovis.
+			Actor_Says(kActorMcCoy, 7340, 16); // McCoy: I know.
+			Actor_Says(kActorZuben,  340, 15); // Zuben: You promise no hurt.
+			Actor_Says(kActorMcCoy, 7345, 12); // McCoy: Right, no hurt. No hurt anymore.
 			Actor_Clue_Acquire(kActorMcCoy, kClueZubenTalksAboutLucy2, false, kActorZuben);
 		}
 		break;
 
 	case 1510:
-		Actor_Says(kActorMcCoy, 7300, 13);
-		Actor_Says(kActorZuben, 280, 12);
-		Actor_Says(kActorMcCoy, 7355, 14);
-		Actor_Says(kActorZuben, 290, 15);
-		Actor_Says(kActorMcCoy, 7360, 14);
-		Actor_Says(kActorZuben, 300, 14);
-		Actor_Says(kActorZuben, 310, 13);
+		Actor_Says(kActorMcCoy, 7300, 13); // McCoy: Did you kill the animals?
+		Actor_Says(kActorZuben,  280, 12); // Zuben: He not pay. Bad to Lucy. Bad to everybody. Make people starve.
+		Actor_Says(kActorMcCoy, 7355, 14); // McCoy: All those animals died.
+		Actor_Says(kActorZuben,  290, 15); // Zuben: He made Lucy do bad things. Lucy hurt. Clovis more angry.
+		Actor_Says(kActorMcCoy, 7360, 14); // McCoy: Did he do things to Lucy?
+		Actor_Says(kActorZuben,  300, 14); // Zuben: Girl was forced to do bad things Off-World. Clovis thought Terra better.
+		Actor_Says(kActorZuben,  310, 13); // Zuben: But Terra's no better for young girls. Runciter bad to Lucy.
 		Delay(2000);
-		Actor_Says(kActorMcCoy, 7360, 11);
-		Actor_Says(kActorZuben, 320, 12);
-		Actor_Says(kActorZuben, 330, 12);
+		Actor_Says(kActorMcCoy, 7360, 11); // McCoy: Did he do things to Lucy?
+		Actor_Says(kActorZuben,  320, 12); // Zuben: Clovis say Runciter love animals. Runciter still alive so he hurt now. Know what pain is.
+		Actor_Says(kActorZuben,  330, 12); // Zuben: Kill him, he not hurt. Just dead.
 		Actor_Clue_Acquire(kActorMcCoy, kClueZubensMotive, false, kActorZuben);
 		break;
 
 	case 1520:
-		Actor_Says(kActorZuben, 160, 13);
-		Actor_Says(kActorMcCoy, 7305, 15);
-		Actor_Says(kActorZuben, 170, 14);
+		Actor_Says(kActorZuben,  160, 13); // Zuben: You following me?
+		Actor_Says(kActorMcCoy, 7305, 15); // McCoy: No, it's just a coincidence.
+		Actor_Says(kActorZuben,  170, 14); // Zuben: Now I go.
 		break;
 	}
 }

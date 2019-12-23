@@ -95,36 +95,36 @@ bool SceneScriptCT05::ClickedOn3DObject(const char *objectName, bool a2) {
 	if (Object_Query_Click("GRGDOOR", objectName)) {
 		Loop_Actor_Walk_To_Scene_Object(kActorMcCoy, "GRGDOOR", 24, true, false);
 		Actor_Face_Object(kActorMcCoy, objectName, true);
-		Actor_Says(kActorMcCoy, 8522, 12);
+		Actor_Says(kActorMcCoy, 8522, 12); // McCoy: Locked.
 		return true;
 	}
 	if (Object_Query_Click("GRGDOOR2", objectName)) {
 		Loop_Actor_Walk_To_Scene_Object(kActorMcCoy, "GRGDOOR2", 24, true, false);
 		Actor_Face_Object(kActorMcCoy, objectName, true);
-		Actor_Says(kActorMcCoy, 8522, 12);
+		Actor_Says(kActorMcCoy, 8522, 12); // McCoy: Locked.
 		return true;
 	}
 	if (Object_Query_Click("TURBINE", objectName)) {
 		Loop_Actor_Walk_To_Scene_Object(kActorMcCoy, "TURBINE", 36, true, false);
 		Actor_Face_Object(kActorMcCoy, objectName, true);
-		Actor_Says(kActorMcCoy, 8528, 12);
+		Actor_Says(kActorMcCoy, 8528, 12); // McCoy: Totally uninteresting.
 		return true;
 	}
 	if (Object_Query_Click("LFTDOOR", objectName)) {
 		Actor_Face_Object(kActorMcCoy, objectName, true);
-		Actor_Says(kActorMcCoy, 8522, 12);
+		Actor_Says(kActorMcCoy, 8522, 12); // McCoy: Locked.
 		return true;
 	}
 	if (Object_Query_Click("BARREL", objectName)) {
 		Loop_Actor_Walk_To_Scene_Object(kActorMcCoy, "BARREL", 36, true, false);
 		Actor_Face_Object(kActorMcCoy, objectName, true);
-		Actor_Says(kActorMcCoy, 8529, 12);
+		Actor_Says(kActorMcCoy, 8529, 12); // McCoy: Yuck.
 		return true;
 	}
 	if (Object_Query_Click("GRNDPIPE", objectName)) {
 		Loop_Actor_Walk_To_Scene_Object(kActorMcCoy, "GRNDPIPE", 24, true, false);
 		Actor_Face_Object(kActorMcCoy, objectName, true);
-		Actor_Says(kActorMcCoy, 8528, 12);
+		Actor_Says(kActorMcCoy, 8528, 12); // McCoy: Totally uninteresting.
 		return true;
 	}
 	return false;

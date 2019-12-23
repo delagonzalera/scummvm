@@ -77,7 +77,7 @@ void SceneScriptHF03::dialogueWithLucy() {
 
 	switch (answer) {
 	case 840: // VOIGT-KAMPFF
-		Actor_Says(kActorMcCoy, 1630, 15);
+		Actor_Says(kActorMcCoy, 1630, 15); // McCoy: Come with me. I've got a test I want you to take.
 		if (Global_Variable_Query(kVariableHollowayArrest) == 3) {
 			Actor_Set_Goal_Number(kActorLucy, kGoalLucyHF03RunAwayWithHelp1);
 		} else if (Game_Flag_Query(kFlagLucyIsReplicant)) {
@@ -89,44 +89,44 @@ void SceneScriptHF03::dialogueWithLucy() {
 		break;
 
 	case 850: // FATHER
-		Actor_Says(kActorMcCoy, 1635, 15);
-		Actor_Says(kActorLucy, 200, 13);
+		Actor_Says(kActorMcCoy, 1635, 15); // McCoy: Can you take me to your father?
+		Actor_Says(kActorLucy,   200, 13); // Lucy: I don't think he'd like that. I don't know where he is anyway.
 		Actor_Modify_Friendliness_To_Other(kActorLucy, kActorMcCoy, 3);
 		break;
 
 	case 860: // CRYSTAL
-		Actor_Says(kActorMcCoy, 1640, 12);
+		Actor_Says(kActorMcCoy, 1640, 12); // McCoy: There's another hunter after your family.
 		if (Global_Variable_Query(kVariableHollowayArrest) == 3) {
 			Actor_Set_Goal_Number(kActorLucy, kGoalLucyHF03RunAwayWithHelp1);
 		} else {
-			Actor_Says(kActorLucy, 210, 13);
-			Actor_Says(kActorMcCoy, 1655, 15);
+			Actor_Says(kActorLucy,   210, 13); // Lucy: We know. The woman who smokes.
+			Actor_Says(kActorMcCoy, 1655, 15); // McCoy: You've got to get out of here.
 			Actor_Modify_Friendliness_To_Other(kActorLucy, kActorMcCoy, Random_Query(9, 10));
 			if (Actor_Query_Friendliness_To_Other(kActorLucy, kActorMcCoy) > 59
 			 && Global_Variable_Query(kVariableAffectionTowards) == kAffectionTowardsNone
 			) {
 				Global_Variable_Set(kVariableAffectionTowards, kAffectionTowardsLucy);
-				Actor_Says(kActorLucy, 940, 14);
-				Actor_Says(kActorMcCoy, 6780, 11);
-				Actor_Says(kActorLucy, 950, 12);
-				Actor_Says(kActorLucy, 960, 13);
-				Actor_Says(kActorMcCoy, 6785, 15);
-				Actor_Says(kActorLucy, 970, 16);
-				Actor_Says(kActorLucy, 980, 17);
+				Actor_Says(kActorLucy,   940, 14); // Lucy: You're a good man.
+				Actor_Says(kActorMcCoy, 6780, 11); // McCoy: Don't jump to any conclusions.
+				Actor_Says(kActorLucy,   950, 12); // Lucy: You're gentle. Father used to be like that too.
+				Actor_Says(kActorLucy,   960, 13); // Lucy: He would read to me and tell me stories. Pretty stories so I would have pretty dreams.
+				Actor_Says(kActorMcCoy, 6785, 15); // McCoy: He doesn't do that anymore?
+				Actor_Says(kActorLucy,   970, 16); // Lucy: He's out with Sadik every night. And he and mother...
+				Actor_Says(kActorLucy,   980, 17); // Lucy: They argue about what we're going to do.
 				if (Game_Flag_Query(kFlagDektoraIsReplicant)) {
-					Actor_Says(kActorLucy, 990, 17);
+					Actor_Says(kActorLucy, 990, 17); // Lucy: He's worried about her. She hasn't been well lately.
 				}
-				Actor_Says(kActorMcCoy, 6790, 15);
-				Actor_Says(kActorLucy, 1000, 13);
-				Actor_Says(kActorLucy, 1010, 17);
-				Actor_Says(kActorLucy, 1020, 18);
-				Actor_Says(kActorMcCoy, 6795, 14);
-				Actor_Says(kActorLucy, 1030, 17);
-				Actor_Says(kActorMcCoy, 6800, 14);
+				Actor_Says(kActorMcCoy, 6790, 15); // McCoy: That must be tough on you.
+				Actor_Says(kActorLucy,  1000, 13); // Lucy: I've seen death before. But the other day...
+				Actor_Says(kActorLucy,  1010, 17); // Lucy: I was thinking; If a person can feel love, real love
+				Actor_Says(kActorLucy,  1020, 18); // Lucy: for even just one day, I think it would all be worth it.
+				Actor_Says(kActorMcCoy, 6795, 14); // McCoy: I agree.
+				Actor_Says(kActorLucy,  1030, 17); // Lucy: Out in a place with trees and a lake and flowers. I've seen places like that in books.
+				Actor_Says(kActorMcCoy, 6800, 14); // McCoy: You'll see them with your own eyes one day.
 			}
-			Actor_Says(kActorLucy, 220, 13);
-			Actor_Says(kActorMcCoy, 1660, 15);
-			Actor_Says(kActorLucy, 230, 14);
+			Actor_Says(kActorLucy,   220, 13); // Lucy: You're not-- You're not the hunter anymore?
+			Actor_Says(kActorMcCoy, 1660, 15); // McCoy: Go! Quickly.
+			Actor_Says(kActorLucy,   230, 14); // Lucy: Thank you.
 			Actor_Clue_Acquire(kActorLucy, kClueMcCoyHelpedLucy, true, kActorMcCoy);
 
 			if (Game_Flag_Query(kFlagLucyIsReplicant)) {
@@ -138,23 +138,23 @@ void SceneScriptHF03::dialogueWithLucy() {
 		break;
 
 	case 870: // RUNCITER
-		Actor_Says(kActorMcCoy, 1645, 18);
-		Actor_Says(kActorLucy, 240, 14);
-		Actor_Says(kActorLucy, 250, 12);
-		Actor_Says(kActorLucy, 260, 13);
-		Actor_Says(kActorLucy, 270, 19);
-		Actor_Says(kActorMcCoy, 1665, 18);
-		Actor_Says(kActorLucy, 280, 13);
-		Actor_Says(kActorMcCoy, 1670, 12);
-		Actor_Says(kActorLucy, 290, 14);
-		Actor_Says(kActorLucy, 300, 16);
-		Actor_Says(kActorMcCoy, 1675, 12);
-		Actor_Says(kActorLucy, 310, 13);
+		Actor_Says(kActorMcCoy, 1645, 18); // McCoy: Why'd they kill Runciter's animals?
+		Actor_Says(kActorLucy,   240, 14); // Lucy: I didn't want them to. But father, he was so angry.
+		Actor_Says(kActorLucy,   250, 12); // Lucy: And Sadik said Mr. Runciter deserved it for treating me that way.
+		Actor_Says(kActorLucy,   260, 13); // Lucy: It's so funny. I'm worth less than those animals.
+		Actor_Says(kActorLucy,   270, 19); // Lucy: I guess I should hate them. But I don't.
+		Actor_Says(kActorMcCoy, 1665, 18); // McCoy: So, all the animals were real?
+		Actor_Says(kActorLucy,   280, 13); // Lucy: Mr. Runciter also used to buy some of the... others.
+		Actor_Says(kActorMcCoy, 1670, 12); // McCoy: Artificial?
+		Actor_Says(kActorLucy,   290, 14); // Lucy: He used to tell me that he was protected.
+		Actor_Says(kActorLucy,   300, 16); // Lucy: That they came from somebody close to the source.
+		Actor_Says(kActorMcCoy, 1675, 12); // McCoy: Who else was there that night?
+		Actor_Says(kActorLucy,   310, 13); // Lucy: Father and uncle Zuben.
 		Actor_Clue_Acquire(kActorMcCoy, kClueLucyInterview, false, kActorLucy);
 		break;
 
 	case 880: // DONE
-		Actor_Says(kActorMcCoy, 1650, 14);
+		Actor_Says(kActorMcCoy, 1650, 14); // McCoy: Take care of yourself, kid.
 		break;
 	}
 }
@@ -171,25 +171,25 @@ bool SceneScriptHF03::ClickedOnActor(int actorId) {
 			if (!Game_Flag_Query(kFlagHF03LucyTalk)) {
 				Game_Flag_Set(kFlagHF03LucyTalk);
 				if (Game_Flag_Query(kFlagLucyIsReplicant)) {
-					Actor_Says(kActorMcCoy, 1605, 15);
-					Actor_Says(kActorLucy, 100, 12);
-					Actor_Says(kActorMcCoy, 1610, 14);
+					Actor_Says(kActorMcCoy, 1605, 15); // McCoy: You're sick, Lucy.
+					Actor_Says(kActorLucy,   100, 12); // Lucy: No. I'm not.
+					Actor_Says(kActorMcCoy, 1610, 14); // McCoy: Yes. You are.
 				} else {
-					Actor_Says(kActorMcCoy, 1615, 16);
-					Actor_Says(kActorLucy, 110, 13);
+					Actor_Says(kActorMcCoy, 1615, 16); // McCoy: I've been looking for you.
+					Actor_Says(kActorLucy,   110, 13); // Lucy: Please, leave me alone.
 				}
-				Actor_Says(kActorLucy, 120, 13);
-				Actor_Says(kActorMcCoy, 1620, 14);
-				Actor_Says(kActorLucy, 130, 17);
-				Actor_Says(kActorMcCoy, 1625, 15);
+				Actor_Says(kActorLucy,   120, 13); // Lucy: Father told me to watch out for you.
+				Actor_Says(kActorMcCoy, 1620, 14); // McCoy: I'm not gonna hurt you.
+				Actor_Says(kActorLucy,   130, 17); // Lucy: Have you always lived on Terra?
+				Actor_Says(kActorMcCoy, 1625, 15); // McCoy: Yes.
 				if (Game_Flag_Query(kFlagLucyIsReplicant)) {
-					Actor_Says(kActorLucy, 140, 12);
-					Actor_Says(kActorLucy, 150, 13);
-					Actor_Says(kActorLucy, 160, 15);
+					Actor_Says(kActorLucy, 140, 12); // Lucy: I always dreamed Terra would be so special and beautiful.
+					Actor_Says(kActorLucy, 150, 13); // Lucy: Birds and flowers and trees and blue water. Like on the video.
+					Actor_Says(kActorLucy, 160, 15); // Lucy: So different from everything on... uhm, where I was.
 				} else {
-					Actor_Says(kActorLucy, 170, 12);
-					Actor_Says(kActorLucy, 180, 13);
-					Actor_Says(kActorLucy, 190, 15);
+					Actor_Says(kActorLucy, 170, 12); // Lucy: Father told me he thought Terra would be so special and beautiful.
+					Actor_Says(kActorLucy, 180, 13); // Lucy: Birds and flowers and trees and blue water.
+					Actor_Says(kActorLucy, 190, 15); // Lucy: But it's not like that at all. I don't remember it ever being like that.
 				}
 			}
 
@@ -251,14 +251,14 @@ void SceneScriptHF03::PlayerWalkedIn() {
 
 	if (Actor_Query_Goal_Number(kActorLucy) == kGoalLucyReturnToHF03) {
 		Actor_Set_Goal_Number(kActorLucy, kGoalLucyHF03RunToHF041);
-		Actor_Says(kActorSteele, 210, 13);
+		Actor_Says(kActorSteele, 210, 13); // Steele: Just follow my lead, Slim.
 		Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
-		Actor_Says(kActorMcCoy, 1680, 15);
-		Actor_Says(kActorSteele, 220, 14);
-		Actor_Says(kActorMcCoy, 1685, 13);
-		Actor_Says(kActorSteele, 230, 16);
-		Actor_Says(kActorMcCoy, 1690, 12);
-		Actor_Says(kActorSteele, 240, 13);
+		Actor_Says(kActorMcCoy,  1680, 15); // McCoy: There's civilians all over the place.
+		Actor_Says(kActorSteele,  220, 14); // Steele: Yeah, they move pretty fast, don't they?
+		Actor_Says(kActorMcCoy,  1685, 13); // McCoy: I'll take care of it. You just cover the exit.
+		Actor_Says(kActorSteele,  230, 16); // Steele: Who's giving the orders around here?
+		Actor_Says(kActorMcCoy,  1690, 12); // McCoy: This one's mine, Steele. I tracked it, I get the kill.
+		Actor_Says(kActorSteele,  240, 13); // Steele: About time you strapped on some balls, Slim. Go for it.
 		Actor_Set_Goal_Number(kActorSteele, kGoalSteeleHF03McCoyChasingLucy);
 	}
 }

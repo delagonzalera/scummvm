@@ -75,14 +75,14 @@ void AIScriptRunciter::CompletedMovementTrack() {
 			switch (Random_Query(1, 5)) {
 			case 2:
 			case 3:
-				ADQ_Add(kActorRunciter, 530, -1);
+				ADQ_Add(kActorRunciter, 530, -1); // Runciter: My precious one. She was my baby.
 				break;
 			case 1:
 			case 5:
-				ADQ_Add(kActorRunciter, 80, -1);
+				ADQ_Add(kActorRunciter, 80, -1); // Runciter: I am ruined! Totally ruined!
 				break;
 			case 4:
-				ADQ_Add(kActorRunciter, 930, -1);
+				ADQ_Add(kActorRunciter, 930, -1); // Runciter: All my animals...
 				break;
 			}
 		}
@@ -110,45 +110,45 @@ void AIScriptRunciter::OtherAgentEnteredCombatMode(int otherActorId, int combatM
 	) {
 		Actor_Set_Targetable(kActorRunciter, true);
 		Actor_Face_Actor(kActorRunciter, kActorMcCoy, true);
-		Actor_Says(kActorRunciter, 420, 12);
+		Actor_Says(kActorRunciter, 420, 12); // Runciter: What? Why?
 		Actor_Face_Actor(kActorMcCoy, kActorRunciter, true);
 		Actor_Change_Animation_Mode(kActorMcCoy, kAnimationModeCombatAim);
 		if (Actor_Clue_Query(kActorMcCoy, kClueZubensMotive)) {
-			Actor_Says(kActorMcCoy, 4770, -1);
-			Actor_Says(kActorRunciter, 590, 13);
-			Actor_Says(kActorMcCoy, 4775, -1);
-			Actor_Says(kActorRunciter, 600, 17);
+			Actor_Says(kActorMcCoy,    4770, -1); // McCoy: You raped her.
+			Actor_Says(kActorRunciter,  590, 13); // Runciter: What? Who?
+			Actor_Says(kActorMcCoy,    4775, -1); // McCoy: Lucy.
+			Actor_Says(kActorRunciter,  600, 17); // Runciter: That's ridiculous. I--
 			Sound_Play(kSfxSHOTCOK1, 100, 0, 100, 50);
-			Actor_Says(kActorMcCoy, 4780, -1);
-			Actor_Says(kActorRunciter, 610, 18);
-			Actor_Says(kActorMcCoy, 4785, -1);
-			Actor_Says(kActorRunciter, 620, 15);
+			Actor_Says(kActorMcCoy,    4780, -1); // McCoy: Go ahead little man, lie to me. You'll only do it once.
+			Actor_Says(kActorRunciter,  610, 18); // Runciter: You're no better! No better than those thugs who attacked me.
+			Actor_Says(kActorMcCoy,    4785, -1); // McCoy: Maybe not, but I'm better than you. She's a little girl.
+			Actor_Says(kActorRunciter,  620, 15); // Runciter: It wasn't like that.
 			if (Game_Flag_Query(kFlagLucyIsReplicant)) {
-				Actor_Says(kActorRunciter, 630, 12);
-				Actor_Says(kActorRunciter, 640, 17);
-				Actor_Says(kActorMcCoy, 4790, -1);
-				Actor_Says(kActorRunciter, 650, 18);
-				Actor_Says(kActorRunciter, 660, 19);
+				Actor_Says(kActorRunciter,  630, 12); // Runciter: She's... You know what she is.
+				Actor_Says(kActorRunciter,  640, 17); // Runciter: You know why Tyrell built her to look they way she does.
+				Actor_Says(kActorMcCoy,    4790, -1); // McCoy: Bullshit!
+				Actor_Says(kActorRunciter,  650, 18); // Runciter: It's true.
+				Actor_Says(kActorRunciter,  660, 19); // Runciter: Please, I wouldn't-- you know I wouldn't have done that to a human girl. I swear it.
 				Actor_Clue_Acquire(kActorMcCoy, kClueRuncitersConfession1, true, kActorRunciter);
 			} else {
-				Actor_Says(kActorRunciter, 670, 18);
-				Actor_Says(kActorMcCoy, 4795, -1);
-				Actor_Says(kActorRunciter, 730, 17);
+				Actor_Says(kActorRunciter,  670, 18); // Runciter: She...
+				Actor_Says(kActorMcCoy,    4795, -1); // McCoy: If you say she asked for it, you're dead.
+				Actor_Says(kActorRunciter,  730, 17); // Runciter: Please. Just leave me alone.
 			}
 		} else if (Actor_Clue_Query(kActorMcCoy, kClueEnvelope)) {
-			Actor_Says(kActorMcCoy, 4730, -1);
-			Actor_Says(kActorRunciter, 480, 17);
-			Actor_Says(kActorMcCoy, 4735, -1);
-			Actor_Says(kActorRunciter, 490, 16);
+			Actor_Says(kActorMcCoy,    4730, -1); // McCoy: Tell me about Luther and Lance!
+			Actor_Says(kActorRunciter,  480, 17); // Runciter: There's-- Who? I don't...
+			Actor_Says(kActorMcCoy,    4735, -1); // McCoy: You're paying the sub-cons on DNA Row. Why?
+			Actor_Says(kActorRunciter,  490, 16); // Runciter: No. You heard it wrong.
 			Sound_Play(kSfxSHOTCOK1, 100, 0, 100, 50);
-			Actor_Says(kActorMcCoy, 4740, -1);
-			Actor_Says(kActorRunciter, 500, 18);
-			Actor_Says(kActorRunciter, 510, 19);
-			Actor_Says(kActorMcCoy, 4745, -1);
-			Actor_Says(kActorMcCoy, 4750, -1);
-			Actor_Says(kActorRunciter, 520, 17);
-			Actor_Says(kActorRunciter, 530, 18);
-			Actor_Says(kActorRunciter, 540, 16);
+			Actor_Says(kActorMcCoy,    4740, -1); // McCoy: Lie to me. Go ahead. You'll only do it once.
+			Actor_Says(kActorRunciter,  500, 18); // Runciter: Animals. It was my animals. Some of them were...
+			Actor_Says(kActorRunciter,  510, 19); // Runciter: F-- fake. You won't-- You can't tell anyone. My reputation.
+			Actor_Says(kActorMcCoy,    4745, -1); // McCoy: Your reputation?!
+			Actor_Says(kActorMcCoy,    4750, -1); // McCoy: Unbelievable.
+			Actor_Says(kActorRunciter,  520, 17); // Runciter: No! The tiger was real. I swear it.
+			Actor_Says(kActorRunciter,  530, 18); // Runciter: My precious one. She was my baby.
+			Actor_Says(kActorRunciter,  540, 16); // Runciter: I sacrificed everything to get that tiger. And now she's dead.
 		}
 		Game_Flag_Set(kFlagRC02RunciterTalkWithGun);
 	}
@@ -162,12 +162,12 @@ bool AIScriptRunciter::ShotAtAndHit() {
 	Actor_Set_Goal_Number(kActorRunciter, kGoalRunciterDead);
 	Delay(2000);
 	if (Actor_Clue_Query(kActorMcCoy, kClueZubensMotive)) {
-		Actor_Voice_Over(2050, kActorVoiceOver);
-		Actor_Voice_Over(2060, kActorVoiceOver);
+		Actor_Voice_Over(2050, kActorVoiceOver); // Mainframe: Clovis wanted Runciter to suffer, but I wanted him dead.
+		Actor_Voice_Over(2060, kActorVoiceOver); // Mainframe: If there was a Hell, maybe we both got what we wanted.
 	} else {
-		Actor_Voice_Over(2070, kActorVoiceOver);
-		Actor_Voice_Over(2080, kActorVoiceOver);
-		Actor_Voice_Over(2090, kActorVoiceOver);
+		Actor_Voice_Over(2070, kActorVoiceOver); // Mainframe: Something about the bastard made my flesh crawl.
+		Actor_Voice_Over(2080, kActorVoiceOver); // Mainframe: I'd done the city a favor.
+		Actor_Voice_Over(2090, kActorVoiceOver); // Mainframe: And maybe I'd done him a favor too, since his animals were all dead.
 	}
 	Actor_Modify_Friendliness_To_Other(kActorClovis, kActorMcCoy, 3);
 	return false;

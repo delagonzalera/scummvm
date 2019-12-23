@@ -75,19 +75,19 @@ bool SceneScriptBB07::ClickedOn3DObject(const char *objectName, bool a2) {
 			if ( Game_Flag_Query(kFlagBB07ElectricityOn)
 			 && !Game_Flag_Query(kFlagBB07PrinterChecked)
 			) {
-				Actor_Voice_Over(130, kActorVoiceOver);
+				Actor_Voice_Over(130, kActorVoiceOver); // Mainframe: DNA research, incept dates.
 				Item_Pickup_Spin_Effect(kModelAnimationDNADataDisc, 439, 242);
-				Actor_Voice_Over(140, kActorVoiceOver);
+				Actor_Voice_Over(140, kActorVoiceOver); // Mainframe: A lot of jargon but I bet my spinner it was valuable to somebody.
 				Game_Flag_Set(kFlagBB07PrinterChecked);
 				Actor_Clue_Acquire(kActorMcCoy, kClueDNASebastian, true, -1);
 			} else if (Game_Flag_Query(kFlagBB07ElectricityOn)
 			        && Game_Flag_Query(kFlagBB07PrinterChecked)
 			) {
 				Actor_Face_Object(kActorMcCoy, "PRINTER", true);
-				Actor_Says(kActorMcCoy, 8570, 13);
+				Actor_Says(kActorMcCoy, 8570, 13); // McCoy: I've gotten all I can from that.
 			} else {
 				Actor_Face_Object(kActorMcCoy, "PRINTER", true);
-				Actor_Says(kActorMcCoy, 8575, 13);
+				Actor_Says(kActorMcCoy, 8575, 13); // McCoy: More useless junk.
 			}
 		}
 	}
@@ -103,9 +103,9 @@ bool SceneScriptBB07::ClickedOnItem(int itemId, bool a2) {
 		if (!Loop_Actor_Walk_To_Item(kActorMcCoy, kItemDNATyrell, 36, true, false)) {
 			Actor_Face_Item(kActorMcCoy, kItemDNATyrell, true);
 			if (Game_Flag_Query(kFlagBB07ElectricityOn)) {
-				Actor_Voice_Over(150, kActorVoiceOver);
-				Actor_Voice_Over(160, kActorVoiceOver);
-				Actor_Voice_Over(170, kActorVoiceOver);
+				Actor_Voice_Over(150, kActorVoiceOver); // Mainframe: The computer was locked down with what looked like a modified Tyrell security device.
+				Actor_Voice_Over(160, kActorVoiceOver); // Mainframe: Voice recognition, palm print. The works.
+				Actor_Voice_Over(170, kActorVoiceOver); // Mainframe: There's no way I was getting into this guy's files.
 			}
 		}
 	}
@@ -158,10 +158,10 @@ bool SceneScriptBB07::ClickedOn2DRegion(int region) {
 				Overlay_Play("BB07OVER", 2, true, false, 0);
 				Game_Flag_Set(kFlagBB07ElectricityOn);
 				if (!Game_Flag_Query(kFlagBB07PrinterChecked)) {
-					Actor_Says(kActorAnsweringMachine, 0, kAnimationModeTalk);
+					Actor_Says(kActorAnsweringMachine, 0, kAnimationModeTalk); // Answering Machine: Resuming interrupted print job.
 				}
 			} else {
-				Actor_Says(kActorMcCoy, 8585, 15);
+				Actor_Says(kActorMcCoy, 8585, 15); // McCoy: Nothing more to find.
 			}
 		}
 	}

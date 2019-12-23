@@ -138,12 +138,12 @@ bool SceneScriptRC02::ClickedOn3DObject(const char *objectName, bool a2) {
 		) {
 			AI_Movement_Track_Pause(kActorRunciter);
 			Actor_Face_Actor(kActorMcCoy, kActorRunciter, true);
-			Actor_Says(kActorMcCoy, 4545, 14);
+			Actor_Says(kActorMcCoy, 4545, 14); // McCoy: You got any discs from that camera?
 			Actor_Face_Actor(kActorRunciter, kActorMcCoy, true);
-			Actor_Says(kActorRunciter, 0, 14);
-			Actor_Says(kActorRunciter, 10, 16);
-			Actor_Says(kActorMcCoy, 4550, 13);
-			Actor_Says(kActorRunciter, 20, 13);
+			Actor_Says(kActorRunciter,    0, 14); // Runciter: It's irrelevant.
+			Actor_Says(kActorRunciter,   10, 16); // Runciter: Those murderers also destroyed the camera. Thousands of chinyens' worth.
+			Actor_Says(kActorMcCoy,    4550, 13); // McCoy: Maybe it photographed them, before they shot it out.
+			Actor_Says(kActorRunciter,   20, 13); // Runciter: Hmm, I guess you've got a point at that.
 			Loop_Actor_Walk_To_Waypoint(kActorRunciter, 89, 0, false, false);
 			Actor_Face_Actor(kActorMcCoy, kActorRunciter, true);
 			Loop_Actor_Walk_To_Waypoint(kActorRunciter, 102, 0, false, false);
@@ -155,15 +155,15 @@ bool SceneScriptRC02::ClickedOn3DObject(const char *objectName, bool a2) {
 			Item_Pickup_Spin_Effect(kModelAnimationVideoDisc, 357, 228);
 			Actor_Face_Actor(kActorMcCoy, kActorRunciter, true);
 			Actor_Face_Actor(kActorRunciter, kActorMcCoy, true);
-			Actor_Says(kActorRunciter, 30, 23);
-			Actor_Says(kActorMcCoy, 4555, 18);
+			Actor_Says(kActorRunciter,   30, 23); // Runciter: I believe this is the disc from last night.
+			Actor_Says(kActorMcCoy,    4555, 18); // McCoy: Peachy.
 			Actor_Clue_Acquire(kActorMcCoy, kClueRuncitersVideo, true, kActorRunciter);
 			Unclickable_Object("SCRTY CA03");
 			AI_Movement_Track_Unpause(kActorRunciter);
 			return true;
 		} else {
 			Actor_Face_Object(kActorMcCoy, "SCRTY CA03", true);
-			Actor_Voice_Over(2000, kActorVoiceOver);
+			Actor_Voice_Over(2000, kActorVoiceOver); // Mainframe: Security camera. It'd be a banner day, if it recorded anything before it was shot out.
 			return true;
 		}
 	}
@@ -183,11 +183,11 @@ bool SceneScriptRC02::ClickedOn3DObject(const char *objectName, bool a2) {
 		if (Player_Query_Agenda() == kPlayerAgendaSurly
 		    || (Player_Query_Agenda() == kPlayerAgendaErratic && Random_Query(0, 1) == 1)
 		) {
-			Actor_Voice_Over(1940, kActorVoiceOver);
+			Actor_Voice_Over(1940, kActorVoiceOver); // Mainframe: I'd never seen so many authentic animals under the same roof. It was beautiful... and horrendous.
 		} else {
-			Actor_Voice_Over(9010, kActorMcCoy);
-			Actor_Voice_Over(9015, kActorMcCoy);
-			Actor_Voice_Over(9020, kActorMcCoy);
+			Actor_Voice_Over(9010, kActorMcCoy); // McCoy: I'd never seen dead animals before. And I never wanted to again.
+			Actor_Voice_Over(9015, kActorMcCoy); // McCoy: I didn't want to look too closely.
+			Actor_Voice_Over(9020, kActorMcCoy); // McCoy: The boys back at the lab would tell me all I needed to know.
 		}
 		Game_Flag_Set(kFlagMcCoyCommentsOnMurderedAnimals);
 		Unclickable_Object("DRAPE01");
@@ -226,45 +226,45 @@ void SceneScriptRC02::dialogueWithRunciter() {
 
 	switch (answer) {
 	case 0: // MOTIVES
-		Actor_Says(kActorMcCoy, 4580, 13);
+		Actor_Says(kActorMcCoy, 4580, 13); // McCoy: Can you think of anything they might have been after?
 		Actor_Face_Actor(kActorRunciter, kActorMcCoy, true);
-		Actor_Says(kActorRunciter, 110, 18);
-		Actor_Says(kActorRunciter, 120, 17);
-		Actor_Says(kActorRunciter, 130, 19);
-		Actor_Says(kActorMcCoy, 4605, 13);
-		Actor_Says(kActorRunciter, 140, 16);
+		Actor_Says(kActorRunciter,  110, 18); // Runciter: First I thought they wanted money but I don't keep any in the shop.
+		Actor_Says(kActorRunciter,  120, 17); // Runciter: Then I thought they wanted to steal my animals but they started...
+		Actor_Says(kActorRunciter,  130, 19); // Runciter: executing them.
+		Actor_Says(kActorMcCoy,    4605, 13); // McCoy: Could they have been Replicants?
+		Actor_Says(kActorRunciter,  140, 16); // Runciter: Who else would be capable of such barbaric acts?
 		Game_Flag_Set(kFlagRC02RunciterTalk1);
 		break;
 
 	case 10: // LUCY
-		Actor_Says(kActorMcCoy, 4585, 13);
+		Actor_Says(kActorMcCoy, 4585, 13); // McCoy: Tell me about this Lucy.
 		Actor_Face_Actor(kActorRunciter, kActorMcCoy, true);
 		if (Game_Flag_Query(kFlagLucyIsReplicant)) {
-			Actor_Says(kActorRunciter, 250, 13);
-			Actor_Says(kActorRunciter, 270, 13);
+			Actor_Says(kActorRunciter, 250, 13); // Runciter: There's not a lot I can tell you. She's only worked for me for about a month.
+			Actor_Says(kActorRunciter, 270, 13); // Runciter: She's about fourteen years old with pink hair. A very attractive young thing.
 			Actor_Clue_Acquire(kActorMcCoy, kClueRunciterInterviewB1, true, kActorRunciter);
 		} else {
-			Actor_Says(kActorRunciter, 260, 14);
-			Actor_Says(kActorRunciter, 270, 13);
+			Actor_Says(kActorRunciter, 260, 14); // Runciter: There's not a lot I can tell you. She's only worked for me for a short while.
+			Actor_Says(kActorRunciter, 270, 13); // Runciter: She's about fourteen years old with pink hair. A very attractive young thing.
 			Actor_Clue_Acquire(kActorMcCoy, kClueRunciterInterviewB2, true, kActorRunciter);
 		}
-		Actor_Says(kActorMcCoy, 4645, 13);
-		Actor_Says(kActorRunciter, 280, 13);
-		Actor_Says(kActorRunciter, 290, 13);
-		Actor_Says(kActorMcCoy, 4650, 18);
-		Actor_Says(kActorRunciter, 320, 13);
-		Actor_Says(kActorMcCoy, 4665, 13);
+		Actor_Says(kActorMcCoy,    4645, 13); // McCoy: How did you find her?
+		Actor_Says(kActorRunciter,  280, 13); // Runciter: She came to me with a reference from Ogilvy's in the North West Zone.
+		Actor_Says(kActorRunciter,  290, 13); // Runciter: And he's a very reputable wholesaler.
+		Actor_Says(kActorMcCoy,    4650, 18); // McCoy: You treat her well?
+		Actor_Says(kActorRunciter,  320, 13); // Runciter: As well as any young tart should be treated.
+		Actor_Says(kActorMcCoy,    4665, 13); // McCoy: She got a desk or some place where she worked?
 		Actor_Face_Object(kActorRunciter, "CURTAIN", true);
-		Actor_Says(kActorRunciter, 350, 13);
+		Actor_Says(kActorRunciter, 350, 13); // Runciter: She used to eat over there.
 		Actor_Face_Actor(kActorRunciter, kActorMcCoy, true);
 		Scene_Exit_Add_2D_Exit(kRC02ExitRC51, 265, 58, 346, 154, 0);
 		Game_Flag_Set(kFlagRC51Available);
 		break;
 
 	case 20: // REFERENCE
-		Actor_Says(kActorMcCoy, 4590, 19);
+		Actor_Says(kActorMcCoy, 4590, 19); // McCoy: See if you can dig up that reference from Ogilvy's.
 		Actor_Face_Actor(kActorRunciter, kActorMcCoy, true);
-		Actor_Says(kActorRunciter, 360, 13);
+		Actor_Says(kActorRunciter, 360, 13); // Runciter: Yes, it's somewhere here. Just a moment.
 		Loop_Actor_Walk_To_Waypoint(kActorRunciter, 89, 0, false, false);
 		Loop_Actor_Walk_To_Waypoint(kActorRunciter, 102, 0, false, false);
 		Actor_Face_Actor(kActorMcCoy, kActorRunciter, true);
@@ -276,7 +276,7 @@ void SceneScriptRC02::dialogueWithRunciter() {
 		Actor_Face_Actor(kActorRunciter, kActorMcCoy, true);
 		Actor_Face_Actor(kActorMcCoy, kActorRunciter, true);
 		Item_Pickup_Spin_Effect(kModelAnimationReferenceLetter, 357, 228);
-		Actor_Says(kActorRunciter, 1700, 13);
+		Actor_Says(kActorRunciter, 1700, 13); // Runciter: Here you are.
 		Actor_Clue_Acquire(kActorMcCoy, kClueReferenceLetter, true, kActorRunciter);
 		break;
 
@@ -284,17 +284,17 @@ void SceneScriptRC02::dialogueWithRunciter() {
 		if (_vm->_cutContent) { // scene 16 79
 			Game_Flag_Set(kFlagRC02RunciterVKChosen);
 			Actor_Face_Actor(kActorMcCoy, kActorRunciter, true);
-			Actor_Says(kActorMcCoy, 395, 14);
+			Actor_Says(kActorMcCoy, 395, 14); // McCoy: There's a test I'd like you to take.
 			Actor_Face_Actor(kActorRunciter, kActorMcCoy, true);
-			Actor_Says(kActorRunciter, 1680, 13);
-			Actor_Says(kActorMcCoy, 400, 14);
+			Actor_Says(kActorRunciter, 1680, 13); // Runciter: No. I have a lot of cleaning up to do.
+			Actor_Says(kActorMcCoy,     400, 14); // McCoy: It won't take too long.
 			Voight_Kampff_Activate(kActorRunciter, 20);
 			Actor_Modify_Friendliness_To_Other(kActorRunciter, kActorMcCoy, -10);
 		}
 		break;
 
 	case 30: // DONE
-		Actor_Says(kActorMcCoy, 4595, 14);
+		Actor_Says(kActorMcCoy, 4595, 14); // McCoy: Stick around. I may not be finished with you.
 		break;
 	}
 }
@@ -307,20 +307,20 @@ bool SceneScriptRC02::ClickedOnActor(int actorId) {
 				if (_vm->_cutContent) {
 					switch (Random_Query(1, 3)) {
 					case 1:
-						Actor_Says(kActorMcCoy, 8715, 17);
+						Actor_Says(kActorMcCoy, 8715, 17); // McCoy: Weirdo.
 						break;
 					case 2:
-						Actor_Says(kActorMcCoy, 8720, 17);
+						Actor_Says(kActorMcCoy, 8720, 17); // McCoy: Freak.
 						break;
 					case 3:
-						Actor_Says(kActorMcCoy, 8725, 17);
+						Actor_Says(kActorMcCoy, 8725, 17); // McCoy: Idiot.
 						break;
 					}
 				} else {
 					if (Random_Query(1, 2) == 1) {
-						Actor_Says(kActorMcCoy, 8715, 17);
+						Actor_Says(kActorMcCoy, 8715, 17); // McCoy: Weirdo.
 					} else {
-						Actor_Says(kActorMcCoy, 8720, 17);
+						Actor_Says(kActorMcCoy, 8720, 17); // McCoy: Freak.
 					}
 				}
 				return true;
@@ -329,32 +329,32 @@ bool SceneScriptRC02::ClickedOnActor(int actorId) {
 			if (!Game_Flag_Query(kFlagRC02RunciterTalkWithGun)
 			 && !Game_Flag_Query(kFlagRC02RunciterTalk2)
 			) {
-				Actor_Says(kActorMcCoy, 4690, 11);
-				Actor_Says(kActorMcCoy, 4695, 13);
+				Actor_Says(kActorMcCoy, 4690, 11); // McCoy: I wanted to ask you about the Tyrell subcontractors again.
+				Actor_Says(kActorMcCoy, 4695, 13); // McCoy: The ones down on DNA Row.
 				Actor_Face_Actor(kActorRunciter, kActorMcCoy, true);
-				Actor_Says(kActorRunciter, 1610, 14);
+				Actor_Says(kActorRunciter, 1610, 14); // Runciter: Detective, if I knew something you can be sure I'd tell you.
 				if (Actor_Clue_Query(kActorMcCoy, kClueEnvelope)) {
-					Actor_Says(kActorMcCoy, 4700, 12);
-					Actor_Says(kActorMcCoy, 4705, 13);
-					Actor_Says(kActorRunciter, 1620, 12);
-					Actor_Says(kActorMcCoy, 4710, 15);
-					Actor_Says(kActorMcCoy, 4715, 11);
+					Actor_Says(kActorMcCoy,    4700, 12); // McCoy: I found an envelope in an apartment down in the Row. From your shop.
+					Actor_Says(kActorMcCoy,    4705, 13); // McCoy: Good chunk of chinyen inside. You didn't lose an envelope, did ya?
+					Actor_Says(kActorRunciter, 1620, 12); // Runciter: Hmph! I don't think I want to talk to you anymore Mr. McCoy.
+					Actor_Says(kActorMcCoy,    4710, 15); // McCoy: Yeah, it was a lot of money. Enough maybe for a... fake animal or two.
+					Actor_Says(kActorMcCoy,    4715, 11); // McCoy: Something big even. Like a tiger.
 					Delay(2000);
-					Actor_Says(kActorMcCoy, 4720, 16);
-					Actor_Says(kActorMcCoy, 4725, 17);
-					Actor_Says(kActorRunciter, 430, 16);
+					Actor_Says(kActorMcCoy,    4720, 16); // McCoy: Bone marrow tests are getting cheaper every day.
+					Actor_Says(kActorMcCoy,    4725, 17); // McCoy: I'm thinking it'll be worth a little tax payer money to check out those animals of yours.
+					Actor_Says(kActorRunciter,  430, 16); // Runciter: Go away!
 					Actor_Face_Heading(kActorRunciter, 1007, false);
 				}
 				Game_Flag_Set(kFlagRC02RunciterTalk2);
 				return true;
 			}
 
-			Actor_Says(kActorMcCoy, 4805, 11);
+			Actor_Says(kActorMcCoy, 4805, 11); // McCoy: Listen up.
 			Actor_Face_Actor(kActorRunciter, kActorMcCoy, true);
 			if (Game_Flag_Query(kFlagRC02RunciterTalk2)) {
-				Actor_Says(kActorRunciter, 720, 15);
+				Actor_Says(kActorRunciter, 720, 15); // Runciter: I have nothing more to say to you, detective.
 			} else {
-				Actor_Says(kActorRunciter, 730, 14);
+				Actor_Says(kActorRunciter, 730, 14); // Runciter: Please. Just leave me alone.
 			}
 			Actor_Face_Heading(kActorRunciter, 1007, false);
 			return true;
@@ -365,14 +365,14 @@ bool SceneScriptRC02::ClickedOnActor(int actorId) {
 		Actor_Face_Actor(kActorMcCoy, kActorRunciter, true);
 
 		if (!Game_Flag_Query(kFlagRC02RunciterInterview)) {
-			Actor_Says(kActorMcCoy, 4560, 13);
+			Actor_Says(kActorMcCoy, 4560, 13); // McCoy: McCoy, LPD.
 			Actor_Face_Actor(kActorRunciter, kActorMcCoy, true);
-			Actor_Says(kActorRunciter, 40, 16);
-			Actor_Says(kActorRunciter, 50, 15);
-			Actor_Says(kActorMcCoy, 4565, 13);
-			Actor_Says(kActorRunciter, 60, 14);
-			Actor_Says(kActorMcCoy, 4570, 18);
-			Actor_Says(kActorRunciter, 70, 13);
+			Actor_Says(kActorRunciter,   40, 16); // Runciter: I'm absolutely certain Lucy Devlin was involved in this heinous act.
+			Actor_Says(kActorRunciter,   50, 15); // Runciter: She's the young girl who works for me.
+			Actor_Says(kActorMcCoy,    4565, 13); // McCoy: She's responsible for all this mayhem?
+			Actor_Says(kActorRunciter,   60, 14); // Runciter: No, of course not! It was two men acting in concert with her, obviously.
+			Actor_Says(kActorMcCoy,    4570, 18); // McCoy: Obviously. What did they look like?
+			Actor_Says(kActorRunciter,   70, 13); // Runciter: Big and scary and absolutely malevolent.
 			Game_Flag_Set(kFlagRC02RunciterInterview);
 			Actor_Clue_Acquire(kActorMcCoy, kClueRunciterInterviewA, true, kActorRunciter);
 			AI_Movement_Track_Unpause(kActorRunciter);
@@ -387,25 +387,25 @@ bool SceneScriptRC02::ClickedOnActor(int actorId) {
 				return true;
 			}
 
-			Actor_Says(kActorMcCoy, 4610, 19);
+			Actor_Says(kActorMcCoy, 4610, 19); // McCoy: You ever do any business with the Replicant manufacturers? Tyrell Corporation?
 			Actor_Face_Actor(kActorRunciter, kActorMcCoy, true);
-			Actor_Says(kActorRunciter, 150, 15);
-			Actor_Says(kActorMcCoy, 4615, 13);
-			Actor_Says(kActorRunciter, 160, 14);
-			Actor_Says(kActorRunciter, 170, 15);
-			Actor_Says(kActorRunciter, 180, 13);
+			Actor_Says(kActorRunciter,  150, 15); // Runciter: I resent that accusation.
+			Actor_Says(kActorMcCoy,    4615, 13); // McCoy: Just wondering.
+			Actor_Says(kActorRunciter,  160, 14); // Runciter: Officer, last May I personally sold Governor Kolvig an exquisite Percheron colt.
+			Actor_Says(kActorRunciter,  170, 15); // Runciter: I have been a guest at his house on three separate occasions.
+			Actor_Says(kActorRunciter,  180, 13); // Runciter: Do I look like I need to carry artificial product?
 
 			if (Player_Query_Agenda() == kPlayerAgendaSurly) {
-				Actor_Says(kActorMcCoy, 4620, 19);
-				Actor_Says(kActorRunciter, 190, 14);
-				Actor_Says(kActorMcCoy, 4625, 13);
-				Actor_Says(kActorRunciter, 210, 13);
-				Actor_Says(kActorMcCoy, 4630, 18);
-				Actor_Says(kActorRunciter, 220, 14);
-				Actor_Says(kActorRunciter, 230, 13);
-				Actor_Says(kActorMcCoy, 4635, 19);
-				Actor_Says(kActorRunciter, 240, 16);
-				Actor_Says(kActorMcCoy, 4640, 17);
+				Actor_Says(kActorMcCoy,    4620, 19); // McCoy: So if we do the bone marrow on these animals, there won't be any surprises.
+				Actor_Says(kActorRunciter,  190, 14); // Runciter: Don't you have anything better to do with the tax payers' money than perform superfluous autopsies?
+				Actor_Says(kActorMcCoy,    4625, 13); // McCoy: Do you know anybody who works at Tyrell Corporation?
+				Actor_Says(kActorRunciter,  210, 13); // Runciter: A couple of genetic designers are old friends of mine.
+				Actor_Says(kActorMcCoy,    4630, 18); // McCoy: Such as?
+				Actor_Says(kActorRunciter,  220, 14); // Runciter: Well, you know how tight security is there.
+				Actor_Says(kActorRunciter,  230, 13); // Runciter: It would be a betrayal of trusts to mention names. And they have nothing to do with this.
+				Actor_Says(kActorMcCoy,    4635, 19); // McCoy: I assume you're talking about some of those fruitcakes on DNA Row.
+				Actor_Says(kActorRunciter,  240, 16); // Runciter: That's a horrible thing to say about people, detective.
+				Actor_Says(kActorMcCoy,    4640, 17); // McCoy: Sorry.
 			}
 			Game_Flag_Reset(kFlagRC02RunciterTalk1);
 			AI_Movement_Track_Unpause(kActorRunciter);
@@ -431,7 +431,7 @@ bool SceneScriptRC02::ClickedOnItem(int itemId, bool a2) {
 			Item_Remove_From_World(kItemShellCasingB);
 			Item_Remove_From_World(kItemShellCasingC);
 			Item_Pickup_Spin_Effect(kModelAnimationShellCasings, 395, 352);
-			Actor_Voice_Over(1960, kActorVoiceOver);
+			Actor_Voice_Over(1960, kActorVoiceOver); // Mainframe: Big caliber. Possibly Off-World combat weaponry. Ballistics might give me a fix on it.
 		}
 		return true;
 	}
@@ -471,9 +471,9 @@ bool SceneScriptRC02::ClickedOn2DRegion(int region) {
 	) {
 		Game_Flag_Set(kFlagRC02McCoyCommentsOnVideoScreens);
 		Scene_2D_Region_Remove(0);
-		Actor_Voice_Over(9025, kActorMcCoy);
-		Actor_Voice_Over(9030, kActorMcCoy);
-		Actor_Voice_Over(9035, kActorMcCoy);
+		Actor_Voice_Over(9025, kActorMcCoy); // McCoy: Video screens were everywhere in this damn city.
+		Actor_Voice_Over(9030, kActorMcCoy); // McCoy: Sometimes I wondered if they were watching us.
+		Actor_Voice_Over(9035, kActorMcCoy); // McCoy: I usually just change the channel but to each his own.
 		return true;
 	}
 	return false;
@@ -493,9 +493,9 @@ void SceneScriptRC02::PlayerWalkedIn() {
 		Player_Gains_Control();
 		Game_Flag_Reset(kFlagRC01toRC02);
 		if (!Game_Flag_Query(kFlagRC02Entered)) {
-			Actor_Voice_Over(1970, kActorVoiceOver);
-			Actor_Voice_Over(1980, kActorVoiceOver);
-			Actor_Voice_Over(1990, kActorVoiceOver);
+			Actor_Voice_Over(1970, kActorVoiceOver); // Mainframe: Judging from the distance between the prints, I was looking for two very big men.
+			Actor_Voice_Over(1980, kActorVoiceOver); // Mainframe: One dragged his right foot indicating a possible injury or lameness.
+			Actor_Voice_Over(1990, kActorVoiceOver); // Mainframe: The other appeared a lot more controlled, graceful even. Quite a pair.
 			Actor_Clue_Acquire(kActorMcCoy, kClueLimpingFootprints, true, -1);
 			Actor_Clue_Acquire(kActorMcCoy, kClueGracefulFootprints, true, -1);
 			Game_Flag_Set(kFlagRC02Entered);
@@ -509,15 +509,15 @@ void SceneScriptRC02::PlayerWalkedIn() {
 		 && !Game_Flag_Query(kFlagRC02EnteredChapter4)
 		) {
 			Actor_Face_Actor(kActorRunciter, kActorMcCoy, true);
-			Actor_Says(kActorRunciter, 370, 12);
-			Actor_Says(kActorRunciter, 380, 14);
+			Actor_Says(kActorRunciter, 370, 12); // Runciter: Oh, it's you.
+			Actor_Says(kActorRunciter, 380, 14); // Runciter: Did you find the girl? Lucy.
 			Actor_Face_Actor(kActorMcCoy, kActorRunciter, true);
-			Actor_Says(kActorMcCoy, 4670, 15);
-			Actor_Says(kActorRunciter, 390, 13);
-			Actor_Says(kActorMcCoy, 4675, 14);
+			Actor_Says(kActorMcCoy,    4670, 15); // McCoy: I've met her, yes.
+			Actor_Says(kActorRunciter,  390, 13); // Runciter: Really? Is she in custody? I'll be happy to come down to the station and identify her.
+			Actor_Says(kActorMcCoy,    4675, 14); // McCoy: That won't be necessary.
 			Actor_Face_Heading(kActorRunciter, 1007, false);
-			Actor_Says(kActorRunciter, 400, 13);
-			Actor_Says(kActorRunciter, 410, 12);
+			Actor_Says(kActorRunciter, 400, 13); // Runciter: All right. I just wanted to ask her why. Why she would do such a thing.
+			Actor_Says(kActorRunciter, 410, 12); // Runciter: My precious ones are gone. I cared for them. All of them.
 			Game_Flag_Set(kFlagRC02EnteredChapter4);
 		}
 	} else {

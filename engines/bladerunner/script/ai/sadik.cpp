@@ -139,7 +139,7 @@ void AIScriptSadik::ReceivedClue(int clueId, int fromActorId) {
 void AIScriptSadik::ClickedByPlayer() {
 	if (Actor_Query_Goal_Number(kActorSadik) == kGoalSadikGone) {
 		Actor_Face_Actor(kActorMcCoy, kActorSadik, true);
-		Actor_Says(kActorMcCoy, 8580, 16);
+		Actor_Says(kActorMcCoy, 8580, 16); // McCoy: Nothing else there.
 	}
 }
 
@@ -405,14 +405,14 @@ bool AIScriptSadik::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		return true;
 
 	case 412:
-		Actor_Says(kActorSadik, 60, 3);
-		Actor_Says(kActorMcCoy, 2240, 3);
-		Actor_Says(kActorSadik, 70, 3);
-		Actor_Says(kActorSadik, 80, 3);
-		Actor_Says(kActorMcCoy, 2245, 3);
-		Actor_Says(kActorSadik, 90, 3);
-		Actor_Says(kActorSadik, 100, 3);
-		Actor_Says(kActorMcCoy, 2250, 3);
+		Actor_Says(kActorSadik,   60, 3); // Sadik: You like my present, mon?
+		Actor_Says(kActorMcCoy, 2240, 3); // McCoy: You bastard! She was an innocent!
+		Actor_Says(kActorSadik,   70, 3); // Sadik: She a fake, mon. A machine. Like you!
+		Actor_Says(kActorSadik,   80, 3); // Sadik: Tyrell? He make her more doggy than dog, ya know?
+		Actor_Says(kActorMcCoy, 2245, 3); // McCoy: That-- that's a lie!
+		Actor_Says(kActorSadik,   90, 3); // Sadik: You don't remember it I'm thinking.
+		Actor_Says(kActorSadik,  100, 3); // Sadik: None of it. Them false memories. They really worked you good.
+		Actor_Says(kActorMcCoy, 2250, 3); // McCoy: Come out and show yourself, you coward!
 		Actor_Set_Goal_Number(kActorSadik, 413);
 		return true;
 
@@ -430,29 +430,29 @@ bool AIScriptSadik::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		return true;
 
 	case 415:
-		Actor_Says(kActorSadik, 110, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 2290, kAnimationModeTalk);
-		Actor_Says(kActorSadik, 310, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 2300, kAnimationModeTalk);
+		Actor_Says(kActorSadik,  110, kAnimationModeTalk); // Sadik: Brother mon. Wondering when you'd make it out here.
+		Actor_Says(kActorMcCoy, 2290, kAnimationModeTalk); // McCoy: Took a little while to realize where I belonged.
+		Actor_Says(kActorSadik,  310, kAnimationModeTalk); // Sadik: The Maker built you right.
+		Actor_Says(kActorMcCoy, 2300, kAnimationModeTalk); // McCoy: What about you, Sadik? Aren't you a killer?
 		if (Game_Flag_Query(kFlagSadikIsReplicant)) {
-			Actor_Says(kActorSadik, 180, kAnimationModeTalk);
-			Actor_Says(kActorSadik, 190, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 2310, kAnimationModeTalk);
-			Actor_Says(kActorSadik, 200, kAnimationModeTalk);
+			Actor_Says(kActorSadik,  180, kAnimationModeTalk); // Sadik: My woman? She be killed by a Blade Runner. Revenge all I got left.
+			Actor_Says(kActorSadik,  190, kAnimationModeTalk); // Sadik: So, yeah. I be a killer now.
+			Actor_Says(kActorMcCoy, 2310, kAnimationModeTalk); // McCoy: I understand.
+			Actor_Says(kActorSadik,  200, kAnimationModeTalk); // Sadik: Truth be told killing don't help much.
 		} else {
-			Actor_Says(kActorSadik, 140, kAnimationModeTalk);
-			Actor_Says(kActorSadik, 150, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 2305, kAnimationModeTalk);
-			Actor_Says(kActorSadik, 160, kAnimationModeTalk);
-			Actor_Says(kActorSadik, 170, kAnimationModeTalk);
+			Actor_Says(kActorSadik,  140, kAnimationModeTalk); // Sadik: You bet, mon. Human too. My woman, she be Replicant.
+			Actor_Says(kActorSadik,  150, kAnimationModeTalk); // Sadik: Tried to get away from her master. A Blade Runner shot her.
+			Actor_Says(kActorMcCoy, 2305, kAnimationModeTalk); // McCoy: I'm sorry.
+			Actor_Says(kActorSadik,  160, kAnimationModeTalk); // Sadik: Ah, happened a long time ago. I take my revenge when I can.
+			Actor_Says(kActorSadik,  170, kAnimationModeTalk); // Sadik: Help the Reps much as possible.
 		}
-		Actor_Says(kActorMcCoy, 2315, kAnimationModeTalk);
-		Actor_Says(kActorSadik, 210, kAnimationModeTalk);
-		Actor_Says(kActorSadik, 220, kAnimationModeTalk);
-		Actor_Says(kActorSadik, 230, kAnimationModeTalk);
-		Actor_Says(kActorSadik, 240, kAnimationModeTalk);
-		Actor_Says(kActorSadik, 250, kAnimationModeTalk);
-		Actor_Says(kActorSadik, 260, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy, 2315, kAnimationModeTalk); // McCoy: The moonbus up and running yet?
+		Actor_Says(kActorSadik,  210, kAnimationModeTalk); // Sadik: All it needs is fuel.
+		Actor_Says(kActorSadik,  220, kAnimationModeTalk); // Sadik: Clovis wants to see you. Bring you back into family.
+		Actor_Says(kActorSadik,  230, kAnimationModeTalk); // Sadik: I say: he prove himself, welcome back. One happy family.
+		Actor_Says(kActorSadik,  240, kAnimationModeTalk); // Sadik: There got to be something around here, mon.
+		Actor_Says(kActorSadik,  250, kAnimationModeTalk); // Sadik: Old reactor cores. Anything still got a glow.
+		Actor_Says(kActorSadik,  260, kAnimationModeTalk); // Sadik: The generator? It take almost anything.
 		Actor_Set_Goal_Number(kActorSadik, kGoalSadikKP06NeedsReactorCoreFromMcCoy);
 		return true;
 
@@ -463,12 +463,12 @@ bool AIScriptSadik::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 
 	case 417:
 		Actor_Face_Actor(kActorSadik, kActorMcCoy, true);
-		Actor_Says(kActorSadik, 320, kAnimationModeTalk);
+		Actor_Says(kActorSadik, 320, kAnimationModeTalk); // Sadik: You find me something for the engines, mon?
 		Loop_Actor_Walk_To_XYZ(kActorSadik, -857.0f, 0.0f, -703.0f, 0, false, true, false);
-		Actor_Says(kActorMcCoy, 2330, kAnimationModeTalk);
-		Actor_Says(kActorSadik, 330, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 2335, kAnimationModeTalk);
-		Actor_Says(kActorSadik, 340, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy, 2330, kAnimationModeTalk); // McCoy: Not yet.
+		Actor_Says(kActorSadik,  330, kAnimationModeTalk); // Sadik: Keep looking.
+		Actor_Says(kActorMcCoy, 2335, kAnimationModeTalk); // McCoy: You said yourself Clovis wants to see me.
+		Actor_Says(kActorSadik,  340, kAnimationModeTalk); // Sadik: You're not getting by me till I be sure.
 		Actor_Set_Goal_Number(kActorSadik, kGoalSadikKP06NeedsReactorCoreFromMcCoy);
 		return true;
 

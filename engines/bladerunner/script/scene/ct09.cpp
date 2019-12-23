@@ -61,7 +61,7 @@ bool SceneScriptCT09::ClickedOn3DObject(const char *objectName, bool a2) {
 				Actor_Face_Object(kActorMcCoy, "BELL", true);
 				Sound_Play(kSfxDESKBELL, 100, 0, 0, 50);
 				if (!Actor_Query_Goal_Number(kActorDeskClerk)) {
-					Actor_Says(kActorDeskClerk, 160, kAnimationModeTalk);
+					Actor_Says(kActorDeskClerk, 160, kAnimationModeTalk); // Desk Clerk: Hey, moron, I'm right here. You don't have to ring the damn bell.
 				}
 			}
 		}
@@ -79,23 +79,23 @@ bool SceneScriptCT09::ClickedOnActor(int actorId) {
 				Player_Loses_Control();
 				Actor_Face_Actor(kActorMcCoy, kActorDeskClerk, true);
 				if (Global_Variable_Query(kVariableChapter) < 3) { // it is impossible to get here before chapter 3
-					Actor_Says(kActorMcCoy, 650, kAnimationModeTalk);
-					Actor_Says(kActorDeskClerk, 250, 12);
-					Actor_Says(kActorMcCoy, 665, 18);
+					Actor_Says(kActorMcCoy,     650, kAnimationModeTalk); // McCoy: You seen any suspicious types around here lately?
+					Actor_Says(kActorDeskClerk, 250,                 12); // Desk Clerk: You're pretty suspicious.
+					Actor_Says(kActorMcCoy,     665,                 18); // McCoy: Real funny, pal.
 				} else if (!Game_Flag_Query(kFlagCT09DeskClerkTalk)) {
 					Game_Flag_Set(kFlagCT09DeskClerkTalk);
-					Actor_Says(kActorDeskClerk, 170, 13);
-					Actor_Says(kActorMcCoy, 630, 12);
-					Actor_Says(kActorDeskClerk, 180, 14);
-					Actor_Says(kActorMcCoy, 635, kAnimationModeTalk);
-					Actor_Says(kActorDeskClerk, 190, 15);
-					Actor_Says(kActorMcCoy, 640, 12);
-					Actor_Says(kActorMcCoy, 645, kAnimationModeTalk);
-					Actor_Says(kActorDeskClerk, 200, 13);
-					Actor_Says(kActorDeskClerk, 210, 14);
+					Actor_Says(kActorDeskClerk, 170,                 13); // Desk Clerk: Down the hall on your left.
+					Actor_Says(kActorMcCoy,     630,                 12); // McCoy: What?
+					Actor_Says(kActorDeskClerk, 180,                 14); // Desk Clerk: You're a cop, right? Your buddies have already been here. Room 27.
+					Actor_Says(kActorMcCoy,     635, kAnimationModeTalk); // McCoy: What were they doing here?
+					Actor_Says(kActorDeskClerk, 190,                 15); // Desk Clerk: I don't ask a lot of questions when a badge is shoved in my face.
+					Actor_Says(kActorMcCoy,     640,                 12); // McCoy: You have a big guy with a strange-looking mustache staying here?
+					Actor_Says(kActorMcCoy,     645, kAnimationModeTalk); // McCoy: He worked at Howie Lee's around the corner.
+					Actor_Says(kActorDeskClerk, 200,                 13); // Desk Clerk: I don't break a lot of bread with the class of people that pass through here.
+					Actor_Says(kActorDeskClerk, 210,                 14); // Desk Clerk: But if you want to look around, check out some rooms, be my guest.
 				} else {
-					Actor_Says(kActorMcCoy, 650, 18);
-					Actor_Says(kActorDeskClerk, 220, 15);
+					Actor_Says(kActorMcCoy,     650, 18); // McCoy: You seen any suspicious types around here lately?
+					Actor_Says(kActorDeskClerk, 220, 15); // Desk Clerk: Howley, that's all I do see. You think this is a Club Med or something?
 				}
 				Player_Gains_Control();
 			}
@@ -198,21 +198,21 @@ void SceneScriptCT09::PlayerWalkedIn() {
 
 	if (Actor_Query_Goal_Number(kActorDeskClerk) == kGoalDeskClerkRecovered) {
 		if (Game_Flag_Query(kFlagCT09LeonInterrupted)) {
-			Actor_Says(kActorDeskClerk, 70, 13);
+			Actor_Says(kActorDeskClerk, 70, 13); // Desk Clerk: You know who that big guy was who was choking me?
 			Actor_Face_Actor(kActorMcCoy, kActorDeskClerk, true);
-			Actor_Says(kActorMcCoy, 600, 17);
-			Actor_Says(kActorDeskClerk, 80, 14);
-			Actor_Says(kActorMcCoy, 605, 13);
-			Actor_Says(kActorDeskClerk, 90, 15);
+			Actor_Says(kActorMcCoy,     600, 17); // McCoy: He looked familiar.
+			Actor_Says(kActorDeskClerk,  80, 14); // Desk Clerk: I appreciate you getting him off of me.
+			Actor_Says(kActorMcCoy,     605, 13); // McCoy: "To Protect and to Serve."
+			Actor_Says(kActorDeskClerk,  90, 15); // Desk Clerk: People ain't done favors for me like that in a long time.
 		} else {
-			Actor_Says(kActorDeskClerk, 20, 12);
+			Actor_Says(kActorDeskClerk, 20, 12); // Desk Clerk: Hey, pal. You could have done something when that goon had me by the throat. Call the cops at least.
 			Actor_Face_Actor(kActorMcCoy, kActorDeskClerk, true);
-			Actor_Says(kActorMcCoy, 585, 18);
-			Actor_Says(kActorDeskClerk, 40, 15);
-			Actor_Says(kActorMcCoy, 590, 16);
-			Actor_Says(kActorDeskClerk, 50, 14);
-			Actor_Says(kActorMcCoy, 595, 14);
-			Actor_Says(kActorDeskClerk, 60, 13);
+			Actor_Says(kActorMcCoy,     585, 18); // McCoy: You're still walking and breathing, aren't ya?
+			Actor_Says(kActorDeskClerk,  40, 15); // Desk Clerk: That ain't the point.
+			Actor_Says(kActorMcCoy,     590, 16); // McCoy: You scratch our back, we'll scratch yours.
+			Actor_Says(kActorDeskClerk,  50, 14); // Desk Clerk: Nice frigging policy.
+			Actor_Says(kActorMcCoy,     595, 14); // McCoy: You don't like it? Get a permit somewhere else.
+			Actor_Says(kActorDeskClerk,  60, 13); // Desk Clerk: Lousy cops.
 			Actor_Modify_Friendliness_To_Other(kActorDeskClerk, kActorMcCoy, -1);
 		}
 		Actor_Set_Goal_Number(kActorDeskClerk, kGoalDeskClerkDefault);

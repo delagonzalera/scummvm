@@ -130,7 +130,7 @@ void SceneScriptKP01::ActorChangedGoal(int actorId, int newGoal, int oldGoal, bo
 				Actor_Change_Animation_Mode(kActorMcCoy, 75);
 				Delay(4500);
 				Actor_Face_Current_Camera(kActorMcCoy, true);
-				Actor_Says(kActorMcCoy, 510, kAnimationModeTalk);
+				Actor_Says(kActorMcCoy, 510, kAnimationModeTalk); // McCoy: I'm thinking of changing jobs.
 			} else {
 				Delay(3000);
 			}

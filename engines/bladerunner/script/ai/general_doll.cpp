@@ -126,8 +126,8 @@ void AIScriptGeneralDoll::ReceivedClue(int clueId, int fromActorId) {
 
 void AIScriptGeneralDoll::ClickedByPlayer() {
 	Actor_Face_Actor(kActorMcCoy, kActorGeneralDoll, true);
-	Actor_Voice_Over(30, kActorVoiceOver);
-	Actor_Voice_Over(40, kActorVoiceOver);
+	Actor_Voice_Over(30, kActorVoiceOver); // Mainframe: It was some kind of freakish toy. Half mechanical, half organic.
+	Actor_Voice_Over(40, kActorVoiceOver); // Mainframe: Rep technology for sure but no one was going to give me any retirement bonus for it.
 }
 
 void AIScriptGeneralDoll::EnteredScene(int sceneId) {

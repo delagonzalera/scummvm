@@ -62,7 +62,7 @@ void AIScriptShoeshineMan::ClickedByPlayer() {
 		Actor_Set_Goal_Number(kActorShoeshineMan, 102);
 		Actor_Face_Actor(kActorMcCoy, kActorShoeshineMan, true);
 		Actor_Says_With_Pause(kActorShoeshineMan, 0, 1.2f, 13);
-		Actor_Says(kActorMcCoy, 730, 17);
+		Actor_Says(kActorMcCoy, 730, 17); // McCoy: What are we talking about?
 		Actor_Says(kActorShoeshineMan, 10, 13);
 		Actor_Says(kActorShoeshineMan, 20, 12);
 		Actor_Says_With_Pause(kActorMcCoy, 735, 1.0f, 14);

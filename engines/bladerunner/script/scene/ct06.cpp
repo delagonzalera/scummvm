@@ -93,19 +93,19 @@ bool SceneScriptCT06::ClickedOnActor(int actorId) {
 		if (!Game_Flag_Query(kFlagCT06ZubenPhoto)) {
 			Actor_Clue_Acquire(kActorMcCoy, kClueZubenSquadPhoto, true, -1);
 			Item_Pickup_Spin_Effect(kModelAnimationPhoto, 340, 369);
-			Actor_Voice_Over(350, kActorVoiceOver);
-			Actor_Voice_Over(360, kActorVoiceOver);
-			Actor_Voice_Over(370, kActorVoiceOver);
+			Actor_Voice_Over(350, kActorVoiceOver); // Mainframe: Lightning squad. Rep unit. Battle of the Gemini.
+			Actor_Voice_Over(360, kActorVoiceOver); // Mainframe: I'd retired a war hero.
+			Actor_Voice_Over(370, kActorVoiceOver); // Mainframe: Someone who'd fought for the freedom of the Off-World colonists.
 			if (!Game_Flag_Query(kFlagDirectorsCut)) {
-				Actor_Voice_Over(380, kActorVoiceOver);
-				Actor_Voice_Over(390, kActorVoiceOver);
-				Actor_Voice_Over(400, kActorVoiceOver);
-				Actor_Voice_Over(410, kActorVoiceOver);
+				Actor_Voice_Over(380, kActorVoiceOver); // Mainframe: The poor guy kind of reminded me of one of those Buffalo Soldiers...
+				Actor_Voice_Over(390, kActorVoiceOver); // Mainframe: Blacks who had killed and died for America...
+				Actor_Voice_Over(400, kActorVoiceOver); // Mainframe: yet weren't allowed to drink alongside whites.
+				Actor_Voice_Over(410, kActorVoiceOver); // Mainframe: And maybe, just maybe, the photograph validated his own existence.
 			}
 			Game_Flag_Set(kFlagCT06ZubenPhoto);
 			return true;
 		}
-		Actor_Says(kActorMcCoy, 8570, 13);
+		Actor_Says(kActorMcCoy, 8570, 13); // McCoy: I've gotten all I can from that.
 		return false;
 	}
 	return false;
@@ -142,7 +142,7 @@ bool SceneScriptCT06::ClickedOnExit(int exitId) {
 		if (!Loop_Actor_Walk_To_XYZ(kActorMcCoy, 203.91f, -58.02f, 0.47f, 0, true, false, false)) {
 			if (Global_Variable_Query(kVariableChapter) < 3) {
 				Actor_Face_Object(kActorMcCoy, "DOOR", true);
-				Actor_Says(kActorMcCoy, 8522, 12);
+				Actor_Says(kActorMcCoy, 8522, 12); // McCoy: Locked.
 			} else {
 				Ambient_Sounds_Remove_All_Non_Looping_Sounds(true);
 				Ambient_Sounds_Remove_All_Looping_Sounds(1);

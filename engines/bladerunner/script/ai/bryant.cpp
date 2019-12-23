@@ -91,8 +91,8 @@ void AIScriptBryant::ReceivedClue(int clueId, int fromActorId) {
 
 void AIScriptBryant::ClickedByPlayer() {
 	Actor_Face_Actor(kActorMcCoy, kActorBryant, true);
-	Actor_Voice_Over(30, kActorVoiceOver);
-	Actor_Voice_Over(40, kActorVoiceOver);
+	Actor_Voice_Over(30, kActorVoiceOver); // Mainframe: It was some kind of freakish toy. Half mechanical, half organic.
+	Actor_Voice_Over(40, kActorVoiceOver); // Mainframe: Rep technology for sure but no one was going to give me any retirement bonus for it.
 }
 
 void AIScriptBryant::EnteredScene(int sceneId) {

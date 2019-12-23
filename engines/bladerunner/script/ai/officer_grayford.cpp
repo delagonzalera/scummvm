@@ -300,10 +300,10 @@ void AIScriptOfficerGrayford::ClickedByPlayer() {
 		Actor_Face_Actor(kActorMcCoy, kActorOfficerGrayford, true);
 		Actor_Face_Actor(kActorOfficerGrayford, kActorMcCoy, true);
 		if (Random_Query(1, 2) == 1) {
-			Actor_Says(kActorMcCoy, 5075, 14);
+			Actor_Says(kActorMcCoy, 5075, 14); // McCoy: Hey, pal.
 		} else {
-			Actor_Says(kActorMcCoy, 4515, 13);
-			Actor_Says(kActorOfficerGrayford, 230, 13);
+			Actor_Says(kActorMcCoy,           4515, 13); // McCoy: What do you know?
+			Actor_Says(kActorOfficerGrayford,  230, 13); // Officer Grayford: What do you care?
 		}
 		Actor_Set_Goal_Number(kActorOfficerGrayford, kGoalOfficerGrayfordWalksInPS03a);
 		break;
@@ -314,10 +314,10 @@ void AIScriptOfficerGrayford::ClickedByPlayer() {
 		Actor_Face_Actor(kActorMcCoy, kActorOfficerGrayford, true);
 		Actor_Face_Actor(kActorOfficerGrayford, kActorMcCoy, true);
 		if (Random_Query(1, 2) == 1) {
-			Actor_Says(kActorMcCoy, 5075, 14);
+			Actor_Says(kActorMcCoy, 5075, 14); // McCoy: Hey, pal.
 		} else {
-			Actor_Says(kActorMcCoy, 4515, 13);
-			Actor_Says(kActorOfficerGrayford, 330, 13);
+			Actor_Says(kActorMcCoy,           4515, 13); // McCoy: What do you know?
+			Actor_Says(kActorOfficerGrayford,  330, 13); // Officer Grayford: Zero that would interest you, detective.
 		}
 		Actor_Set_Goal_Number(kActorOfficerGrayford, kGoalOfficerGrayfordWalksInPS03b);
 		break;
@@ -328,9 +328,9 @@ void AIScriptOfficerGrayford::ClickedByPlayer() {
 		Actor_Face_Actor(kActorMcCoy, kActorOfficerGrayford, true);
 		Actor_Face_Actor(kActorOfficerGrayford, kActorMcCoy, true);
 		if (Random_Query(1, 2) == 1) {
-			Actor_Says(kActorMcCoy, 5075, 14); // Hey, pal.
+			Actor_Says(kActorMcCoy, 5075, 14); // McCoy: Hey, pal.
 		} else {
-			Actor_Says(kActorMcCoy, 5075, 14); // Hey, pal. TODO  bug in the original? Matches the above statement
+			Actor_Says(kActorMcCoy, 5075, 14); // McCoy: Hey, pal.
 		}
 		Actor_Set_Goal_Number(kActorOfficerGrayford, kGoalOfficerGrayfordWalksInPS03c);
 		break;
@@ -341,11 +341,11 @@ void AIScriptOfficerGrayford::ClickedByPlayer() {
 		Actor_Face_Actor(kActorMcCoy, kActorOfficerGrayford, true);
 		Actor_Face_Actor(kActorOfficerGrayford, kActorMcCoy, true);
 		if (Random_Query(1, 2) == 1) {
-			Actor_Says(kActorMcCoy, 5075, 14);
-			Actor_Says(kActorOfficerGrayford, 160, 13);
+			Actor_Says(kActorMcCoy,           5075, 14); // McCoy: Hey, pal.
+			Actor_Says(kActorOfficerGrayford,  160, 13); // Officer Grayford: It's high time someone got them illegals off the street.
 		} else {
-			Actor_Says(kActorMcCoy, 4515, 13);
-			Actor_Says(kActorOfficerGrayford, 330, 13);
+			Actor_Says(kActorMcCoy,           4515, 13); // McCoy: What do you know?
+			Actor_Says(kActorOfficerGrayford,  330, 13); // Officer Grayford: Zero that would interest you, detective.
 		}
 		Actor_Set_Goal_Number(kActorOfficerGrayford, kGoalOfficerGrayfordWalksInPS03d);
 		break;
@@ -354,8 +354,8 @@ void AIScriptOfficerGrayford::ClickedByPlayer() {
 		AI_Movement_Track_Flush(kActorOfficerGrayford);
 		Actor_Set_Goal_Number(kActorOfficerGrayford, kGoalOfficerGrayfordStopAndTalk1);
 		Actor_Face_Actor(kActorMcCoy, kActorOfficerGrayford, true);
-		Actor_Says(kActorMcCoy, 4515, 14);
-		Actor_Says(kActorOfficerGrayford, 330, 13);
+		Actor_Says(kActorMcCoy,           4515, 14); // McCoy: What do you know?
+		Actor_Says(kActorOfficerGrayford,  330, 13); // Officer Grayford: Zero that would interest you, detective.
 		Actor_Set_Goal_Number(kActorOfficerGrayford, kGoalOfficerGrayfordWalksInPS09b);
 		break;
 // TODO goals 6 and 9?
@@ -364,14 +364,14 @@ void AIScriptOfficerGrayford::ClickedByPlayer() {
 		Actor_Set_Goal_Number(kActorOfficerGrayford, kGoalOfficerGrayfordStopAndTalk1);
 		Actor_Face_Actor(kActorMcCoy, kActorOfficerGrayford, true);
 		Actor_Face_Actor(kActorOfficerGrayford, kActorMcCoy, true);
-		Actor_Says(kActorMcCoy, 5075, 13);
+		Actor_Says(kActorMcCoy, 5075, 13); // McCoy: Hey, pal.
 		Actor_Set_Goal_Number(kActorOfficerGrayford, kGoalOfficerGrayfordWalksInPS09c);
 		break;
 
 	case kGoalOfficerGrayfordPatrolsAtDR04a:
 		Actor_Set_Goal_Number(kActorOfficerGrayford, kGoalOfficerGrayfordStopAndTalkDR04);
 		Actor_Face_Actor(kActorMcCoy, kActorOfficerGrayford, true);
-		Actor_Says(kActorMcCoy, 1005, kAnimationModeTalk); // Don't miss anything.
+		Actor_Says(kActorMcCoy, 1005, kAnimationModeTalk); // McCoy: Don't miss anything.
 		AI_Movement_Track_Flush(kActorOfficerGrayford);
 		AI_Countdown_Timer_Reset(kActorOfficerGrayford, kActorTimerAIScriptCustomTask2);
 		if (_animationState == 35 || _animationState == 34) {
@@ -379,14 +379,14 @@ void AIScriptOfficerGrayford::ClickedByPlayer() {
 			_animationFrame = 0;
 		}
 		Actor_Face_Actor(kActorOfficerGrayford, kActorMcCoy, true);
-		Actor_Says(kActorOfficerGrayford, 190, 19);
+		Actor_Says(kActorOfficerGrayford, 190, 19); // Officer Grayford: There ain't nothing left, detective.
 		Actor_Set_Goal_Number(kActorOfficerGrayford, kGoalOfficerGrayfordPatrolsAtDR04a);
 		break;
 
 	case kGoalOfficerGrayfordPatrolsAtDR04b:
 		Actor_Set_Goal_Number(kActorOfficerGrayford, kGoalOfficerGrayfordStopAndTalkDR04);
 		Actor_Face_Actor(kActorMcCoy, kActorOfficerGrayford, true);
-		Actor_Says(kActorMcCoy, 1005, kAnimationModeTalk); // Don't miss anything.
+		Actor_Says(kActorMcCoy, 1005, kAnimationModeTalk); // McCoy: Don't miss anything.
 		AI_Movement_Track_Flush(kActorOfficerGrayford);
 		AI_Countdown_Timer_Reset(kActorOfficerGrayford, kActorTimerAIScriptCustomTask2);
 		if (_animationState == 35 || _animationState == 34) {
@@ -394,7 +394,7 @@ void AIScriptOfficerGrayford::ClickedByPlayer() {
 			_animationFrame = 0;
 		}
 		Actor_Face_Actor(kActorOfficerGrayford, kActorMcCoy, true);
-		Actor_Says(kActorOfficerGrayford, 190, 19);
+		Actor_Says(kActorOfficerGrayford, 190, 19); // Officer Grayford: There ain't nothing left, detective.
 		Actor_Set_Goal_Number(kActorOfficerGrayford, kGoalOfficerGrayfordPatrolsAtDR04b);
 		break;
 
@@ -526,8 +526,8 @@ bool AIScriptOfficerGrayford::GoalChanged(int currentGoalNumber, int newGoalNumb
 		if (Game_Flag_Query(kFlagDR04McCoyShotMoraji)) {
 			Actor_Set_Goal_Number(kActorMcCoy, kGoalMcCoyArrested);
 		} else {
-			Actor_Says(kActorMcCoy, 960, 15);
-			Actor_Says(kActorMcCoy, 965, 18);
+			Actor_Says(kActorMcCoy, 960, 15); // McCoy: Don't shoot!
+			Actor_Says(kActorMcCoy, 965, 18); // McCoy: McCoy, Rep Detect. BR 61-661.
 			_animationState = 24;
 		}
 		return true;
@@ -537,18 +537,18 @@ bool AIScriptOfficerGrayford::GoalChanged(int currentGoalNumber, int newGoalNumb
 
 	case kGoalOfficerGrayfordTalkToMcCoyAndReportAtDR04:
 		// kSetDR01_DR02_DR04
-		Actor_Says(kActorOfficerGrayford, 120, 19);
+		Actor_Says(kActorOfficerGrayford, 120, 19); // Officer Grayford: What do you know about this?
 		Actor_Says_With_Pause(kActorMcCoy, 970, 0.2f, 13); // Got a dead man here. Victim of an explosion.
-		Actor_Says(kActorMcCoy, 975, 12); // TODO - a bug? McCoy may not know Moraji's name here(?)
+		Actor_Says(kActorMcCoy, 975, 12); // McCoy: His name is, er, was Moraji.
 
 		if (Actor_Clue_Query(kActorMcCoy, kClueMorajiInterview) == 1) {
-			Actor_Says(kActorMcCoy, 980, 16);
+			Actor_Says(kActorMcCoy, 980, 16); // McCoy: He was able to give me a description of the two perps just before he bought the farm.
 			Actor_Says_With_Pause(kActorOfficerGrayford, 130, 0.1f, 13);
-			Actor_Says(kActorMcCoy, 985, 14);
+			Actor_Says(kActorMcCoy, 985, 14); // McCoy: I'm practically waxing their tails, Officer. I'm that close.
 			Actor_Says_With_Pause(kActorMcCoy, 990, 0.0f, 17);
 			Actor_Says_With_Pause(kActorOfficerGrayford, 140, 1.0f, 16);
 			Actor_Says_With_Pause(kActorOfficerGrayford, 150, 0.0f, 17);
-			Actor_Says(kActorOfficerGrayford, 160, 15);
+			Actor_Says(kActorOfficerGrayford, 160, 15); // Officer Grayford: It's high time someone got them illegals off the street.
 			Actor_Says_With_Pause(kActorMcCoy, 995, 0.3f, 14);
 		}
 
@@ -563,7 +563,7 @@ bool AIScriptOfficerGrayford::GoalChanged(int currentGoalNumber, int newGoalNumb
 		Actor_Change_Animation_Mode(kActorOfficerGrayford, 43);
 
 		if (Player_Query_Current_Scene() == kSceneDR04) {
-			Actor_Says(kActorOfficerGrayford, 170, kAnimationModeTalk); // This is 32, Sector 3. Reporting a homicide. Possible act of terrorism.
+			Actor_Says(kActorOfficerGrayford, 170, kAnimationModeTalk); // Officer Grayford: This is 32, Sector 3. Reporting a homicide. Possible act of terrorism.
 		}
 		return true;
 
@@ -585,7 +585,7 @@ bool AIScriptOfficerGrayford::GoalChanged(int currentGoalNumber, int newGoalNumb
 
 	case kGoalOfficerGrayfordStopPatrolToTalkToMcCoyAtDR04:
 		Actor_Face_Actor(kActorMcCoy, kActorOfficerGrayford, true);
-		Actor_Says(kActorMcCoy, 1000, 14); // You got a sheet or something...?
+		Actor_Says(kActorMcCoy, 1000, 14); // McCoy: You got a sheet or something we could cover him with?
 		AI_Movement_Track_Flush(kActorOfficerGrayford);
 		AI_Countdown_Timer_Reset(kActorOfficerGrayford, kActorTimerAIScriptCustomTask2);
 
@@ -597,7 +597,7 @@ bool AIScriptOfficerGrayford::GoalChanged(int currentGoalNumber, int newGoalNumb
 		}
 
 		Actor_Face_Actor(kActorOfficerGrayford, kActorMcCoy, true);
-		Actor_Says(kActorOfficerGrayford, 180, 18);
+		Actor_Says(kActorOfficerGrayford, 180, 18); // Officer Grayford: No, nothing. The cold-cut boys have been dragging ass.
 		Actor_Set_Goal_Number(kActorOfficerGrayford, currentGoalNumber);
 		return true; // possible bugfix: was break;
 

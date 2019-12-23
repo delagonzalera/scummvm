@@ -89,10 +89,10 @@ bool SceneScriptNR07::ClickedOnActor(int actorId) {
 			break;
 
 		case 1090: // EARLY-Q
-			Actor_Says(kActorMcCoy, 3650, 13);
-			Actor_Says(kActorDektora, 630, 30);
-			Actor_Says(kActorMcCoy, 3655, 16);
-			Actor_Says(kActorDektora, 640, 31);
+			Actor_Says(kActorMcCoy,   3650, 13); // McCoy: How do you like working for Early Q?
+			Actor_Says(kActorDektora,  630, 30); // Dektora: He's always treated me very well. I--
+			Actor_Says(kActorMcCoy,   3655, 16); // McCoy: Ever seen him hanging out with any... unsavory types?
+			Actor_Says(kActorDektora,  640, 31); // Dektora: We don't get many priests in here, if that's what you mean.
 			break;
 
 		case 1100: // VOIGT-KAMPFF
@@ -167,15 +167,15 @@ void SceneScriptNR07::PlayerWalkedIn() {
 				Actor_Modify_Friendliness_To_Other(kActorDektora, kActorMcCoy, 10);
 			}
 
-			Actor_Says(kActorDektora, 500, 30);
-			Actor_Says(kActorMcCoy, 3585, 14);
-			Actor_Says(kActorDektora, 510, 30);
+			Actor_Says(kActorDektora,  500, 30); // Dektora: That's strange. I didn't hear a knock.
+			Actor_Says(kActorMcCoy,   3585, 14); // McCoy: I just wanted to say: Wow, you were awe inspiring.
+			Actor_Says(kActorDektora,  510, 30); // Dektora: Well, thank you very much, mister...?
 			Actor_Start_Speech_Sample(kActorMcCoy, 3590);
 			Loop_Actor_Walk_To_XYZ(kActorMcCoy, -112.0f, -73.0f, -89.0f, 525, false, false, false);
-			Actor_Says(kActorDektora, 520, kAnimationModeSit);
+			Actor_Says(kActorDektora, 520, kAnimationModeSit); // Dektora: Is there something I can do for you, Mr. McCoy?
 		} else {
 			Actor_Modify_Friendliness_To_Other(kActorDektora, kActorMcCoy, -2);
-			Actor_Says(kActorDektora, 530, 31);
+			Actor_Says(kActorDektora, 530, 31); // Dektora: You again? What do you want now? Speak up before Hanoi comes back.
 		}
 		Actor_Set_Goal_Number(kActorHanoi, kGoalHanoiDefault);
 	}
@@ -214,21 +214,21 @@ void SceneScriptNR07::callHolloway() {
 	Actor_Says_With_Pause(kActorDektora, 930, 1.0f, 30);
 	Actor_Says_With_Pause(kActorDektora, 910, 1.0f, 30);
 	Actor_Face_Object(kActorDektora, "VANITY", true);
-	Actor_Says(kActorDektora, 940, 31);
-	Actor_Says(kActorMcCoy, 3770, 19);
+	Actor_Says(kActorDektora,  940, 31); // Dektora: Give me the police!
+	Actor_Says(kActorMcCoy,   3770, 19); // McCoy: (sigh) You're doing the right thing.
 	Async_Actor_Walk_To_XYZ(kActorMcCoy, -193.0f, -73.5f, -13.0f, 0, false);
-	Actor_Says(kActorDektora, 950, 31);
+	Actor_Says(kActorDektora, 950, 31); // Dektora: Yes, this is an emergency. Early Q's backstage. A customer is harassing me. Thank you.
 	Actor_Face_Actor(kActorDektora, kActorMcCoy, true);
 	Actor_Change_Animation_Mode(kActorDektora, kAnimationModeCombatIdle);
 	Actor_Face_Actor(kActorMcCoy, kActorDektora, true);
-	Actor_Says(kActorMcCoy, 3760, 19);
-	Actor_Says(kActorDektora, 960, kAnimationModeSit);
-	Actor_Says(kActorDektora, 920, kAnimationModeSit);
-	Actor_Says(kActorMcCoy, 3780, kAnimationModeIdle);
-	Actor_Says(kActorDektora, 970, kAnimationModeSit);
-	Actor_Voice_Over(1710, kActorVoiceOver);
-	Actor_Voice_Over(1720, kActorVoiceOver);
-	Actor_Voice_Over(1730, kActorVoiceOver);
+	Actor_Says(kActorMcCoy,   3760,                 19); // McCoy: Put that away! I'm a cop.
+	Actor_Says(kActorDektora,  960,  kAnimationModeSit); // Dektora: Now we wait.
+	Actor_Says(kActorDektora,  920,  kAnimationModeSit); // Dektora: If your hand moves, I'll shoot.
+	Actor_Says(kActorMcCoy,   3780, kAnimationModeIdle); // McCoy: Okay, uh--
+	Actor_Says(kActorDektora,  970,  kAnimationModeSit); // Dektora: Please don't talk. The sound of your voice grates on my nerves.
+	Actor_Voice_Over(1710, kActorVoiceOver); // Mainframe: We waited there for a few minutes. Her gun and her eyes never wavered.
+	Actor_Voice_Over(1720, kActorVoiceOver); // Mainframe: Any other mark, I'd had been a dead man.
+	Actor_Voice_Over(1730, kActorVoiceOver); // Mainframe: But if she was a Replicant, she must not have known it if she was willing to call the police.
 	Actor_Set_Goal_Number(kActorHolloway, kGoalHollowayGoToNR07);
 }
 
@@ -245,21 +245,21 @@ void SceneScriptNR07::clickedOnVase() {
 				Actor_Modify_Friendliness_To_Other(kActorDektora, kActorMcCoy, -2);
 			}
 #if BLADERUNNER_ORIGINAL_BUGS
-			Actor_Says(kActorMcCoy, 3600, 19);  // The flowers are beautiful. (McCoy fake fan voice)
-			Actor_Says(kActorDektora, 550, 30); // And a extremely rare (...)
-			Actor_Says(kActorMcCoy, 3605, 19);  // That's a pretty card. (McCoy fake fan voice)
-			Actor_Says(kActorDektora, 560, 31); // Please don't touch that. It's private.
-			Actor_Says(kActorMcCoy, 3610, 19);  // Sorry (McCoy fake fan voice)
+			Actor_Says(kActorMcCoy,   3600, 19); // McCoy: The flowers are beautiful.
+			Actor_Says(kActorDektora,  550, 30); // Dektora: And extremely rare. They were a gift from my lover.
+			Actor_Says(kActorMcCoy,   3605, 19); // McCoy: That's a pretty card.
+			Actor_Says(kActorDektora,  560, 31); // Dektora: Please don't touch that. It's private.
+			Actor_Says(kActorMcCoy,   3610, 19); // McCoy: Sorry.
 #else
 			if (!Game_Flag_Query(kFlagNR07McCoyIsCop)) {
-				Actor_Says(kActorMcCoy, 3600, 19);  // The flowers are beautiful. (McCoy fake fan voice)
-				Actor_Says(kActorDektora, 550, 30); // And a extremely rare (...)
-				Actor_Says(kActorMcCoy, 3605, 19);  // That's a pretty card. (McCoy fake fan voice)
-				Actor_Says(kActorDektora, 560, 31); // Please don't touch that. It's private.
-				Actor_Says(kActorMcCoy, 3610, 19);  // Sorry (McCoy fake fan voice)
+				Actor_Says(kActorMcCoy,   3600, 19); // McCoy: The flowers are beautiful.
+				Actor_Says(kActorDektora,  550, 30); // Dektora: And extremely rare. They were a gift from my lover.
+				Actor_Says(kActorMcCoy,   3605, 19); // McCoy: That's a pretty card.
+				Actor_Says(kActorDektora,  560, 31); // Dektora: Please don't touch that. It's private.
+				Actor_Says(kActorMcCoy,   3610, 19); // McCoy: Sorry.
 			} else {
-				Actor_Says(kActorDektora, 560, 31); // Please don't touch that. It's private.
-				Actor_Says(kActorMcCoy, 8525, 19);  // Hmph.
+				Actor_Says(kActorDektora,  560, 31); // Dektora: Please don't touch that. It's private.
+				Actor_Says(kActorMcCoy,   8525, 19); // McCoy: Hmph.
 			}
 #endif // BLADERUNNER_ORIGINAL_BUGS
 		}
@@ -268,21 +268,21 @@ void SceneScriptNR07::clickedOnVase() {
 		Loop_Actor_Walk_To_Scene_Object(kActorMcCoy, "VASE", 100, true, false);
 		Actor_Change_Animation_Mode(kActorMcCoy, 23);
 		Item_Pickup_Spin_Effect(kModelAnimationDektorasCard, 526, 268);
-		Actor_Voice_Over(1690, kActorVoiceOver);
-		Actor_Voice_Over(1700, kActorVoiceOver);
+		Actor_Voice_Over(1690, kActorVoiceOver); // Mainframe: "Never seek to tell thy love, love that never told can be."
+		Actor_Voice_Over(1700, kActorVoiceOver); // Mainframe: Poetry. I was running into a lot of that crap lately.
 	} else {
-		Actor_Says(kActorMcCoy, 8585, 14);
+		Actor_Says(kActorMcCoy, 8585, 14); // McCoy: Nothing more to find.
 	}
 }
 
 void SceneScriptNR07::talkAboutBelt1() {
 	Actor_Clue_Acquire(kActorMcCoy, kClueDektoraInterview2, true, -1);
-	Actor_Says(kActorMcCoy, 3625, 19);
-	Actor_Says(kActorDektora, 570, 30);
+	Actor_Says(kActorMcCoy,   3625, 19); // McCoy: That's such an unusual belt. Is it antique?
+	Actor_Says(kActorDektora,  570, 30); // Dektora: They say it's from the last century.
 	Actor_Says_With_Pause(kActorDektora, 580, 1.0f, 31);
-	Actor_Says(kActorMcCoy, 3630, 13);
+	Actor_Says(kActorMcCoy, 3630, 13); // McCoy: Dragonflies?
 	Actor_Says_With_Pause(kActorDektora, 590, 1.0f, 30);
-	Actor_Says(kActorDektora, 600, 30);
+	Actor_Says(kActorDektora, 600, 30); // Dektora: And the whole class that contains them.
 	Actor_Start_Speech_Sample(kActorMcCoy, 3640);  // Tell you the truth, I'm from the LPD. (...)
 	Loop_Actor_Walk_To_XYZ(kActorMcCoy, -109.0f, -73.0f, -89.0f, 0, false, false, false);
 	Actor_Face_Actor(kActorMcCoy, kActorDektora, true);
@@ -314,9 +314,9 @@ void SceneScriptNR07::talkAboutBelt2() {
 		Actor_Modify_Friendliness_To_Other(kActorDektora, kActorMcCoy, -1);
 	}
 
-	Actor_Says(kActorDektora, 610, 31);
-	Actor_Says(kActorMcCoy, 3645, 12);
-	Actor_Says(kActorDektora, 620, 30);
+	Actor_Says(kActorDektora,  610, 31); // Dektora: Is this about Early Q? Because I could tell you--
+	Actor_Says(kActorMcCoy,   3645, 12); // McCoy: Did any other pieces come with the belt?
+	Actor_Says(kActorDektora,  620, 30); // Dektora: I'm sure I don't know what you mean.
 
 	int friendliness = Actor_Query_Friendliness_To_Other(kActorDektora, kActorMcCoy);
 	if (!Game_Flag_Query(kFlagDektoraIsReplicant)
@@ -339,21 +339,21 @@ void SceneScriptNR07::talkAboutVoightKampff() {
 	Actor_Start_Speech_Sample(kActorMcCoy, 3660);
 	Loop_Actor_Walk_To_XYZ(kActorMcCoy, -109.0f, -73.0f, -89.0f, 0, false, false, false);
 	Actor_Face_Actor(kActorMcCoy, kActorDektora, true);
-	Actor_Says(kActorDektora, 650, 30);
-	Actor_Says(kActorDektora, 660, 31);
-	Actor_Says(kActorMcCoy, 3665, 18);
+	Actor_Says(kActorDektora,  650, 30); // Dektora: Do you think I'm a Replicant? Is that what this is about?
+	Actor_Says(kActorDektora,  660, 31); // Dektora: If it's Early Q, I'll help you any way you want.
+	Actor_Says(kActorMcCoy,   3665, 18); // McCoy: Not exactly.
 	Actor_Face_Actor(kActorDektora, kActorMcCoy, true);
-	Actor_Says(kActorDektora, 670, 31);
-	Actor_Says(kActorDektora, 680, 30);
-	Actor_Says(kActorDektora, 690, 31);
-	Actor_Says(kActorMcCoy, 3670, 17);
-	Actor_Says(kActorDektora, 700, 30);
-	Actor_Says(kActorMcCoy, 3675, 19);
-	Actor_Says(kActorDektora, 710, 30);
-	Actor_Says(kActorMcCoy, 3680, 19);
-	Actor_Says(kActorDektora, 720, 30);
-	Actor_Says(kActorDektora, 730, 30);
-	Actor_Says(kActorMcCoy, 3685, 13);
+	Actor_Says(kActorDektora,  670, 31); // Dektora: This is insane. I have a family, a daughter for heaven's sake.
+	Actor_Says(kActorDektora,  680, 30); // Dektora: Look, I'm willing to testify against Early Q.
+	Actor_Says(kActorDektora,  690, 31); // Dektora: A Replicant wouldn't do that, would it?
+	Actor_Says(kActorMcCoy,   3670, 17); // McCoy: A Replicant doesn't necessarily care about what happens to another Replicant.
+	Actor_Says(kActorDektora,  700, 30); // Dektora: Then, you must be a Replicant.
+	Actor_Says(kActorMcCoy,   3675, 19); // McCoy: I'm sure I'm not.
+	Actor_Says(kActorDektora,  710, 30); // Dektora: How do you know you're not a Replicant? Did you ever take that test yourself?
+	Actor_Says(kActorMcCoy,   3680, 19); // McCoy: Sure I did. Long time ago.
+	Actor_Says(kActorDektora,  720, 30); // Dektora: Don't Replicants go around with false memories?
+	Actor_Says(kActorDektora,  730, 30); // Dektora: Maybe somewhere along the line you killed a human, took his place and your superiors don't even know about it.
+	Actor_Says(kActorMcCoy,   3685, 13); // McCoy: Interesting idea. But I'm still gonna give you the test.
 	Voight_Kampff_Activate(kActorDektora, 40);
 
 	if (Game_Flag_Query(kFlagDektoraIsReplicant)) {
@@ -364,12 +364,12 @@ void SceneScriptNR07::talkAboutVoightKampff() {
 }
 
 void SceneScriptNR07::talkAboutSteele() {
-	Actor_Says(kActorMcCoy, 3690, 14);
+	Actor_Says(kActorMcCoy, 3690, 14); // McCoy: Look. I wanna warn you. There's a woman looking for you and your friends.
 	Actor_Start_Speech_Sample(kActorDektora, 750);
 	Loop_Actor_Walk_To_XYZ(kActorMcCoy, -109.0f, -73.0f, -89.0f, 0, false, false, false);
 	Actor_Face_Actor(kActorMcCoy, kActorDektora, true);
 	Actor_Face_Actor(kActorDektora, kActorMcCoy, true);
-	Actor_Says(kActorMcCoy, 3695, 15);
+	Actor_Says(kActorMcCoy, 3695, 15); // McCoy: You know what I'm talking about. It's real important that you get out of here.
 	Actor_Modify_Friendliness_To_Other(kActorDektora, kActorMcCoy, 5);
 
 	if (Game_Flag_Query(kFlagDektoraIsReplicant)) {
@@ -382,12 +382,12 @@ void SceneScriptNR07::talkAboutSteele() {
 void SceneScriptNR07::talkAboutMoonbus() {
 	// cut content?
 
-	Actor_Says(kActorMcCoy, 3705, 19);
-	Actor_Says(kActorDektora, 760, kAnimationModeSit);
+	Actor_Says(kActorMcCoy,   3705,                19); // McCoy: I heard something about an act of Off-World terrorism.
+	Actor_Says(kActorDektora,  760, kAnimationModeSit); // Dektora: Excuse me?
 
 	if (Game_Flag_Query(kFlagDektoraIsReplicant)) {
 		Actor_Modify_Friendliness_To_Other(kActorDektora, kActorMcCoy, -5);
-		Actor_Says(kActorMcCoy, 3710, 18);
+		Actor_Says(kActorMcCoy, 3710, 18); // McCoy: Somebody told me about this moonbus that got hijacked.
 		callHolloway();
 	} else {
 		Actor_Modify_Friendliness_To_Other(kActorDektora, kActorMcCoy, -3);
@@ -400,33 +400,33 @@ void SceneScriptNR07::talkAboutMoonbus() {
 
 void SceneScriptNR07::talkAboutBlackSedan() {
 	Actor_Modify_Friendliness_To_Other(kActorDektora, kActorMcCoy, -3);
-	Actor_Says(kActorMcCoy, 3615, 16);
-	Actor_Says(kActorDektora, 770, 30);
-	Actor_Says(kActorMcCoy, 3720, 15);
+	Actor_Says(kActorMcCoy,   3615, 16); // McCoy: You buy a vehicle lately? A black Sedan?
+	Actor_Says(kActorDektora,  770, 30); // Dektora: I wasn't aware that was a crime.
+	Actor_Says(kActorMcCoy,   3720, 15); // McCoy: Buying the car isn't. Using the car in an animal murder, well...
 	Actor_Says_With_Pause(kActorDektora, 780, 2.0f, 30);
-	Actor_Says(kActorDektora, 790, 31);
-	Actor_Says(kActorMcCoy, 3725, 18);
-	Actor_Says(kActorDektora, 800, 30);
+	Actor_Says(kActorDektora,  790, 31); // Dektora: I haven't seen the car for two days. It was stolen the day after I bought it.
+	Actor_Says(kActorMcCoy,   3725, 18); // McCoy: Is that right? Any reason you didn't tell me that right off?
+	Actor_Says(kActorDektora,  800, 30); // Dektora: You didn't ask.
 	Actor_Says_With_Pause(kActorMcCoy, 3730, 2.0f, 13);
 	Actor_Says_With_Pause(kActorDektora, 810, 1.0f, kAnimationModeSit);
-	Actor_Says(kActorDektora, 820, 30);
-	Actor_Says(kActorMcCoy, 3735, 14);
-	Actor_Says(kActorDektora, 830, 31);
-	Actor_Says(kActorMcCoy, 3740, 19);
+	Actor_Says(kActorDektora,  820, 30); // Dektora: Any murder is horrible. And unfortunate.
+	Actor_Says(kActorMcCoy,   3735, 14); // McCoy: Some are worse than others.
+	Actor_Says(kActorDektora,  830, 31); // Dektora: But death is the same for all.
+	Actor_Says(kActorMcCoy,   3740, 19); // McCoy: No argument there.
 }
 
 void SceneScriptNR07::talkAboutScorpions() {
 	// cut content?
-	Actor_Says(kActorMcCoy, 3620, 19);
-	Actor_Says(kActorDektora, 840, 30);
-	Actor_Says(kActorMcCoy, 3745, 9);
+	Actor_Says(kActorMcCoy,   3620, 19); // McCoy: You like scorpions, huh?
+	Actor_Says(kActorDektora,  840, 30); // Dektora: Scorpions?
+	Actor_Says(kActorMcCoy,   3745,  9); // McCoy: Insects. Fakes. From Animoid Row. You buy a box of them?
 	Actor_Says_With_Pause(kActorDektora, 850, 1.0f, 30);
-	Actor_Says(kActorDektora, 860, 30);
-	Actor_Says(kActorDektora, 870, kAnimationModeSit);
-	Actor_Says(kActorMcCoy, 3750, 11);
-	Actor_Says(kActorDektora, 880, 30);
-	Actor_Says(kActorMcCoy, 3755, 16);
-	Actor_Says(kActorDektora, 890, 31);
+	Actor_Says(kActorDektora,  860,                30); // Dektora: Insects make excellent pets. And they were so beautiful I just had to have the whole set.
+	Actor_Says(kActorDektora,  870, kAnimationModeSit); // Dektora: I just had to have the whole set.
+	Actor_Says(kActorMcCoy,   3750,                11); // McCoy: Did you know they were poisonous?
+	Actor_Says(kActorDektora,  880,                30); // Dektora: The woman who sold them said something about that, yes.
+	Actor_Says(kActorMcCoy,   3755,                16); // McCoy: And that doesn't scare you?
+	Actor_Says(kActorDektora,  890,                31); // Dektora: There are plenty of things in this world that are truly frightening.
 }
 
 } // End of namespace BladeRunner

@@ -214,33 +214,33 @@ void SceneScriptCT02::dialogueWithZuben() {
 
 	switch (answerValue) {
 	case 270: // LUCY PHOTO
-		Actor_Says(kActorMcCoy, 380, 11);
-		Actor_Says(kActorZuben, 30, 17);
-		Actor_Says(kActorZuben, 40, 15);
-		Actor_Says(kActorMcCoy, 410, 9);
-		Actor_Says(kActorZuben, 50, 18);
-		Actor_Says(kActorMcCoy, 415, 10);
+		Actor_Says(kActorMcCoy, 380, 11); // McCoy: Do you know this girl or not?
+		Actor_Says(kActorZuben,  30, 17); // Zuben: No. I know who I know and who I don't know.
+		Actor_Says(kActorZuben,  40, 15); // Zuben: I don't know her.
+		Actor_Says(kActorMcCoy, 410,  9); // McCoy: Think hard.
+		Actor_Says(kActorZuben,  50, 18); // Zuben: Okay, maybe seen her once. At station. Riding North on bullet train.
+		Actor_Says(kActorMcCoy, 415, 10); // McCoy: North, huh?
 		Actor_Clue_Acquire(kActorMcCoy, kClueZubenInterview, false, -1);
 		Actor_Modify_Friendliness_To_Other(kActorZuben, kActorMcCoy, -5);
 		break;
 
 	case 280: // LUCY
-		Actor_Says(kActorMcCoy, 385, 9);
-		Actor_Says(kActorZuben, 40, 19);
+		Actor_Says(kActorMcCoy, 385,  9); // McCoy: I'm looking for a girl about 14 years old with pink hair. You seen her?
+		Actor_Says(kActorZuben,  40, 19); // Zuben: I don't know her.
 		Actor_Modify_Friendliness_To_Other(kActorZuben, kActorMcCoy, -2);
 		break;
 
 	case 290: // VOIGT-KAMPFF
-		Actor_Says(kActorMcCoy, 395, 9);
-		Actor_Says(kActorMcCoy, 400, 9);
-		Actor_Says(kActorZuben, 70, 17);
-		Actor_Says(kActorMcCoy, 420, 10);
-		Actor_Says(kActorZuben, 80, 14);
+		Actor_Says(kActorMcCoy, 395,  9); // McCoy: There's a test I'd like you to take.
+		Actor_Says(kActorMcCoy, 400,  9); // McCoy: It won't take too long.
+		Actor_Says(kActorZuben,  70, 17); // Zuben: Test? What kind of test?
+		Actor_Says(kActorMcCoy, 420, 10); // McCoy: Kind of a personality test. Totally routine.
+		Actor_Says(kActorZuben,  80, 14); // Zuben: Routine?
 		Actor_Modify_Friendliness_To_Other(kActorZuben, kActorMcCoy, -10);
 		break;
 
 	case 300: // DONE
-		Actor_Says(kActorMcCoy, 405, 11);
+		Actor_Says(kActorMcCoy, 405, 11); // McCoy: Stick around. I might want to talk to you later.
 		break;
 	}
 
@@ -267,9 +267,9 @@ bool SceneScriptCT02::ClickedOnActor(int actorId) {
 			Actor_Face_Actor(kActorMcCoy, kActorZuben, true);
 			Actor_Face_Actor(kActorZuben, kActorMcCoy, true);
 			if (!Game_Flag_Query(kFlagCT02ZubenTalk)) {
-				Actor_Says(kActorMcCoy, 370, 10);
-				Actor_Says(kActorZuben, 20, 19);
-				Actor_Says(kActorMcCoy, 375, 9);
+				Actor_Says(kActorMcCoy, 370, 10); // McCoy: Howie says you're a master chef.
+				Actor_Says(kActorZuben,  20, 19); // Zuben: You not come back here. Air bad.
+				Actor_Says(kActorMcCoy, 375,  9); // McCoy: This will only take a minute.
 				Game_Flag_Set(kFlagCT02ZubenTalk);
 			}
 			dialogueWithZuben();
@@ -321,7 +321,7 @@ bool SceneScriptCT02::ClickedOn2DRegion(int region) {
 		Game_Flag_Reset(kFlagCT02McCoyShouldCommentOnDumpedSoup);
 		Scene_2D_Region_Remove(0);
 		Scene_2D_Region_Remove(1);
-		Actor_Voice_Over(4270, kActorVoiceOver);
+		Actor_Voice_Over(4270, kActorVoiceOver); // Mainframe: The guy dumped nu-sooch all over my coat and didn't even stick around to apologize. Looked like someone with a guilty conscience to me.
 		return true;
 	}
 	return false;

@@ -214,7 +214,7 @@ void AIScriptLucy::ReceivedClue(int clueId, int fromActorId) {
 void AIScriptLucy::ClickedByPlayer() {
 	if (Actor_Query_Goal_Number(kActorLucy) == kGoalLucyGone) {
 		Actor_Face_Actor(kActorMcCoy, kActorLucy, true);
-		Actor_Says(kActorMcCoy, 8630, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy, 8630, kAnimationModeTalk); // McCoy: What a waste.
 	}
 }
 
@@ -367,7 +367,7 @@ bool AIScriptLucy::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		break;
 
 	case kGoalLucyHF03RunAwayWithHelp1:
-		Actor_Says(kActorLucy, 320, 16);
+		Actor_Says(kActorLucy, 320, 16); // Lucy: Help! Help! He tried to touch me.
 		Actor_Set_Goal_Number(kActorHolloway, kGoalHollowayGoToHF03);
 		Actor_Set_Immunity_To_Obstacles(kActorLucy, true);
 		AI_Movement_Track_Flush(kActorLucy);
@@ -410,42 +410,42 @@ bool AIScriptLucy::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 
 	case kGoalLucyHF04TalkToMcCoy:
 		Player_Loses_Control();
-		Actor_Says(kActorMcCoy, 1700, 16);
+		Actor_Says(kActorMcCoy, 1700, 16); // McCoy: I put my gun away.
 		AI_Movement_Track_Flush(kActorLucy);
 		Actor_Face_Actor(kActorLucy, kActorMcCoy, true);
 		Actor_Face_Actor(kActorMcCoy, kActorLucy, true);
-		Actor_Says(kActorLucy, 350, 13);
-		Actor_Says(kActorMcCoy, 1705, 13);
-		Actor_Says(kActorLucy, 360, 13);
-		Actor_Says(kActorMcCoy, 1710, 13);
+		Actor_Says(kActorLucy,   350, 13); // Lucy: I saw you with that woman who smokes.
+		Actor_Says(kActorMcCoy, 1705, 13); // McCoy: I have to deal with her just to keep up appearances. I can be more effective that way.
+		Actor_Says(kActorLucy,   360, 13); // Lucy: She scares me.
+		Actor_Says(kActorMcCoy, 1710, 13); // McCoy: She's being paid to kill your family.
 
 		if (Global_Variable_Query(kVariableAffectionTowards) == kAffectionTowardsLucy) { // cut feature? if this is set lucy will not run into hf04
-			Actor_Says(kActorLucy, 940, 13);
-			Actor_Says(kActorMcCoy, 6780, 12);
-			Actor_Says(kActorLucy, 950, 12);
-			Actor_Says(kActorLucy, 960, 14);
-			Actor_Says(kActorMcCoy, 6785, 13);
-			Actor_Says(kActorLucy, 970, 16);
-			Actor_Says(kActorLucy, 980, 13);
+			Actor_Says(kActorLucy,   940, 13); // Lucy: You're a good man.
+			Actor_Says(kActorMcCoy, 6780, 12); // McCoy: Don't jump to any conclusions.
+			Actor_Says(kActorLucy,   950, 12); // Lucy: You're gentle. Father used to be like that too.
+			Actor_Says(kActorLucy,   960, 14); // Lucy: He would read to me and tell me stories. Pretty stories so I would have pretty dreams.
+			Actor_Says(kActorMcCoy, 6785, 13); // McCoy: He doesn't do that anymore?
+			Actor_Says(kActorLucy,   970, 16); // Lucy: He's out with Sadik every night. And he and mother...
+			Actor_Says(kActorLucy,   980, 13); // Lucy: They argue about what we're going to do.
 			if (Game_Flag_Query(kFlagDektoraIsReplicant)) {
-				Actor_Says(kActorLucy, 990, 15);
+				Actor_Says(kActorLucy, 990, 15); // Lucy: He's worried about her. She hasn't been well lately.
 			}
-			Actor_Says(kActorMcCoy, 6790, 13);
+			Actor_Says(kActorMcCoy, 6790, 13); // McCoy: That must be tough on you.
 			if (Game_Flag_Query(kFlagDektoraIsReplicant)
 			 && Game_Flag_Query(kFlagLucyIsReplicant)
 			) {
-				Actor_Says(kActorLucy, 1000, 12);
+				Actor_Says(kActorLucy, 1000, 12); // Lucy: I've seen death before. But the other day...
 			}
-			Actor_Says(kActorLucy, 1010, 15);
-			Actor_Says(kActorLucy, 1020, 12);
-			Actor_Says(kActorMcCoy, 6795, 18);
-			Actor_Says(kActorLucy, 1030, 15);
-			Actor_Says(kActorMcCoy, 6800, 16);
-			Actor_Says(kActorLucy, 1040, 12);
-			Actor_Says(kActorMcCoy, 6805, 15);
-			Actor_Says(kActorLucy, 1050, 12);
+			Actor_Says(kActorLucy,  1010, 15); // Lucy: I was thinking; If a person can feel love, real love
+			Actor_Says(kActorLucy,  1020, 12); // Lucy: for even just one day, I think it would all be worth it.
+			Actor_Says(kActorMcCoy, 6795, 18); // McCoy: I agree.
+			Actor_Says(kActorLucy,  1030, 15); // Lucy: Out in a place with trees and a lake and flowers. I've seen places like that in books.
+			Actor_Says(kActorMcCoy, 6800, 16); // McCoy: You'll see them with your own eyes one day.
+			Actor_Says(kActorLucy,  1040, 12); // Lucy: Will I?
+			Actor_Says(kActorMcCoy, 6805, 15); // McCoy: I-- I promise you. But for now we gotta be careful. You should stay hidden for a while.
+			Actor_Says(kActorLucy,  1050, 12); // Lucy: Oh, thank you. Thank you for everything.
 		}
-		Actor_Says(kActorLucy, 370, 14);
+		Actor_Says(kActorLucy, 370, 14); // Lucy: I'll tell them. What you did. That you helped me.
 		Actor_Set_Goal_Number(kActorLucy, kGoalLucyHF04WalkAway);
 
 		if (Global_Variable_Query(kVariableHollowayArrest) == 3) {
@@ -859,30 +859,30 @@ void AIScriptLucy::FledCombat() {
 void AIScriptLucy::voightKampffTest() {
 	Player_Loses_Control();
 	Actor_Face_Actor(kActorMcCoy, kActorLucy, true);
-	Actor_Says(kActorMcCoy, 6815, 11);
+	Actor_Says(kActorMcCoy, 6815, 11); // McCoy: I told you to stay hidden.
 	Actor_Face_Actor(kActorLucy, kActorMcCoy, true);
-	Actor_Says(kActorLucy, 1060, 16);
-	Actor_Says(kActorLucy, 1070, 17);
+	Actor_Says(kActorLucy, 1060, 16); // Lucy: I can't stay there anymore.
+	Actor_Says(kActorLucy, 1070, 17); // Lucy: I don't want to be with father. Not when he's so angry. Besides...
 	Delay(1000);
-	Actor_Says(kActorLucy, 1080, 14);
-	Actor_Says(kActorMcCoy, 6820, 16);
-	Actor_Says(kActorLucy, 1090, 13);
+	Actor_Says(kActorLucy,  1080, 14); // Lucy: I need something.
+	Actor_Says(kActorMcCoy, 6820, 16); // McCoy: We don't have time for an--
+	Actor_Says(kActorLucy,  1090, 13); // Lucy: That thing you do to see if a person is human?
 	if (!Game_Flag_Query(kFlagDirectorsCut)) {
-		Actor_Says(kActorMcCoy, 6825, 13);
+		Actor_Says(kActorMcCoy, 6825, 13); // McCoy: The Voigt Kampff?
 	}
-	Actor_Says(kActorMcCoy, 6830, 12);
-	Actor_Says(kActorLucy, 1100, 14);
-	Actor_Says(kActorMcCoy, 6835, 14);
-	Actor_Says(kActorLucy, 1110, 15);
-	Actor_Says(kActorMcCoy, 6840, 13);
+	Actor_Says(kActorMcCoy, 6830, 12); // McCoy: You want it?
+	Actor_Says(kActorLucy,  1100, 14); // Lucy: Is it always right?
+	Actor_Says(kActorMcCoy, 6835, 14); // McCoy: Usually.
+	Actor_Says(kActorLucy,  1110, 15); // Lucy: Give it to me. Father won't tell me anything anymore.
+	Actor_Says(kActorMcCoy, 6840, 13); // McCoy: Is that why he was angry. Because you asked him--
 	Delay(1000);
-	Actor_Says(kActorMcCoy, 6845, 12);
+	Actor_Says(kActorMcCoy, 6845, 12); // McCoy: You deserve it.
 	Delay(500);
-	Actor_Says(kActorMcCoy, 6850, 12);
-	Actor_Says(kActorLucy, 1120, 14);
-	Actor_Says(kActorMcCoy, 6855, 13);
-	Actor_Says(kActorMcCoy, 6860, 13);
-	Actor_Says(kActorLucy, 1130, 14);
+	Actor_Says(kActorMcCoy, 6850, 12); // McCoy: You know how this works? I set up situations and you respond.
+	Actor_Says(kActorLucy,  1120, 14); // Lucy: Okay. Is it hard? Like a test in school?
+	Actor_Says(kActorMcCoy, 6855, 13); // McCoy: No. Sometimes it can be disturbing.
+	Actor_Says(kActorMcCoy, 6860, 13); // McCoy: Are you ready?
+	Actor_Says(kActorLucy,  1130, 14); // Lucy: Uh-huh.
 	Music_Stop(2);
 	Player_Gains_Control();
 
@@ -890,30 +890,30 @@ void AIScriptLucy::voightKampffTest() {
 
 	Player_Loses_Control();
 	if (Actor_Clue_Query(kActorMcCoy, kClueVKLucyReplicant)) {
-		Actor_Says(kActorMcCoy, 6865, 13);
-		Actor_Says(kActorLucy, 1140, 14);
-		Actor_Says(kActorMcCoy, 6865, 14);
-		Actor_Says(kActorLucy, 1150, 16);
-		Actor_Says(kActorMcCoy, 6870, 14);
+		Actor_Says(kActorMcCoy, 6865, 13); // McCoy: You're a Replicant.
+		Actor_Says(kActorLucy,  1140, 14); // Lucy: Tell me.
+		Actor_Says(kActorMcCoy, 6865, 14); // McCoy: You're a Replicant.
+		Actor_Says(kActorLucy,  1150, 16); // Lucy: Then father was right. I shouldn't have taken the test.
+		Actor_Says(kActorMcCoy, 6870, 14); // McCoy: No. But you had to know.
 		Delay(500);
-		Actor_Says(kActorMcCoy, 6875, 13);
-		Actor_Says(kActorLucy, 1160, 16);
+		Actor_Says(kActorMcCoy, 6875, 13); // McCoy: I gotta go.
+		Actor_Says(kActorLucy,  1160, 16); // Lucy: I wanna stay with you.
 	} else {
-		Actor_Says(kActorMcCoy, 6880, 13);
-		Actor_Says(kActorLucy, 1170, 13);
-		Actor_Says(kActorLucy, 1180, 16);
-		Actor_Says(kActorMcCoy, 6890, 15);
-		Actor_Says(kActorLucy, 1190, 15);
-		Actor_Says(kActorLucy, 1200, 17);
-		Actor_Says(kActorMcCoy, 6885, 13);
-		Actor_Says(kActorLucy, 1210, 17);
+		Actor_Says(kActorMcCoy, 6880, 13); // McCoy: The test says you're human.
+		Actor_Says(kActorLucy,  1170, 13); // Lucy: Really?
+		Actor_Says(kActorLucy,  1180, 16); // Lucy: Why didn't father tell me?
+		Actor_Says(kActorMcCoy, 6890, 15); // McCoy: Maybe he wanted to keep his... family together.
+		Actor_Says(kActorLucy,  1190, 15); // Lucy: I'm not a little girl anymore.
+		Actor_Says(kActorLucy,  1200, 17); // Lucy: It's not fair!
+		Actor_Says(kActorMcCoy, 6885, 13); // McCoy: No. But it's understandable.
+		Actor_Says(kActorLucy,  1210, 17); // Lucy: I'm gonna stay with you.
 	}
-	Actor_Says(kActorMcCoy, 6895, 15);
-	Actor_Says(kActorMcCoy, 6900, 11);
-	Actor_Says(kActorLucy, 1220, 16);
-	Actor_Says(kActorMcCoy, 6905, 13);
-	Actor_Says(kActorLucy, 1230, 17);
-	Actor_Says(kActorMcCoy, 6910, 13);
+	Actor_Says(kActorMcCoy, 6895, 15); // McCoy: Don't you understand? It's not safe.
+	Actor_Says(kActorMcCoy, 6900, 11); // McCoy: There's a hunter out here. If she finds out where you are--
+	Actor_Says(kActorLucy,  1220, 16); // Lucy: Can't you come back with me?
+	Actor_Says(kActorMcCoy, 6905, 13); // McCoy: Now is not a good time.
+	Actor_Says(kActorLucy,  1230, 17); // Lucy: It's never a good time!
+	Actor_Says(kActorMcCoy, 6910, 13); // McCoy: Listen! You have to be patient, you have to trust me. It's not safe here.
 	Delay(2000);
 	Player_Gains_Control();
 	Actor_Set_Goal_Number(kActorLucy, kGoalLucyUG01RunAway);

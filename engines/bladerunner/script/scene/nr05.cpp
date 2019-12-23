@@ -253,23 +253,23 @@ void SceneScriptNR05::talkToBartender() {
 	Actor_Face_Actor(kActorMcCoy, kActorEarlyQBartender, true);
 	Actor_Face_Actor(kActorEarlyQBartender, kActorMcCoy, true);
 	if (!Game_Flag_Query(kFlagNR05BartenderTalk1)) {
-		Actor_Says(kActorEarlyQBartender, 0, 13);
-		Actor_Says(kActorMcCoy, 3470, kAnimationModeTalk);
-		Actor_Says(kActorEarlyQBartender, 10, 23);
+		Actor_Says(kActorEarlyQBartender,    0,                 13); // Early Q Bartender: What's your pleasure, sir?
+		Actor_Says(kActorMcCoy,           3470, kAnimationModeTalk); // McCoy: The highest octane.
+		Actor_Says(kActorEarlyQBartender,   10,                 23); // Early Q Bartender: One Venus Eye trap coming up.
 		Game_Flag_Set(kFlagNR05BartenderTalk1);
 		Actor_Change_Animation_Mode(kActorMcCoy, 75);
 		Global_Variable_Increment(kVariableMcCoyDrinks, 1);
 	} else if (!Game_Flag_Query(kFlagNR05BartenderTalk2)) {
-		Actor_Says(kActorMcCoy, 3475, 17);
-		Actor_Says(kActorEarlyQBartender, 20, 23);
+		Actor_Says(kActorMcCoy,           3475, 17); // McCoy: What's the green?
+		Actor_Says(kActorEarlyQBartender,   20, 23); // Early Q Bartender: Neptune's nip. I think you'll enjoy it, sir.
 		Game_Flag_Set(kFlagNR05BartenderTalk2);
 		Actor_Change_Animation_Mode(kActorMcCoy, 75);
 		Global_Variable_Increment(kVariableMcCoyDrinks, 1);
 	} else {
-		Actor_Says(kActorMcCoy, 3480, 19);
-		Actor_Says(kActorEarlyQBartender, 30, 12);
-		Actor_Says(kActorMcCoy, 3485, kAnimationModeTalk);
-		Actor_Says(kActorEarlyQBartender, 40, 13);
+		Actor_Says(kActorMcCoy,           3480,                 19); // McCoy: Hit me again. You pick the color.
+		Actor_Says(kActorEarlyQBartender,   30,                 12); // Early Q Bartender: Ah! Two-oh-Ten, Ten-oh-Two.
+		Actor_Says(kActorMcCoy,           3485, kAnimationModeTalk); // McCoy: Why is it called that?
+		Actor_Says(kActorEarlyQBartender,   40,                 13); // Early Q Bartender: Let's just say, ha, it's a Love Potion.
 		Actor_Change_Animation_Mode(kActorEarlyQBartender, 23);
 		Actor_Change_Animation_Mode(kActorMcCoy, 75);
 		Global_Variable_Increment(kVariableMcCoyDrinks, 1);
@@ -285,12 +285,12 @@ void SceneScriptNR05::talkToEarlyQ() {
 	Actor_Face_Actor(kActorEarlyQ, kActorMcCoy, true);
 
 	if (!Game_Flag_Query(kFlagNR05EarlyQTalk)) {
-		Actor_Says(kActorMcCoy, 8513, kAnimationModeTalk);
-		Actor_Says(kActorEarlyQ, 360, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 3495, 11);
-		Actor_Says(kActorEarlyQ, 370, 15);
-		Actor_Says(kActorMcCoy, 3500, 17);
-		Actor_Says(kActorEarlyQ, 380, 13);
+		Actor_Says(kActorMcCoy,  8513, kAnimationModeTalk); // McCoy: Early, how's it hanging?
+		Actor_Says(kActorEarlyQ,  360, kAnimationModeTalk); // Early Q: Thick, slick and hard as a brick. How's yours, General?
+		Actor_Says(kActorMcCoy,  3495,                 11); // McCoy: Your man gave me a hard time out there.
+		Actor_Says(kActorEarlyQ,  370,                 15); // Early Q: I like Hanoi but I can't deny his sphincter is a little tight.
+		Actor_Says(kActorMcCoy,  3500,                 17); // McCoy: What's on tap tonight?
+		Actor_Says(kActorEarlyQ,  380,                 13); // Early Q: Classy shows all evening, General. You're gonna be able to cut diamonds down there or your money back.
 		Game_Flag_Set(kFlagNR05EarlyQTalk);
 		return;
 	}
@@ -311,8 +311,8 @@ void SceneScriptNR05::talkToEarlyQ() {
 	}
 
 	if (!Dialogue_Menu_Query_List_Size()) {
-		Actor_Says(kActorMcCoy, 3520, kAnimationModeTalk);
-		Actor_Says(kActorEarlyQ, 730, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy,  3520, kAnimationModeTalk); // McCoy: Hey, Early.
+		Actor_Says(kActorEarlyQ,  730, kAnimationModeTalk); // Early Q: I'm working right now, General. Ask me later.
 		Actor_Face_Heading(kActorEarlyQ, 849, false);
 		return;
 	}
@@ -325,50 +325,50 @@ void SceneScriptNR05::talkToEarlyQ() {
 
 	switch (answer) {
 	case 890: // JEWELRY
-		Actor_Says(kActorMcCoy, 3505, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy, 3505, kAnimationModeTalk); // McCoy: You buy some jewelry at an auction recently? Real old elite stuff?
 		Actor_Modify_Friendliness_To_Other(kActorEarlyQ, kActorMcCoy, -1);
-		Actor_Says(kActorEarlyQ, 420, 12);
-		Actor_Says(kActorEarlyQ, 430, 13);
-		Actor_Says(kActorMcCoy, 3530, 15);
-		Actor_Says(kActorEarlyQ, 440, 15);
-		Actor_Says(kActorMcCoy, 3535, 13);
-		Actor_Says(kActorEarlyQ, 460, 16);
-		Actor_Says(kActorMcCoy, 3540, 15);
-		Actor_Says(kActorEarlyQ, 490, 16);
-		Actor_Says(kActorEarlyQ, 500, 13);
-		Actor_Says(kActorMcCoy, 3545, 15);
-		Actor_Says(kActorEarlyQ, 520, 12);
+		Actor_Says(kActorEarlyQ,  420, 12); // Early Q: Who's asking?
+		Actor_Says(kActorEarlyQ,  430, 13); // Early Q: You ain't with Robbery-Homicide.
+		Actor_Says(kActorMcCoy,  3530, 15); // McCoy: No, sir.
+		Actor_Says(kActorEarlyQ,  440, 15); // Early Q: Eh, those pieces ain't hot. I got the papers to prove it. I picked them up at a legitimate auction. Cost me nearly a pound of flesh too.
+		Actor_Says(kActorMcCoy,  3535, 13); // McCoy: You give this stuff to a girlfriend, Early?
+		Actor_Says(kActorEarlyQ,  460, 16); // Early Q: You kiddin'? I ain't that stupid. No, no, no, no. I was letting one of my dancers use the stuff in her act. Kind of a tribute to the ancient swamp lands, you know what I mean?
+		Actor_Says(kActorMcCoy,  3540, 15); // McCoy: Which dancer?
+		Actor_Says(kActorEarlyQ,  490, 16); // Early Q: Hecuba. She's going on in a few.
+		Actor_Says(kActorEarlyQ,  500, 13); // Early Q: She's one of my biggest earners too. She ain't in any trouble now, is she?
+		Actor_Says(kActorMcCoy,  3545, 15); // McCoy: Not yet.
+		Actor_Says(kActorEarlyQ,  520, 12); // Early Q: (sighs) Good, good. Wouldn't wanna slaughter the goose that lays them golden eggs.
 		Actor_Face_Heading(kActorEarlyQ, 849, false);
 		break;
 
 	case 900: // LUCY
-		Actor_Says(kActorMcCoy, 3510, 15);
+		Actor_Says(kActorMcCoy, 3510, 15); // McCoy: This girl one of yours?
 		Actor_Modify_Friendliness_To_Other(kActorEarlyQ, kActorMcCoy, -1);
 		Actor_Says_With_Pause(kActorEarlyQ, 530, 1.2f, kAnimationModeTalk);
-		Actor_Says(kActorEarlyQ, 540, 15);
-		Actor_Says(kActorMcCoy, 3550, 13);
-		Actor_Says(kActorEarlyQ, 560, 14);
-		Actor_Says(kActorEarlyQ, 570, 13);
-		Actor_Says(kActorMcCoy, 3555, 12);
+		Actor_Says(kActorEarlyQ,  540, 15); // Early Q: Of course, she ain't half bad looking. My pappy always used to say 'if there's grass on the field, it's time to play ball'.
+		Actor_Says(kActorMcCoy,  3550, 13); // McCoy: So, she hasn't been around here?
+		Actor_Says(kActorEarlyQ,  560, 14); // Early Q: Nah, she ain't one of mine.
+		Actor_Says(kActorEarlyQ,  570, 13); // Early Q: Talk to Taffy. He gets most of the peddy business around here.
+		Actor_Says(kActorMcCoy,  3555, 12); // McCoy: It's men like you that made this country great, Early.
 		Actor_Face_Heading(kActorEarlyQ, 849, false);
 		break;
 
 	case 910: // BLOND WOMAN
-		Actor_Says(kActorMcCoy, 3515, 14);
+		Actor_Says(kActorMcCoy, 3515, 14); // McCoy: You ever seen this woman before?
 		Actor_Modify_Friendliness_To_Other(kActorEarlyQ, kActorMcCoy, -1);
 		if (Actor_Clue_Query(kActorMcCoy, kClueGrigoriansNote)) { // cut content? this clue is unobtanium
-			Actor_Says(kActorEarlyQ, 580, 12);
-			Actor_Says(kActorMcCoy, 3560, 13);
-			Actor_Says(kActorEarlyQ, 590, 16);
-			Actor_Says(kActorMcCoy, 3565, 16);
-			Actor_Says(kActorEarlyQ, 600, 13);
-			Actor_Says(kActorMcCoy, 3570, 14);
-			Actor_Says(kActorEarlyQ, 620, 15);
-			Actor_Says(kActorMcCoy, 3575, 13);
+			Actor_Says(kActorEarlyQ,  580, 12); // Early Q: Hey. That kinda looks like Hecuba. The one I lent the jewelry to?
+			Actor_Says(kActorMcCoy,  3560, 13); // McCoy: Yeah? What's her real name?
+			Actor_Says(kActorEarlyQ,  590, 16); // Early Q: That's it.
+			Actor_Says(kActorMcCoy,  3565, 16); // McCoy: There hasn't been an exotic dancer who used her real name since Jesus was a pup.
+			Actor_Says(kActorEarlyQ,  600, 13); // Early Q: (laughs) Okay, you got me. Dektora is the name on her work card. Let me tell you, General. She works it like a freaking house of fire.
+			Actor_Says(kActorMcCoy,  3570, 14); // McCoy: I'm gonna want to talk to her. When is she up?
+			Actor_Says(kActorEarlyQ,  620, 15); // Early Q: Next, General. Have a couple of drinks, relax a little. But wait until her act is over. I don't want to deprive a lady of her livelihood.
+			Actor_Says(kActorMcCoy,  3575, 13); // McCoy: Oh, god forbid.
 		} else {
-			Actor_Says(kActorEarlyQ, 640, 13);
-			Actor_Says(kActorMcCoy, 3580, 15);
-			Actor_Says(kActorEarlyQ, 660, 12);
+			Actor_Says(kActorEarlyQ,  640, 13); // Early Q: Gee, I don't know. She looks kind of familiar but I got so many broads working here, they all get kinda jumbled in my brain.
+			Actor_Says(kActorMcCoy,  3580, 15); // McCoy: Sure they do.
+			Actor_Says(kActorEarlyQ,  660, 12); // Early Q: Relax, have a drink, loosen up. You see her, you let me know.
 		}
 		Actor_Face_Heading(kActorEarlyQ, 849, false);
 		break;

@@ -149,10 +149,10 @@ bool SceneScriptCT11::ClickedOn2DRegion(int region) {
 			Item_Pickup_Spin_Effect(kModelAnimationLichenDogWrapper, 510, 319);
 			Game_Flag_Reset(kFlagCT11DogWrapperAvailable);
 			Game_Flag_Set(kFlagCT11DogWrapperTaken);
-			Actor_Voice_Over(550, kActorVoiceOver);
-			Actor_Voice_Over(560, kActorVoiceOver);
-			Actor_Voice_Over(570, kActorVoiceOver);
-			Actor_Voice_Over(580, kActorVoiceOver);
+			Actor_Voice_Over(550, kActorVoiceOver); // Mainframe: The wrapper was from a vendor I knew. Best lichen-dogs in the Fourth Sector.
+			Actor_Voice_Over(560, kActorVoiceOver); // Mainframe: That wasn't saying a whole lot...
+			Actor_Voice_Over(570, kActorVoiceOver); // Mainframe: but with an arcade next door and a dozen Nightclubs down the street...
+			Actor_Voice_Over(580, kActorVoiceOver); // Mainframe: Mia and Murray's stand saw more action in a night than my spinster aunt saw all last century.
 		}
 		return true;
 	}
@@ -182,14 +182,14 @@ bool SceneScriptCT11::ClickedOn2DRegion(int region) {
 			if ( cluesFound > 2
 			 && !Actor_Clue_Query(kActorMcCoy, kClueCar)
 			) {
-				Actor_Voice_Over(510, kActorVoiceOver);
-				Actor_Voice_Over(520, kActorVoiceOver);
-				Actor_Voice_Over(530, kActorVoiceOver);
-				Actor_Voice_Over(540, kActorVoiceOver);
+				Actor_Voice_Over(510, kActorVoiceOver); // Mainframe: The car looked a lot like the one I'd been tracking.
+				Actor_Voice_Over(520, kActorVoiceOver); // Mainframe: The driver had been smart enough to pull the license plate.
+				Actor_Voice_Over(530, kActorVoiceOver); // Mainframe: But the vehicle identification number was still there.
+				Actor_Voice_Over(540, kActorVoiceOver); // Mainframe: If I ran it through the Mainframe back at the station, I could ID the owner.
 				Actor_Clue_Acquire(kActorMcCoy, kClueCar, false, -1);
 				Scene_2D_Region_Remove(1);
 			} else {
-				Actor_Says(kActorMcCoy, 8525, 12);
+				Actor_Says(kActorMcCoy, 8525, 12); // McCoy: Hmph.
 			}
 		}
 		return true;

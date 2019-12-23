@@ -110,15 +110,15 @@ bool SceneScriptBB03::ClickedOnExit(int exitId) {
 		if (!Loop_Actor_Walk_To_XYZ(kActorMcCoy, 204.0f, 60.16f, -164.0f, 0, true, false, false)) {
 			if (Global_Variable_Query(kVariableChapter) < 4) {
 				if (Actor_Query_Goal_Number(kActorSebastian) == 200) {
-					Actor_Says(kActorSebastian, 70, kAnimationModeTalk);
-					Actor_Says(kActorMcCoy, 7010, 13);
-					Actor_Says(kActorSebastian, 80, kAnimationModeTalk);
-					Actor_Says(kActorMcCoy, 7015, 12);
-					Actor_Says(kActorSebastian, 90, kAnimationModeTalk);
-					Actor_Says(kActorMcCoy, 7020, 14);
-					Actor_Says(kActorSebastian, 100, kAnimationModeTalk);
-					Actor_Says(kActorMcCoy, 7025, 15);
-					Actor_Says(kActorSebastian, 110, kAnimationModeTalk);
+					Actor_Says(kActorSebastian,   70, kAnimationModeTalk); // Sebastian: Yes?
+					Actor_Says(kActorMcCoy,     7010,                 13); // McCoy: I'm looking for JF Sebastian.
+					Actor_Says(kActorSebastian,   80, kAnimationModeTalk); // Sebastian: That's me.
+					Actor_Says(kActorMcCoy,     7015,                 12); // McCoy: McCoy, LPD. You had a break-in?
+					Actor_Says(kActorSebastian,   90, kAnimationModeTalk); // Sebastian: I don't think I called anyone.
+					Actor_Says(kActorMcCoy,     7020,                 14); // McCoy: I was already here. I was chasing one of the perpetrators.
+					Actor_Says(kActorSebastian,  100, kAnimationModeTalk); // Sebastian: Well, everything's all right now. I'm pretty sure I can handle it.
+					Actor_Says(kActorMcCoy,     7025,                 15); // McCoy: You may think you can but believe me you can't. Better if I check it out.
+					Actor_Says(kActorSebastian,  110, kAnimationModeTalk); // Sebastian: Well, if you insist...
 					Actor_Set_Targetable(kActorBryant, false);
 					Actor_Set_Targetable(kActorGeneralDoll, false);
 				}
@@ -127,7 +127,7 @@ bool SceneScriptBB03::ClickedOnExit(int exitId) {
 				Ambient_Sounds_Remove_All_Looping_Sounds(1);
 				Set_Enter(kSetBB05, kSceneBB05);
 			} else {
-				Actor_Says(kActorMcCoy, 8522, kAnimationModeTalk);
+				Actor_Says(kActorMcCoy, 8522, kAnimationModeTalk); // McCoy: Locked.
 			}
 		}
 		return true;

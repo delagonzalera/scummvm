@@ -66,10 +66,10 @@ bool SceneScriptCT51::ClickedOn3DObject(const char *objectName, bool a2) {
 		if (!Actor_Clue_Query(kActorMcCoy, kClueHysteriaToken)) {
 			Item_Pickup_Spin_Effect(kModelAnimationHysteriaToken, 203, 200);
 			Actor_Clue_Acquire(kActorMcCoy, kClueHysteriaToken, true, -1);
-			Actor_Voice_Over(420, kActorVoiceOver);
+			Actor_Voice_Over(420, kActorVoiceOver); // Mainframe: Hysteria Hall was an arcade. Down near Nightclub Row.
 			return true;
 		}
-		Actor_Says(kActorMcCoy, 8580, 12);
+		Actor_Says(kActorMcCoy, 8580, 12); // McCoy: Nothing else there.
 	}
 	return false;
 }
@@ -91,7 +91,7 @@ bool SceneScriptCT51::ClickedOnItem(int itemId, bool a2) {
 		Actor_Clue_Acquire(kActorMcCoy, kClueMoonbus1, true, -1);
 		Item_Pickup_Spin_Effect(kModelAnimationPhoto, 490, 307);
 		Item_Remove_From_World(kItemMoonbusPhoto);
-		Actor_Says(kActorMcCoy, 8527, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy, 8527, kAnimationModeTalk); // McCoy: Strange.
 		return true;
 	}
 	return false;

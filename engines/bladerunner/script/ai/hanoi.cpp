@@ -116,8 +116,8 @@ void AIScriptHanoi::TimerExpired(int timer) {
 void AIScriptHanoi::CompletedMovementTrack() {
 	switch (Actor_Query_Goal_Number(kActorHanoi)) {
 	case kGoalHanoiNR07TalkToMcCoy:
-		Actor_Says(kActorHanoi, 130, 3);
-		Actor_Says(kActorDektora, 540, 30);
+		Actor_Says(kActorHanoi,   130,  3); // Hanoi: Is this pervo bothering you, Mrs. Hecuba?
+		Actor_Says(kActorDektora, 540, 30); // Dektora: Intensely.
 		Actor_Set_Goal_Number(kActorHanoi, kGoalHanoiNR07GrabMcCoy);
 		break;
 
@@ -126,8 +126,8 @@ void AIScriptHanoi::CompletedMovementTrack() {
 		Actor_Face_Actor(kActorMcCoy, kActorHanoi, true);
 		Actor_Change_Animation_Mode(kActorHanoi, 23);
 		Actor_Set_Invisible(kActorMcCoy, true);
-		Actor_Says(kActorMcCoy, 3595, kAnimationModeTalk);
-		Actor_Says(kActorHanoi, 140, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy, 3595, kAnimationModeTalk); // McCoy: Wait a minute-- (grunts)
+		Actor_Says(kActorHanoi,  140, kAnimationModeTalk); // Hanoi: How did he get back here anyway? I'll teach him some manners, eh?
 		Actor_Set_Goal_Number(kActorHanoi, kGoalHanoiThrowOutMcCoy);
 		break;
 
@@ -159,10 +159,10 @@ void AIScriptHanoi::ClickedByPlayer() {
 	 || Actor_Query_Goal_Number(kActorHanoi) == kGoalHanoiNR08Leave
 	) {
 		Actor_Face_Actor(kActorMcCoy, kActorHanoi, true);
-		Actor_Says(kActorMcCoy, 8915, 11);
+		Actor_Says(kActorMcCoy, 8915, 11); // McCoy: You got a minute, pal?
 
 		if (Actor_Query_Goal_Number(kActorHanoi) == kGoalHanoiNR08WatchShow) {
-			Actor_Says(kActorHanoi, 210, kAnimationModeTalk);
+			Actor_Says(kActorHanoi, 210, kAnimationModeTalk); // Hanoi: Sod off, McCoy. I got no time for you.
 		}
 	}
 }
@@ -252,7 +252,7 @@ bool AIScriptHanoi::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		break;
 
 	case 204:
-		Actor_Says(kActorHanoi, 210, kAnimationModeTalk);
+		Actor_Says(kActorHanoi, 210, kAnimationModeTalk); // Hanoi: Sod off, McCoy. I got no time for you.
 		Actor_Change_Animation_Mode(kActorHanoi, 23);
 		break;
 

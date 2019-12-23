@@ -176,7 +176,7 @@ bool SceneScriptNR11::ClickedOn3DObject(const char *objectName, bool combatMode)
 					Delay(2000);
 					Actor_Set_Goal_Number(kActorMcCoy, kGoalMcCoyNR10Fall);
 				} else {
-					Actor_Says(kActorMcCoy, 3840, 18);
+					Actor_Says(kActorMcCoy, 3840, 18); // McCoy: (panting) Listen. Dektora, I wanna help.
 					Delay(1000);
 					if (Actor_Query_Friendliness_To_Other(kActorDektora, kActorMcCoy) > 59
 					 && Global_Variable_Query(kVariableAffectionTowards) == kAffectionTowardsNone
@@ -187,37 +187,37 @@ bool SceneScriptNR11::ClickedOn3DObject(const char *objectName, bool combatMode)
 					Actor_Face_Actor(kActorDektora, kActorMcCoy, true);
 					Actor_Face_Actor(kActorMcCoy, kActorDektora, true);
 					Actor_Clue_Acquire(kActorMcCoy, kClueDektoraInterview4, true, kActorDektora);
-					Actor_Says(kActorDektora, 990, 13);
-					Actor_Says(kActorDektora, 1000, 14);
+					Actor_Says(kActorDektora,  990, 13); // Dektora: You say a lot of things, Mr. McCoy.
+					Actor_Says(kActorDektora, 1000, 14); // Dektora: But  you're a Blade Runner. It's hard to know what's real.
 					Loop_Actor_Walk_To_Actor(kActorDektora, kActorMcCoy, 108, false, false);
-					Actor_Says(kActorMcCoy, 3845, 13);
-					Actor_Says(kActorMcCoy, 3850, 15);
-					Actor_Says(kActorDektora, 1010, 14);
-					Actor_Says(kActorMcCoy, 3855, 13);
-					Actor_Says(kActorDektora, 1020, 12);
-					Actor_Says(kActorMcCoy, 3860, 12);
+					Actor_Says(kActorMcCoy,   3845, 13); // McCoy: One of my associates is after you and your friends.
+					Actor_Says(kActorMcCoy,   3850, 15); // McCoy: I'm not sure I can hold her off much longer.
+					Actor_Says(kActorDektora, 1010, 14); // Dektora: I'm not worried. She may kill some of us but not all of us. Clovis will see to that.
+					Actor_Says(kActorMcCoy,   3855, 13); // McCoy: Is he the one that sent you the flowers?
+					Actor_Says(kActorDektora, 1020, 12); // Dektora: Yes.
+					Actor_Says(kActorMcCoy,   3860, 12); // McCoy: And you're lovers?
 					Actor_Says_With_Pause(kActorDektora, 1030, 1.0f, 14);
-					Actor_Says(kActorDektora, 1040, 13);
-					Actor_Says(kActorMcCoy, 3865, 15);
+					Actor_Says(kActorDektora, 1040, 13); // Dektora: They are still my family. Clovis and Lucy.
+					Actor_Says(kActorMcCoy,   3865, 15); // McCoy: What's Clovis looking for?
 					Actor_Says_With_Pause(kActorDektora, 1050, 0.8f, 14);
-					Actor_Says(kActorDektora, 1060, 13);
-					Actor_Says(kActorMcCoy, 3870, 3);
-					Actor_Says(kActorDektora, 1070, 14);
+					Actor_Says(kActorDektora, 1060, 13); // Dektora: If anyone deserves more than four years, it's Clovis. If you could only meet him.
+					Actor_Says(kActorMcCoy,   3870,  3); // McCoy: Can you take me to him?
+					Actor_Says(kActorDektora, 1070, 14); // Dektora: I'm afraid that's impossible right now.
 					Actor_Modify_Friendliness_To_Other(kActorDektora, kActorMcCoy, 5);
 					if (Actor_Query_Friendliness_To_Other(kActorDektora, kActorMcCoy) > 55
 					 && Global_Variable_Query(kVariableAffectionTowards) == kAffectionTowardsNone
 					) {
 						Global_Variable_Set(kVariableAffectionTowards, kAffectionTowardsDektora);
-						Actor_Says(kActorDektora, 1130, 17);
-						Actor_Says(kActorMcCoy, 6365, 12);
-						Actor_Says(kActorDektora, 1140, 14);
-						Actor_Says(kActorMcCoy, 6370, 14);
-						Actor_Says(kActorDektora, 1150, 12);
-						Actor_Says(kActorDektora, 1160, 16);
+						Actor_Says(kActorDektora, 1130, 17); // Dektora: He is very jealous. You don't understand.
+						Actor_Says(kActorMcCoy,   6365, 12); // McCoy: Jealous, huh? On top of everything else?
+						Actor_Says(kActorDektora, 1140, 14); // Dektora: He is a very complicated man. He wants so much. Things he just can't have.
+						Actor_Says(kActorMcCoy,   6370, 14); // McCoy: Then he's no different from anybody else.
+						Actor_Says(kActorDektora, 1150, 12); // Dektora: God forbid you ever have to find out how different he is.
+						Actor_Says(kActorDektora, 1160, 16); // Dektora: How dangerous he can be. And if he thinks that you and I... It can only bring trouble.
 					}
-					Actor_Says(kActorDektora, 1080, 13);
-					Actor_Says(kActorMcCoy, 3875, 14);
-					Actor_Says(kActorDektora, 1090, 17);
+					Actor_Says(kActorDektora, 1080, 13); // Dektora: Clovis will find you, when he's ready.
+					Actor_Says(kActorMcCoy,   3875, 14); // McCoy: You'd better go now. Take the fire escape.
+					Actor_Says(kActorDektora, 1090, 17); // Dektora: I... appreciate it, Mr. McCoy.
 					Music_Stop(4);
 					Actor_Set_Goal_Number(kActorDektora, kGoalDektoraNR11WalkAway);
 					if (Global_Variable_Query(kVariableHollowayArrest) == 1) {
@@ -229,9 +229,9 @@ bool SceneScriptNR11::ClickedOn3DObject(const char *objectName, bool combatMode)
 				// TODO why put this here? Could be a bug.
 				// There's a chance that McCoy will say this while "searching" for hidden Dektora
 				if (Random_Query(1, 2) == 1) {
-					Actor_Says(kActorMcCoy, 8575, 14); // More useless junk.
+					Actor_Says(kActorMcCoy, 8575, 14); // McCoy: More useless junk.
 				} else {
-					Actor_Says(kActorMcCoy, 8580, 14); // Nothing else there
+					Actor_Says(kActorMcCoy, 8580, 14); // McCoy: Nothing else there.
 				}
 			}
 		}
@@ -364,7 +364,7 @@ void SceneScriptNR11::PlayerWalkedIn() {
 				Delay(500);
 				Actor_Face_Current_Camera(kActorMcCoy, true);
 				Delay(750);
-				Actor_Says(kActorMcCoy, 5290, 12); // Jesus
+				Actor_Says(kActorMcCoy, 5290, 12); // McCoy: Jesus.
 				Delay(1000);
 				Actor_Set_Goal_Number(kActorSteele, kGoalSteeleNR11Enter);
 				Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
@@ -372,13 +372,13 @@ void SceneScriptNR11::PlayerWalkedIn() {
 				Actor_Set_At_XYZ(kActorMcCoy, -15.53f, 0.33f, 73.49f, 954);
 				Actor_Modify_Friendliness_To_Other(kActorSteele, kActorMcCoy, 3);
 				Delay(1500);
-				Actor_Says(kActorMcCoy, 3805, 12);
+				Actor_Says(kActorMcCoy, 3805, 12); // McCoy: Hope Early's got insurance.
 				Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
 				Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
 				Actor_Says_With_Pause(kActorSteele, 1720, 0.3f, 16);
-				Actor_Says(kActorMcCoy, 3810, 16);
+				Actor_Says(kActorMcCoy, 3810, 16); // McCoy: You could have taken her out in a more discrete way.
 				Actor_Says_With_Pause(kActorSteele, 1730, 0.2f, 14);
-				Actor_Says(kActorSteele, 1740, 15);
+				Actor_Says(kActorSteele, 1740, 15); // Steele: Come on, let's blow while the getting's good.
 				Actor_Set_Goal_Number(kActorDektora, kGoalDektoraGone);
 				Actor_Put_In_Set(kActorDektora, kSetFreeSlotI);
 				Actor_Set_At_Waypoint(kActorDektora, 41, 0);

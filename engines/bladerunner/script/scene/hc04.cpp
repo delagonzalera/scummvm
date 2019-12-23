@@ -98,9 +98,9 @@ bool SceneScriptHC04::ClickedOnActor(int actorId) {
 			Actor_Face_Actor(kActorMcCoy, kActorIsabella, true);
 			Actor_Face_Actor(kActorIsabella, kActorMcCoy, true);
 			if (!Game_Flag_Query(kFlagHC04IsabellaTalk)) {
-				Actor_Says(kActorIsabella, 0, kAnimationModeTalk);
-				Actor_Says(kActorMcCoy, 1280, kAnimationModeTalk);
-				Actor_Says(kActorIsabella, 20, kAnimationModeTalk);
+				Actor_Says(kActorIsabella,    0, kAnimationModeTalk); // Isabella: Step up. Step up. Mama Isabella cook you something special. Put a glow in your cheek.
+				Actor_Says(kActorMcCoy,    1280, kAnimationModeTalk); // McCoy: McCoy, LPD. Mind if I ask you a couple of questions?
+				Actor_Says(kActorIsabella,   20, kAnimationModeTalk); // Isabella: Questions? They always need answers.
 				Game_Flag_Set(kFlagHC04IsabellaTalk);
 				return true;
 			} else {
@@ -188,77 +188,77 @@ void SceneScriptHC04::dialogueWithIsabella() {
 
 	switch (answer) {
 	case 340: // SADIK PHOTO
-		Actor_Says(kActorMcCoy, 1285, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 50, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 1330, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 60, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy,    1285, kAnimationModeTalk); // McCoy: This guy work for you?
+		Actor_Says(kActorIsabella,   50, kAnimationModeTalk); // Isabella: No, but I wish he do. He be one fine-looking man.
+		Actor_Says(kActorMcCoy,    1330, kAnimationModeTalk); // McCoy: You sure? Never seen him before?
+		Actor_Says(kActorIsabella,   60, kAnimationModeTalk); // Isabella: I'd remember him for sure.
 		break;
 
 	case 350: // DELIVERYMEN
-		Actor_Says(kActorMcCoy, 1290, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 70, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 1335, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 80, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 1340, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 90, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 1345, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy,    1290, kAnimationModeTalk); // McCoy: How many delivery men you got working here?
+		Actor_Says(kActorIsabella,   70, kAnimationModeTalk); // Isabella: Two. Sometimes three on the busy night.
+		Actor_Says(kActorMcCoy,    1335, kAnimationModeTalk); // McCoy: Any Rastafarians?
+		Actor_Says(kActorIsabella,   80, kAnimationModeTalk); // Isabella: Usual two riders. They Chinese. Third guy part timer. He Moroccan I think.
+		Actor_Says(kActorMcCoy,    1340, kAnimationModeTalk); // McCoy: A big guy with dreadlocks?
+		Actor_Says(kActorIsabella,   90, kAnimationModeTalk); // Isabella: Oh no. Shaved head. Real short.
+		Actor_Says(kActorMcCoy,    1345, kAnimationModeTalk); // McCoy: Thanks.
 		break;
 
 	case 360: // MARCUS EISENDULLER
-		Actor_Says(kActorMcCoy, 1295, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 100, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 1350, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 110, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 1355, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 130, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 1360, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy,    1295, kAnimationModeTalk); // McCoy: You send a lot of deliveries over to Marcus Eisenduller at the Tyrell building?
+		Actor_Says(kActorIsabella,  100, kAnimationModeTalk); // Isabella: Eisenduller? Oh, Eisenduller, ya! Let me tell you that man can eat!
+		Actor_Says(kActorMcCoy,    1350, kAnimationModeTalk); // McCoy: Send anything over lately?
+		Actor_Says(kActorIsabella,  110, kAnimationModeTalk); // Isabella: No sir. No deliveries to him no more. Not since last month. He be way behind on his bill.
+		Actor_Says(kActorMcCoy,    1355, kAnimationModeTalk); // McCoy: Not for a month, eh?
+		Actor_Says(kActorIsabella,  130, kAnimationModeTalk); // Isabella: At least. No more till he pay up.
+		Actor_Says(kActorMcCoy,    1360, kAnimationModeTalk); // McCoy: You may have a little trouble collecting. He's dead.
 		break;
 
 	case 370: // CHEESE
-		Actor_Says(kActorMcCoy, 1300, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 140, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 1365, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 150, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy,    1300, kAnimationModeTalk); // McCoy: Hey, you know where I can get some cheese like this?
+		Actor_Says(kActorIsabella,  140, kAnimationModeTalk); // Isabella: Don't know nothing about cheese. That stuff illegal. It bad news.
+		Actor_Says(kActorMcCoy,    1365, kAnimationModeTalk); // McCoy: I'm not looking to bust the dealer. I just want to know who bought it.
+		Actor_Says(kActorIsabella,  150, kAnimationModeTalk); // Isabella: This is a clean place man. Mama Isabella law-abiding soul.
 		break;
 
 	case 380: // MIA AND MURRAY INFO
-		Actor_Says(kActorMcCoy, 1305, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy, 1305, kAnimationModeTalk); // McCoy: Mia and Murray tell me you're using cheese in your stew. Real cheese.
 		Actor_Modify_Friendliness_To_Other(kActorIsabella, kActorMcCoy, -2);
-		Actor_Says(kActorIsabella, 160, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 1370, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 170, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 1375, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 180, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 1380, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 190, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 210, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 240, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 1385, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 260, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 1390, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 300, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 310, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 320, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 1395, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 330, kAnimationModeTalk);
+		Actor_Says(kActorIsabella,  160, kAnimationModeTalk); // Isabella: Them old buzzards. What they know?
+		Actor_Says(kActorMcCoy,    1370, kAnimationModeTalk); // McCoy: I could take a sample of that stew you're cooking back to the Lab and have it tested.
+		Actor_Says(kActorIsabella,  170, kAnimationModeTalk); // Isabella: Why you pick on Mama Isabella? I never do you no harm.
+		Actor_Says(kActorMcCoy,    1375, kAnimationModeTalk); // McCoy: Where did you get it?
+		Actor_Says(kActorIsabella,  180, kAnimationModeTalk); // Isabella: My sister. She got connections.
+		Actor_Says(kActorMcCoy,    1380, kAnimationModeTalk); // McCoy: Where can I find her?
+		Actor_Says(kActorIsabella,  190, kAnimationModeTalk); // Isabella: She back in Jamaica, mon. Far away from here. She send me cheese once maybe twice a month.
+		Actor_Says(kActorIsabella,  210, kAnimationModeTalk); // Isabella: You know, funny thing you asking about the cheese. Last week this ugly little man, he ran by. Grab whole box of empty takeout cartons right off the counter.
+		Actor_Says(kActorIsabella,  240, kAnimationModeTalk); // Isabella: Police next dawn they just laugh. Say the guy not be so happy when he opens them cartons. (scoffs)
+		Actor_Says(kActorMcCoy,    1385, kAnimationModeTalk); // McCoy: What's that have to do with the cheese?
+		Actor_Says(kActorIsabella,  260, kAnimationModeTalk); // Isabella: Cheese hidden in that box, mon. Keeping it safe till I cook up a new batch. So how can I tell police to bring back box. They find cheese, they shut me down.
+		Actor_Says(kActorMcCoy,    1390, kAnimationModeTalk); // McCoy: This guy who robbed you. What did he look like?
+		Actor_Says(kActorIsabella,  300, kAnimationModeTalk); // Isabella: Short, real short. Bad clothes, colors way too bright. Funny bow tie.
+		Actor_Says(kActorIsabella,  310, kAnimationModeTalk); // Isabella: Maybe you look for this ugly little thief, ya?
+		Actor_Says(kActorIsabella,  320, kAnimationModeTalk); // Isabella: I'm thinking you not really care about the cheese.
+		Actor_Says(kActorMcCoy,    1395, kAnimationModeTalk); // McCoy: You're right. But I still think you ought to get yourself a different secret ingredient.
+		Actor_Says(kActorIsabella,  330, kAnimationModeTalk); // Isabella: You bet, mon. That cheese's been nothing but trouble for Mama Isabella.
 		Actor_Clue_Acquire(kActorMcCoy, kClueStolenCheese, false, kActorIsabella);
 		break;
 
 	case 390: // BUY STEW
-		Actor_Says(kActorMcCoy, 1310, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy, 1310, kAnimationModeTalk); // McCoy: That stew is looking tasty.
 		Actor_Modify_Friendliness_To_Other(kActorIsabella, kActorMcCoy, 2);
-		Actor_Says(kActorIsabella, 340, kAnimationModeTalk);
+		Actor_Says(kActorIsabella, 340, kAnimationModeTalk); // Isabella: Fix you right up. Only 30 chinyen. It put a spring in your step, mon. The ladies they be loving you.
 		break;
 
 	case 400: // DONE
-		Actor_Says(kActorMcCoy, 1315, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy, 1315, kAnimationModeTalk); // McCoy: Thanks for your time.
 		break;
 
 	default: // never used?
-		Actor_Says(kActorMcCoy, 1320, kAnimationModeTalk);
-		Actor_Says(kActorIsabella, 30, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 1325, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 1345, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy,    1320, kAnimationModeTalk); // McCoy: Smells good. What is it?
+		Actor_Says(kActorIsabella,   30, kAnimationModeTalk); // Isabella: All in special recipe. (laughs) But if I be telling you what's in it, you might be thinking twice about eating it.
+		Actor_Says(kActorMcCoy,    1325, kAnimationModeTalk); // McCoy: Uh... I'm not that hungry anyway.
+		Actor_Says(kActorMcCoy,    1345, kAnimationModeTalk); // McCoy: Thanks.
 		break;
 	}
 }

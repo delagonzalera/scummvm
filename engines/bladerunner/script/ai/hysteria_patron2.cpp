@@ -55,7 +55,7 @@ void AIScriptHysteriaPatron2::ReceivedClue(int clueId, int fromActorId) {
 
 void AIScriptHysteriaPatron2::ClickedByPlayer() {
 	Actor_Face_Actor(kActorMcCoy, kActorHysteriaPatron2, true);
-	Actor_Says(kActorMcCoy, 8935, kAnimationModeTalk);
+	Actor_Says(kActorMcCoy, 8935, kAnimationModeTalk); // McCoy: What's your name?
 }
 
 void AIScriptHysteriaPatron2::EnteredScene(int sceneId) {

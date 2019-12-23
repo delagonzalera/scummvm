@@ -126,10 +126,10 @@ void SceneScriptMA05::PlayerWalkedIn() {
 	}
 	if (Game_Flag_Query(kFlagChapter1Ending) && !Game_Flag_Query(kFlagChapter1Ended)) {
 		if (!Game_Flag_Query(kFlagDirectorsCut)) {
-			Actor_Voice_Over(1260, kActorVoiceOver);
-			Actor_Voice_Over(1270, kActorVoiceOver);
-			Actor_Voice_Over(1280, kActorVoiceOver);
-			Actor_Voice_Over(1290, kActorVoiceOver);
+			Actor_Voice_Over(1260, kActorVoiceOver); // Mainframe: Zuben was the first Nexus-6 I'd come up against.
+			Actor_Voice_Over(1270, kActorVoiceOver); // Mainframe: There was something in his eyes. An almost primordial desire to live.
+			Actor_Voice_Over(1280, kActorVoiceOver); // Mainframe: Most of the Threes, Fours and Fives I'd seen would just give up when you had 'em.
+			Actor_Voice_Over(1290, kActorVoiceOver); // Mainframe: But these Sixes they were a whole other breed.
 		}
 		Game_Flag_Set(kFlagChapter1Ended);
 		Player_Gains_Control();

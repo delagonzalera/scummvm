@@ -123,7 +123,7 @@ bool SceneScriptHC03::ClickedOnItem(int itemId, bool combatMode) {
 			Item_Remove_From_World(kItemGreenPawnLock);
 			Unobstacle_Object("GPscisGate", true);
 		} else {
-			Actor_Says(kActorMcCoy, 8522, 12);
+			Actor_Says(kActorMcCoy, 8522, 12); // McCoy: Locked.
 		}
 		return true;
 	}

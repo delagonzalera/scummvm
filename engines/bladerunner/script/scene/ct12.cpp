@@ -139,7 +139,7 @@ bool SceneScriptCT12::ClickedOn3DObject(const char *objectName, bool a2) {
 bool SceneScriptCT12::ClickedOnActor(int actorId) {
 	if (actorId == kActorHowieLee) {
 		Actor_Face_Actor(kActorMcCoy, kActorHowieLee, true);
-		Actor_Says(kActorMcCoy, 8910, 16);
+		Actor_Says(kActorMcCoy, 8910, 16); // McCoy: Hey you.
 	}
 
 	// cut off feature? grayford never visit CT12 as goal 308 is never triggered
@@ -151,20 +151,20 @@ bool SceneScriptCT12::ClickedOnActor(int actorId) {
 	) {
 		Actor_Face_Actor(kActorOfficerGrayford, kActorMcCoy, true);
 		Actor_Face_Actor(kActorMcCoy, kActorOfficerGrayford, true);
-		Actor_Says(kActorMcCoy, 710, kAnimationModeTalk); // Hold it! I'm not a Replicant, I got proof!
-		Actor_Says(kActorOfficerGrayford, 20, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 715, kAnimationModeTalk);
-		Actor_Says(kActorOfficerGrayford, 30, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 720, kAnimationModeTalk);
-		Actor_Says(kActorOfficerGrayford, 40, kAnimationModeTalk);
-		Actor_Says(kActorOfficerGrayford, 50, kAnimationModeTalk);
-		Actor_Says(kActorOfficerGrayford, 60, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 725, kAnimationModeTalk);
-		Actor_Says(kActorOfficerGrayford, 70, kAnimationModeTalk);
-		Actor_Says(kActorOfficerGrayford, 80, kAnimationModeTalk);
-		Actor_Says(kActorOfficerGrayford, 90, kAnimationModeTalk); // if you are lying...
-		Actor_Says(kActorOfficerGrayford, 100, kAnimationModeTalk); // you gonna wish...
-		Actor_Says(kActorOfficerGrayford, 110, kAnimationModeTalk); // Take him in!
+		Actor_Says(kActorMcCoy,           710, kAnimationModeTalk); // McCoy: Hold it! I'm not a Replicant, I got proof!
+		Actor_Says(kActorOfficerGrayford,  20, kAnimationModeTalk); // Officer Grayford: Don't bullshit, McCoy!
+		Actor_Says(kActorMcCoy,           715, kAnimationModeTalk); // McCoy: It's all in there!
+		Actor_Says(kActorOfficerGrayford,  30, kAnimationModeTalk); // Officer Grayford: Let's get the bomb squad out here!
+		Actor_Says(kActorMcCoy,           720, kAnimationModeTalk); // McCoy: Talk to Crystal Steele, she'll vouch for me.
+		Actor_Says(kActorOfficerGrayford,  40, kAnimationModeTalk); // Officer Grayford: Drop your gun, put your hands in the air and then we'll talk.
+		Actor_Says(kActorOfficerGrayford,  50, kAnimationModeTalk); // Officer Grayford: Okay. Come on out!
+		Actor_Says(kActorOfficerGrayford,  60, kAnimationModeTalk); // Officer Grayford: If you don't follow my exact instructions, we're gonna shred you into a thousand pieces.
+		Actor_Says(kActorMcCoy,           725, kAnimationModeTalk); // McCoy: Relax! I hear ya.
+		Actor_Says(kActorOfficerGrayford,  70, kAnimationModeTalk); // Officer Grayford: All right, assume the position. On the ground!
+		Actor_Says(kActorOfficerGrayford,  80, kAnimationModeTalk); // Officer Grayford: I swear to God, McCoy...
+		Actor_Says(kActorOfficerGrayford,  90, kAnimationModeTalk); // Officer Grayford: if you are lying, if you've killed any humans in the process...
+		Actor_Says(kActorOfficerGrayford, 100, kAnimationModeTalk); // Officer Grayford: you gonna wish we disposed you right here and now.
+		Actor_Says(kActorOfficerGrayford, 110, kAnimationModeTalk); // Officer Grayford: Take him in!
 		Game_Flag_Set(kFlagUnpauseGenWalkers);
 		Game_Flag_Set(kFlagMcCoyFreedOfAccusations);
 		Actor_Set_Goal_Number(kActorMcCoy, kGoalMcCoyStartChapter5);
@@ -282,16 +282,16 @@ void SceneScriptCT12::PlayerWalkedIn() {
 		Loop_Actor_Walk_To_Actor(kActorGaff, kActorMcCoy, 48, false, false);
 		Actor_Face_Actor(kActorGaff, kActorMcCoy, true);
 		Actor_Face_Actor(kActorMcCoy, kActorGaff, true);
-		Actor_Says(kActorGaff, 0, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 670, kAnimationModeTalk);
-		Actor_Says(kActorGaff, 10, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 675, kAnimationModeTalk);
-		Actor_Says(kActorGaff, 20, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 680, kAnimationModeTalk);
-		Actor_Says(kActorGaff, 30, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 685, kAnimationModeTalk);
-		Actor_Says(kActorGaff, 40, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 690, kAnimationModeTalk);
+		Actor_Says(kActorGaff,    0, kAnimationModeTalk); // Gaff: Rumor has it you've been earning your stripes, McCoy.
+		Actor_Says(kActorMcCoy, 670, kAnimationModeTalk); // McCoy: Working on it.
+		Actor_Says(kActorGaff,   10, kAnimationModeTalk); // Gaff: Keep it up. You just might have a future in this business.
+		Actor_Says(kActorMcCoy, 675, kAnimationModeTalk); // McCoy: I understand it's got a hell of a retirement plan.
+		Actor_Says(kActorGaff,   20, kAnimationModeTalk); // Gaff: I checked with U.N.R. Looks your Reps swung that moonbus massacre last month.
+		Actor_Says(kActorMcCoy, 680, kAnimationModeTalk); // McCoy: They ever find the moonbus?
+		Actor_Says(kActorGaff,   30, kAnimationModeTalk); // Gaff: Disappeared into thin air. Bryant thinks it crashed out in the Kipple.
+		Actor_Says(kActorMcCoy, 685, kAnimationModeTalk); // McCoy: How many Reps we're talking about?
+		Actor_Says(kActorGaff,   40, kAnimationModeTalk); // Gaff: Enough. They're Nexus-6s, so don't take too much slack.
+		Actor_Says(kActorMcCoy, 690, kAnimationModeTalk); // McCoy: Gotcha.
 		Actor_Clue_Acquire(kActorMcCoy, kClueGaffsInformation, true, kActorGaff);
 		Game_Flag_Set(kFlagGaffApproachedMcCoyAboutZuben);
 		CDB_Set_Crime(kClueZubenSquadPhoto, kCrimeMoonbusHijacking);
@@ -299,19 +299,19 @@ void SceneScriptCT12::PlayerWalkedIn() {
 		if (Game_Flag_Query(kFlagGaffApproachedMcCoyAboutZuben)
 		 && Game_Flag_Query(kFlagZubenRetired)
 		) {
-			Actor_Says(kActorGaff, 50, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 695, kAnimationModeTalk);
-			Actor_Says(kActorGaff, 60, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 700, kAnimationModeTalk);
-			Actor_Says(kActorGaff, 70, kAnimationModeTalk);
+			Actor_Says(kActorGaff,   50, kAnimationModeTalk); // Gaff: You V-K the mark before retirement?
+			Actor_Says(kActorMcCoy, 695, kAnimationModeTalk); // McCoy: Didn't have to.
+			Actor_Says(kActorGaff,   60, kAnimationModeTalk); // Gaff: That's why they call it "the magic".
+			Actor_Says(kActorMcCoy, 700, kAnimationModeTalk); // McCoy: I'm starting to understand.
+			Actor_Says(kActorGaff,   70, kAnimationModeTalk); // Gaff: You ever retire human, your career is over. Remember that.
 			Actor_Clue_Acquire(kActorGaff, kClueMcCoyRetiredZuben, true, -1);
 		} else if (Game_Flag_Query(kFlagGaffApproachedMcCoyAboutZuben)
 		        && Game_Flag_Query(kFlagZubenSpared)
 		) {
-			Actor_Says(kActorGaff, 80, kAnimationModeTalk);
-			Actor_Says(kActorGaff, 90, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 705, kAnimationModeTalk);
-			Actor_Says(kActorGaff, 100, kAnimationModeTalk);
+			Actor_Says(kActorGaff,   80, kAnimationModeTalk); // Gaff: Your target give you the slip?
+			Actor_Says(kActorGaff,   90, kAnimationModeTalk); // Gaff: What happened, McCoy? You feel sorry for it?
+			Actor_Says(kActorMcCoy, 705, kAnimationModeTalk); // McCoy: My game must have been off.
+			Actor_Says(kActorGaff,  100, kAnimationModeTalk); // Gaff: Go home and get some rest. I'm sure you need it.
 			Actor_Clue_Acquire(kActorGaff, kClueMcCoyLetZubenEscape, true, -1);
 		}
 

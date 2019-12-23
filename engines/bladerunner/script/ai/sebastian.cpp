@@ -67,8 +67,8 @@ void AIScriptSebastian::ClickedByPlayer() {
 		Actor_Face_Actor(kActorSebastian, kActorMcCoy, true);
 		Actor_Face_Actor(kActorMcCoy, kActorSebastian, true);
 		if (Actor_Clue_Query(kActorSebastian, kClueMcCoyIsABladeRunner)) {
-			Actor_Says(kActorMcCoy, 6985, 16);
-			Actor_Says(kActorSebastian, 610, 14);
+			Actor_Says(kActorMcCoy,     6985, 16); // McCoy: Got the straight scoop for me or what?
+			Actor_Says(kActorSebastian,  610, 14); // Sebastian: I think you should leave now, Mr. McCoy.
 		} else {
 			dialogue();
 		}
@@ -101,14 +101,14 @@ void AIScriptSebastian::OtherAgentEnteredCombatMode(int otherActorId, int combat
 		Actor_Face_Actor(kActorSebastian, kActorMcCoy, true);
 
 		if (Global_Variable_Query(kVariableGunPulledInFrontOfSebastian) == 1) {
-			Actor_Says(kActorSebastian, 680, 12);
+			Actor_Says(kActorSebastian, 680, 12); // Sebastian: Hey, you don't need to do that.
 			Actor_Face_Actor(kActorMcCoy, kActorSebastian, true);
 			Actor_Says_With_Pause(kActorMcCoy, 7265, 0.0f, kAnimationModeCombatIdle);
 			Actor_Change_Animation_Mode(kActorMcCoy, kAnimationModeCombatIdle);
 			Delay(500);
-			Actor_Says(kActorSebastian, 690, 16);
+			Actor_Says(kActorSebastian, 690, 16); // Sebastian: There's nothing in here. People don't even like to come inside my building.
 		} else {
-			Actor_Says(kActorSebastian, 700, 15);
+			Actor_Says(kActorSebastian, 700, 15); // Sebastian: Please! You don't have to pull your gun in here.
 			Actor_Says_With_Pause(kActorMcCoy, 7270, 0.0f, kAnimationModeCombatIdle);
 			Actor_Change_Animation_Mode(kActorMcCoy, kAnimationModeCombatIdle);
 		}
@@ -407,76 +407,76 @@ void AIScriptSebastian::dialogue() {
 
 		switch (answer) {
 		case 930: // MORAJI AND CHEW
-			Actor_Says(kActorMcCoy, 7075, 13);
-			Actor_Says(kActorSebastian, 290, 12);
-			Actor_Says(kActorSebastian, 300, 13);
+			Actor_Says(kActorMcCoy,     7075, 13); // McCoy: You know the design sub-cons down on the Row? Moraji and Chew?
+			Actor_Says(kActorSebastian,  290, 12); // Sebastian: I've heard of them, but I've never seen them.
+			Actor_Says(kActorSebastian,  300, 13); // Sebastian: I don't go in for the parties and stuff, and I never go down to the Row.
 			break;
 
 		case 940: // EISENDULLER
-			Actor_Says(kActorMcCoy, 7080, 15);
-			Actor_Says(kActorSebastian, 310, 13);
-			Actor_Says(kActorSebastian, 320, 16);
-			Actor_Says(kActorSebastian, 340, 12);
-			Actor_Says(kActorMcCoy, 7120, 14);
-			Actor_Says(kActorSebastian, 350, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 7125, 13);
-			Actor_Says(kActorSebastian, 360, 17);
+			Actor_Says(kActorMcCoy,     7080,                 15); // McCoy: You ever work with a Dr. Eisenduller?
+			Actor_Says(kActorSebastian,  310,                 13); // Sebastian: We're in different fields.
+			Actor_Says(kActorSebastian,  320,                 16); // Sebastian: I'm in basic bio-genetic design and he works on the practical application of Off-World physics.
+			Actor_Says(kActorSebastian,  340,                 12); // Sebastian: He seems to be a very nice man.
+			Actor_Says(kActorMcCoy,     7120,                 14); // McCoy: Who happens to be dead.
+			Actor_Says(kActorSebastian,  350, kAnimationModeTalk); // Sebastian: Dead?
+			Actor_Says(kActorMcCoy,     7125,                 13); // McCoy: He was murdered. Probably by a Replicant.
+			Actor_Says(kActorSebastian,  360,                 17); // Sebastian: But Replicants aren't allowed on Terra.
 			Actor_Says_With_Pause(kActorMcCoy, 7130, 1.0f, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 7135, 18);
+			Actor_Says(kActorMcCoy, 7135, 18); // McCoy: And who do you think they'll start looking for next?
 			break;
 
 		case 950: // TYRELL
-			Actor_Says(kActorMcCoy, 7085, 15);
+			Actor_Says(kActorMcCoy, 7085, 15); // McCoy: How well do you know Dr. Tyrell?
 			Actor_Says_With_Pause(kActorSebastian, 370, 0.30f, 13);
 			Actor_Says_With_Pause(kActorSebastian, 380, 0.70f, 17);
-			Actor_Says(kActorSebastian, 390, 14);
+			Actor_Says(kActorSebastian, 390, 14); // Sebastian: Dr. Tyrell and I play chess every week. I've only beaten him once.
 			if (Actor_Clue_Query(kActorMcCoy, kClueChessTable)) {
-				Actor_Says(kActorMcCoy, 7140, kAnimationModeTalk);
-				Actor_Says(kActorSebastian, 400, 12);
-				Actor_Says(kActorMcCoy, 7145, 16);
-				Actor_Says(kActorSebastian, 410, 13);
-				Actor_Says(kActorMcCoy, 7150, 17);
-				Actor_Says(kActorSebastian, 420, 13);
-				Actor_Says(kActorSebastian, 430, 14);
+				Actor_Says(kActorMcCoy,     7140, kAnimationModeTalk); // McCoy: You're in the middle of a game right now?
+				Actor_Says(kActorSebastian,  400,                 12); // Sebastian: Uh-huh. Do you play?
+				Actor_Says(kActorMcCoy,     7145,                 16); // McCoy: I don't have the patience for chess.
+				Actor_Says(kActorSebastian,  410,                 13); // Sebastian: You play with Dr. Tyrell, you learn something new every time.
+				Actor_Says(kActorMcCoy,     7150,                 17); // McCoy: Such as?
+				Actor_Says(kActorSebastian,  420,                 13); // Sebastian: Every single move must be taken very seriously.
+				Actor_Says(kActorSebastian,  430,                 14); // Sebastian: Otherwise, you've lost before you've even begun.
 			}
 			break;
 
 		case 960: // TWINS
-			Actor_Says(kActorMcCoy, 7090, 17);
-			Actor_Says(kActorSebastian, 440, 14);
-			Actor_Says(kActorSebastian, 450, 13);
-			Actor_Says(kActorMcCoy, 7155, 13);
-			Actor_Says(kActorSebastian, 460, 17);
-			Actor_Says(kActorSebastian, 470, 12);
-			Actor_Says(kActorSebastian, 480, 13);
-			Actor_Says(kActorMcCoy, 7160, 18);
-			Actor_Says(kActorSebastian, 490, 14);
-			Actor_Says(kActorMcCoy, 7165, 14);
+			Actor_Says(kActorMcCoy,     7090, 17); // McCoy: Talk to me about the twins.
+			Actor_Says(kActorSebastian,  440, 14); // Sebastian: You mean Luther and Lance? They were Dr. Tyrell's favorites until he let them go,
+			Actor_Says(kActorSebastian,  450, 13); // Sebastian: Nobody really knows why either.
+			Actor_Says(kActorMcCoy,     7155, 13); // McCoy: You think they'd hold a grudge against Tyrell?
+			Actor_Says(kActorSebastian,  460, 17); // Sebastian: Maybe. But they're decent fellows Mr. McCoy.
+			Actor_Says(kActorSebastian,  470, 12); // Sebastian: I don't think they'd ever do a mean thing to anybody.
+			Actor_Says(kActorSebastian,  480, 13); // Sebastian: They're real smart, too. Almost as smart as Dr. Tyrell.
+			Actor_Says(kActorMcCoy,     7160, 18); // McCoy: Maybe they're too smart to keep around. Too much competition for the old man.
+			Actor_Says(kActorSebastian,  490, 14); // Sebastian: Oh, they could never take Dr. Tyrell's place.
+			Actor_Says(kActorMcCoy,     7165, 14); // McCoy: How about this. Do you think they're the type who might help out renegade Replicants?
 			setMcCoyIsABladeRunner();
 			break;
 
 		case 970: // RUNCITER
-			Actor_Says(kActorMcCoy, 7095, 13);
-			Actor_Says(kActorSebastian, 500, 15);
-			Actor_Says(kActorMcCoy, 7170, 17);
-			Actor_Says(kActorSebastian, 510, 12);
-			Actor_Says(kActorMcCoy, 7175, 18);
-			Actor_Says(kActorSebastian, 520, 14);
-			Actor_Says(kActorMcCoy, 7180, 12);
-			Actor_Says(kActorSebastian, 530, 13);
-			Actor_Says(kActorMcCoy, 7185, 12);
+			Actor_Says(kActorMcCoy,     7095, 13); // McCoy: What do you think the deal was with Runciter and the twins?
+			Actor_Says(kActorSebastian,  500, 15); // Sebastian: Deal? I don't think I understand.
+			Actor_Says(kActorMcCoy,     7170, 17); // McCoy: Runciter was paying the twins for something. I saw the cash hidden inside a statue.
+			Actor_Says(kActorSebastian,  510, 12); // Sebastian: How would I know?
+			Actor_Says(kActorMcCoy,     7175, 18); // McCoy: Come on, Sebastian, I heard you on the machine. You guys are buddies, right?
+			Actor_Says(kActorSebastian,  520, 14); // Sebastian: There were rumors that the twins were selling some of the animal prototypes to him.
+			Actor_Says(kActorMcCoy,     7180, 12); // McCoy: Do you think that had something to do with their being fired?
+			Actor_Says(kActorSebastian,  530, 13); // Sebastian: Dr. Tyrell doesn't like anyone going around behind his back.
+			Actor_Says(kActorMcCoy,     7185, 12); // McCoy: So, Tyrell would really be pissed, if he knew Luther and Lance were helping renegade Replicants.
 			setMcCoyIsABladeRunner();
 			break;
 
 		case 980: // ROBBERS
-			Actor_Says(kActorMcCoy, 7100, 12);
-			Actor_Says(kActorSebastian, 540, 16);
-			Actor_Says(kActorMcCoy, 7195, 18);
-			Actor_Says(kActorSebastian, 720, 12);
+			Actor_Says(kActorMcCoy,     7100, 12); // McCoy: You're sure you don't have much valuable stuff around here?
+			Actor_Says(kActorSebastian,  540, 16); // Sebastian: Anything worthwhile I probably would have sold a long time ago. All this is personal stuff. Wouldn't mean a whole lot to anyone but me.
+			Actor_Says(kActorMcCoy,     7195, 18); // McCoy: Maybe they were looking for you.
+			Actor_Says(kActorSebastian,  720, 12); // Sebastian: Oh, no. I'm nobody.
 			break;
 
 		case 990: // NEXUS-6
-			Actor_Says(kActorMcCoy, 7105, 18);
+			Actor_Says(kActorMcCoy, 7105, 18); // McCoy: How different are the Sixes from the other Nexus models?
 			setMcCoyIsABladeRunner();
 			break;
 
@@ -484,29 +484,29 @@ void AIScriptSebastian::dialogue() {
 			break;
 		}
 	} else if (Actor_Query_Friendliness_To_Other(kActorSebastian, kActorMcCoy) >= 45) {
-		Actor_Says(kActorMcCoy, 7115, 13);
-		Actor_Says(kActorSebastian, 280, 14);
+		Actor_Says(kActorMcCoy,     7115, 13); // McCoy: You're sure there isn't anything missing?
+		Actor_Says(kActorSebastian,  280, 14); // Sebastian: Yes. I mean... No, sir. All my things are here.
 	} else {
-		Actor_Says(kActorMcCoy, 7110, 15);
-		Actor_Says(kActorSebastian, 270, 16);
+		Actor_Says(kActorMcCoy,     7110, 15); // McCoy: Maybe you can clear something up for me...
+		Actor_Says(kActorSebastian,  270, 16); // Sebastian: You saw for yourself nothing's here. I wish you'd leave me alone.
 	}
 }
 
 void AIScriptSebastian::setMcCoyIsABladeRunner() {
 	Actor_Clue_Acquire(kActorSebastian, kClueMcCoyIsABladeRunner, true, kActorMcCoy);
 	Actor_Modify_Friendliness_To_Other(kActorSebastian, kActorMcCoy, -5);
-	Actor_Says(kActorSebastian, 560, 15);
-	Actor_Says(kActorMcCoy, 7200, 14);
-	Actor_Says(kActorSebastian, 570, 16);
-	Actor_Says(kActorMcCoy, 7205, 17);
-	Actor_Says(kActorSebastian, 580, 13);
+	Actor_Says(kActorSebastian,  560, 15); // Sebastian: You-- You're a Blade Runner, aren't you?
+	Actor_Says(kActorMcCoy,     7200, 14); // McCoy: Bingo.
+	Actor_Says(kActorSebastian,  570, 16); // Sebastian: But you said you were here about the burglary.
+	Actor_Says(kActorMcCoy,     7205, 17); // McCoy: The guys who broke in might be Replicants.
+	Actor_Says(kActorSebastian,  580, 13); // Sebastian: What in the world would a Replicant want from me?
 	Actor_Says_With_Pause(kActorMcCoy, 7210, 1.0f, 16);
-	Actor_Says(kActorSebastian, 590, 12);
-	Actor_Says(kActorMcCoy, 7215, 19);
-	Actor_Says(kActorSebastian, 600, 14);
-	Actor_Says(kActorMcCoy, 7220, 13);
+	Actor_Says(kActorSebastian,  590, 12); // Sebastian: Just a little bit.
+	Actor_Says(kActorMcCoy,     7215, 19); // McCoy: Would you say that the Sixes are smarter than the old Fours and Fives?
+	Actor_Says(kActorSebastian,  600, 14); // Sebastian: They're supposed to be. Stronger and more agile, too.
+	Actor_Says(kActorMcCoy,     7220, 13); // McCoy: So, maybe they want to learn more about themselves.
 	Actor_Says_With_Pause(kActorMcCoy, 7225, 0.80f, 14);
-	Actor_Says(kActorSebastian, 610, 15);
+	Actor_Says(kActorSebastian, 610, 15); // Sebastian: I think you should leave now, Mr. McCoy.
 }
 
 } // End of namespace BladeRunner

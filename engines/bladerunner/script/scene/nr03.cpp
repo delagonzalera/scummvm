@@ -120,14 +120,14 @@ bool SceneScriptNR03::ClickedOnActor(int actorId) {
 			Actor_Face_Actor(kActorMcCoy, kActorHanoi, true);
 			if (!Game_Flag_Query(kFlagNR03HanoiTalk)) {
 				Game_Flag_Set(kFlagNR03HanoiTalk);
-				Actor_Says(kActorMcCoy, 3340, kAnimationModeTalk);
+				Actor_Says(kActorMcCoy, 3340, kAnimationModeTalk); // McCoy: Hey, Hanoi. Where's Early?
 				Actor_Face_Actor(kActorHanoi, kActorMcCoy, true);
-				Actor_Says(kActorHanoi, 30, 13);
-				Actor_Says(kActorMcCoy, 3345, 14);
-				Actor_Says(kActorHanoi, 40, 14);
+				Actor_Says(kActorHanoi,   30, 13); // Hanoi: Off-World fat farm.
+				Actor_Says(kActorMcCoy, 3345, 14); // McCoy: (scoffs) You can do better than that.
+				Actor_Says(kActorHanoi,   40, 14); // Hanoi: No, it's true. Mr. Q sent me a vid just yesterday. Getting a hell of a tan he is.
 			} else {
-				Actor_Says(kActorMcCoy, 3350, 16);
-				Actor_Says(kActorHanoi, 50, 17);
+				Actor_Says(kActorMcCoy, 3350, 16); // McCoy: Early's waiting on me.
+				Actor_Says(kActorHanoi,   50, 17); // Hanoi: Sod off. You got no appointment and you got no warrant.
 			}
 			AI_Movement_Track_Unpause(kActorHanoi);
 			return true;
@@ -159,10 +159,10 @@ bool SceneScriptNR03::ClickedOnExit(int exitId) {
 				Actor_Face_Actor(kActorMcCoy, kActorHanoi, true);
 				int warnings = Global_Variable_Query(kVariableHanoiNR04Warnings);
 				if (warnings == 0) {
-					Actor_Says(kActorHanoi, 50, 13);
+					Actor_Says(kActorHanoi, 50, 13); // Hanoi: Sod off. You got no appointment and you got no warrant.
 					AI_Movement_Track_Unpause(kActorHanoi);
 				} else if (warnings == 1) {
-					Actor_Says(kActorHanoi, 210, 15);
+					Actor_Says(kActorHanoi, 210, 15); // Hanoi: Sod off, McCoy. I got no time for you.
 					AI_Movement_Track_Unpause(kActorHanoi);
 				} else if (warnings == 2) {
 					Actor_Set_Goal_Number(kActorHanoi, kGoalHanoiThrowOutMcCoy);
@@ -194,14 +194,14 @@ bool SceneScriptNR03::ClickedOnExit(int exitId) {
 
 				int warnings = Global_Variable_Query(kVariableHanoiNR05Warnings);
 				if (warnings == 0) {
-					Actor_Says(kActorHanoi, 0, 15);
+					Actor_Says(kActorHanoi, 0, 15); // Hanoi: This here is reserved for VIPs.
 					Actor_Face_Actor(kActorMcCoy, kActorHanoi, true);
-					Actor_Says(kActorMcCoy, 3335, 13);
-					Actor_Says(kActorHanoi, 10, 16);
+					Actor_Says(kActorMcCoy, 3335, 13); // McCoy: But that's my name. Vip.
+					Actor_Says(kActorHanoi,   10, 16); // Hanoi: You're real cute, boy-o.
 					AI_Movement_Track_Unpause(kActorHanoi);
 				} else if (warnings == 1) {
 					Actor_Face_Actor(kActorMcCoy, kActorHanoi, true);
-					Actor_Says(kActorHanoi, 210, 12);
+					Actor_Says(kActorHanoi, 210, 12); // Hanoi: Sod off, McCoy. I got no time for you.
 					AI_Movement_Track_Unpause(kActorHanoi);
 				} else if (warnings == 2) {
 					Actor_Set_Goal_Number(kActorHanoi, kGoalHanoiThrowOutMcCoy);
@@ -232,16 +232,16 @@ bool SceneScriptNR03::ClickedOn2DRegion(int region) {
 			Actor_Face_Actor(kActorMcCoy, kActorHysteriaPatron1, true);
 			switch (Random_Query(0, 4)) {
 			case 0:
-				Actor_Says(kActorMcCoy, 1055, kAnimationModeTalk);
+				Actor_Says(kActorMcCoy, 1055, kAnimationModeTalk); // McCoy: Let me tell you what I want. And maybe I'll impress you.
 				break;
 			case 1:
-				Actor_Says(kActorMcCoy, 8590, kAnimationModeTalk);
+				Actor_Says(kActorMcCoy, 8590, kAnimationModeTalk); // McCoy: Not the talkative type.
 				break;
 			case 2:
-				Actor_Says(kActorMcCoy, 8930, kAnimationModeTalk);
+				Actor_Says(kActorMcCoy, 8930, kAnimationModeTalk); // McCoy: Haven't I seen you around here before?
 				break;
 			case 3:
-				Actor_Says(kActorMcCoy, 7465, kAnimationModeTalk);
+				Actor_Says(kActorMcCoy, 7465, kAnimationModeTalk); // McCoy: How old are you?
 				break;
 #if BLADERUNNER_ORIGINAL_BUGS
 			default:
@@ -254,15 +254,15 @@ bool SceneScriptNR03::ClickedOn2DRegion(int region) {
 						// fall through
 					case 2:
 						// make this rare
-						Actor_Says(kActorMcCoy, 8518, kAnimationModeTalk); // Hey, can I lick...
+						Actor_Says(kActorMcCoy, 8518, kAnimationModeTalk); // McCoy: Hey, can I lick your butt?
 						break;
 					default:
-						Actor_Says(kActorMcCoy, 8700, kAnimationModeTalk); // Never seen anything like that before.
+						Actor_Says(kActorMcCoy, 8700, kAnimationModeTalk); // McCoy: Never seen anything like that before.
 						break;
 					}
 				} else {
 					// just say the same as in case 0
-					Actor_Says(kActorMcCoy, 1055, kAnimationModeTalk);
+					Actor_Says(kActorMcCoy, 1055, kAnimationModeTalk); // McCoy: Let me tell you what I want. And maybe I'll impress you.
 				}
 			default:
 				break;
@@ -312,9 +312,9 @@ void SceneScriptNR03::PlayerWalkedIn() {
 		Game_Flag_Set(kFlagNR03Entered);
 		Async_Actor_Walk_To_XYZ(kActorMcCoy, 206.0f, -70.19f, -643.0f, 0, false);
 		Game_Flag_Reset(kFlagNR01toNR03);
-		Actor_Voice_Over(1490, kActorVoiceOver);
-		Actor_Voice_Over(1510, kActorVoiceOver);
-		Actor_Voice_Over(1520, kActorVoiceOver);
+		Actor_Voice_Over(1490, kActorVoiceOver); // Mainframe: I remember Early Q used to call himself a humanitarian because he'd recruit orphans for a Sex Club...
+		Actor_Voice_Over(1510, kActorVoiceOver); // Mainframe: then donate a percentage of their salary to his favorite animal propagation lab.
+		Actor_Voice_Over(1520, kActorVoiceOver); // Mainframe: Yeah, he was a real piece of work.
 	} else if (Game_Flag_Query(kFlagNR01toNR03) ) {
 		Loop_Actor_Walk_To_XYZ(kActorMcCoy, 302.0f, -70.19f, -715.0f, 0, false, false, false);
 		Game_Flag_Reset(kFlagNR01toNR03);

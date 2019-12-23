@@ -81,15 +81,15 @@ void AIScriptCrazylegs::OtherAgentEnteredCombatMode(int otherActorId, int combat
 		if (combatMode && Global_Variable_Query(kVariableChapter) < 5) {
 			Actor_Face_Actor(kActorCrazylegs, kActorMcCoy, true);
 			Actor_Face_Actor(kActorMcCoy, kActorCrazylegs, true);
-			Actor_Says(kActorCrazylegs, 430, 3);
+			Actor_Says(kActorCrazylegs, 430, 3); // Crazylegs: If this is a hold up, Ray, I don't have any cash in the house.
 			Actor_Says_With_Pause(kActorCrazylegs, 440, 0.0f, 3);
-			Actor_Says(kActorMcCoy, 1870, -1);
-			Actor_Says(kActorCrazylegs, 450, 3);
+			Actor_Says(kActorMcCoy,     1870, -1); // McCoy: I'm a cop.
+			Actor_Says(kActorCrazylegs,  450,  3); // Crazylegs: Heck, if you wanted a better deal on the Caddy, all you had to do was say so.
 			Actor_Set_Goal_Number(kActorCrazylegs, kGoalCrazyLegsMcCoyDrewHisGun);
 		} else if (Actor_Query_Goal_Number(kActorCrazylegs) == kGoalCrazyLegsMcCoyDrewHisGun) {
 			Actor_Face_Actor(kActorCrazylegs, kActorMcCoy, true);
-			Actor_Says(kActorCrazylegs, 460, 3);
-			Actor_Says(kActorCrazylegs, 470, 3);
+			Actor_Says(kActorCrazylegs, 460, 3); // Crazylegs: Unfortunately, I got a stigma about weapons.
+			Actor_Says(kActorCrazylegs, 470, 3); // Crazylegs: So from here on in you're gonna have to deal with my associates.
 			Actor_Set_Goal_Number(kActorCrazylegs, kGoalCrazyLegsLeavesShowroom);
 		}
 	}
@@ -104,7 +104,7 @@ void AIScriptCrazylegs::ShotAtAndMissed() {
 
 bool AIScriptCrazylegs::ShotAtAndHit() {
 	Actor_Set_Goal_Number(kActorCrazylegs, kGoalCrazyLegsShotAndHit);
-	Actor_Says(kActorMcCoy, 1875, 4);  // I wouldn't drag that bucket of bolts if you paid me.
+	Actor_Says(kActorMcCoy, 1875, 4); // McCoy: I wouldn't drag that bucket of bolts if you paid me.
 	return false;
 }
 

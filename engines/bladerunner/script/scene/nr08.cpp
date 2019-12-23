@@ -217,16 +217,16 @@ void SceneScriptNR08::PlayerWalkedIn() {
 	}
 
 	if (Actor_Query_Goal_Number(kActorSteele) == kGoalSteeleNR01GoToNR08) {
-		Actor_Says(kActorSteele, 1640, 12);
+		Actor_Says(kActorSteele, 1640, 12); // Steele: Nice crowd.
 		if (!Game_Flag_Query(kFlagDirectorsCut)) {
-			Actor_Says(kActorMcCoy, 3790, 13);
-			Actor_Says(kActorSteele, 1650, 14);
+			Actor_Says(kActorMcCoy,  3790, 13); // McCoy: Regular folks, Steele. Just like you and me.
+			Actor_Says(kActorSteele, 1650, 14); // Steele: Speak for yourself.
 		}
-		Actor_Says(kActorSteele, 1660, 12);
-		Actor_Says(kActorMcCoy, 3795, 16);
-		Actor_Says(kActorSteele, 1670, 13);
-		Actor_Says(kActorSteele, 1680, 14);
-		Actor_Says(kActorSteele, 1690, 15);
+		Actor_Says(kActorSteele, 1660, 12); // Steele: You see it anywhere?
+		Actor_Says(kActorMcCoy,  3795, 16); // McCoy: Not yet. You're sure she's in here?
+		Actor_Says(kActorSteele, 1670, 13); // Steele: I'm gonna look backstage.
+		Actor_Says(kActorSteele, 1680, 14); // Steele: Check the balcony and cover the exit.
+		Actor_Says(kActorSteele, 1690, 15); // Steele: I don't want this one giving us the blow-off.
 		Actor_Set_Goal_Number(kActorSteele, kGoalSteeleNR08WalkOut);
 		return; // true;
 	}

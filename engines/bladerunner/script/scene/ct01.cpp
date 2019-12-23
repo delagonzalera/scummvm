@@ -169,8 +169,8 @@ bool SceneScriptCT01::ClickedOn3DObject(const char *objectName, bool a2) {
 //	if ("ASIANSITTINGANDEATI" == objectName) { //bug?
 	if (Object_Query_Click("ASIANSITTINGANDEATI", objectName)) {
 		Actor_Face_Object(kActorMcCoy, "ASIANSITTINGANDEATI", true);
-		Actor_Says(kActorMcCoy, 365, 13);    // Excuse me, pal!
-		Actor_Says(kActorHowieLee, 160, 13); // I take care of you soon, McCoy. Real busy tonight.
+		Actor_Says(kActorMcCoy,    365, 13); // McCoy: Excuse me, pal!
+		Actor_Says(kActorHowieLee, 160, 13); // Howie Lee: I take care of you soon, McCoy. Real busy tonight.
 		return true;
 	}
 	return false;
@@ -183,8 +183,8 @@ bool SceneScriptCT01::ClickedOnActor(int actorId) {
 			Actor_Face_Actor(kActorMcCoy, kActorHowieLee, true);
 			Actor_Face_Actor(kActorHowieLee, kActorMcCoy, true);
 			if (!Game_Flag_Query(kFlagCT01McCoyTalkedToHowieLee)) {
-				Actor_Says(kActorMcCoy, 260, 18);
-				Actor_Says(kActorHowieLee, 0, 14);
+				Actor_Says(kActorMcCoy,    260, 18); // McCoy: Beautiful night, isn't it?
+				Actor_Says(kActorHowieLee,   0, 14); // Howie Lee: When business thriving, night always beautiful.
 				Game_Flag_Set(kFlagCT01McCoyTalkedToHowieLee);
 				Actor_Set_Goal_Number(kActorHowieLee, kGoalHowieLeeDefault);
 				return true;
@@ -197,22 +197,22 @@ bool SceneScriptCT01::ClickedOnActor(int actorId) {
 				} else {
 					if (Game_Flag_Query(kFlagCT01ZubenGone) && !Game_Flag_Query(kFlagCT01TalkToHowieAboutDeadZuben)) {
 						Game_Flag_Set(kFlagCT01TalkToHowieAboutDeadZuben);
-						Actor_Says(kActorMcCoy, 330, 17);
-						Actor_Says(kActorHowieLee, 130, 13);
-						Actor_Says(kActorHowieLee, 140, 14);
+						Actor_Says(kActorMcCoy,    330, 17); // McCoy: Hey, Howie, what's cooking?
+						Actor_Says(kActorHowieLee, 130, 13); // Howie Lee: Nothing now, McCoy.
+						Actor_Says(kActorHowieLee, 140, 14); // Howie Lee: Got to find a new chef thanks to you.
 						if (_vm->_cutContent) {
-							Actor_Says(kActorMcCoy, 315, 16);
+							Actor_Says(kActorMcCoy, 315, 16); // McCoy: Can't help you there, Howie.
 						}
 						Actor_Modify_Friendliness_To_Other(kActorHowieLee, kActorMcCoy, -10);
 					} else if (Actor_Query_Friendliness_To_Other(kActorHowieLee, kActorMcCoy) < 50) {
-						Actor_Says(kActorMcCoy, 310, 11);    // keeping out of trouble...?
-						Actor_Says(kActorHowieLee, 190, 13); // I look like I got time for chit-er chat-er?
+						Actor_Says(kActorMcCoy,    310, 11); // McCoy: Keeping out of trouble, Howie?
+						Actor_Says(kActorHowieLee, 190, 13); // Howie Lee: I look like I got time for chit-er chat-er?
 					} else if (Actor_Query_Friendliness_To_Other(kActorHowieLee, kActorMcCoy) <= 55) {
-						Actor_Says(kActorMcCoy, 330, 13);
-						Actor_Says(kActorHowieLee, 160, 15);  // real busy tonight
+						Actor_Says(kActorMcCoy,    330, 13); // McCoy: Hey, Howie, what's cooking?
+						Actor_Says(kActorHowieLee, 160, 15); // Howie Lee: I take care of you soon, McCoy. Real busy tonight.
 					} else { // friendly > 55
-						Actor_Says(kActorMcCoy, 310, 11);
-						Actor_Says(kActorHowieLee, 10, 16);
+						Actor_Says(kActorMcCoy,    310, 11); // McCoy: Keeping out of trouble, Howie?
+						Actor_Says(kActorHowieLee,  10, 16); // Howie Lee: (laughs) You bet, McCoy. Some joker you are.
 					}
 				}
 			} else {
@@ -228,15 +228,15 @@ bool SceneScriptCT01::ClickedOnActor(int actorId) {
 				// and the flag kFlagCT01TalkToHowieAfterZubenMissing is never set
 				// so the code below was un-triggered
 				if (Game_Flag_Query(kFlagCT01ZubenGone)) {
-					Actor_Says(kActorMcCoy, 330, 17);
-					Actor_Says(kActorHowieLee, 130, 13);
-					Actor_Says(kActorHowieLee, 140, 14);
+					Actor_Says(kActorMcCoy,    330, 17); // McCoy: Hey, Howie, what's cooking?
+					Actor_Says(kActorHowieLee, 130, 13); // Howie Lee: Nothing now, McCoy.
+					Actor_Says(kActorHowieLee, 140, 14); // Howie Lee: Got to find a new chef thanks to you.
 				} else if (Actor_Query_Friendliness_To_Other(kActorHowieLee, kActorMcCoy) < 50) {
-					Actor_Says(kActorMcCoy, 330, 13);
-					Actor_Says(kActorHowieLee, 160, 15);
+					Actor_Says(kActorMcCoy,    330, 13); // McCoy: Hey, Howie, what's cooking?
+					Actor_Says(kActorHowieLee, 160, 15); // Howie Lee: I take care of you soon, McCoy. Real busy tonight.
 				} else { // friendly >= 50
-					Actor_Says(kActorMcCoy, 310, 11);
-					Actor_Says(kActorHowieLee, 10, 16);
+					Actor_Says(kActorMcCoy,    310, 11); // McCoy: Keeping out of trouble, Howie?
+					Actor_Says(kActorHowieLee,  10, 16); // Howie Lee: (laughs) You bet, McCoy. Some joker you are.
 				}
 			}
 			Actor_Set_Goal_Number(kActorHowieLee, kGoalHowieLeeDefault);
@@ -247,13 +247,13 @@ bool SceneScriptCT01::ClickedOnActor(int actorId) {
 	if (actorId == kActorZuben) {
 		if (!Loop_Actor_Walk_To_XYZ(kActorMcCoy, -335.23f, -6.5f, 578.97f, 12, true, false, false)) {
 			Actor_Face_Actor(kActorMcCoy, kActorZuben, true);
-			Actor_Says(kActorMcCoy, 355, 18);
+			Actor_Says(kActorMcCoy, 355, 18); // McCoy: Hey, big guy.
 			if (Actor_Query_Goal_Number(kActorZuben) == kGoalZubenDefault) {
-				Actor_Says(kActorZuben, 10, 16);
+				Actor_Says(kActorZuben, 10, 16); // Zuben: Busy! No time for talk.
 				Actor_Face_Actor(kActorHowieLee, kActorMcCoy, true);
-				Actor_Says(kActorHowieLee, 150, kAnimationModeTalk);
+				Actor_Says(kActorHowieLee, 150, kAnimationModeTalk); // Howie Lee: McCoy, (speaks Chinese) You want something you talk to me.
 				Actor_Face_Actor(kActorMcCoy, kActorHowieLee, true);
-				Actor_Says(kActorMcCoy, 360, 13);
+				Actor_Says(kActorMcCoy, 360, 13); // McCoy: Sorry, Howie.
 				Actor_Modify_Friendliness_To_Other(kActorHowieLee, kActorMcCoy, -5);
 				Actor_Modify_Friendliness_To_Other(kActorZuben, kActorMcCoy, -4);
 			}
@@ -269,8 +269,8 @@ bool SceneScriptCT01::ClickedOnActor(int actorId) {
 		}
 		Actor_Face_Actor(kActorMcCoy, kActorGordo, true);
 		if (!Game_Flag_Query(kFlagCT01GordoTalk)) {
-			Actor_Says(kActorMcCoy, 335, 18);
-			Actor_Says(kActorGordo, 20, 30);
+			Actor_Says(kActorMcCoy, 335, 18); // McCoy: McCoy, LPD. I want to ask you a couple of questions.
+			Actor_Says(kActorGordo,  20, 30); // Gordo: Sorry, my man. I just don't got the time.
 			Game_Flag_Set(kFlagCT01GordoTalk);
 			Actor_Clue_Acquire(kActorGordo, kClueMcCoysDescription, true, kActorMcCoy);
 #if BLADERUNNER_ORIGINAL_BUGS
@@ -281,15 +281,15 @@ bool SceneScriptCT01::ClickedOnActor(int actorId) {
 			Actor_Modify_Friendliness_To_Other(kActorGordo, kActorMcCoy, -1);
 		} else {
 			if (Actor_Query_Goal_Number(kActorGordo) == kGoalGordoDefault) {
-				Actor_Says(kActorMcCoy, 340, 13);
-				Actor_Says(kActorMcCoy, 345, 11);
-				Actor_Says(kActorGordo, 30, 30);
-				Actor_Says(kActorMcCoy, 350, 13);
-				Actor_Says(kActorGordo, 40, 30);
+				Actor_Says(kActorMcCoy, 340, 13); // McCoy: You're a pretty smart looking cat.
+				Actor_Says(kActorMcCoy, 345, 11); // McCoy: Wanna make some money?
+				Actor_Says(kActorGordo,  30, 30); // Gordo: Pay me large, you got my rapt attention.
+				Actor_Says(kActorMcCoy, 350, 13); // McCoy: Depends on how much the information is worth.
+				Actor_Says(kActorGordo,  40, 30); // Gordo: Unfortunately, my man, I got to book.
 				Actor_Modify_Friendliness_To_Other(kActorGordo, kActorMcCoy, -5);
 				Player_Loses_Control();
 			} else {
-				Actor_Says(kActorMcCoy, 365, 14);
+				Actor_Says(kActorMcCoy, 365, 14); // McCoy: Excuse me, pal!
 			}
 		}
 		if (Actor_Query_Is_In_Current_Set(kActorZuben)) {
@@ -523,9 +523,9 @@ void SceneScriptCT01::PlayerWalkedIn() {
 		if (!Game_Flag_Query(kFlagCT01Visited)) {
 			Game_Flag_Set(kFlagCT01Visited);
 			if (!Game_Flag_Query(kFlagDirectorsCut)) {
-				Actor_Voice_Over(200, kActorVoiceOver);
-				Actor_Voice_Over(210, kActorVoiceOver);
-				Actor_Voice_Over(220, kActorVoiceOver);
+				Actor_Voice_Over(200, kActorVoiceOver); // Mainframe: Real sushi was a luxury reserved only for the elite...
+				Actor_Voice_Over(210, kActorVoiceOver); // Mainframe: since most sea life had become radioactive after the Third Terran War.
+				Actor_Voice_Over(220, kActorVoiceOver); // Mainframe: The rest of us had to eat nu-sooch; Soya mixed with Off-World lichen.
 			}
 		}
 	}
@@ -607,14 +607,14 @@ void SceneScriptCT01::dialogueWithHowieLee() {
 
 	switch (answer) {
 	case 40: // LUCY PHOTO
-		Actor_Says(kActorMcCoy, 265, 11);
-		Actor_Says(kActorHowieLee, 20, 14);
+		Actor_Says(kActorMcCoy,    265, 11); // McCoy: This girl ever eat around here?
+		Actor_Says(kActorHowieLee,  20, 14); // Howie Lee: Nah. All gaijin look alike to old man.
 		if (Actor_Query_Is_In_Current_Set(kActorZuben)) {
 			if (Actor_Query_Goal_Number(kActorZuben) == kGoalZubenDefault) {
 				Actor_Face_Actor(kActorHowieLee, kActorZuben, true);
-				Actor_Says(kActorHowieLee, 120, 14);
+				Actor_Says(kActorHowieLee, 120, 14); // Howie Lee: Zuben! (speaks Chinese) You seen girl?
 				Actor_Face_Actor(kActorZuben, kActorHowieLee, true);
-				Actor_Says(kActorZuben, 40, 18);
+				Actor_Says(kActorZuben, 40, 18); // Zuben: I don't know her.
 				Actor_Face_Heading(kActorZuben, 103, false);
 				Actor_Face_Actor(kActorHowieLee, kActorMcCoy, true);
 				Actor_Modify_Friendliness_To_Other(kActorZuben, kActorMcCoy, -2);
@@ -628,75 +628,75 @@ void SceneScriptCT01::dialogueWithHowieLee() {
 
 	case 50: // RUNCITER CLUES
 		if (Actor_Clue_Query(kActorMcCoy, kClueChopstickWrapper)) {
-			Actor_Says(kActorMcCoy, 270, 11);
-			Actor_Says(kActorHowieLee, 30, 16);
+			Actor_Says(kActorMcCoy,    270, 11); // McCoy: This is from your place isn't it?
+			Actor_Says(kActorHowieLee,  30, 16); // Howie Lee: Could be. Chopstick come from Yoshi's restaurant supply.
 		} else {
-			Actor_Says(kActorMcCoy, 280, 11);
-			Actor_Says(kActorHowieLee, 40, 14);
+			Actor_Says(kActorMcCoy,    280, 11); // McCoy: How about this?
+			Actor_Says(kActorHowieLee,  40, 14); // Howie Lee: Yes sir. You do Howie a favor? Distribute all throughout police station?
 		}
 		Game_Flag_Set(kFlagCT01Evidence1Linked);
 		break;
 
 	case 60: // MORE RUNCITER CLUES
 		if (Actor_Clue_Query(kActorMcCoy, kClueSushiMenu)) {
-			Actor_Says(kActorMcCoy, 270, 11);
-			Actor_Says(kActorHowieLee, 40, 15); // You do Howie a favor? Distribute...
+			Actor_Says(kActorMcCoy,    270, 11); // McCoy: This is from your place isn't it?
+			Actor_Says(kActorHowieLee,  40, 15); // Howie Lee: Yes sir. You do Howie a favor? Distribute all throughout police station?
 			// TODO Possible YES/NO option for McCoy? -> and friendliness adjustment accordingly
 		} else {
 #if BLADERUNNER_ORIGINAL_BUGS
-			Actor_Says(kActorMcCoy, 270, 11);
+			Actor_Says(kActorMcCoy, 270, 11); // McCoy: This is from your place isn't it?
 #else
-			Actor_Says(kActorMcCoy, 280, 11);
+			Actor_Says(kActorMcCoy, 280, 11); // McCoy: How about this?
 #endif // BLADERUNNER_ORIGINAL_BUGS
-			Actor_Says(kActorHowieLee, 30, 14);
+			Actor_Says(kActorHowieLee, 30, 14); // Howie Lee: Could be. Chopstick come from Yoshi's restaurant supply.
 		}
 		Actor_Modify_Friendliness_To_Other(kActorHowieLee, kActorMcCoy, 5);
 		Game_Flag_Set(kFlagCT01Evidence2Linked);
 		break;
 
 	case 70: // SMALL TALK
-		Actor_Says(kActorMcCoy, 290, 13); // what's real fresh tonight
+		Actor_Says(kActorMcCoy, 290, 13); // McCoy: What's real fresh tonight?
 		if (((!_vm->_cutContent && Actor_Query_Friendliness_To_Other(kActorHowieLee, kActorMcCoy) > 49)
 		     || Actor_Query_Friendliness_To_Other(kActorHowieLee, kActorMcCoy) > 59)
 		    && (Global_Variable_Query(kVariableChinyen) > 10
 		     || Query_Difficulty_Level() == kGameDifficultyEasy)
 		) {
-			Actor_Says(kActorHowieLee, 50, kAnimationModeTalk);
-			Actor_Says(kActorHowieLee, 60, kAnimationModeTalk);
+			Actor_Says(kActorHowieLee, 50, kAnimationModeTalk); // Howie Lee: Special shipment of Toro just arrived.
+			Actor_Says(kActorHowieLee, 60, kAnimationModeTalk); // Howie Lee: I fix you right up. No one else.
 			if (_vm->_cutContent) {
-				Actor_Says(kActorMcCoy, 320, 13);
+				Actor_Says(kActorMcCoy, 320, 13); // McCoy: It's already been tested?
 			}
 			Actor_Face_Actor(kActorHowieLee, kActorMcCoy, true);
-			Actor_Says(kActorHowieLee, 70, 16);
-			Actor_Says(kActorMcCoy, 325, 13);
+			Actor_Says(kActorHowieLee,  70, 16); // Howie Lee: Clean as a whistle.
+			Actor_Says(kActorMcCoy,    325, 13); // McCoy: You're a prince, Howie.
 			if (Query_Difficulty_Level() != kGameDifficultyEasy) {
 				Global_Variable_Decrement(kVariableChinyen, 10);
 			}
 			Game_Flag_Set(kFlagCT01BoughtHowieLeeFood);
 		} else {
-			Actor_Says(kActorHowieLee, 130, 15); // nothing now
+			Actor_Says(kActorHowieLee, 130, 15); // Howie Lee: Nothing now, McCoy.
 			if (_vm->_cutContent) {
-				Actor_Says(kActorMcCoy, 8565, 14); // really?
-				Actor_Says(kActorHowieLee, 80, 16); // No, sir. Any luck...
+				Actor_Says(kActorMcCoy,    8565, 14); // McCoy: Really?
+				Actor_Says(kActorHowieLee,   80, 16); // Howie Lee: No, sir. Any luck, something interesting arrive tomorrow.
 			}
 		}
 		break;
 
 	case 80: // EMPLOYEE
-		Actor_Says(kActorMcCoy, 295, 11);
-		Actor_Says(kActorHowieLee, 90, 14);
-		Actor_Says(kActorHowieLee, 100, 13);
+		Actor_Says(kActorMcCoy,    295, 11); // McCoy: How long has that chef worked for you?
+		Actor_Says(kActorHowieLee,  90, 14); // Howie Lee: Zuben? Just month.
+		Actor_Says(kActorHowieLee, 100, 13); // Howie Lee: Superior chef. Makes all kinds of nu-sooch.
 		Actor_Clue_Acquire(kActorMcCoy, kClueHowieLeeInterview, true, kActorHowieLee);
 		Actor_Modify_Friendliness_To_Other(kActorHowieLee, kActorMcCoy, -3);
 		break;
 
 	case 90: // HIT AND RUN
-		Actor_Says(kActorMcCoy, 300, 13);
-		Actor_Says(kActorHowieLee, 110, 16);
+		Actor_Says(kActorMcCoy,    300, 13); // McCoy: Heard there was an accident down here. A Hit-and-Run.
+		Actor_Says(kActorHowieLee, 110, 16); // Howie Lee: Ha! There are more accidents than (speaks Chinese) sewer rats.
 		break;
 
 	case 100: // DONE
-		Actor_Says(kActorMcCoy, 305, 18);
+		Actor_Says(kActorMcCoy, 305, 18); // McCoy: See you later, Howie.
 		break;
 	}
 }

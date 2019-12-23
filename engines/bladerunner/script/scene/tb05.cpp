@@ -76,10 +76,10 @@ bool SceneScriptTB05::ClickedOn3DObject(const char *objectName, bool a2) {
 			if (!Actor_Clue_Query(kActorMcCoy, kClueDNAMarcus)
 			 && !Game_Flag_Query(kFlagTB05MonitorIntro)) {
 				Actor_Clue_Acquire(kActorMcCoy, kClueAttemptedFileAccess, true, -1);
-				Actor_Voice_Over(2170, kActorVoiceOver);
-				Actor_Voice_Over(2180, kActorVoiceOver);
-				Actor_Voice_Over(2190, kActorVoiceOver);
-				Actor_Voice_Over(2200, kActorVoiceOver);
+				Actor_Voice_Over(2170, kActorVoiceOver); // Mainframe: Someone had tried to access a bunch of protected files on the Tyrell network
+				Actor_Voice_Over(2180, kActorVoiceOver); // Mainframe: and failed. Not just once but a dozen times.
+				Actor_Voice_Over(2190, kActorVoiceOver); // Mainframe: Tyrell engineers might forget their passwords
+				Actor_Voice_Over(2200, kActorVoiceOver); // Mainframe: but what would the Grav Lab boys need with Replicant DNA sequences and incept dates?
 				Game_Flag_Set(kFlagTB05MonitorIntro);
 				return true;
 			}
@@ -92,15 +92,15 @@ bool SceneScriptTB05::ClickedOn3DObject(const char *objectName, bool a2) {
 				 || Actor_Clue_Query(kActorMcCoy, kClueDogCollar2)
 				) {
 					Actor_Clue_Acquire(kActorMcCoy, kClueDNAMarcus, true, -1);
-					Actor_Voice_Over(2230, kActorVoiceOver);
+					Actor_Voice_Over(2230, kActorVoiceOver); // Mainframe: Eisenduller had used his dog's name as a password.
 					Item_Pickup_Spin_Effect(kModelAnimationDNADataDisc, 352, 333);
-					Actor_Voice_Over(2240, kActorVoiceOver);
-					Actor_Voice_Over(2250, kActorVoiceOver);
-					Actor_Voice_Over(2260, kActorVoiceOver);
+					Actor_Voice_Over(2240, kActorVoiceOver); // Mainframe: The Tyrell brass wouldn't be too happy, if they knew I was snagging a copy of their files.
+					Actor_Voice_Over(2250, kActorVoiceOver); // Mainframe: But someone had wanted them bad enough to kill Eisenduller
+					Actor_Voice_Over(2260, kActorVoiceOver); // Mainframe: so I figured they must be worth having.
 					Game_Flag_Set(kFlagTB05MonitorUnlockAttempt);
 					Game_Flag_Set(kFlagTB05MonitorDone);
 				} else {
-					Actor_Voice_Over(2270, kActorVoiceOver);
+					Actor_Voice_Over(2270, kActorVoiceOver); // Mainframe: I couldn't even begin to guess what Eisenduller's password was.
 					Game_Flag_Set(kFlagTB05MonitorUnlockAttempt);
 				}
 				return true;
@@ -113,22 +113,22 @@ bool SceneScriptTB05::ClickedOn3DObject(const char *objectName, bool a2) {
 				 || Actor_Clue_Query(kActorMcCoy, kClueDogCollar2)
 				) {
 					Actor_Clue_Acquire(kActorMcCoy, kClueDNAMarcus, true, -1);
-					Actor_Voice_Over(2230, kActorVoiceOver);
+					Actor_Voice_Over(2230, kActorVoiceOver); // Mainframe: Eisenduller had used his dog's name as a password.
 					Item_Pickup_Spin_Effect(kModelAnimationDNADataDisc, 352, 333);
-					Actor_Voice_Over(2240, kActorVoiceOver);
-					Actor_Voice_Over(2250, kActorVoiceOver);
-					Actor_Voice_Over(2260, kActorVoiceOver);
+					Actor_Voice_Over(2240, kActorVoiceOver); // Mainframe: The Tyrell brass wouldn't be too happy, if they knew I was snagging a copy of their files.
+					Actor_Voice_Over(2250, kActorVoiceOver); // Mainframe: But someone had wanted them bad enough to kill Eisenduller
+					Actor_Voice_Over(2260, kActorVoiceOver); // Mainframe: so I figured they must be worth having.
 					Game_Flag_Set(kFlagTB05MonitorDone);
 				} else {
-					Actor_Voice_Over(2280, kActorVoiceOver);
-					Actor_Voice_Over(2290, kActorVoiceOver);
+					Actor_Voice_Over(2280, kActorVoiceOver); // Mainframe: Wrong again and this time I was locked out.
+					Actor_Voice_Over(2290, kActorVoiceOver); // Mainframe: Tyrell security was even better than I'd heard.
 					Game_Flag_Set(kFlagTB05MonitorDone);
 				}
 				return true;
 			}
 
 			if (Game_Flag_Query(kFlagTB05MonitorDone)) {
-				Actor_Voice_Over(3700, kActorVoiceOver);
+				Actor_Voice_Over(3700, kActorVoiceOver); // Mainframe: Nothing.
 				return true;
 			}
 		}
@@ -146,9 +146,9 @@ bool SceneScriptTB05::ClickedOnItem(int itemId, bool a2) {
 			Actor_Face_Heading(kActorMcCoy, 126, false);
 			Item_Remove_From_World(kItemDragonflyEarring);
 			Item_Pickup_Spin_Effect(kModelAnimationDragonflyEarring, 295, 408);
-			Actor_Voice_Over(2140, kActorVoiceOver);
-			Actor_Voice_Over(2150, kActorVoiceOver);
-			Actor_Voice_Over(2160, kActorVoiceOver);
+			Actor_Voice_Over(2140, kActorVoiceOver); // Mainframe: The earring was shaped like an insect.
+			Actor_Voice_Over(2150, kActorVoiceOver); // Mainframe: I didn't know much about jewelry but it looked like junk to me.
+			Actor_Voice_Over(2160, kActorVoiceOver); // Mainframe: Like the cheap crap sold at the stands  and shops of Animoid Row.
 			Actor_Clue_Acquire(kActorMcCoy, kClueDragonflyEarring, true, -1);
 			return true;
 		}
@@ -159,12 +159,12 @@ bool SceneScriptTB05::ClickedOnItem(int itemId, bool a2) {
 			Actor_Face_Heading(kActorMcCoy, 126, false);
 			Item_Remove_From_World(kItemTyrellSalesPamphlet);
 			Item_Pickup_Spin_Effect(kModelAnimationTyrellSalesPamphlet, 449, 431);
-			Actor_Voice_Over(4280, kActorVoiceOver);
+			Actor_Voice_Over(4280, kActorVoiceOver); // Mainframe: It was a Tyrell sales brochure for the Nexus series. The kind of glossy hype that ends up littering the floor at trade shows.
 			if (Game_Flag_Query(kFlagGordoIsReplicant)) {
-				Actor_Voice_Over(4290, kActorVoiceOver);
+				Actor_Voice_Over(4290, kActorVoiceOver); // Mainframe: This one was for the new entertainment model. A comedian designed to entertain the troops Off-World.
 				Actor_Clue_Acquire(kActorMcCoy, kClueTyrellSalesPamphletEntertainModel, true, -1);
 			} else {
-				Actor_Voice_Over(4300, kActorVoiceOver);
+				Actor_Voice_Over(4300, kActorVoiceOver); // Mainframe: This one was for last year's infamous Lolita model. A big hit with the all-important dirty old man market.
 				Actor_Clue_Acquire(kActorMcCoy, kClueTyrellSalesPamphletLolita, true, -1);
 			}
 		}

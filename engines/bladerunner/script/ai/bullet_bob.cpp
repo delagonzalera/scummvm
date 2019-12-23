@@ -165,7 +165,7 @@ bool AIScriptBulletBob::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 	 && Game_Flag_Query(kFlagRC04McCoyWarned)
 	 && Player_Query_Current_Scene() == kSceneRC04
 	) {
-		Actor_Says(kActorBulletBob, 140, 16);
+		Actor_Says(kActorBulletBob, 140, 16); // Bullet Bob: Little boys shouldn't play with guns.
 		return true;
 	}
 
@@ -173,8 +173,8 @@ bool AIScriptBulletBob::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 	 && !Game_Flag_Query(kFlagRC04McCoyWarned)
 	 &&  Player_Query_Current_Scene() == kSceneRC04
 	) {
-		Actor_Says(kActorBulletBob, 120, 37);
-		Actor_Says(kActorMcCoy, 4915, 13);
+		Actor_Says(kActorBulletBob,  120, 37); // Bullet Bob: Hey, put that away!
+		Actor_Says(kActorMcCoy,     4915, 13); // McCoy: I'm gonna put something away, but it ain't gonna be my gun.
 		return true;
 	}
 
@@ -182,10 +182,10 @@ bool AIScriptBulletBob::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 	 && !Actor_Clue_Query(kActorMcCoy, kClueVKBobGorskyReplicant)
 	) {
 		Delay(2000);
-		Actor_Voice_Over(2100, kActorVoiceOver);
-		Actor_Voice_Over(2110, kActorVoiceOver);
-		Actor_Voice_Over(2120, kActorVoiceOver);
-		Actor_Voice_Over(2130, kActorVoiceOver);
+		Actor_Voice_Over(2100, kActorVoiceOver); // Mainframe: I'd crossed the line.
+		Actor_Voice_Over(2110, kActorVoiceOver); // Mainframe: Bob was a psychopath but I was almost sure he wasn't a Replicant.
+		Actor_Voice_Over(2120, kActorVoiceOver); // Mainframe: I didn't have a lot of time and my options were pretty lousy.
+		Actor_Voice_Over(2130, kActorVoiceOver); // Mainframe: Stay and face the music or take off and hope I didn't get caught.
 		return true;
 	}
 

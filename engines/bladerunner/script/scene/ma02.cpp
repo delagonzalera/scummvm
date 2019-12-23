@@ -105,15 +105,15 @@ bool SceneScriptMA02::ClickedOn3DObject(const char *objectName, bool a2) {
 			) {
 				Overlay_Remove("MA02OVER");
 				Item_Pickup_Spin_Effect(kModelAnimationCrystalsCigarette, 480, 240);
-				Actor_Voice_Over(1150, kActorVoiceOver);
-				Actor_Voice_Over(1160, kActorVoiceOver);
-				Actor_Voice_Over(1170, kActorVoiceOver);
-				Actor_Voice_Over(1180, kActorVoiceOver);
-				Actor_Voice_Over(1190, kActorVoiceOver);
-				Actor_Voice_Over(1200, kActorVoiceOver);
+				Actor_Voice_Over(1150, kActorVoiceOver); // Mainframe: It wasn't any mystery.
+				Actor_Voice_Over(1160, kActorVoiceOver); // Mainframe: And if I'd gotten home a few minutes earlier...
+				Actor_Voice_Over(1170, kActorVoiceOver); // Mainframe: it would have been me down there on the killing floor.
+				Actor_Voice_Over(1180, kActorVoiceOver); // Mainframe: No, it was a message. Plain and simple.
+				Actor_Voice_Over(1190, kActorVoiceOver); // Mainframe: Crystal was giving me one last chance to disappear.
+				Actor_Voice_Over(1200, kActorVoiceOver); // Mainframe: But now I had a little message of my own to deliver.
 				Actor_Clue_Acquire(kActorMcCoy, kClueCrystalsCigarette, true, -1);
 			} else {
-				Actor_Says(kActorMcCoy, 8526, 0);
+				Actor_Says(kActorMcCoy, 8526, 0); // McCoy: Nothing.
 			}
 			return true;
 		}
@@ -127,7 +127,7 @@ bool SceneScriptMA02::ClickedOnActor(int actorId) {
 	) {
 		if (!Loop_Actor_Walk_To_Actor(kActorMcCoy, kActorMaggie, 30, true, false)) {
 			Actor_Face_Actor(kActorMcCoy, kActorMaggie, true);
-			Actor_Voice_Over(1140, kActorVoiceOver);
+			Actor_Voice_Over(1140, kActorVoiceOver); // Mainframe: She'd been shot once in the head. At least she died fast.
 		}
 	}
 	return false;
@@ -193,10 +193,10 @@ void SceneScriptMA02::PlayerWalkedIn() {
 	 && !Game_Flag_Query(kFlagMA02Chapter5Started)
 	) {
 		if (Game_Flag_Query(kFlagMcCoyIsHelpingReplicants)) {
-			Actor_Says(kActorMcCoy, 2390, kAnimationModeIdle);
+			Actor_Says(kActorMcCoy, 2390, kAnimationModeIdle); // McCoy: Oh, God. No.
 			Music_Play(kMusicBRBlues, 25, 0, 3, -1, 0, 0);
 		} else {
-			Actor_Says(kActorMcCoy, 2385,  kAnimationModeTalk);
+			Actor_Says(kActorMcCoy, 2385, kAnimationModeTalk); // McCoy: Maggie! Come here girl.
 		}
 		Game_Flag_Set(kFlagMA02Chapter5Started);
 		Autosave_Game(3);
@@ -211,14 +211,14 @@ void SceneScriptMA02::PlayerWalkedIn() {
 		if (!Game_Flag_Query(kFlagMA02MaggieIntroduced)) {
 			Game_Flag_Set(kFlagMA02MaggieIntroduced);
 			Actor_Face_Actor(kActorMcCoy, kActorMaggie, true);
-			Actor_Voice_Over(1210, kActorVoiceOver);
+			Actor_Voice_Over(1210, kActorVoiceOver); // Mainframe: I lived with the best gal I'd ever seen.
 			if (!Game_Flag_Query(kFlagDirectorsCut)) {
-				Actor_Voice_Over(1220, kActorVoiceOver);
+				Actor_Voice_Over(1220, kActorVoiceOver); // Mainframe: She was two now and full of life and love.
 			}
-			Actor_Voice_Over(1230, kActorVoiceOver);
+			Actor_Voice_Over(1230, kActorVoiceOver); // Mainframe: She'd cost me about a year's salary, but she was worth it.
 			if (!Game_Flag_Query(kFlagDirectorsCut)) {
-				Actor_Voice_Over(1240, kActorVoiceOver);
-				Actor_Voice_Over(1250, kActorVoiceOver);
+				Actor_Voice_Over(1240, kActorVoiceOver); // Mainframe: It was good to have someone warm nearby after completing a dirty job...
+				Actor_Voice_Over(1250, kActorVoiceOver); // Mainframe: and the retirement swag from this case would go toward getting her a partner.
 			}
 		}
 	}
@@ -238,15 +238,15 @@ void SceneScriptMA02::DialogueQueueFlushed(int a1) {
 }
 
 void SceneScriptMA02::talkWithRajif() {
-	Actor_Says(kActorMcCoy, 2365, 13);
-	Actor_Says(kActorRajif, 0, 13);
-	Actor_Says(kActorMcCoy, 2370, 13);
-	Actor_Says(kActorRajif, 10, 13);
-	Actor_Says(kActorMcCoy, 2375, 13);
-	Actor_Says(kActorRajif, 20, 13);
-	Actor_Says(kActorMcCoy, 2380, 13);
+	Actor_Says(kActorMcCoy, 2365, 13); // McCoy: Where's Maggie? Where's my animal?
+	Actor_Says(kActorRajif,    0, 13); // Rajif: Step off, mofo. Ain't no Maggie here.
+	Actor_Says(kActorMcCoy, 2370, 13); // McCoy: She was here last night when I left.
+	Actor_Says(kActorRajif,   10, 13); // Rajif: You got the wrong place, Jack.
+	Actor_Says(kActorMcCoy, 2375, 13); // McCoy: Hey, man. I live here!
+	Actor_Says(kActorRajif,   20, 13); // Rajif: I don't know what you speed-loadin', and I really don't care.
+	Actor_Says(kActorMcCoy, 2380, 13); // McCoy: Wait a minute!
 	Sound_Play(kSfxSHOTCOK1, 100, 0, 100, 50);
-	Actor_Says(kActorRajif, 40, 13);
+	Actor_Says(kActorRajif, 40, 13); // Rajif: I got no problem icing you, if that's what you want, Jack.
 	Delay(3000);
 }
 

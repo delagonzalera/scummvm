@@ -77,15 +77,15 @@ bool SceneScriptBB51::ClickedOn3DObject(const char *objectName, bool a2) {
 		}
 #endif // BLADERUNNER_ORIGINAL_BUGS
 		Actor_Face_Object(kActorMcCoy, "V2CHESSTBL01", true);
-		Actor_Voice_Over(80, kActorVoiceOver);
-		Actor_Voice_Over(90, kActorVoiceOver);
+		Actor_Voice_Over(80, kActorVoiceOver); // Mainframe: I couldn't tell who was winning and I didn't much care.
+		Actor_Voice_Over(90, kActorVoiceOver); // Mainframe: Chess was a little slow for me.
 	}
 
 	if (Object_Query_Click("TOP02", objectName)) {
 		Actor_Face_Object(kActorMcCoy, "TOP02", true);
-		Actor_Voice_Over(100, kActorVoiceOver);
-		Actor_Voice_Over(110, kActorVoiceOver);
-		Actor_Voice_Over(120, kActorVoiceOver);
+		Actor_Voice_Over(100, kActorVoiceOver); // Mainframe: I didn't have time to stop for synthetic eggs.
+		Actor_Voice_Over(110, kActorVoiceOver); // Mainframe: I remember tasting a real one back when I was a kid.
+		Actor_Voice_Over(120, kActorVoiceOver); // Mainframe: It was like liquid sunshine. Damn tasty.
 	}
 	return false;
 }

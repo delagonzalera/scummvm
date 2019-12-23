@@ -91,23 +91,23 @@ bool SceneScriptNR04::ClickedOn3DObject(const char *objectName, bool a2) {
 			if (Object_Query_Click("DESK", objectName)) {
 				Actor_Face_Object(kActorMcCoy, "DESK", true);
 				if (!Actor_Clue_Query(kActorMcCoy, kCluePeruvianLadyInterview)) {
-					Actor_Voice_Over(1600, kActorVoiceOver);
-					Actor_Voice_Over(1610, kActorVoiceOver);
+					Actor_Voice_Over(1600, kActorVoiceOver); // Mainframe: I was pretty sure Early kept at least two sets of books...
+					Actor_Voice_Over(1610, kActorVoiceOver); // Mainframe: but I didn't have time to go through it all.
 				} else if (!Actor_Clue_Query(kActorMcCoy, kClueCollectionReceipt)) {
 					Actor_Clue_Acquire(kActorMcCoy, kClueCollectionReceipt, false, -1);
 					Item_Pickup_Spin_Effect(kModelAnimationCollectionReceipt, 247, 141);
-					Actor_Voice_Over(1560, kActorVoiceOver);
-					Actor_Voice_Over(1570, kActorVoiceOver);
-					Actor_Voice_Over(1580, kActorVoiceOver);
-					Actor_Voice_Over(1590, kActorVoiceOver);
+					Actor_Voice_Over(1560, kActorVoiceOver); // Mainframe: I lucked out. The receipt for the dragonfly collection was right on top of the pile.
+					Actor_Voice_Over(1570, kActorVoiceOver); // Mainframe: There were three pieces. A belt, earrings and an anklet.
+					Actor_Voice_Over(1580, kActorVoiceOver); // Mainframe: Early had bought them last month at an auction...
+					Actor_Voice_Over(1590, kActorVoiceOver); // Mainframe: for more money than I'd see, if I retired a dozen Reps.
 				} else {
-					Actor_Says(kActorMcCoy, 8580, kAnimationModeTalk);
+					Actor_Says(kActorMcCoy, 8580, kAnimationModeTalk); // McCoy: Nothing else there.
 				}
 			} else {
 				Actor_Face_Object(kActorMcCoy, "B.TV01", true);
-				Actor_Voice_Over(1530, kActorVoiceOver);
-				Actor_Voice_Over(1540, kActorVoiceOver);
-				Actor_Voice_Over(1550, kActorVoiceOver);
+				Actor_Voice_Over(1530, kActorVoiceOver); // Mainframe: Early had the entire place wired.
+				Actor_Voice_Over(1540, kActorVoiceOver); // Mainframe: He even had cameras in the dressing rooms.
+				Actor_Voice_Over(1550, kActorVoiceOver); // Mainframe: And I'd bet the farm he was using them for more than security.
 			}
 		}
 		return false;
@@ -123,8 +123,8 @@ bool SceneScriptNR04::ClickedOn3DObject(const char *objectName, bool a2) {
 		Game_Flag_Set(kFlagNR04DiscFound);
 		Actor_Face_Object(kActorMcCoy, "TORUS01", true);
 		Item_Pickup_Spin_Effect(kModelAnimationVideoDisc, 358, 160);
-		Actor_Voice_Over(1620, kActorVoiceOver);
-		Actor_Voice_Over(1630, kActorVoiceOver);
+		Actor_Voice_Over(1620, kActorVoiceOver); // Mainframe: I didn't know what was on the disc...
+		Actor_Voice_Over(1630, kActorVoiceOver); // Mainframe: but the way Early had hidden it, it was bound to be dirty laundry.
 		Actor_Clue_Acquire(kActorMcCoy, kClueEarlyQsClub, false, -1);
 		Actor_Set_Goal_Number(kActorEarlyQ, kGoalEarlyQNR04Enter);
 		return false;
@@ -137,11 +137,11 @@ bool SceneScriptNR04::ClickedOnActor(int actorId) {
 	if (actorId == kActorEarlyQ
 	 && Game_Flag_Query(kFlagNR04EarlyQStungByScorpions)
 	) {
-		Actor_Voice_Over(1640, kActorVoiceOver);
-		Actor_Voice_Over(1650, kActorVoiceOver);
-		Actor_Voice_Over(1660, kActorVoiceOver);
-		Actor_Voice_Over(1670, kActorVoiceOver);
-		Actor_Voice_Over(1680, kActorVoiceOver);
+		Actor_Voice_Over(1640, kActorVoiceOver); // Mainframe: The poison acted fast. He was dead before he hit the floor.
+		Actor_Voice_Over(1650, kActorVoiceOver); // Mainframe: And he'd taken his dirty little secrets with him.
+		Actor_Voice_Over(1660, kActorVoiceOver); // Mainframe: Someone had set him up, but my guess was that the bastard deserved it.
+		Actor_Voice_Over(1670, kActorVoiceOver); // Mainframe: Still it was a hell of a way to go.
+		Actor_Voice_Over(1680, kActorVoiceOver); // Mainframe: I wondered if real scorpions could have killed that quickly.
 		return true;
 	}
 	return false;
@@ -181,7 +181,7 @@ bool SceneScriptNR04::ClickedOn2DRegion(int region) {
 			&&  Game_Flag_Query(kFlagAR02DektoraBoughtScorpions)
 			) {
 				Player_Loses_Control();
-				Actor_Voice_Over(4180, kActorVoiceOver);
+				Actor_Voice_Over(4180, kActorVoiceOver); // Mainframe: Scorpions.
 				Actor_Change_Animation_Mode(kActorMcCoy, kAnimationModeDie);
 				Ambient_Sounds_Play_Sound(kSfxMALEHURT, 90, 99, 0, 0);
 				Delay(350);
@@ -218,14 +218,14 @@ void SceneScriptNR04::ActorChangedGoal(int actorId, int newGoal, int oldGoal, bo
 		case kGoalEarlyQNR04Talk1:
 			Actor_Face_Actor(kActorEarlyQ, kActorMcCoy, true);
 			Actor_Face_Actor(kActorMcCoy, kActorEarlyQ, true);
-			Actor_Says(kActorEarlyQ, 30, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 3375, kAnimationModeTalk);
+			Actor_Says(kActorEarlyQ,   30, kAnimationModeTalk); // Early Q: How're you doing, General? You got a warrant to show me or you're just breaking and entering?
+			Actor_Says(kActorMcCoy,  3375, kAnimationModeTalk); // McCoy: What's on the disc, Early?
 			Actor_Says_With_Pause(kActorEarlyQ, 50, 1.5f, kAnimationModeTalk);
-			Actor_Says(kActorEarlyQ, 60, kAnimationModeTalk);
+			Actor_Says(kActorEarlyQ, 60, kAnimationModeTalk); // Early Q: Put it down, McCoy.
 			Actor_Says_With_Pause(kActorMcCoy, 3380, 1.0f, kAnimationModeTalk);
-			Actor_Says(kActorEarlyQ, 70, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 3415, kAnimationModeTalk);
-			Actor_Says(kActorEarlyQ, 80, kAnimationModeTalk);
+			Actor_Says(kActorEarlyQ,   70, kAnimationModeTalk); // Early Q: I got ya. You want a trade. The disc for... what?
+			Actor_Says(kActorMcCoy,  3415, kAnimationModeTalk); // McCoy: Let's hear what you got.
+			Actor_Says(kActorEarlyQ,   80, kAnimationModeTalk); // Early Q: Hm. What do you say you and I have a drink first, hm?
 			Player_Gains_Control();
 			Actor_Set_Goal_Number(kActorEarlyQ, kGoalEarlyQNR04GoToBar);
 			//return true;
@@ -233,12 +233,12 @@ void SceneScriptNR04::ActorChangedGoal(int actorId, int newGoal, int oldGoal, bo
 
 		case kGoalEarlyQNR04PourDrink:
 			Actor_Face_Actor(kActorMcCoy, kActorEarlyQ, true);
-			Actor_Says(kActorEarlyQ, 90, 73);
-			Actor_Says(kActorMcCoy, 3390, 3);
+			Actor_Says(kActorEarlyQ,   90, 73); // Early Q: Well, it's your lucky day, McCoy. You're in the garden of earthly delights. See, I bet we can find something to wet your wick.
+			Actor_Says(kActorMcCoy,  3390,  3); // McCoy: Not interested.
 			Actor_Face_Actor(kActorEarlyQ, kActorMcCoy, true);
-			Actor_Says(kActorEarlyQ, 110, 74);
-			Actor_Says(kActorMcCoy, 3385, 3);
-			Actor_Says(kActorEarlyQ, 120, 74);
+			Actor_Says(kActorEarlyQ,  110, 74); // Early Q: Bull, everyone's interested.
+			Actor_Says(kActorMcCoy,  3385,  3); // McCoy: I want information.
+			Actor_Says(kActorEarlyQ,  120, 74); // Early Q: You can have whatever you little heart desires, General.
 			Actor_Face_Actor(kActorEarlyQ, kActorMcCoy, true);
 			Actor_Set_Goal_Number(kActorEarlyQ, kGoalEarlyQNR04GoToMcCoy);
 			//return true;
@@ -257,11 +257,11 @@ void SceneScriptNR04::ActorChangedGoal(int actorId, int newGoal, int oldGoal, bo
 		case kGoalEarlyQNR04Talk2:
 			Actor_Face_Actor(kActorMcCoy, kActorEarlyQ, true);
 			Delay(3000);
-			Actor_Says(kActorEarlyQ, 170, 30);
-			Actor_Says(kActorMcCoy, 3415, kAnimationModeTalk);
-			Actor_Says(kActorEarlyQ, 180, 30);
+			Actor_Says(kActorEarlyQ,  170,                 30); // Early Q: We got a deal or not?
+			Actor_Says(kActorMcCoy,  3415, kAnimationModeTalk); // McCoy: Let's hear what you got.
+			Actor_Says(kActorEarlyQ,  180,                 30); // Early Q: And then I get the disc?
 			Actor_Says_With_Pause(kActorMcCoy, 3420, 1.5f, kAnimationModeTalk);
-			Actor_Says(kActorEarlyQ, 190, 30);
+			Actor_Says(kActorEarlyQ, 190, 30); // Early Q: You're cold, General.
 			Actor_Set_Goal_Number(kActorEarlyQ, kGoalEarlyQNR04WaitForPulledGun);
 			//return true;
 			break;
@@ -269,17 +269,17 @@ void SceneScriptNR04::ActorChangedGoal(int actorId, int newGoal, int oldGoal, bo
 		case kGoalEarlyQNR04Talk3:
 			Actor_Clue_Acquire(kActorMcCoy, kClueDektorasDressingRoom, false, kActorEarlyQ);
 			Item_Pickup_Spin_Effect(kModelAnimationPhoto, 200, 160);
-			Actor_Says(kActorEarlyQ, 200, 30);
-			Actor_Says(kActorEarlyQ, 210, 30);
-			Actor_Says(kActorEarlyQ, 220, 30);
+			Actor_Says(kActorEarlyQ, 200, 30); // Early Q: But I know you're gonna be thankful I put those cameras in.
+			Actor_Says(kActorEarlyQ, 210, 30); // Early Q: Hey, check out Dektora's bearded boy-toy.
+			Actor_Says(kActorEarlyQ, 220, 30); // Early Q: Eh, he's here all the time. You can be sure he ain't coming around for the witty conversation.
 			Actor_Says_With_Pause(kActorMcCoy, 3425, 1.5f, 23);
-			Actor_Says(kActorMcCoy, 3430, kAnimationModeTalk);
-			Actor_Says(kActorEarlyQ, 240, 30);
-			Actor_Says(kActorMcCoy, 3435, kAnimationModeTalk);
-			Actor_Says(kActorEarlyQ, 250, 30);
-			Actor_Says(kActorMcCoy, 3440, kAnimationModeTalk);
-			Actor_Says(kActorEarlyQ, 280, 30);
-			Actor_Says(kActorMcCoy, 3445, kAnimationModeTalk);
+			Actor_Says(kActorMcCoy,  3430, kAnimationModeTalk); // McCoy: What makes you think he's a Replicant?
+			Actor_Says(kActorEarlyQ,  240,                 30); // Early Q: He walked right by my dancers. Didn't even pop a stiffy.
+			Actor_Says(kActorMcCoy,  3435, kAnimationModeTalk); // McCoy: Maybe he swings another way.
+			Actor_Says(kActorEarlyQ,  250,                 30); // Early Q: Oh, come on, McCoy. Have you seen my girls? Besides, I heard him talking to Dektora. They got friends who are gonna help them get Off-World. I'm telling you, they got a whole little Replicant love fest going on.
+			Actor_Says(kActorMcCoy,  3440, kAnimationModeTalk); // McCoy: You hear him say anything else?
+			Actor_Says(kActorEarlyQ,  280,                 30); // Early Q: No, General. I ain't the nosy type.
+			Actor_Says(kActorMcCoy,  3445, kAnimationModeTalk); // McCoy: Yeah. You're a model citizen.
 			Actor_Set_Goal_Number(kActorEarlyQ, kGoalEarlyQNR04AskForDisk);
 			//return true;
 			break;
@@ -287,7 +287,7 @@ void SceneScriptNR04::ActorChangedGoal(int actorId, int newGoal, int oldGoal, bo
 		case kGoalEarlyQNR04AskForDisk:
 			Actor_Change_Animation_Mode(kActorEarlyQ, 29);
 			Delay(2500);
-			Actor_Says(kActorEarlyQ, 290, kAnimationModeTalk);
+			Actor_Says(kActorEarlyQ, 290, kAnimationModeTalk); // Early Q: (ahem) You still have something of mine...
 			dialogueWithEarlyQ();
 			//return true;
 			break;
@@ -339,24 +339,24 @@ void SceneScriptNR04::dialogueWithEarlyQ() {
 		Actor_Change_Animation_Mode(kActorMcCoy, 23);
 		Actor_Change_Animation_Mode(kActorEarlyQ, 23);
 		Delay(1500);
-		Actor_Says(kActorEarlyQ, 300, kAnimationModeTalk);
+		Actor_Says(kActorEarlyQ, 300, kAnimationModeTalk); // Early Q: You're a man of your word, General.
 		Actor_Change_Animation_Mode(kActorMcCoy, kAnimationModeIdle);
 		Actor_Change_Animation_Mode(kActorEarlyQ, kAnimationModeIdle);
-		Actor_Says(kActorEarlyQ, 310, kAnimationModeTalk);
-		ADQ_Add(kActorMcCoy, 3450, kAnimationModeTalk);
+		Actor_Says(kActorEarlyQ, 310, kAnimationModeTalk); // Early Q: And don't you worry. I'll be keeping my nose clean from now on.
+		ADQ_Add(kActorMcCoy, 3450, kAnimationModeTalk); // McCoy: It ain't your nose I'm worried about.
 		Actor_Set_Targetable(kActorEarlyQ, false);
 		Actor_Set_Goal_Number(kActorEarlyQ, kGoalEarlyQNR04Leave);
 		Actor_Clue_Lose(kActorMcCoy, kClueEarlyQsClub);
 		Scene_Exits_Enable();
 	} else if (answer == 1540) { // KEEP IT
-		Actor_Says(kActorMcCoy, 8512, 15);
-		Actor_Says(kActorEarlyQ, 320, 12);
-		Actor_Says(kActorMcCoy, 3455, 13);
-		Actor_Says(kActorEarlyQ, 330, 15);
-		Actor_Says(kActorMcCoy, 3460, 12);
-		Actor_Says(kActorEarlyQ, 340, 12);
-		Actor_Says(kActorMcCoy, 3465, 12);
-		Actor_Says(kActorEarlyQ, 350, 16);
+		Actor_Says(kActorMcCoy,  8512, 15); // McCoy: The disc? I'm keeping it for now.
+		Actor_Says(kActorEarlyQ,  320, 12); // Early Q: We had a deal!
+		Actor_Says(kActorMcCoy,  3455, 13); // McCoy: You'll get it back, if you behave.
+		Actor_Says(kActorEarlyQ,  330, 15); // Early Q: Ah, so it's blackmail.
+		Actor_Says(kActorMcCoy,  3460, 12); // McCoy: Insurance.
+		Actor_Says(kActorEarlyQ,  340, 12); // Early Q: No more free drinks for you, buddy boy.
+		Actor_Says(kActorMcCoy,  3465, 12); // McCoy: I didn't get free drinks before.
+		Actor_Says(kActorEarlyQ,  350, 16); // Early Q: Get out of my club.
 		Actor_Set_Targetable(kActorEarlyQ, false);
 		Actor_Set_Goal_Number(kActorEarlyQ, kGoalEarlyQNR04Leave);
 		Scene_Exits_Enable();

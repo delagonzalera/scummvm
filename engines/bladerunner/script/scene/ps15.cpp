@@ -65,13 +65,13 @@ bool SceneScriptPS15::ClickedOnActor(int actorId) {
 			if (!Loop_Actor_Walk_To_XYZ(kActorMcCoy, -256.0f, -113.43f, 43.51f, 0, true, false, false)) {
 				Actor_Face_Actor(kActorMcCoy, kActorSergeantWalls, true);
 				Actor_Face_Actor(kActorSergeantWalls, kActorMcCoy, true);
-				Actor_Says(kActorMcCoy, 4470, 17);
-				Actor_Says(kActorSergeantWalls, 130, 12);
-				Actor_Says(kActorMcCoy, 4475, 18);
-				Actor_Says(kActorMcCoy, 4480, 13);
-				Actor_Says(kActorSergeantWalls, 140, 16);
+				Actor_Says(kActorMcCoy,         4470, 17); // McCoy: That weapons' shipment just came in. You got the paperwork handy?
+				Actor_Says(kActorSergeantWalls,  130, 12); // Sergeant Walls: Why? You got a pressing need to rummage through my private files?
+				Actor_Says(kActorMcCoy,         4475, 18); // McCoy: Yeah. I forgot you were keeping your lacy underthings in there.
+				Actor_Says(kActorMcCoy,         4480, 13); // McCoy: Look, Jack, I just want to see what they're charging for a crate of rifles these days.
+				Actor_Says(kActorSergeantWalls,  140, 16); // Sergeant Walls: Too damn much if you ask me. Especially at the rate the assault teams are losing them.
 				Item_Pickup_Spin_Effect(kModelAnimationWeaponsOrderForm, 211, 239);
-				Actor_Says(kActorSergeantWalls, 150, 14);
+				Actor_Says(kActorSergeantWalls, 150, 14); // Sergeant Walls: I guess there ain't no harm in it.
 				Actor_Clue_Acquire(kActorMcCoy, kClueShippingForm, true, kActorSergeantWalls);
 				if (!Game_Flag_Query(kFlagPS04WeaponsOrderForm)) {
 					Item_Remove_From_World(kItemWeaponsOrderForm);
@@ -79,18 +79,18 @@ bool SceneScriptPS15::ClickedOnActor(int actorId) {
 			}
 		} else {
 			Actor_Face_Actor(kActorMcCoy, kActorSergeantWalls, true);
-			Actor_Says(kActorMcCoy, 8600, 15);
+			Actor_Says(kActorMcCoy, 8600, 15); // McCoy: You keeping busy, pal?
 			if (_vm->_cutContent) {
 				switch (Random_Query(1, 2)) {
 				case 1:
-					Actor_Says(kActorSergeantWalls, 190, 12);
+					Actor_Says(kActorSergeantWalls, 190, 12); // Sergeant Walls: Nah, the place has been pretty quiet the last couple of days.
 					break;
 				case 2:
-					Actor_Says(kActorSergeantWalls, 200, 12);
+					Actor_Says(kActorSergeantWalls, 200, 12); // Sergeant Walls: Come back at me when you got something worthwhile, McCoy.
 					break;
 				}
 			} else {
-				Actor_Says(kActorSergeantWalls, 190, 12);
+				Actor_Says(kActorSergeantWalls, 190, 12); // Sergeant Walls: Nah, the place has been pretty quiet the last couple of days.
 			}
 		}
 		return true;
@@ -103,14 +103,14 @@ bool SceneScriptPS15::ClickedOnItem(int itemId, bool a2) {
 		if (Actor_Clue_Query(kActorMcCoy, kClueWeaponsOrderForm)
 		 && Actor_Clue_Query(kActorMcCoy, kCluePoliceIssueWeapons)
 		) {
-			Actor_Says(kActorMcCoy, 8570, 14);
+			Actor_Says(kActorMcCoy, 8570, 14); // McCoy: I've gotten all I can from that.
 		} else {
 			Actor_Face_Actor(kActorMcCoy, kActorSergeantWalls, true);
 			Actor_Face_Actor(kActorSergeantWalls, kActorMcCoy, true);
-			Actor_Says(kActorMcCoy, 4485, 17);
-			Actor_Says(kActorSergeantWalls, 160, 14);
-			Actor_Says(kActorMcCoy, 4490, 12);
-			Actor_Says(kActorSergeantWalls, 170, 13);
+			Actor_Says(kActorMcCoy,         4485, 17); // McCoy: We get a new weapons' shipment?
+			Actor_Says(kActorSergeantWalls,  160, 14); // Sergeant Walls: Yeah, Guzza requisitioned a couple of cases for the assault teams.
+			Actor_Says(kActorMcCoy,         4490, 12); // McCoy: Let me guess. He's planning on taking out a small city.
+			Actor_Says(kActorSergeantWalls,  170, 13); // Sergeant Walls: Lieutenant's a big believer in overkill.
 #if BLADERUNNER_ORIGINAL_BUGS
 			Actor_Clue_Acquire(kActorMcCoy, kClueWeaponsOrderForm,   true, kActorMcCoy); // A bug? Shouldn't the last argument be -1 or kActorSergeantWalls here?
 			Actor_Clue_Acquire(kActorMcCoy, kCluePoliceIssueWeapons, true, kActorMcCoy); // A bug? Shouldn't the last argument be -1 or kActorSergeantWalls here?
@@ -137,8 +137,8 @@ bool SceneScriptPS15::ClickedOnExit(int exitId) {
 
 	if (exitId == 1) {
 		if (!Loop_Actor_Walk_To_XYZ(kActorMcCoy, -183.58f, -113.43f, 91.7f, 0, true, false, false)) {
-			Actor_Says(kActorMcCoy, 4440, 18);
-			Actor_Says(kActorSergeantWalls, 150, 17);
+			Actor_Says(kActorMcCoy,         4440, 18); // McCoy: Hit the lock, Jack.
+			Actor_Says(kActorSergeantWalls,  150, 17); // Sergeant Walls: I guess there ain't no harm in it.
 #if BLADERUNNER_ORIGINAL_BUGS
 			// Sometimes the scene transition code (or the Ambient_Sounds_Remove_All_Non_Looping_Sounds)
 			// would stop this from playing (rare occasions)
@@ -169,30 +169,30 @@ void SceneScriptPS15::PlayerWalkedIn() {
 	if (!Game_Flag_Query(kFlagPS15Entered)) {
 		Actor_Face_Actor(kActorMcCoy, kActorSergeantWalls, true);
 		Actor_Face_Actor(kActorSergeantWalls, kActorMcCoy, true);
-		Actor_Says(kActorSergeantWalls, 0, 12);
-		Actor_Says(kActorMcCoy, 4445, 18);
-		Actor_Says(kActorSergeantWalls, 10, 12);
-		Actor_Says(kActorMcCoy, 4450, 18);
+		Actor_Says(kActorSergeantWalls,    0, 12); // Sergeant Walls: Well, if it ain't Ray McCoy. Bryant finally let you play with the big boys.
+		Actor_Says(kActorMcCoy,         4445, 18); // McCoy: My clearance come through?
+		Actor_Says(kActorSergeantWalls,   10, 12); // Sergeant Walls: You bet. You bring your piece?
+		Actor_Says(kActorMcCoy,         4450, 18); // McCoy: Don't leave home without it.
 		if (_vm->_cutContent && !Game_Flag_Query(kFlagSergeantWallsMazeInstructions)) {
 			// TODO: These instructions don't make much sense... Is it better to not restore this at all?
 			//       Could there have been a system with a bell-tone that was removed from the original version?
 			Game_Flag_Set(kFlagSergeantWallsMazeInstructions);
-			Actor_Says(kActorSergeantWalls, 20, 13);
-			Actor_Says(kActorSergeantWalls, 30, 12);
-			Actor_Says(kActorMcCoy, 4455, 12);
-			Actor_Says(kActorSergeantWalls, 40, 12);
-			Actor_Says(kActorSergeantWalls, 50, 12);
+			Actor_Says(kActorSergeantWalls,   20, 13); // Sergeant Walls: First time through is always the toughest. Listen for the bell tone.
+			Actor_Says(kActorSergeantWalls,   30, 12); // Sergeant Walls: That'll let you know when you're too slow reacting to a hot target.
+			Actor_Says(kActorMcCoy,         4455, 12); // McCoy: Then what?
+			Actor_Says(kActorSergeantWalls,   40, 12); // Sergeant Walls: You can keep going but your score is gonna suffer.
+			Actor_Says(kActorSergeantWalls,   50, 12); // Sergeant Walls: And take it easy in there.
 		}
-		Actor_Says(kActorSergeantWalls, 60, 13);
-		Actor_Says(kActorSergeantWalls, 70, 12);
-		Actor_Says(kActorMcCoy, 4460, 15);
-		Actor_Says(kActorSergeantWalls, 80, 13);
-		Actor_Says(kActorMcCoy, 4465, 16);
-		Actor_Says(kActorSergeantWalls, 90, 13);
-		Actor_Says(kActorSergeantWalls, 100, 14);
-		Actor_Says(kActorSergeantWalls, 110, 15);
-		Actor_Says(kActorSergeantWalls, 120, 15);
-		Actor_Says(kActorMcCoy, 4555, 14);
+		Actor_Says(kActorSergeantWalls,   60, 13); // Sergeant Walls: Steele's been running the maze every other day for two weeks...
+		Actor_Says(kActorSergeantWalls,   70, 12); // Sergeant Walls: and the targets are getting a little roughed up.
+		Actor_Says(kActorMcCoy,         4460, 15); // McCoy: I thought Guzza was gonna requisition some new ones.
+		Actor_Says(kActorSergeantWalls,   80, 13); // Sergeant Walls: I ain't seen him down here in a month. Guess he's been busy.
+		Actor_Says(kActorMcCoy,         4465, 16); // McCoy: Poor guy. I bet he gets all tuckered out from pushing those papers around.
+		Actor_Says(kActorSergeantWalls,   90, 13); // Sergeant Walls: Ah, don't sell him short, McCoy. Guzza can be one tough hombre.
+		Actor_Says(kActorSergeantWalls,  100, 14); // Sergeant Walls: I remember when we worked Vice together...
+		Actor_Says(kActorSergeantWalls,  110, 15); // Sergeant Walls: He poured acetone on two pimps that gave us some lip (laughs) and lit a match.
+		Actor_Says(kActorSergeantWalls,  120, 15); // Sergeant Walls: (laughs) I'll tell, ya. It looked like the goddamn Fourth of July out there.
+		Actor_Says(kActorMcCoy,         4555, 14); // McCoy: Peachy.
 		Game_Flag_Set(kFlagPS15Entered);
 		//return true;
 		return;

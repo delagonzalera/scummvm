@@ -169,19 +169,19 @@ void SceneScriptUG04::PlayerWalkedIn() {
 		if (Random_Query(0, 2) == 1) {
 			Game_Flag_Set(kFlagUG04DispatchOnHoodooRats);
 			ADQ_Add_Pause(Random_Query(0, 1) * 1000);
-			ADQ_Add(kActorDispatcher, 340, kAnimationModeTalk); // Southern Kipple Unit 2 LA.
+			ADQ_Add(kActorDispatcher, 340, kAnimationModeTalk); // Dispatcher: Southern Kipple Unit 2 LA.
 			if (Random_Query(0, 1) == 0) {
 				// Leary responds
-				ADQ_Add(kActorOfficerLeary, 240, kAnimationModeTalk); // LA, South Kipple Unit 2. Go ahead.
-				ADQ_Add(kActorDispatcher, 350, kAnimationModeTalk);
-				ADQ_Add(kActorDispatcher, 360, kAnimationModeTalk);
-				ADQ_Add(kActorOfficerLeary, 250, kAnimationModeTalk);
+				ADQ_Add(kActorOfficerLeary, 240, kAnimationModeTalk); // Officer Leary: LA, South Kipple Unit 2. Go ahead.
+				ADQ_Add(kActorDispatcher,   350, kAnimationModeTalk); // Dispatcher: South unit 2. Be advised. We have reports of a roving pack of Hoodoo Rats moving in towards the city.
+				ADQ_Add(kActorDispatcher,   360, kAnimationModeTalk); // Dispatcher: Respond and secure the area.
+				ADQ_Add(kActorOfficerLeary, 250, kAnimationModeTalk); // Officer Leary: LA, South Unit 2. Copied and responding.
 			} else {
 				// Grayford responds
-				ADQ_Add(kActorOfficerGrayford, 520, kAnimationModeTalk); // LA, South Kipple Unit 2. Go ahead.
-				ADQ_Add(kActorDispatcher, 350, kAnimationModeTalk);
-				ADQ_Add(kActorDispatcher, 360, kAnimationModeTalk);
-				ADQ_Add(kActorOfficerGrayford, 530, kAnimationModeTalk);
+				ADQ_Add(kActorOfficerGrayford, 520, kAnimationModeTalk); // Officer Grayford: LA, South Kipple Unit 2. Go ahead.
+				ADQ_Add(kActorDispatcher,      350, kAnimationModeTalk); // Dispatcher: South unit 2. Be advised. We have reports of a roving pack of Hoodoo Rats moving in towards the city.
+				ADQ_Add(kActorDispatcher,      360, kAnimationModeTalk); // Dispatcher: Respond and secure the area.
+				ADQ_Add(kActorOfficerGrayford, 530, kAnimationModeTalk); // Officer Grayford: LA, South Unit 2. Copied and responding.
 			}
 		}
 	}

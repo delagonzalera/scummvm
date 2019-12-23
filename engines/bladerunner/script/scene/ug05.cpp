@@ -99,12 +99,12 @@ bool SceneScriptUG05::ClickedOnActor(int actorId) {
 		 &&  Game_Flag_Query(kFlagHF07Hole)
 		 && !Game_Flag_Query(kFlagUG05TalkToPolice)
 		) {
-			Actor_Says(kActorOfficerGrayford, 220, -1);
-			Actor_Says(kActorMcCoy, 5540, 14);
-			Actor_Says(kActorOfficerGrayford, 230, -1);
-			Actor_Says(kActorMcCoy, 5545, 17);
-			Actor_Says(kActorOfficerGrayford, 240, -1);
-			Actor_Says(kActorMcCoy, 5550, 3);
+			Actor_Says(kActorOfficerGrayford,  220, -1); // Officer Grayford: You're gonna pay, skin-job. You're going down.
+			Actor_Says(kActorMcCoy,           5540, 14); // McCoy: Your friends will be coming soon. You'll live.
+			Actor_Says(kActorOfficerGrayford,  230, -1); // Officer Grayford: What do you care?
+			Actor_Says(kActorMcCoy,           5545, 17); // McCoy: I feel sorry for you. Who knows? Maybe I'm not a Rep after all.
+			Actor_Says(kActorOfficerGrayford,  240, -1); // Officer Grayford: (cough) They're gonna kill you anyway.
+			Actor_Says(kActorMcCoy,           5550,  3); // McCoy: They gotta find me first.
 			Game_Flag_Set(kFlagUG05TalkToPolice);
 			return false;
 		}
@@ -152,8 +152,8 @@ bool SceneScriptUG05::ClickedOnExit(int exitId) {
 		if (!Game_Flag_Query(kFlagHF01TalkToLovedOne)) {
 			if (!Loop_Actor_Walk_To_XYZ(kActorMcCoy, 0.0f, -1.37f, -1500.0f, 0, true, false, false)) {
 				if (!Game_Flag_Query(kFlagUG05TalkAboutTunnel)) {
-					Actor_Voice_Over(2600, kActorVoiceOver);
-					Actor_Voice_Over(2610, kActorVoiceOver);
+					Actor_Voice_Over(2600, kActorVoiceOver); // Mainframe: The tunnel stretched for miles.
+					Actor_Voice_Over(2610, kActorVoiceOver); // Mainframe: I was sure it came out somewhere, but I didn't have time to find out.
 					Game_Flag_Set(kFlagUG05TalkAboutTunnel);
 				}
 				return true;
@@ -213,7 +213,7 @@ void SceneScriptUG05::PlayerWalkedIn() {
 
 			if (!Actor_Query_In_Set(kActorOfficerGrayford, kSetUG05)) {
 				ADQ_Flush();
-				ADQ_Add(kActorOfficerGrayford, 280, kAnimationModeTalk);
+				ADQ_Add(kActorOfficerGrayford, 280, kAnimationModeTalk); // Officer Grayford: It's McCoy! Get him!
 				Actor_Put_In_Set(kActorOfficerGrayford, kSetUG05);
 				Actor_Set_At_XYZ(kActorOfficerGrayford, -16.0f, -1.37f, -960.0f, 768);
 			}
@@ -263,11 +263,11 @@ void SceneScriptUG05::endGame() {
 	if (affectionTowardsActor != -1) {
 		Actor_Face_Actor(kActorMcCoy, affectionTowardsActor, true);
 		Actor_Face_Actor(affectionTowardsActor, kActorMcCoy, true);
-		Actor_Says(kActorMcCoy, 5535, 13);
+		Actor_Says(kActorMcCoy, 5535, 13); // McCoy: I knew we'd make it. Are you ready?
 		if (affectionTowardsActor == kActorDektora) {
-			Actor_Says(kActorDektora, 1110, 15);
+			Actor_Says(kActorDektora, 1110, 15); // Dektora: Yes, I am.
 		} else {
-			Actor_Says(kActorLucy, 670, 17);
+			Actor_Says(kActorLucy, 670, 17); // Lucy: Yes, I am.
 		}
 	}
 

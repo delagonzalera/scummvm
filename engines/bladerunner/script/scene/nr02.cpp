@@ -96,7 +96,7 @@ bool SceneScriptNR02::ClickedOn3DObject(const char *objectName, bool a2) {
 				Delay(1500);
 				Sound_Play(kSfxSPNBEEP9, 50, 0, 0, 50);
 				Delay(1000);
-				Actor_Says(kActorMcCoy, 170, 14);
+				Actor_Says(kActorMcCoy, 170, 14); // McCoy: Damn.
 			}
 		}
 	}

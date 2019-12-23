@@ -80,7 +80,7 @@ void AIScriptRachael::ReceivedClue(int clueId, int fromActorId) {
 void AIScriptRachael::ClickedByPlayer() {
 	if (Actor_Query_Goal_Number(kActorRachael) == 305) {
 		Actor_Face_Actor(kActorMcCoy, kActorRachael, true);
-		Actor_Says(kActorMcCoy, 2730, 12);     // "Rachael, right?"
+		Actor_Says(kActorMcCoy, 2730, 12); // McCoy: Rachael, right?
 		AI_Movement_Track_Pause(kActorRachael);
 		dialogue_start(); // "I remember you mr McCoy" till "I'm fine, thank you for asking."
 
@@ -393,188 +393,188 @@ void AIScriptRachael::dialogue_start() {
 			Actor_Face_Actor(kActorRachael, kActorMcCoy, true);
 			Loop_Actor_Walk_To_Actor(kActorRachael, kActorMcCoy, 84, false, false);
 			if (_vm->_cutContent) {
-				Actor_Says(kActorMcCoy, 2735, 14);              // MetAtYourUnclesOffice
+				Actor_Says(kActorMcCoy, 2735, 14); // McCoy: We met at your uncle's office.
 			}
-			Actor_Says(kActorRachael, 0, 15);                   // RememberYouMisterMcCoy
-			Actor_Says(kActorMcCoy, 2740, 13);                  // YouLiveHereSameBuilding
-			Actor_Says(kActorRachael, 10, 14);                  // VisitingSomebody
-			Actor_Says(kActorMcCoy, 2745, 13);                  // WhoMaybeIKnowHim
-			Actor_Says(kActorRachael, 20, 12);                  // NoneOfYourBusiness
+			Actor_Says(kActorRachael,    0, 15); // Rachael: I remember you Mr. McCoy.
+			Actor_Says(kActorMcCoy,   2740, 13); // McCoy: You live here? I didn't know we were in the same building.
+			Actor_Says(kActorRachael,   10, 14); // Rachael: No I... I'm visiting somebody.
+			Actor_Says(kActorMcCoy,   2745, 13); // McCoy: Who? Maybe I know him.
+			Actor_Says(kActorRachael,   20, 12); // Rachael: Perhaps it's none of your business.
 			Actor_Says_With_Pause(kActorMcCoy, 2750, 1.5f, 3); // OkGetThePicture
-			Actor_Says(kActorMcCoy, 2755, 3);                  // AreYouAlrightALittlePale
-			Actor_Says(kActorRachael, 30, 13);                  // CertainlyHadBetterDaysInMyLifeButImFine
-			Actor_Says(kActorRachael, 40, 15);                  // ThankYouForAsking
+			Actor_Says(kActorMcCoy,   2755,  3); // McCoy: You all right? You look a little pale.
+			Actor_Says(kActorRachael,   30, 13); // Rachael: I've certainly had better days in my life, but I'm fine.
+			Actor_Says(kActorRachael,   40, 15); // Rachael: Thank you for asking.
 	} else {
 		// original code -- un-triggered
 		Loop_Actor_Walk_To_Actor(kActorRachael, kActorMcCoy, 84, false, false);
-		Actor_Says(kActorRachael, 0, 15);                   // I remember you mr mcCoy
-		Actor_Says(kActorMcCoy, 2740, 13);
-		Actor_Says(kActorRachael, 10, 14);
-		Actor_Says(kActorMcCoy, 2745, 13);
-		Actor_Says(kActorRachael, 20, 12);                  // perhaps none of your business
+		Actor_Says(kActorRachael,    0, 15); // Rachael: I remember you Mr. McCoy.
+		Actor_Says(kActorMcCoy,   2740, 13); // McCoy: You live here? I didn't know we were in the same building.
+		Actor_Says(kActorRachael,   10, 14); // Rachael: No I... I'm visiting somebody.
+		Actor_Says(kActorMcCoy,   2745, 13); // McCoy: Who? Maybe I know him.
+		Actor_Says(kActorRachael,   20, 12); // Rachael: Perhaps it's none of your business.
 		Actor_Says_With_Pause(kActorMcCoy, 2750, 1.5f, 3);  // ok I get the picture
-		Actor_Says(kActorRachael, 30, 13);                  // certainly had better days but i'm fine
-		Actor_Says(kActorRachael, 40, 15);                  // Thank you for asking
+		Actor_Says(kActorRachael, 30, 13); // Rachael: I've certainly had better days in my life, but I'm fine.
+		Actor_Says(kActorRachael, 40, 15); // Rachael: Thank you for asking.
 	}
 }
 
 void AIScriptRachael::dialogue_agenda1() {
 	// polite or Rep friendly case
 	if (_vm->_cutContent) {
-		Actor_Says(kActorMcCoy, 2795, 13);                      // YouAreUpset
-		Actor_Says(kActorRachael, 140, 15);                     // HowObservant
-		Actor_Says(kActorMcCoy, 2800, 12);                      // WhatTheMatterGoodListener
-		Actor_Says(kActorRachael, 150, 16);                     // HowObservant
-		Actor_Says(kActorMcCoy, 2805, 18);                      // DidYourUncleSaySomethingToYou
-		Actor_Says(kActorRachael, 160, 14);                     // HeCanBeSoCruel
-		Actor_Says(kActorRachael, 170, 13);                     // HereIAmPouringMyHeartOut
-		Actor_Says(kActorMcCoy, 2810, 14);                      // NotHowILookAtIt
-		Actor_Says(kActorRachael, 180, 13);                     // GotToLiveWithYourself
-		Actor_Says(kActorMcCoy, 2815, 12);                      // NotSomeKillingMachineRachael
-		Actor_Says(kActorMcCoy, 2820, 13);                      // LatelyReEvalTheJobDontLikeItNeverHave - I've thought ab... Well lately reevaluating the job dont like it
-		Actor_Says(kActorRachael, 190, 15);                     // WhyDontYouQuitThen
-		Actor_Says(kActorMcCoy, 2825, 12);                      // SomeoneWouldJustTakeMyPlace
-		Actor_Says(kActorRachael, 200, 15);                     // SoMuchForIntegrity
-		Actor_Says(kActorMcCoy, 2830, 14);                      // ItsNotThat
-		Actor_Says(kActorRachael, 210, 15);                     // ItsTheMoneyThen
-		Actor_Says(kActorRachael, 220, 16);                     // ImSoFedUpWithAllOfIt
-		Actor_Says(kActorMcCoy, 2835, 13);                      // IveThinkingAboutTheTreatmentOfReps
-		Actor_Says(kActorRachael, 230, 14);                     // BravoShouldWeCallThePressConf -  new switched to here
-		Actor_Says(kActorMcCoy, 2840, 12);                      // MaybeTheyVeGottenARawDeal
-		Actor_Says(kActorRachael, 240, 13);                     // ImagineSomebodyEngineeringYourMind
-		Actor_Says(kActorRachael, 250, 15);                     // PuttingWhateverThoughtsAndMemories
-		Actor_Says(kActorRachael, 260, 16);                     // NothingInThisWorldWouldBelongToyou
-		Actor_Says(kActorMcCoy, 2845, 13);                      // No
-		Actor_Says(kActorRachael, 270, 13);                     // ThinkAboutItMcCoy
-		Actor_Says(kActorRachael, 280, 14);                     // MaybeYouArentSoDifferentFromThoseRepsAfterAll
-		Actor_Says(kActorMcCoy, 2850, 13);                      // ISupposeAllRepsInOneWayOrAnother
-		Actor_Says(kActorMcCoy, 2855, 14);                      // ProgrammedToDoThingsThinkThings
-		Actor_Says(kActorRachael, 290, 14);                     // ThatsRight
+		Actor_Says(kActorMcCoy,   2795, 13); // McCoy: You're upset.
+		Actor_Says(kActorRachael,  140, 15); // Rachael: How observant.
+		Actor_Says(kActorMcCoy,   2800, 12); // McCoy: What's the matter? You can tell me. I'm a good listener.
+		Actor_Says(kActorRachael,  150, 16); // Rachael: I'm sure you are Mr. McCoy. I just don't much feel like talking at the moment.
+		Actor_Says(kActorMcCoy,   2805, 18); // McCoy: Did your uncle say something to you?
+		Actor_Says(kActorRachael,  160, 14); // Rachael: He can be so cruel.
+		Actor_Says(kActorRachael,  170, 13); // Rachael: Here I am, pouring my heart out to a veritable killer. It's all so absurd.
+		Actor_Says(kActorMcCoy,   2810, 14); // McCoy: That's not how I look at it.
+		Actor_Says(kActorRachael,  180, 13); // Rachael: Sure. You've got to live with yourself somehow.
+		Actor_Says(kActorMcCoy,   2815, 12); // McCoy: I'm not just some killing machine, Rachael.
+		Actor_Says(kActorMcCoy,   2820, 13); // McCoy: I've thought about-- well, lately I've been reevaluating the job. I don't like it. I never have.
+		Actor_Says(kActorRachael,  190, 15); // Rachael: Why don't you quit then?
+		Actor_Says(kActorMcCoy,   2825, 12); // McCoy: Someone would just take my place.
+		Actor_Says(kActorRachael,  200, 15); // Rachael: So much for integrity.
+		Actor_Says(kActorMcCoy,   2830, 14); // McCoy: It's not that.
+		Actor_Says(kActorRachael,  210, 15); // Rachael: It's the money, then. Isn't it always the money in this world?
+		Actor_Says(kActorRachael,  220, 16); // Rachael: God, I'm so fed up with all of it.
+		Actor_Says(kActorMcCoy,   2835, 13); // McCoy: I've been thinking about the treatment of Replicants in our world.
+		Actor_Says(kActorRachael,  230, 14); // Rachael: Bravo. Should we call a press conference?
+		Actor_Says(kActorMcCoy,   2840, 12); // McCoy: Maybe they've gotten a raw deal.
+		Actor_Says(kActorRachael,  240, 13); // Rachael: Imagine somebody engineering your mind.
+		Actor_Says(kActorRachael,  250, 15); // Rachael: Putting whatever thoughts and memories they wanted inside of it.
+		Actor_Says(kActorRachael,  260, 16); // Rachael: Nothing. Nothing in this world would belong to you, would it?
+		Actor_Says(kActorMcCoy,   2845, 13); // McCoy: No.
+		Actor_Says(kActorRachael,  270, 13); // Rachael: Think about it Mr. McCoy.
+		Actor_Says(kActorRachael,  280, 14); // Rachael: Maybe you aren't so different from those Replicants after all.
+		Actor_Says(kActorMcCoy,   2850, 13); // McCoy: I suppose we're all Replicants in one way or another.
+		Actor_Says(kActorMcCoy,   2855, 14); // McCoy: Programmed to do things, to think things.
+		Actor_Says(kActorRachael,  290, 14); // Rachael: That's right.
 		if (Actor_Query_In_Set(kActorRachael, kSetMA07)) {
 			Actor_Says_With_Pause(kActorRachael, 300, 1.0f, 3); // GoodbyeMcCoy
-			Actor_Says(kActorMcCoy, 2860, 14);                  // YouTakeCareOfYourself
+			Actor_Says(kActorMcCoy, 2860, 14); // McCoy: You take care of yourself.
 		}
 	} else {
 		// original code
-		Actor_Says(kActorMcCoy, 2795, 13);                  // You are upset
-		Actor_Says(kActorRachael, 140, 15);                 // How observant
-		Actor_Says(kActorMcCoy, 2800, 12);                  // Whats the matter good listener
-		Actor_Says(kActorRachael, 150, 16);                 // ImSureYouAreMrMcCoyDontFeelLike
-		Actor_Says(kActorMcCoy, 2805, 18);                  // DidYourUncleSaySomethingToYou
-		Actor_Says(kActorRachael, 160, 14);                 // HeCanBeSoCruel
-		Actor_Says(kActorRachael, 170, 13);                 // HereIAmPouringMyHeartOut
-		Actor_Says(kActorMcCoy, 2810, 14);                  // NotHowILookAtIt
-		Actor_Says(kActorRachael, 180, 13);                 // GotToLiveWithYourself
-		Actor_Says(kActorMcCoy, 2815, 12);                  // NotSomeKillingMachineRachael
-		Actor_Says(kActorMcCoy, 2820, 13);                  //
-		Actor_Says(kActorRachael, 190, 15);                 // WhyDontYouQuitThen
-		Actor_Says(kActorMcCoy, 2825, 12);                  // SomeoneWouldJustTakeMyPlace
-		Actor_Says(kActorRachael, 200, 15);                 // SoMuchForIntegrity
-		Actor_Says(kActorMcCoy, 2830, 14);                  // ItsNotThat
-		Actor_Says(kActorRachael, 210, 15);                 // ItsTheMoneyThen
-		Actor_Says(kActorRachael, 220, 16);                 // ImSoFedUpWithAllOfIt
-		Actor_Says(kActorMcCoy, 2835, 13);                  // IveThinkingAboutTheTreatmentOfReps
-		Actor_Says(kActorRachael, 230, 14);                 // BravoShouldWeCallThePressConf
-		Actor_Says(kActorMcCoy, 2840, 12);                  // MaybeTheyVeGottenARawDeal
-		Actor_Says(kActorRachael, 240, 13);                 // ImagineSomebodyEngineeringYourMind
-		Actor_Says(kActorRachael, 250, 15);                 // PuttingWhateverThoughtsAndMemories
-		Actor_Says(kActorRachael, 260, 16);                 // NothingInThisWorldWouldBelongToyou
-		Actor_Says(kActorMcCoy, 2845, 13);                  // No
-		Actor_Says(kActorRachael, 270, 13);                 // ThinkAboutItMcCoy
-		Actor_Says(kActorRachael, 280, 14);                 // MaybeYouArentSoDifferentFromThoseRepsAfterAll
-		Actor_Says(kActorMcCoy, 2850, 13);                  // ISupposeAllRepsInOneWayOrAnother
-		Actor_Says(kActorRachael, 290, 14);                 // ThatsRight
+		Actor_Says(kActorMcCoy,   2795, 13); // McCoy: You're upset.
+		Actor_Says(kActorRachael,  140, 15); // Rachael: How observant.
+		Actor_Says(kActorMcCoy,   2800, 12); // McCoy: What's the matter? You can tell me. I'm a good listener.
+		Actor_Says(kActorRachael,  150, 16); // Rachael: I'm sure you are Mr. McCoy. I just don't much feel like talking at the moment.
+		Actor_Says(kActorMcCoy,   2805, 18); // McCoy: Did your uncle say something to you?
+		Actor_Says(kActorRachael,  160, 14); // Rachael: He can be so cruel.
+		Actor_Says(kActorRachael,  170, 13); // Rachael: Here I am, pouring my heart out to a veritable killer. It's all so absurd.
+		Actor_Says(kActorMcCoy,   2810, 14); // McCoy: That's not how I look at it.
+		Actor_Says(kActorRachael,  180, 13); // Rachael: Sure. You've got to live with yourself somehow.
+		Actor_Says(kActorMcCoy,   2815, 12); // McCoy: I'm not just some killing machine, Rachael.
+		Actor_Says(kActorMcCoy,   2820, 13); // McCoy: I've thought about-- well, lately I've been reevaluating the job. I don't like it. I never have.
+		Actor_Says(kActorRachael,  190, 15); // Rachael: Why don't you quit then?
+		Actor_Says(kActorMcCoy,   2825, 12); // McCoy: Someone would just take my place.
+		Actor_Says(kActorRachael,  200, 15); // Rachael: So much for integrity.
+		Actor_Says(kActorMcCoy,   2830, 14); // McCoy: It's not that.
+		Actor_Says(kActorRachael,  210, 15); // Rachael: It's the money, then. Isn't it always the money in this world?
+		Actor_Says(kActorRachael,  220, 16); // Rachael: God, I'm so fed up with all of it.
+		Actor_Says(kActorMcCoy,   2835, 13); // McCoy: I've been thinking about the treatment of Replicants in our world.
+		Actor_Says(kActorRachael,  230, 14); // Rachael: Bravo. Should we call a press conference?
+		Actor_Says(kActorMcCoy,   2840, 12); // McCoy: Maybe they've gotten a raw deal.
+		Actor_Says(kActorRachael,  240, 13); // Rachael: Imagine somebody engineering your mind.
+		Actor_Says(kActorRachael,  250, 15); // Rachael: Putting whatever thoughts and memories they wanted inside of it.
+		Actor_Says(kActorRachael,  260, 16); // Rachael: Nothing. Nothing in this world would belong to you, would it?
+		Actor_Says(kActorMcCoy,   2845, 13); // McCoy: No.
+		Actor_Says(kActorRachael,  270, 13); // Rachael: Think about it Mr. McCoy.
+		Actor_Says(kActorRachael,  280, 14); // Rachael: Maybe you aren't so different from those Replicants after all.
+		Actor_Says(kActorMcCoy,   2850, 13); // McCoy: I suppose we're all Replicants in one way or another.
+		Actor_Says(kActorRachael,  290, 14); // Rachael: That's right.
 		Actor_Says_With_Pause(kActorRachael, 300, 1.0f, 3); // GoodbyeMcCoy
-		Actor_Says(kActorMcCoy, 2860, 14);                  // YouTakeCareOfYourself
+		Actor_Says(kActorMcCoy, 2860, 14); // McCoy: You take care of yourself.
 	}
 }
 
 void AIScriptRachael::dialogue_agenda2() {
 	// surly/erratic or human friendly case
 	if (_vm->_cutContent) {
-		Actor_Says(kActorMcCoy, 2760, 14);                   // InterestingGuyYourUncleCharacterator-Rachael
-		Actor_Says(kActorRachael, 50, 15);                   // IDontThinkHeDAppreciateBeingCalledThat  new anim 15
-		Actor_Says(kActorMcCoy, 2765, 16);                   // ImSureHeIsABrilliantMan  new anim 16
-		Actor_Says(kActorMcCoy, 2770, 17);                   // AnyoneWhoCouldCreateNexus6StateOfArt  new anim 17
-		Actor_Says(kActorRachael, 60, 14);                   // KeepingPeopleLikeYouEmployedIsntHe
-		Actor_Says(kActorMcCoy, 2775, 16);                   // IdJustAsSoonNotDoThisJob.
-		Actor_Says(kActorRachael, 70, 13);                   // DoYouReallyExpectMeToBelieveThat
-		Actor_Says(kActorRachael, 80, 14);                   // ISawThatLookInYourEye
-		Actor_Says(kActorRachael, 90, 15);                   // LikeNothingButToKillInnocentPeople
-		Actor_Says(kActorMcCoy, 2780, 17);                   // ReplicantsArentPeople
-		Actor_Says(kActorRachael, 100, 16);                  // CertainlyAreMoreInnocentThanMostPeople
-		Actor_Says(kActorRachael, 110, 15);                  // TheyDidntAskToBeBroughtIntoThisWorld
-		Actor_Says(kActorMcCoy, 2785, 17);                   // NobodyDoes
-		Actor_Says(kActorRachael, 120, 13);                  // ThatsRightAndNobodyHasALicenseTokillHumans
-		Actor_Says(kActorMcCoy, 2790, 18);                   // Aha
-		Actor_Says(kActorRachael, 130, 14);                  // ButReplicantsHowHumain
+		Actor_Says(kActorMcCoy,   2760, 14); // McCoy: Interesting guy your uncle. Quite a character.
+		Actor_Says(kActorRachael,   50, 15); // Rachael: I don't think he'd appreciate being called that.
+		Actor_Says(kActorMcCoy,   2765, 16); // McCoy: Oh, I'm sure he's a brilliant man.
+		Actor_Says(kActorMcCoy,   2770, 17); // McCoy: Anyone who could create the Nexus-6, the state of the art of Rep technology...
+		Actor_Says(kActorRachael,   60, 14); // Rachael: He's keeping people like you employed, isn't he?
+		Actor_Says(kActorMcCoy,   2775, 16); // McCoy: Hey, I'd just as soon not do this job.
+		Actor_Says(kActorRachael,   70, 13); // Rachael: Do you really expect me to believe that Mr. McCoy?
+		Actor_Says(kActorRachael,   80, 14); // Rachael: I saw that look in your eye.
+		Actor_Says(kActorRachael,   90, 15); // Rachael: You'd like nothing better than to kill innocent people, isn't that right?
+		Actor_Says(kActorMcCoy,   2780, 17); // McCoy: Replicants aren't people.
+		Actor_Says(kActorRachael,  100, 16); // Rachael: But they certainly are more innocent than most of the people I've ever met.
+		Actor_Says(kActorRachael,  110, 15); // Rachael: They didn't ask to be brought into this world.
+		Actor_Says(kActorMcCoy,   2785, 17); // McCoy: Nobody does.
+		Actor_Says(kActorRachael,  120, 13); // Rachael: That's right. And nobody has a license to hunt down and kill humans. Isn't that true?
+		Actor_Says(kActorMcCoy,   2790, 18); // McCoy: Uh-huh.
+		Actor_Says(kActorRachael,  130, 14); // Rachael: But Replicants, how humane.
 		if (Actor_Query_In_Set(kActorRachael, kSetMA07)) {
 			Actor_Says_With_Pause(kActorRachael, 300, 1.0f, 3); // GoodbyeMcCoy
-			Actor_Says(kActorMcCoy, 2860, 14);                  // YouTakeCareOfYourself
+			Actor_Says(kActorMcCoy, 2860, 14); // McCoy: You take care of yourself.
 		}
 	} else {
 		// original code - missing some quotes or removing some quotes to make it fit better
-		Actor_Says(kActorRachael, 50, 15);                  // I don't think he'd appreciate being called that
-		Actor_Says(kActorMcCoy, 2765, 16);                  // Oh i'm sure brilliant man
-		Actor_Says(kActorMcCoy, 2770, 17);                  // anyone who could create nexus -6
-		Actor_Says(kActorRachael, 60, 14);                  // keeping people like you employed
-		Actor_Says(kActorMcCoy, 2775, 16);                  // IdJustAsSoonNotDoThisJob
-		Actor_Says(kActorRachael, 70, 13);                  // do you really expect me to believe that
-		Actor_Says(kActorRachael, 80, 14);                  // ISawThatLookInYourEye
-		Actor_Says(kActorRachael, 90, 15);                  // LikeNothingButToKillInnocentPeople
-		Actor_Says(kActorMcCoy, 2780, 17);                  // ReplicantsArentPeople
-		Actor_Says(kActorRachael, 100, 16);                 // CertainlyAreMoreInnocentThanMostPeople
-		Actor_Says(kActorRachael, 110, 15);                 // TheyDidntAskToBeBroughtIntoThisWorld
-		Actor_Says(kActorMcCoy, 2785, 17);                  // NobodyDoes
-		Actor_Says(kActorRachael, 120, 13);                 // ThatsRightAndNobodyHasALicenseTokillHumans
-		Actor_Says(kActorMcCoy, 2790, 16);                  // Aha
-		Actor_Says(kActorRachael, 130, 14);                 // ButReplicantsHowHumain
+		Actor_Says(kActorRachael,   50, 15); // Rachael: I don't think he'd appreciate being called that.
+		Actor_Says(kActorMcCoy,   2765, 16); // McCoy: Oh, I'm sure he's a brilliant man.
+		Actor_Says(kActorMcCoy,   2770, 17); // McCoy: Anyone who could create the Nexus-6, the state of the art of Rep technology...
+		Actor_Says(kActorRachael,   60, 14); // Rachael: He's keeping people like you employed, isn't he?
+		Actor_Says(kActorMcCoy,   2775, 16); // McCoy: Hey, I'd just as soon not do this job.
+		Actor_Says(kActorRachael,   70, 13); // Rachael: Do you really expect me to believe that Mr. McCoy?
+		Actor_Says(kActorRachael,   80, 14); // Rachael: I saw that look in your eye.
+		Actor_Says(kActorRachael,   90, 15); // Rachael: You'd like nothing better than to kill innocent people, isn't that right?
+		Actor_Says(kActorMcCoy,   2780, 17); // McCoy: Replicants aren't people.
+		Actor_Says(kActorRachael,  100, 16); // Rachael: But they certainly are more innocent than most of the people I've ever met.
+		Actor_Says(kActorRachael,  110, 15); // Rachael: They didn't ask to be brought into this world.
+		Actor_Says(kActorMcCoy,   2785, 17); // McCoy: Nobody does.
+		Actor_Says(kActorRachael,  120, 13); // Rachael: That's right. And nobody has a license to hunt down and kill humans. Isn't that true?
+		Actor_Says(kActorMcCoy,   2790, 16); // McCoy: Uh-huh.
+		Actor_Says(kActorRachael,  130, 14); // Rachael: But Replicants, how humane.
 		Actor_Says_With_Pause(kActorRachael, 300, 1.0f, 3); // GoodbyeMcCoy
-		Actor_Says(kActorMcCoy, 2860, 14);                  // YouTakeCareOfYourself
+		Actor_Says(kActorMcCoy, 2860, 14); // McCoy: You take care of yourself.
 	}
 }
 
 // Not used in the game
 void AIScriptRachael::dialogue_act4() {
-	Actor_Says(kActorMcCoy, 2865, 17);   // Lobby
+	Actor_Says(kActorMcCoy, 2865, 17); // McCoy: Lobby.
 	if (_vm->_cutContent) {
 		Game_Flag_Set(kFlagMA06toMA07); // to Ground Floor / Lobby
 		Delay(500);
 		AI_Movement_Track_Pause(kActorRachael);
 		Actor_Face_Actor(kActorRachael, kActorMcCoy, true);
 	}
-	Actor_Says(kActorRachael, 320, 12);  //  McCoy
-	Actor_Says(kActorRachael, 330, 17);  //  RachaelRememberMe
+	Actor_Says(kActorRachael, 320, 12); // Rachael: McCoy.
+	Actor_Says(kActorRachael, 330, 17); // Rachael: Rachael. Remember me?
 	if (_vm->_cutContent) {
 		Actor_Face_Actor(kActorMcCoy, kActorRachael, true);
 	}
-	Actor_Says(kActorMcCoy, 2870, 13);   //  Jesus DontKnowWhatIRememberAnyMore
-	Actor_Says(kActorRachael, 340, 12);  //  NowYouLookInTrouble
-	Actor_Says(kActorMcCoy, 2875, 15);   //  Saw me here before
-	Actor_Says(kActorRachael, 350, 3);   //  YesWhatHappened
-	Actor_Says(kActorMcCoy, 2880, 16);   //  Suddenly
-	Actor_Says(kActorMcCoy, 2885, 12);   //  MyAnimalMaggiePrizedPosessionDisappeared
-	Actor_Says(kActorRachael, 360, 3);   //  ImSorry
-	Actor_Says(kActorRachael, 370, 3);   //  IKnowTheFeeling
-	Actor_Says(kActorMcCoy, 2890, 18);   //  You do?
-	Actor_Says(kActorRachael, 380, 18);  //  EverythingWeBelieve
-	Actor_Says(kActorRachael, 390, 12);  //  WhatIsReality
-	Actor_Says(kActorRachael, 400, 13);  //  MaybeAllSomeoneElsesFantasy
-	Actor_Says(kActorMcCoy, 2895, 14);   //  That would make us a fantasy
-	Actor_Says(kActorRachael, 410, 15);  //  ThatsRightAndInTheBlinkOfAnEyeGoesAway
-	Actor_Says(kActorMcCoy, 2900, 16);   //  But just yesterday
-	Actor_Says(kActorRachael, 420, 14);  //  YesterdayTwoMonthsAgo
-	Actor_Says(kActorMcCoy, 2905, 13);   //  ButIfWeBothRemembered
-	Actor_Says(kActorRachael, 430, 16);  //  CopiesOnlyCopies
-	Actor_Says(kActorRachael, 440, 12);  //  OnlyThingWeCanTrustIsNow
-	Actor_Says(kActorMcCoy, 2910, 14);   //  NotLosingMyMindEscapedReplicant
-	Actor_Says(kActorMcCoy, 2920, 17);   //  SomeoneSettingMeUpUsingMe
-	Actor_Says(kActorRachael, 450, 3);   //  NothingWrongWithAcceptingWhatYouAre
-	Actor_Says(kActorMcCoy, 2925, 15);   //  NotAReplicantGoddamnit
-	Actor_Says(kActorMcCoy, 2930, 14);   //  MaybeYouCanHelpMeYouAreTyrellsNiece
-	Actor_Says(kActorRachael, 460, 13);  //  Why not take that V-K test
-	Actor_Says(kActorMcCoy, 2935, 19);   //  YeahGoodIdeaMaybeIllDoThat
-	Actor_Says(kActorRachael, 470, 18);  //  Hope you get the answers looking for McCoy.
+	Actor_Says(kActorMcCoy,   2870, 13); // McCoy: Jesus. I don't know what I remember anymore.
+	Actor_Says(kActorRachael,  340, 12); // Rachael: Now you look like you're in trouble.
+	Actor_Says(kActorMcCoy,   2875, 15); // McCoy: You saw me here before, didn't you?
+	Actor_Says(kActorRachael,  350,  3); // Rachael: Yes. What happened?
+	Actor_Says(kActorMcCoy,   2880, 16); // McCoy: It's suddenly as if I didn't exist. As if everything I knew and accepted is gone.
+	Actor_Says(kActorMcCoy,   2885, 12); // McCoy: And my animal, Maggie, my prized possession disappeared.
+	Actor_Says(kActorRachael,  360,  3); // Rachael: I'm sorry.
+	Actor_Says(kActorRachael,  370,  3); // Rachael: I know the feeling.
+	Actor_Says(kActorMcCoy,   2890, 18); // McCoy: You do?
+	Actor_Says(kActorRachael,  380, 18); // Rachael: Everything we believe, those things we call reality?
+	Actor_Says(kActorRachael,  390, 12); // Rachael: Well, what is reality?
+	Actor_Says(kActorRachael,  400, 13); // Rachael: Maybe it's all someone else's fantasy.
+	Actor_Says(kActorMcCoy,   2895, 14); // McCoy: That would make us a fantasy.
+	Actor_Says(kActorRachael,  410, 15); // Rachael: That's right. And in the blink of an eye it can all go away.
+	Actor_Says(kActorMcCoy,   2900, 16); // McCoy: But just yesterday, I--
+	Actor_Says(kActorRachael,  420, 14); // Rachael: Yesterday, two months ago, ten years ago. What's the difference?
+	Actor_Says(kActorMcCoy,   2905, 13); // McCoy: But if we both remembered--
+	Actor_Says(kActorRachael,  430, 16); // Rachael: Copies. Only copies.
+	Actor_Says(kActorRachael,  440, 12); // Rachael: The only thing we can trust is right now. Not tomorrow and certainly not yesterday.
+	Actor_Says(kActorMcCoy,   2910, 14); // McCoy: No, I'm not losing my mind. Someone is trying to mess with me. The police are saying I'm an escaped Replicant.
+	Actor_Says(kActorMcCoy,   2920, 17); // McCoy: Someone must be setting me up for some reason. Using me.
+	Actor_Says(kActorRachael,  450,  3); // Rachael: There's nothing wrong with accepting what you are.
+	Actor_Says(kActorMcCoy,   2925, 15); // McCoy: I'm not a Replicant goddamn it.
+	Actor_Says(kActorMcCoy,   2930, 14); // McCoy: Look, maybe you can help me. You're Tyrell's niece, you can vouch for me.
+	Actor_Says(kActorRachael,  460, 13); // Rachael: Why don't you just take that Voigt Kampff test. That would settle it, wouldn't it?
+	Actor_Says(kActorMcCoy,   2935, 19); // McCoy: Yeah, that's a good idea. Maybe I'll do that.
+	Actor_Says(kActorRachael,  470, 18); // Rachael: I hope you get the answers you're looking for, McCoy.
 }
 
 } // End of namespace BladeRunner

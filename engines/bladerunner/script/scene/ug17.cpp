@@ -80,7 +80,7 @@ bool SceneScriptUG17::ClickedOnExit(int exitId) {
 		if (!Loop_Actor_Walk_To_XYZ(kActorMcCoy, 1013.0f, 67.96f, -1892.0f, 0, true, false, false)) {
 			Actor_Face_Heading(kActorMcCoy, 89, false);
 			if (Global_Variable_Query(kVariableChapter) == 5) {
-				Actor_Says(kActorMcCoy, 8522, 14);
+				Actor_Says(kActorMcCoy, 8522, 14); // McCoy: Locked.
 			} else {
 				Loop_Actor_Travel_Ladder(kActorMcCoy, 10, true, kAnimationModeIdle);
 				Ambient_Sounds_Remove_All_Non_Looping_Sounds(true);

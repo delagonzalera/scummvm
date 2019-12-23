@@ -133,9 +133,9 @@ void AIScriptGordo::CompletedMovementTrack() {
 			Actor_Change_Animation_Mode(kActorMcCoy, kAnimationModeCombatAim); // TODO: check this, it was set directly by calling actor script
 			Actor_Face_Actor(kActorMcCoy, kActorGordo, true);
 			Actor_Face_Actor(kActorGordo, kActorMcCoy, true);
-			Actor_Says(kActorGordo, 50, 13);
-			Actor_Says(kActorMcCoy, 465, kAnimationModeCombatAim);
-			Actor_Says(kActorGordo, 60, 14);
+			Actor_Says(kActorGordo,  50,                      13); // Gordo: Chill it, man. Just took a wrong turn back there. That's all.
+			Actor_Says(kActorMcCoy, 465, kAnimationModeCombatAim); // McCoy: Take your business elsewhere.
+			Actor_Says(kActorGordo,  60,                      14); // Gordo: An excellent idea.
 			Player_Set_Combat_Mode(false);
 			Player_Gains_Control();
 		}
@@ -169,7 +169,7 @@ void AIScriptGordo::CompletedMovementTrack() {
 			Actor_Face_Heading(kActorGordo, 0, false);
 			Loop_Actor_Travel_Stairs(kActorGordo, 4, true, kAnimationModeIdle);
 			Actor_Face_Heading(kActorGordo, 506, false);
-			Actor_Says(kActorGordo, 280, 14);
+			Actor_Says(kActorGordo, 280, 14); // Gordo: Hey! Is everybody having a good time tonight?
 		} else {
 			Actor_Set_At_Waypoint(kActorGordo, 357, 506);
 		}
@@ -217,12 +217,12 @@ void AIScriptGordo::ClickedByPlayer() {
 		talkToMcCoyInCity();
 	} else if (goal == kGoalGordoNR01Arrested) {
 		Actor_Face_Actor(kActorMcCoy, kActorGordo, true);
-		Actor_Says(kActorMcCoy, 8600, 11);
+		Actor_Says(kActorMcCoy, 8600, 11); // McCoy: You keeping busy, pal?
 		Actor_Face_Actor(kActorGordo, kActorMcCoy, true);
-		Actor_Says(kActorGordo, 1390, 16);
+		Actor_Says(kActorGordo, 1390, 16); // Gordo: Show's over, baby! And there ain't gonna be no encore!
 	} else if (goal == kGoalGordoGone) {
 		Actor_Face_Actor(kActorMcCoy, kActorGordo, true);
-		Actor_Says(kActorMcCoy, 8665, 14);
+		Actor_Says(kActorMcCoy, 8665, 14); // McCoy: Disgusting.
 	}
 	//return false;
 }
@@ -262,8 +262,8 @@ bool AIScriptGordo::ShotAtAndHit() {
 	) {
 		Actor_Set_Goal_Number(kActorGordo, kGoalGordoNR01Die);
 		Delay(1500);
-		Actor_Voice_Over(2410, kActorVoiceOver);
-		Actor_Voice_Over(2420, kActorVoiceOver);
+		Actor_Voice_Over(2410, kActorVoiceOver); // Mainframe: He went down too easy. Just one shot.
+		Actor_Voice_Over(2420, kActorVoiceOver); // Mainframe: I got the cold cut boys down here and they performed a bone-marrow on him.
 		Game_Flag_Set(kFlagNR01toNR02);
 		Actor_Set_Goal_Number(kActorMcCoy, kGoalMcCoyArrested);
 	}
@@ -282,9 +282,9 @@ void AIScriptGordo::Retired(int byActorId) {
 		Actor_Set_Goal_Number(kActorGordo, kGoalGordoGone);
 		Delay(2000);
 		Player_Set_Combat_Mode(false);
-		Actor_Voice_Over(1410, kActorVoiceOver);
-		Actor_Voice_Over(1430, kActorVoiceOver);
-		Actor_Voice_Over(1440, kActorVoiceOver);
+		Actor_Voice_Over(1410, kActorVoiceOver); // Mainframe: I'd retired another Replicant so more money was headed my way but I didn't feel so good about it.
+		Actor_Voice_Over(1430, kActorVoiceOver); // Mainframe: Even though Gordo had almost nailed me first.
+		Actor_Voice_Over(1440, kActorVoiceOver); // Mainframe: All those bad jokes. It was only an entertainment model.
 		if (Query_Difficulty_Level() > kGameDifficultyEasy) {
 			Global_Variable_Increment(kVariableChinyen, 200);
 		}
@@ -362,8 +362,8 @@ bool AIScriptGordo::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 
 	case kGoalGordoCT01BidFarewellToHowieLee:
 		Actor_Face_Actor(kActorGordo, kActorHowieLee, true);
-		Actor_Says(kActorGordo, 0, 13);
-		Actor_Says(kActorGordo, 10, 16);
+		Actor_Says(kActorGordo,  0, 13); // Gordo: Dynamite diner, old man.
+		Actor_Says(kActorGordo, 10, 16); // Gordo: Catch you later.
 		Actor_Set_Goal_Number(kActorGordo, kGoalGordoCT01WalkAway);
 		Player_Gains_Control();
 		break;
@@ -521,69 +521,69 @@ bool AIScriptGordo::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 
 	case kGoalGordoNR02TellJoke1:
 		ADQ_Add_Pause(5000);
-		ADQ_Add(kActorGordo, 630, 15);
-		ADQ_Add(kActorGordo, 640, 16);
+		ADQ_Add(kActorGordo, 630, 15); // Gordo: What does a marriage and a tornado have in common?
+		ADQ_Add(kActorGordo, 640, 16); // Gordo: First there's a lot of sucking and blowing. And then you lose your house.
 		ADQ_Add_Pause(1000);
-		ADQ_Add(kActorGordo, 650, 14);
+		ADQ_Add(kActorGordo, 650, 14); // Gordo: You know what my first wife's nickname was. Twister!
 		break;
 
 	case kGoalGordoNR02TellJoke2:
 		ADQ_Add_Pause(1000);
-		ADQ_Add(kActorGordo, 660, 16);
-		ADQ_Add(kActorGordo, 670, 14);
-		ADQ_Add(kActorGordo, 680, 13);
-		ADQ_Add(kActorGordo, 690, 17);
+		ADQ_Add(kActorGordo, 660, 16); // Gordo: A doctor calls up his patient; I got bad news and I got worse news.
+		ADQ_Add(kActorGordo, 670, 14); // Gordo: The bad news is you only got twenty four hours to live.
+		ADQ_Add(kActorGordo, 680, 13); // Gordo: The patients says: "what could be worse than that?"
+		ADQ_Add(kActorGordo, 690, 17); // Gordo: The doctor says: "I've been trying to reach you since yesterday!"
 		break;
 
 	case kGoalGordoNR02TellJoke3:
 		ADQ_Add_Pause(1000);
-		ADQ_Add(kActorGordo, 700, 15);
-		ADQ_Add(kActorGordo, 710, 13);
+		ADQ_Add(kActorGordo, 700, 15); // Gordo: Guess what happens to a Replicant who does his job really well.
+		ADQ_Add(kActorGordo, 710, 13); // Gordo: Early "retirement", baby.
 		break;
 
 	case kGoalGordoNR02TalkAboutMcCoy:
 		Actor_Force_Stop_Walking(kActorMcCoy);
 		Actor_Face_Actor(kActorGordo, kActorMcCoy, true);
-		Actor_Says(kActorGordo, 720, 16);
-		Actor_Says(kActorGordo, 730, 18);
+		Actor_Says(kActorGordo, 720, 16); // Gordo: I see we got a celebrity in the audience! Can I get a spot, please?
+		Actor_Says(kActorGordo, 730, 18); // Gordo: That's right. It's one of the boys from the local Blade Runner unit!
 		Music_Stop(1);
 		Actor_Face_Actor(kActorMcCoy, kActorGordo, true);
-		Actor_Says(kActorGordo, 740, 17);
+		Actor_Says(kActorGordo, 740, 17); // Gordo: One of the LPD's finest. Ray McCoy!
 		Sound_Play(kSfxRIMSHOT1, 50, 0, 0, 50);
 		Sound_Play(kSfxAUDLAFF1, 50, 0, 0, 50);
-		Actor_Says(kActorGordo, 750, 16);
-		Actor_Says(kActorGordo, 760, 15);
-		Actor_Says(kActorGordo, 770, 14);
-		Actor_Says(kActorGordo, 780, 13);
-		Actor_Says(kActorMcCoy, 3885, 16);
+		Actor_Says(kActorGordo,  750, 16); // Gordo: Let's give a big hand for Rep detect McCoy.
+		Actor_Says(kActorGordo,  760, 15); // Gordo: He's protecting us poor slobs, ladies and gentlemen.
+		Actor_Says(kActorGordo,  770, 14); // Gordo: He even thinks you're a Replicant, he can waste you right where you stand.
+		Actor_Says(kActorGordo,  780, 13); // Gordo: Nice job, eh detective?
+		Actor_Says(kActorMcCoy, 3885, 16); // McCoy: It doesn't quite work that way.
 		if (Game_Flag_Query(kFlagGordoIsReplicant)) {
-			Actor_Says(kActorGordo, 850, 12);
-			Actor_Says(kActorGordo, 860, 15);
-			Actor_Says(kActorMcCoy, 3910, 16);
+			Actor_Says(kActorGordo,  850, 12); // Gordo: How about yourself? You're sure about yourself?
+			Actor_Says(kActorGordo,  860, 15); // Gordo: 'Cause I've got some friends they say they know you.
+			Actor_Says(kActorMcCoy, 3910, 16); // McCoy: You're lying.
 			if (Global_Variable_Query(kVariableHollowayArrest) == 2) {
-				Actor_Says(kActorGordo, 870, 16);
+				Actor_Says(kActorGordo, 870, 16); // Gordo: Yeah? My friends say you ain't a Blade Runner at all! They say you're a fraud.
 				Sound_Play(kSfxRIMSHOT2, 50, 0, 0, 50);
 				Sound_Play(kSfxAUDLAFF1, 50, 0, 0, 50);
 				Actor_Set_Goal_Number(kActorHolloway, kGoalHollowayGoToNR02);
-				Actor_Says(kActorGordo, 880, 17);
+				Actor_Says(kActorGordo, 880, 17); // Gordo: And look! Here come the cops now. Let's have a big hand for the real police!
 				Actor_Set_Goal_Number(kActorGordo, kGoalGordoNR02WaitAtPodium);
 				Player_Loses_Control();
 			} else {
 				Actor_Set_Goal_Number(kActorGordo, kGoalGordoNR02RunAway1);
 			}
 		} else {
-			Actor_Says(kActorGordo, 790, 12);
-			Actor_Says(kActorMcCoy, 3890, 15);
+			Actor_Says(kActorGordo,  790, 12); // Gordo: Doesn't, eh? What if I pretended to be a Replicant?
+			Actor_Says(kActorMcCoy, 3890, 15); // McCoy: That just an excuse for your lousy act, Gordo?
 			Sound_Play(kSfxRIMSHOT3, 50, 0, 0, 50);
 			Sound_Play(kSfxAUDLAFF3, 50, 0, 0, 50);
-			Actor_Says(kActorGordo, 800, 15);
-			Actor_Says(kActorGordo, 810, 17);
-			Actor_Says(kActorMcCoy, 3895, 16);
-			Actor_Says(kActorGordo, 820, 14);
-			Actor_Says(kActorMcCoy, 3900, 14);
-			Actor_Says(kActorGordo, 830, 15);
-			Actor_Says(kActorMcCoy, 3905, 13);
-			Actor_Says(kActorGordo, 840, 13);
+			Actor_Says(kActorGordo,  800, 15); // Gordo: (laughs) That snake dancer that worked here. Zhora? She was a Rep.
+			Actor_Says(kActorGordo,  810, 17); // Gordo: And her picture is gonna be on every front page tomorrow.
+			Actor_Says(kActorMcCoy, 3895, 16); // McCoy: Too bad she'll never read it.
+			Actor_Says(kActorGordo,  820, 14); // Gordo: How are you sure someone's a Rep, detective?
+			Actor_Says(kActorMcCoy, 3900, 14); // McCoy: (sigh) There's a test.
+			Actor_Says(kActorGordo,  830, 15); // Gordo: Test? What Replicant is gonna sit still for a test?
+			Actor_Says(kActorMcCoy, 3905, 13); // McCoy: If I'm trying to question someone and he runs, that's a pretty good sign.
+			Actor_Says(kActorGordo,  840, 13); // Gordo: Could be a pretty good sign that you need to bathe more often.
 			Sound_Play(kSfxRIMSHOT4, 50, 0, 0, 50);
 			Sound_Play(kSfxAUDLAFF3, 50, 0, 0, 50);
 			Actor_Set_Goal_Number(kActorGordo, kGoalGordoNR02RunAway1);
@@ -633,22 +633,22 @@ bool AIScriptGordo::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		break;
 
 	case kGoalGordoNR01GiveUp:
-		ADQ_Add(kActorGordo, 170, 18);
+		ADQ_Add(kActorGordo, 170, 18); // Gordo: Do what you gotta do, McCoy. If you gotta shoot, that's cool.
 		AI_Countdown_Timer_Start(kActorGordo, kActorTimerAIScriptCustomTask0, 10);
 		break;
 
 	case kGoalGordoNR01TalkToMcCoy:
 		Actor_Face_Actor(kActorGordo, kActorMcCoy, true);
-		Actor_Says(kActorGordo, 180, 13);
+		Actor_Says(kActorGordo, 180, 13); // Gordo: Come on, McCoy. Why don't you make me famous.
 		Actor_Face_Actor(kActorMcCoy, kActorGordo, true);
-		Actor_Says(kActorMcCoy, 3075, 13);
-		Actor_Says(kActorGordo, 190, 15);
+		Actor_Says(kActorMcCoy, 3075, 13); // McCoy: Get off it. You're no Replicant.
+		Actor_Says(kActorGordo,  190, 15); // Gordo: How do you know? I could be a martyr for the cause, baby.
 		Loop_Actor_Walk_To_Actor(kActorGordo, kActorMcCoy, 60, false, true);
 		Actor_Face_Actor(kActorGordo, kActorMcCoy, true);
 		Actor_Face_Actor(kActorMcCoy, kActorGordo, true);
-		Actor_Says(kActorMcCoy, 3080, 15);
-		Actor_Says(kActorGordo, 200, 15);
-		Actor_Says(kActorMcCoy, 3085, 15);
+		Actor_Says(kActorMcCoy, 3080, 15); // McCoy: Every Rep I've ever seen wants to live not die, pal.
+		Actor_Says(kActorGordo,  200, 15); // Gordo: What are you? An expert?
+		Actor_Says(kActorMcCoy, 3085, 15); // McCoy: I've been around.
 		dialogue2();
 		break;
 
@@ -1579,7 +1579,7 @@ void AIScriptGordo::talkToMcCoyInCity() {
 	        || Actor_Query_Inch_Distance_From_Actor(kActorMcCoy, kActorGordo) <= 330)
 	) {
 #if BLADERUNNER_ORIGINAL_BUGS
-		Actor_Says(kActorMcCoy, 6460, 12);
+		Actor_Says(kActorMcCoy, 6460, 12); // McCoy: Hey, pal.
 		AI_Movement_Track_Pause(kActorGordo);
 		Loop_Actor_Walk_To_Actor(kActorGordo, kActorMcCoy, 36, false, false);
 		Actor_Face_Actor(kActorGordo, kActorMcCoy, true);
@@ -1588,22 +1588,22 @@ void AIScriptGordo::talkToMcCoyInCity() {
 		Actor_Face_Actor(kActorMcCoy, kActorGordo, true);
 		AI_Movement_Track_Pause(kActorGordo);
 		Actor_Face_Actor(kActorGordo, kActorMcCoy, true);
-		Actor_Says(kActorMcCoy, 6460, 12);
+		Actor_Says(kActorMcCoy, 6460, 12); // McCoy: Hey, pal.
 		Loop_Actor_Walk_To_Actor(kActorGordo, kActorMcCoy, 36, false, false);
 #endif // BLADERUNNER_ORIGINAL_BUGS
-		Actor_Says(kActorGordo, 890, 14);
-		Actor_Says(kActorMcCoy, 6465, 15);
-		Actor_Says(kActorGordo, 900, 13);
-		Actor_Says(kActorGordo, 910, 13);
-		Actor_Says(kActorMcCoy, 6470, 12);
-		Actor_Says(kActorGordo, 920, 14);
-		Actor_Says(kActorGordo, 930, 12);
-		Actor_Says(kActorMcCoy, 6475, 13);
-		Actor_Says(kActorGordo, 940, 12);
-		Actor_Says(kActorGordo, 950, 13);
-		Actor_Says(kActorMcCoy, 6480, 14);
-		Actor_Says(kActorGordo, 960, 15);
-		Actor_Says(kActorGordo, 970, 12);
+		Actor_Says(kActorGordo,  890, 14); // Gordo: What's shaking baby? Haven't I seen you around these parts before?
+		Actor_Says(kActorMcCoy, 6465, 15); // McCoy: Could be. I get around.
+		Actor_Says(kActorGordo,  900, 13); // Gordo: You ever get down to Nightclub Row, you ought to check out my act.
+		Actor_Says(kActorGordo,  910, 13); // Gordo: I'm just warming up the room but it's better than a kick in the pants, ya dig?
+		Actor_Says(kActorMcCoy, 6470, 12); // McCoy: What kind of stuff do you do?
+		Actor_Says(kActorGordo,  920, 14); // Gordo: What kind of--? You kiddin' baby? I do it all!
+		Actor_Says(kActorGordo,  930, 12); // Gordo: I am the direct extension of Frankie, Sammy D. and Deano Martini.
+		Actor_Says(kActorMcCoy, 6475, 13); // McCoy: Who?
+		Actor_Says(kActorGordo,  940, 12); // Gordo: Man, you really must be dozing at Squaresville, if you're asking who the "Voice" is.
+		Actor_Says(kActorGordo,  950, 13); // Gordo: You know, "Ol' Blue Eyes".  "The Chairman of the Board"? Sinatra, man!
+		Actor_Says(kActorMcCoy, 6480, 14); // McCoy: The guy's been dead for 20 years.
+		Actor_Says(kActorGordo,  960, 15); // Gordo: Well, you're gonna remember the name Gordo Frizz just like "Ol' Blue Eyes".
+		Actor_Says(kActorGordo,  970, 12); // Gordo: I ain't on the marquee of Early's just yet but it's coming. I promise you.
 		AI_Movement_Track_Unpause(kActorGordo);
 		Game_Flag_Set(kFlagGordoTalk1);
 	} else if (Game_Flag_Query(kFlagDR05BombExploded)
@@ -1613,7 +1613,7 @@ void AIScriptGordo::talkToMcCoyInCity() {
 	               || Actor_Query_Inch_Distance_From_Actor(kActorMcCoy, kActorGordo) <= 330)
 	) {
 #if BLADERUNNER_ORIGINAL_BUGS
-		Actor_Says(kActorMcCoy, 6485, 12);
+		Actor_Says(kActorMcCoy, 6485, 12); // McCoy: You know anything about that bomb that just rocked the street?
 		AI_Movement_Track_Pause(kActorGordo);
 		Loop_Actor_Walk_To_Actor(kActorGordo, kActorMcCoy, 48, false, false);
 		Actor_Face_Actor(kActorGordo, kActorMcCoy, true);
@@ -1621,26 +1621,26 @@ void AIScriptGordo::talkToMcCoyInCity() {
 #else
 		Actor_Face_Actor(kActorMcCoy, kActorGordo, true);
 		AI_Movement_Track_Pause(kActorGordo);
-		Actor_Says(kActorMcCoy, 6485, 12);
+		Actor_Says(kActorMcCoy, 6485, 12); // McCoy: You know anything about that bomb that just rocked the street?
 		// better for Gordo to turn delayed (after McCoy asks about the bombing) in this question
 		Actor_Face_Actor(kActorGordo, kActorMcCoy, true);
 		Loop_Actor_Walk_To_Actor(kActorGordo, kActorMcCoy, 48, false, false);
 #endif // BLADERUNNER_ORIGINAL_BUGS
 		if (Game_Flag_Query(kFlagGordoIsReplicant)) {
-			Actor_Says(kActorGordo, 1010, 12);
-			Actor_Says(kActorMcCoy, 6495, 14);
-			Actor_Says(kActorGordo, 1020, 13);
-			Actor_Says(kActorMcCoy, 6500, 14);
-			Actor_Says(kActorGordo, 1030, 15);
+			Actor_Says(kActorGordo, 1010, 12); // Gordo: Bombing? I've never bombed in my life. My act is always happening. Always now.
+			Actor_Says(kActorMcCoy, 6495, 14); // McCoy: Cut the shit. A man was killed back there.
+			Actor_Says(kActorGordo, 1020, 13); // Gordo: Gee, that's a drag. There's eight million stories in the naked city, you know.
+			Actor_Says(kActorMcCoy, 6500, 14); // McCoy: And you know nothing about it.
+			Actor_Says(kActorGordo, 1030, 15); // Gordo: Sorry, Charlie.
 			Actor_Clue_Acquire(kActorMcCoy, kClueGordoInterview1, false, kActorGordo);
 		} else {
-			Actor_Says(kActorGordo, 1040, 12);
-			Actor_Says(kActorGordo, 1050, 13);
-			Actor_Says(kActorMcCoy, 6505, 14);
-			Actor_Says(kActorGordo, 1060, 13);
-			Actor_Says(kActorGordo, 1070, 14);
-			Actor_Says(kActorMcCoy, 6510, 16);
-			Actor_Says(kActorGordo, 1080, 15);
+			Actor_Says(kActorGordo, 1040, 12); // Gordo: Bombing? I had a cousin who bombed at Tyrell's niece's wedding.
+			Actor_Says(kActorGordo, 1050, 13); // Gordo: Sang "Mack the Knife" totally out of tune.
+			Actor_Says(kActorMcCoy, 6505, 14); // McCoy: I'm talking about a real explosion. A man was killed.
+			Actor_Says(kActorGordo, 1060, 13); // Gordo: If I've learned anything out of this life, it's to keep my snout out of places where it don't belong.
+			Actor_Says(kActorGordo, 1070, 14); // Gordo: Except when I'm dealing with a luscious young lady.
+			Actor_Says(kActorMcCoy, 6510, 16); // McCoy: I wouldn't use that one in your act, if I were you.
+			Actor_Says(kActorGordo, 1080, 15); // Gordo: Some work. Some don't.
 			Actor_Clue_Acquire(kActorMcCoy, kClueGordoInterview2, false, kActorGordo);
 		}
 		AI_Movement_Track_Unpause(kActorGordo);
@@ -1649,7 +1649,7 @@ void AIScriptGordo::talkToMcCoyInCity() {
 	               || Actor_Query_Inch_Distance_From_Actor(kActorMcCoy, kActorGordo) <= 330)
 	) {
 #if BLADERUNNER_ORIGINAL_BUGS
-		Actor_Says(kActorMcCoy, 6490, 12);
+		Actor_Says(kActorMcCoy, 6490, 12); // McCoy: You seen any suspicious-looking people around here?
 		AI_Movement_Track_Pause(kActorGordo);
 		Loop_Actor_Walk_To_Actor(kActorGordo, kActorMcCoy, 60, false, false);
 		Actor_Face_Actor(kActorGordo, kActorMcCoy, true);
@@ -1658,26 +1658,26 @@ void AIScriptGordo::talkToMcCoyInCity() {
 		Actor_Face_Actor(kActorMcCoy, kActorGordo, true);
 		AI_Movement_Track_Pause(kActorGordo);
 		Actor_Face_Actor(kActorGordo, kActorMcCoy, true);
-		Actor_Says(kActorMcCoy, 6490, 12);
+		Actor_Says(kActorMcCoy, 6490, 12); // McCoy: You seen any suspicious-looking people around here?
 		Loop_Actor_Walk_To_Actor(kActorGordo, kActorMcCoy, 60, false, false);
 #endif // BLADERUNNER_ORIGINAL_BUGS
-		Actor_Says(kActorGordo, 990, 13);
-		Actor_Says(kActorGordo, 1000, 15);
+		Actor_Says(kActorGordo,  990, 13); // Gordo: Hell, no. I mean, a lot of wackos cool their heels down here.
+		Actor_Says(kActorGordo, 1000, 15); // Gordo: But they're anything but suspicious.
 		Game_Flag_Set(kFlagGordoTalk2);
 		AI_Movement_Track_Unpause(kActorGordo);
 	} else {
 		switch (Random_Query(1, 4)) {
 			case 1:
-				Actor_Says(kActorMcCoy, 6460, 13);
+				Actor_Says(kActorMcCoy, 6460, 13); // McCoy: Hey, pal.
 				break;
 			case 2:
-				Actor_Says(kActorMcCoy, 6550, 14);
+				Actor_Says(kActorMcCoy, 6550, 14); // McCoy: You're still hanging around?
 				break;
 			case 3:
-				Actor_Says(kActorMcCoy, 365, 12);
+				Actor_Says(kActorMcCoy, 365, 12); // McCoy: Excuse me, pal!
 				break;
 			case 4:
-				Actor_Says(kActorMcCoy, 525, 12);
+				Actor_Says(kActorMcCoy, 525, 12); // McCoy: I've seen you before...
 				break;
 		}
 	}
@@ -1688,18 +1688,18 @@ void AIScriptGordo::talkToMcCoyInCity() {
 void AIScriptGordo::talkToMcCoyAtNR02() {
 	Player_Loses_Control();
 	Actor_Face_Heading(kActorMcCoy, 308, false);
-	Actor_Says(kActorMcCoy, 3210, kAnimationModeTalk);
+	Actor_Says(kActorMcCoy, 3210, kAnimationModeTalk); // McCoy: Hey, man.
 	Actor_Face_Actor(kActorGordo, kActorMcCoy, true);
 	Actor_Face_Actor(kActorMcCoy, kActorGordo, true);
-	Actor_Says(kActorGordo, 290, 13);
-	Actor_Says(kActorGordo, 300, 14);
-	Actor_Says(kActorGordo, 310, 12);
-	Actor_Says(kActorGordo, 320, 15);
-	Actor_Says(kActorMcCoy, 3215, kAnimationModeTalk);
-	Actor_Says(kActorMcCoy, 3220, 12);
-	Actor_Says(kActorGordo, 330, 17);
-	Actor_Says(kActorGordo, 350, 13);
-	Actor_Says(kActorMcCoy, 3225, 18);
+	Actor_Says(kActorGordo,  290,                 13); // Gordo: You're that cat from Howie Lee's. McCoy, right? We keep bumping into each other.
+	Actor_Says(kActorGordo,  300,                 14); // Gordo: You want an autograph?
+	Actor_Says(kActorGordo,  310,                 12); // Gordo: I know you ain't heard me yet
+	Actor_Says(kActorGordo,  320,                 15); // Gordo: but Gordo Frizz's autograph's gonna be worth a pile of chinyen some day.
+	Actor_Says(kActorMcCoy, 3215, kAnimationModeTalk); // McCoy: I'll hold my breath.
+	Actor_Says(kActorMcCoy, 3220,                 12); // McCoy: I'm gonna ask you a few questions.
+	Actor_Says(kActorGordo,  330,                 17); // Gordo: Man, don't you got anything better to do than hassle innocent people at their place of work?
+	Actor_Says(kActorGordo,  350,                 13); // Gordo: Make it snappy, okay?
+	Actor_Says(kActorMcCoy, 3225,                 18); // McCoy: I really appreciate your patience.
 	Player_Gains_Control();
 	dialogue1();
 	Player_Loses_Control();
@@ -1719,11 +1719,11 @@ void AIScriptGordo::dialogue2() {
 	Dialogue_Menu_Disappear();
 
 	if (answer == 820) { // ARREST
-		Actor_Says(kActorMcCoy, 3090, 16);
-		Actor_Says(kActorMcCoy, 3095, 15);
-		Actor_Says(kActorGordo, 210, 17);
-		Actor_Says(kActorGordo, 220, 14);
-		Actor_Says(kActorGordo, 230, 15);
+		Actor_Says(kActorMcCoy, 3090, 16); // McCoy: You may not be a Rep but you're a damn Rep sympathizer for sure.
+		Actor_Says(kActorMcCoy, 3095, 15); // McCoy: Now we're gonna take a little ride downtown.
+		Actor_Says(kActorGordo,  210, 17); // Gordo: Yeah. And what? You'll put me on that Voigt-Kampff machine?
+		Actor_Says(kActorGordo,  220, 14); // Gordo: My fifteen minutes of fame, baby.
+		Actor_Says(kActorGordo,  230, 15); // Gordo: It ain't as good as being gunned down on the street but what the hell.
 		Actor_Set_Goal_Number(kActorGordo, kGoalGordoNR01Arrested);
 		Actor_Put_In_Set(kActorGordo, kSetPS09);
 		Actor_Set_At_XYZ(kActorGordo, -479.15f, 0.0f, -197.84f, 547);
@@ -1736,19 +1736,19 @@ void AIScriptGordo::dialogue2() {
 		Game_Flag_Set(kFlagMcCoyInPoliceStation);
 		Set_Enter(kSetPS09, kScenePS09);
 	} else if (answer == 830) { // LET GO
-		Actor_Says(kActorMcCoy, 3100, 16);
-		Actor_Says(kActorGordo, 240, 14);
+		Actor_Says(kActorMcCoy, 3100, 16); // McCoy: I should haul you downtown. But that would probably just make you happy.
+		Actor_Says(kActorGordo,  240, 14); // Gordo: You're not even going to arrest me?
 		if (Actor_Clue_Query(kActorMcCoy, kClueStolenCheese)) {
-			Actor_Says(kActorMcCoy, 3105, 15);
-			Actor_Says(kActorMcCoy, 3110, 17);
-			Actor_Says(kActorGordo, 250, 13);
-			Actor_Says(kActorGordo, 260, 18);
-			Actor_Says(kActorMcCoy, 3115, 14);
-			Actor_Says(kActorGordo, 270, 15);
+			Actor_Says(kActorMcCoy, 3105, 15); // McCoy: Instead, I'm gonna let you go. But here's what you're gonna do.
+			Actor_Says(kActorMcCoy, 3110, 17); // McCoy: You're gonna go tell your pal, Clovis, that I'm looking for him.
+			Actor_Says(kActorGordo,  250, 13); // Gordo: I can't guarantee that he's gonna to listen to me. He's got a mind of his own.
+			Actor_Says(kActorGordo,  260, 18); // Gordo: Which is the mark of a true star. The kind that lights up the sky once in a generation.
+			Actor_Says(kActorMcCoy, 3115, 14); // McCoy: If Crystal Steele tracks him down, he's gonna have to light up the sky from six feet under.
+			Actor_Says(kActorGordo,  270, 15); // Gordo: Very funny.
 			Actor_Clue_Acquire(kActorGordo, kClueMcCoyHelpedGordo, true, -1);
 		} else {
 			Delay(1000);
-			Actor_Says(kActorGordo, 570, 13);
+			Actor_Says(kActorGordo, 570, 13); // Gordo: Gotta go, daddy-o.
 		}
 		Game_Flag_Set(kFlagGordoRanAway);
 		Scene_Exits_Enable();
@@ -1779,79 +1779,79 @@ void AIScriptGordo::dialogue1() {
 
 	switch (answer) {
 	case 760: // ZUBEN
-		Actor_Says(kActorMcCoy, 3230, kAnimationModeTalk);
-		Actor_Says(kActorGordo, 360, 16);
-		Actor_Says(kActorMcCoy, 3260, 15);
-		Actor_Says(kActorGordo, 370, 13);
-		Actor_Says(kActorGordo, 380, 12);
-		Actor_Says(kActorGordo, 390, 14);
+		Actor_Says(kActorMcCoy, 3230, kAnimationModeTalk); // McCoy: You know the chef at Howie's?
+		Actor_Says(kActorGordo,  360,                 16); // Gordo: That big flabby guy? Never seen him before.
+		Actor_Says(kActorMcCoy, 3260,                 15); // McCoy: You were hanging around right when he took off.
+		Actor_Says(kActorGordo,  370,                 13); // Gordo: Pure coincidence.
+		Actor_Says(kActorGordo,  380,                 12); // Gordo: You are one hell of a suspicious cat, McCoy.
+		Actor_Says(kActorGordo,  390,                 14); // Gordo: Kick back, relax. Watch my show. Take a little break from your boring existence.
 		if (Player_Query_Agenda() == kPlayerAgendaSurly) {
-			Actor_Says(kActorMcCoy, 3265, 13);
-			Actor_Says(kActorGordo, 400, 12);
+			Actor_Says(kActorMcCoy, 3265, 13); // McCoy: If you were half as good as you think you are, you wouldn't be working in a joint like this.
+			Actor_Says(kActorGordo,  400, 12); // Gordo: What do you mean? Taffy's got some real celebs in the audience, baby.
 			Actor_Modify_Friendliness_To_Other(kActorGordo, kActorMcCoy, -3);
 		}
 		break;
 
 	case 770: // JOB
-		Actor_Says(kActorMcCoy, 3235, kAnimationModeTalk);
-		Actor_Says(kActorGordo, 410, 12);
-		Actor_Says(kActorMcCoy, 3270, 15);
-		Actor_Says(kActorGordo, 420, 14);
-		Actor_Says(kActorMcCoy, 3275, 15);
-		Actor_Says(kActorGordo, 430, 12);
-		Actor_Says(kActorGordo, 440, 13);
+		Actor_Says(kActorMcCoy, 3235, kAnimationModeTalk); // McCoy: I didn't know Taffy was hiring your type.
+		Actor_Says(kActorGordo,  410,                 12); // Gordo: You mean my type as in talented, right? I had to fill in last minute for that snake woman.
+		Actor_Says(kActorMcCoy, 3270,                 15); // McCoy: Did you hear what happened to her?
+		Actor_Says(kActorGordo,  420,                 14); // Gordo: She went on permanent vacation.
+		Actor_Says(kActorMcCoy, 3275,                 15); // McCoy: That's right. She was retired by a Blade Runner.
+		Actor_Says(kActorGordo,  430,                 12); // Gordo: She was one of those skin-jobs?
+		Actor_Says(kActorGordo,  440,                 13); // Gordo: Between you and me I hear they are all over the place down here.
 		if (Game_Flag_Query(kFlagGordoIsReplicant)) {
-			Actor_Says(kActorGordo, 450, 17);
-			Actor_Says(kActorMcCoy, 3280, 15);
+			Actor_Says(kActorGordo,  450, 17); // Gordo: You ought to call in a few more of the hunters to clear the place out.
+			Actor_Says(kActorMcCoy, 3280, 15); // McCoy: Hunter? Ain't too often I hear 'em called that.
 			Actor_Clue_Acquire(kActorMcCoy, kClueGordoInterview3, false, kActorGordo);
 		}
-		Actor_Says(kActorGordo, 460, 15);
+		Actor_Says(kActorGordo, 460, 15); // Gordo: Look, I'd love to jawbone with you all night. But I'm being paged for my set. Check it out.
 		break;
 
 	case 780: // BLOND WOMAN
-		Actor_Says(kActorMcCoy, 3240, kAnimationModeTalk);
-		Actor_Says(kActorGordo, 470, 17);
-		Actor_Says(kActorMcCoy, 3285, 16);
-		Actor_Says(kActorGordo, 480, 13);
-		Actor_Says(kActorGordo, 490, 12);
-		Actor_Says(kActorGordo, 500, 13);
-		Actor_Says(kActorMcCoy, 3290, 16);
-		Actor_Says(kActorGordo, 510, 15);
-		Actor_Says(kActorMcCoy, 3295, 14);
-		Actor_Says(kActorGordo, 520, 12);
+		Actor_Says(kActorMcCoy, 3240, kAnimationModeTalk); // McCoy: You seen this woman around here?
+		Actor_Says(kActorGordo,  470,                 17); // Gordo: I think I slept with her just last night!
+		Actor_Says(kActorMcCoy, 3285,                 16); // McCoy: What?
+		Actor_Says(kActorGordo,  480,                 13); // Gordo: Just kidding, baby. Tell you the truth
+		Actor_Says(kActorGordo,  490,                 12); // Gordo: so many women walk in and out of my life.
+		Actor_Says(kActorGordo,  500,                 13); // Gordo: I might have spent an evening with her. But how'd I remember?
+		Actor_Says(kActorMcCoy, 3290,                 16); // McCoy: Yeah. I'm sure you're irresistible.
+		Actor_Says(kActorGordo,  510,                 15); // Gordo: The babes dig a man with a sense of humor.
+		Actor_Says(kActorMcCoy, 3295,                 14); // McCoy: And a sense of taste. So, in answer to my question--
+		Actor_Says(kActorGordo,  520,                 12); // Gordo: I ain't never laid eyes on that chic. But if I do, I'll make sure to keep her all for myself.
 		Actor_Modify_Friendliness_To_Other(kActorGordo, kActorMcCoy, -4);
 		break;
 
 	case 790: // LUCY
-		Actor_Says(kActorMcCoy, 3245, kAnimationModeTalk);
-		Actor_Says(kActorGordo, 470, 17);
-		Actor_Says(kActorMcCoy, 3285, 16);
-		Actor_Says(kActorGordo, 480, 13);
-		Actor_Says(kActorGordo, 490, 12);
-		Actor_Says(kActorGordo, 500, 13);
-		Actor_Says(kActorMcCoy, 3290, 16);
-		Actor_Says(kActorGordo, 510, 15);
-		Actor_Says(kActorMcCoy, 3295, 14);
-		Actor_Says(kActorGordo, 520, 12);
+		Actor_Says(kActorMcCoy, 3245, kAnimationModeTalk); // McCoy: This girl look familiar?
+		Actor_Says(kActorGordo,  470,                 17); // Gordo: I think I slept with her just last night!
+		Actor_Says(kActorMcCoy, 3285,                 16); // McCoy: What?
+		Actor_Says(kActorGordo,  480,                 13); // Gordo: Just kidding, baby. Tell you the truth
+		Actor_Says(kActorGordo,  490,                 12); // Gordo: so many women walk in and out of my life.
+		Actor_Says(kActorGordo,  500,                 13); // Gordo: I might have spent an evening with her. But how'd I remember?
+		Actor_Says(kActorMcCoy, 3290,                 16); // McCoy: Yeah. I'm sure you're irresistible.
+		Actor_Says(kActorGordo,  510,                 15); // Gordo: The babes dig a man with a sense of humor.
+		Actor_Says(kActorMcCoy, 3295,                 14); // McCoy: And a sense of taste. So, in answer to my question--
+		Actor_Says(kActorGordo,  520,                 12); // Gordo: I ain't never laid eyes on that chic. But if I do, I'll make sure to keep her all for myself.
 		Actor_Modify_Friendliness_To_Other(kActorGordo, kActorMcCoy, -1);
 		break;
 
 	case 800: // CHEESE
-		Actor_Says(kActorMcCoy, 3250, kAnimationModeTalk);
-		Actor_Says(kActorGordo, 530, 18);
-		Actor_Says(kActorMcCoy, 3300, 15);
-		Actor_Says(kActorGordo, 540, 13);
-		Actor_Says(kActorMcCoy, 3305, kAnimationModeTalk);
-		Actor_Says(kActorGordo, 550, 16);
-		Actor_Says(kActorMcCoy, 3310, kAnimationModeTalk);
-		Actor_Says(kActorGordo, 560, 13);
-		Actor_Says(kActorMcCoy, 3315, 15);
-		Actor_Says(kActorGordo, 570, 14);
+		Actor_Says(kActorMcCoy, 3250, kAnimationModeTalk); // McCoy: You like cheese, Gordo?
+		Actor_Says(kActorGordo,  530,                 18); // Gordo: Think that bad man. My jokes are fresh. Real hip.
+		Actor_Says(kActorMcCoy, 3300,                 15); // McCoy: No, I mean real cheese. Dairy products. You know, from Kingston Kitchen?
+		Actor_Says(kActorGordo,  540,                 13); // Gordo: So you're wasting shoplifters instead of Replicants these days?
+		Actor_Says(kActorMcCoy, 3305, kAnimationModeTalk); // McCoy: That an admission of guilt?
+		Actor_Says(kActorGordo,  550,                 16); // Gordo: For crying out loud. Can't a guy make a living in this fakakta place without being hassled?
+		Actor_Says(kActorMcCoy, 3310, kAnimationModeTalk); // McCoy: You know a girl named Lucy, Gordo? You steal that cheese for her maybe?
+		Actor_Says(kActorGordo,  560,                 13); // Gordo: My man, it's show time.
+		Actor_Says(kActorMcCoy, 3315,                 15); // McCoy: Your friends are Replicants, Gordo. What else would I find, if I turned over the rock?
+		Actor_Says(kActorGordo,  570,                 14); // Gordo: Gotta go, daddy-o.
 		Actor_Clue_Acquire(kActorMcCoy, kClueGordoConfession, false, kActorGordo);
 		break;
 
 	case 810: // DONE
-		Actor_Says(kActorMcCoy, 3255, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy, 3255, kAnimationModeTalk); // McCoy: Maybe I'll see you again.
 		break;
 	}
 }

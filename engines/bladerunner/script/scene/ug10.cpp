@@ -120,7 +120,7 @@ bool SceneScriptUG10::ClickedOnExit(int exitId) {
 				return true;
 			}
 		} else if (!Game_Flag_Query(kFlagUG10GateOpen)) {
-			Actor_Says(kActorMcCoy, 8521, 3);
+			Actor_Says(kActorMcCoy, 8521, 3); // McCoy: No way through here.
 		}
 	} else if (exitId == 1) {
 		if ((!Game_Flag_Query(kFlagUG10GateOpen)
@@ -137,7 +137,7 @@ bool SceneScriptUG10::ClickedOnExit(int exitId) {
 				return true;
 			}
 		} else if (!Game_Flag_Query(kFlagUG10GateOpen)) {
-			Actor_Says(kActorMcCoy, 6165, 3);
+			Actor_Says(kActorMcCoy, 6165, 3); // McCoy: (breathes heavily) That's... impossible.
 		}
 	} else if (exitId == 2) {
 		if ((!Game_Flag_Query(kFlagUG10GateOpen)
@@ -153,7 +153,7 @@ bool SceneScriptUG10::ClickedOnExit(int exitId) {
 				return true;
 			}
 		} else if (!Game_Flag_Query(kFlagUG10GateOpen)) {
-			Actor_Says(kActorMcCoy, 6165, 3);
+			Actor_Says(kActorMcCoy, 6165, 3); // McCoy: (breathes heavily) That's... impossible.
 		}
 	} else if (exitId == 3) {
 		if ((!Game_Flag_Query(kFlagUG10GateOpen)
@@ -167,7 +167,7 @@ bool SceneScriptUG10::ClickedOnExit(int exitId) {
 				return true;
 			}
 		} else if (!Game_Flag_Query(kFlagUG10GateOpen)) {
-			Actor_Says(kActorMcCoy, 6165, 3);
+			Actor_Says(kActorMcCoy, 6165, 3); // McCoy: (breathes heavily) That's... impossible.
 		}
 	}
 	return false;
@@ -178,7 +178,7 @@ bool SceneScriptUG10::ClickedOn2DRegion(int region) {
 	Actor_Query_XYZ(kActorMcCoy, &x, &y, &z);
 	if (region == 0 && !Player_Query_Combat_Mode()) {
 		if (x >= 120.0f) {
-			Actor_Says(kActorMcCoy, 8525, 3);
+			Actor_Says(kActorMcCoy, 8525, 3); // McCoy: Hmph.
 		} else if (!Loop_Actor_Walk_To_XYZ(kActorMcCoy, 4.98f, 0.38f, 83.15f, 0, true, false, false)) {
 			if (!Game_Flag_Query(kFlagUG10GateOpen)) {
 				Scene_Loop_Set_Default(4);

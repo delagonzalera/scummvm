@@ -288,25 +288,25 @@ void SceneScriptPS01::PlayerWalkedIn() {
 	if (_vm->_cutContent) {
 		if (!Game_Flag_Query(kFlagCT01Visited) && !Actor_Clue_Query(kActorMcCoy, kClueDispatchHitAndRun)) {
 			Actor_Clue_Acquire(kActorMcCoy, kClueDispatchHitAndRun, false, kActorDispatcher);
-			ADQ_Add(kActorDispatcher, 80, kAnimationModeTalk);
+			ADQ_Add(kActorDispatcher, 80, kAnimationModeTalk); // Dispatcher: 31, Sector 3, LA.
 			if (Game_Flag_Query(kFlagRC01PoliceDone)) {
-				ADQ_Add(kActorOfficerLeary, 340, kAnimationModeTalk);  // sector 3 - go ahead
+				ADQ_Add(kActorOfficerLeary, 340, kAnimationModeTalk); // Officer Leary: This is 31 Sector 3. Go ahead.
 			} else {
-				ADQ_Add(kActorOfficerGrayford, 360, kAnimationModeTalk);  // sector 3 - go ahead
+				ADQ_Add(kActorOfficerGrayford, 360, kAnimationModeTalk); // Officer Grayford: This is 31 Sector 3. Go ahead.
 			}
-			ADQ_Add(kActorDispatcher, 90, kAnimationModeTalk);
-			ADQ_Add(kActorDispatcher, 100, kAnimationModeTalk);
-			ADQ_Add(kActorDispatcher, 110, kAnimationModeTalk);
+			ADQ_Add(kActorDispatcher,  90, kAnimationModeTalk); // Dispatcher: 31, Sector 3. 11-79, possible 11- 44 in the Chinatown district.
+			ADQ_Add(kActorDispatcher, 100, kAnimationModeTalk); // Dispatcher: Vehicle versus pedestrian. 10-20 is Yukon Street.
+			ADQ_Add(kActorDispatcher, 110, kAnimationModeTalk); // Dispatcher: Be advised suspect vehicle has fled the scene.
 			if (Game_Flag_Query(kFlagRC01PoliceDone)) {
-				ADQ_Add(kActorOfficerLeary, 350, kAnimationModeTalk);  // sector 3 - responding code 3
+				ADQ_Add(kActorOfficerLeary, 350, kAnimationModeTalk); // Officer Leary: LA, 10-4. 31 Sector 3, responding. Code 3.
 			} else {
-				ADQ_Add(kActorOfficerGrayford, 370, kAnimationModeTalk);  // sector 3 - responding code 3
+				ADQ_Add(kActorOfficerGrayford, 370, kAnimationModeTalk); // Officer Grayford: LA, 10-4. 31 Sector 3 responding. Code 3.
 			}
 			ADQ_Add_Pause(1000);
-			ADQ_Add(kActorDispatcher, 120, kAnimationModeTalk);
-			ADQ_Add(kActorDispatcher, 130, kAnimationModeTalk);
-			ADQ_Add(kActorDispatcher, 140, kAnimationModeTalk);
-			ADQ_Add(kActorDispatcher, 150, kAnimationModeTalk);
+			ADQ_Add(kActorDispatcher, 120, kAnimationModeTalk); // Dispatcher: All units stand by for emergency traffic.
+			ADQ_Add(kActorDispatcher, 130, kAnimationModeTalk); // Dispatcher: BOL (be on the look-out for a) dark Sedan possible front-end damage.
+			ADQ_Add(kActorDispatcher, 140, kAnimationModeTalk); // Dispatcher: Wanted for hit-and-run on a ped in Chinatown district.
+			ADQ_Add(kActorDispatcher, 150, kAnimationModeTalk); // Dispatcher: Last seen northbound on Yukon.
 		}
 	}
 	//return false;

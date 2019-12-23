@@ -185,9 +185,9 @@ void SceneScriptUG14::PlayerWalkedIn() {
 		Delay(1000);
 		Actor_Face_Heading(kActorMcCoy, 609, false);
 		Delay(3000);
-		Actor_Voice_Over(270, kActorVoiceOver);
+		Actor_Voice_Over(270, kActorVoiceOver); // Mainframe: The trash had been collected.
 		Delay(2150);
-		Actor_Voice_Over(300, kActorVoiceOver);
+		Actor_Voice_Over(300, kActorVoiceOver); // Mainframe: I'd screwed up. Plain and simple.
 		Game_Flag_Set(kFlagUG14DeadHomeless);
 	}
 	//return false;

@@ -304,12 +304,12 @@ void SceneScriptDR01::PlayerWalkedIn() {
 					&& !Game_Flag_Query(kFlagDR03ChewTalk1)
 					&& !Game_Flag_Query(kFlagDR05MorajiTalk)
 					&& !Game_Flag_Query(kFlagDirectorsCut)) {
-					Actor_Voice_Over(600, kActorVoiceOver);
-					Actor_Voice_Over(610, kActorVoiceOver);
-					Actor_Voice_Over(620, kActorVoiceOver);
-					Actor_Voice_Over(630, kActorVoiceOver);
-					Actor_Voice_Over(640, kActorVoiceOver);
-					Actor_Voice_Over(650, kActorVoiceOver);
+					Actor_Voice_Over(600, kActorVoiceOver); // Mainframe: If there's one thing that gives me the creeps...
+					Actor_Voice_Over(610, kActorVoiceOver); // Mainframe: it's dealing with those freaks on DNA row.
+					Actor_Voice_Over(620, kActorVoiceOver); // Mainframe: Every one of those genetic design sub-cons was a borderline schizoid case.
+					Actor_Voice_Over(630, kActorVoiceOver); // Mainframe: Exposed to too many chemicals, radiation or God knows what.
+					Actor_Voice_Over(640, kActorVoiceOver); // Mainframe: It was the price they paid for taking Rep technology into the future.
+					Actor_Voice_Over(650, kActorVoiceOver); // Mainframe: Or maybe it was just desserts.
 				}
 			}
 		}

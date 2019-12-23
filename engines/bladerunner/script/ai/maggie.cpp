@@ -158,7 +158,7 @@ void AIScriptMaggie::ClickedByPlayer() {
 			Actor_Set_Targetable(kActorMaggie, true);
 			AI_Movement_Track_Flush(kActorMaggie);
 			Actor_Face_Actor(kActorMcCoy, kActorMaggie, true);
-			Actor_Says(kActorMcCoy, 2400, kAnimationModeFeeding);
+			Actor_Says(kActorMcCoy, 2400, kAnimationModeFeeding); // McCoy: Here you go baby, dinner time.
 		}
 		return; // true
 	}
@@ -172,17 +172,17 @@ void AIScriptMaggie::ClickedByPlayer() {
 	float mccoy_x, mccoy_y, mccoy_z;
 	Actor_Query_XYZ(kActorMcCoy, &mccoy_x, &mccoy_y, &mccoy_z);
 	if (distanceToActor(kActorMaggie, mccoy_x, mccoy_y, mccoy_z) > 60.0f) {
-		Actor_Says(0, 2430, 18);
+		Actor_Says(kActorMcCoy, 2430, 18); // McCoy: Maggie, come here girl.
 		Actor_Set_Goal_Number(kActorMaggie, kGoalMaggieMA02WalkToMcCoy);
 		return; // true
 	}
 
 	int v6 = Random_Query(0, 4);
 	if (v6 == 1) {
-		Actor_Says(kActorMcCoy, 2440, 18);
+		Actor_Says(kActorMcCoy, 2440, 18); // McCoy: Who's the best dog in the whole world?
 	}
 	if (v6 == 0) {
-		Actor_Says(kActorMcCoy, 2435, 13);
+		Actor_Says(kActorMcCoy, 2435, 13); // McCoy: Good doggy.
 	}
 
 	int goal = Actor_Query_Goal_Number(kActorMaggie);
@@ -285,7 +285,7 @@ bool AIScriptMaggie::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		Loop_Actor_Walk_To_Actor(kActorMaggie, kActorMcCoy, 48, false, false);
 		Actor_Face_Actor(kActorMcCoy, kActorMaggie, true);
 		Actor_Face_Actor(kActorMaggie, kActorMcCoy, false);
-		Actor_Says(kActorMcCoy, 2400, kAnimationModeFeeding);
+		Actor_Says(kActorMcCoy, 2400, kAnimationModeFeeding); // McCoy: Here you go baby, dinner time.
 		Actor_Set_Goal_Number(kActorMaggie, kGoalMaggieMA02Wait);
 		Player_Gains_Control();
 		return true;
@@ -349,13 +349,13 @@ bool AIScriptMaggie::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		Actor_Face_Actor(kActorMaggie, kActorMcCoy, true);
 		Actor_Change_Animation_Mode(kActorMaggie, 56);
 		Actor_Face_Actor(kActorMcCoy, kActorMaggie, true);
-		Actor_Says(kActorMcCoy, 2225, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy, 2225, kAnimationModeTalk); // McCoy: Maggie! Come here girl. Come on!
 		Actor_Set_Goal_Number(kActorMaggie, kGoalMaggieKP05WalkToMcCoy);
 		break;
 
 	case kGoalMaggieKP05WalkToMcCoy:
 		if (Actor_Query_Is_In_Current_Set(kActorSteele)) {
-			Actor_Says(kActorSteele, 3270, 59);
+			Actor_Says(kActorSteele, 3270, 59); // Steele: What's that tied around her?
 		}
 		AI_Movement_Track_Flush(kActorMaggie);
 		AI_Movement_Track_Append(kActorMaggie, 540, 0);
@@ -375,13 +375,13 @@ bool AIScriptMaggie::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		} else {
 			Delay(3000);
 			Scene_Exits_Disable();
-			Actor_Says(kActorMcCoy, 2235, 12);
+			Actor_Says(kActorMcCoy, 2235, 12); // McCoy: How could they?
 			if (Actor_Query_Is_In_Current_Set(kActorSteele)) {
-				Actor_Says(kActorSteele, 1530, 58);
+				Actor_Says(kActorSteele, 1530, 58); // Steele: Let's attend to some business.
 				Actor_Set_Goal_Number(kActorSteele, kGoalSteeleKP05Leave);
 			}
 			Delay(2000);
-			Actor_Says(kActorMcCoy, 2390, 13);
+			Actor_Says(kActorMcCoy, 2390, 13); // McCoy: Oh, God. No.
 			if (Actor_Query_Goal_Number(kActorSadik) == 411) {
 				Actor_Set_Goal_Number(kActorSadik, 412);
 			} else { // there is no way how Maggie can explode and Sadik's goal is not 411

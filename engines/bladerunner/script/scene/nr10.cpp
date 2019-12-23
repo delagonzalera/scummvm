@@ -131,8 +131,8 @@ bool SceneScriptNR10::ClickedOn2DRegion(int region) {
 		if (!Game_Flag_Query(kFlagMcCoyCommentsOnOldProjector) && (region == 0 || region == 1)) {
 			Game_Flag_Set(kFlagMcCoyCommentsOnOldProjector);
 			Actor_Face_XYZ(kActorMcCoy, -28.90f, 55.00f, -133.81f, true);
-			Actor_Voice_Over(1750, kActorVoiceOver);
-			Actor_Voice_Over(1760, kActorVoiceOver);
+			Actor_Voice_Over(1750, kActorVoiceOver); // Mainframe: One of those old projection machines...
+			Actor_Voice_Over(1760, kActorVoiceOver); // Mainframe: from when people actually went to theaters to see vids. It was truly a dinosaur.
 			Scene_2D_Region_Remove(0);
 			Scene_2D_Region_Remove(1);
 			return true;
@@ -176,14 +176,14 @@ void SceneScriptNR10::PlayerWalkedIn() {
 
 	if (Actor_Query_Goal_Number(kActorSteele) == kGoalSteeleNR10Wait) {
 		Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-		Actor_Says(kActorSteele, 150, 13);
+		Actor_Says(kActorSteele, 150, 13); // Steele: What happened? Where is it?
 		Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
-		Actor_Says(kActorMcCoy, 1580, 14);
-		Actor_Says(kActorSteele, 160, 15);
-		Actor_Says(kActorMcCoy, 1585, 16);
-		Actor_Says(kActorSteele, 1160, 16);
+		Actor_Says(kActorMcCoy,  1580, 14); // McCoy: She got away.
+		Actor_Says(kActorSteele,  160, 15); // Steele: How the hell did it get away? We had it cornered.
+		Actor_Says(kActorMcCoy,  1585, 16); // McCoy: This one must be pretty damn clever.
+		Actor_Says(kActorSteele, 1160, 16); // Steele: Dah! What the hell?! Now we'll never catch it.
 		Delay(1000);
-		Actor_Says(kActorSteele, 1290, 14);
+		Actor_Says(kActorSteele, 1290, 14); // Steele: I better call this in. Your vehicle close by?
 		Actor_Set_Goal_Number(kActorSteele, kGoalSteeleNRxxGoToSpinner);
 	}
 	//		return false;

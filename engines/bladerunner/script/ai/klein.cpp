@@ -171,10 +171,10 @@ void AIScriptKlein::TimerExpired(int timer) {
 		) {
 			// Klein is annoyed - full dialogue
 			Actor_Face_Actor(kActorKlein, kActorMcCoy, true);
-			Actor_Says(kActorKlein, 10, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 4120, kAnimationModeTalk);
-			Actor_Says(kActorKlein, 20, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 4125, kAnimationModeTalk);
+			Actor_Says(kActorKlein,   10, kAnimationModeTalk); // Klein: We're not done processing yet. Come back tomorrow.
+			Actor_Says(kActorMcCoy, 4120, kAnimationModeTalk); // McCoy: Is that tomorrow as in next year?
+			Actor_Says(kActorKlein,   20, kAnimationModeTalk); // Klein: You don't like it? Take your business elsewhere.
+			Actor_Says(kActorMcCoy, 4125, kAnimationModeTalk); // McCoy: I just might do that.
 			Game_Flag_Set(kFlagPS07KleinInsultedTalk);
 #if BLADERUNNER_ORIGINAL_BUGS
 			Actor_Set_Goal_Number(kActorKlein, kGoalKleinIsAnnoyedByMcCoyInit);
@@ -185,7 +185,7 @@ void AIScriptKlein::TimerExpired(int timer) {
 #endif // BLADERUNNER_ORIGINAL_BUGS
 		} else {
 			// Klein is annoyed - short dialogue
-			Actor_Says(kActorKlein, 10, kAnimationModeTalk);
+			Actor_Says(kActorKlein, 10, kAnimationModeTalk); // Klein: We're not done processing yet. Come back tomorrow.
 #if BLADERUNNER_ORIGINAL_BUGS
 			Actor_Set_Goal_Number(kActorKlein, kGoalKleinIsAnnoyedByMcCoyInit);
 #else

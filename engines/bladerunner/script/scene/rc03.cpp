@@ -245,7 +245,7 @@ bool SceneScriptRC03::ClickedOnExit(int exitId) {
 			 || Global_Variable_Query(kVariableChapter) == 5
 			 || Game_Flag_Query(kFlagBulletBobDead)
 			) {
-				Actor_Says(kActorMcCoy, 8522, 14);
+				Actor_Says(kActorMcCoy, 8522, 14); // McCoy: Locked.
 			} else {
 				Game_Flag_Set(kFlagRC03toRC04);
 				Set_Enter(kSetRC04, kSceneRC04);
@@ -283,20 +283,20 @@ void SceneScriptRC03::ActorChangedGoal(int actorId, int newGoal, int oldGoal, bo
 
 void SceneScriptRC03::talkWithSteele() {
 	Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-	Actor_Says(kActorSteele, 1820, 3);
+	Actor_Says(kActorSteele, 1820, 3); // Steele: Where's Izo?
 	Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
-	Actor_Says(kActorMcCoy, 4815, 14);
-	Actor_Says(kActorSteele, 1830, 3);
-	Actor_Says(kActorSteele, 1840, 3);
-	Actor_Says(kActorMcCoy, 4820, 12);
-	Actor_Says(kActorSteele, 1850, 3);
-	Actor_Says(kActorSteele, 1950, 3);
-	Actor_Says(kActorMcCoy, 4835, 14);
-	Actor_Says(kActorSteele, 1960, 3);
-	Actor_Says(kActorSteele, 1980, 3);
-	Actor_Says(kActorMcCoy, 4840, 15);
-	Actor_Says(kActorSteele, 1990, 3);
-	Actor_Says(kActorSteele, 2000, 3);
+	Actor_Says(kActorMcCoy,  4815, 14); // McCoy: You're looking for him, too?
+	Actor_Says(kActorSteele, 1830,  3); // Steele: I was at the bar over in Hawker's circle. I saw him pop that flash in your face.
+	Actor_Says(kActorSteele, 1840,  3); // Steele: Then some lummox got in my way and I didn't see where it disappeared to.
+	Actor_Says(kActorMcCoy,  4820, 12); // McCoy: He probably went down in the sewers.
+	Actor_Says(kActorSteele, 1850,  3); // Steele: Right where that dirt-bag belongs.
+	Actor_Says(kActorSteele, 1950,  3); // Steele: I've been tracking Izo for a week and you ruined my whole plan in two seconds.
+	Actor_Says(kActorMcCoy,  4835, 14); // McCoy: Sorry, I bet you can still catch him if you want.
+	Actor_Says(kActorSteele, 1960,  3); // Steele: Crawl down that hole and ruin a twenty thousand chinyen Yamamoto suit? I don't think so.
+	Actor_Says(kActorSteele, 1980,  3); // Steele: If I didn't know any better, I'd think you wanted him to get away.
+	Actor_Says(kActorMcCoy,  4840, 15); // McCoy: You crazy? I've been tailing him myself.
+	Actor_Says(kActorSteele, 1990,  3); // Steele: A little word of advice, Slim. Stay out of my way.
+	Actor_Says(kActorSteele, 2000,  3); // Steele: Next time I'm not gonna worry about who's in my line of fire, understand?
 }
 
 void SceneScriptRC03::PlayerWalkedIn() {

@@ -83,7 +83,7 @@ bool SceneScriptPS14::ClickedOnExit(int exitId) {
 					Actor_Set_Goal_Number(kActorMcCoy, kGoalMcCoyArrested);
 				}
 			} else if (Global_Variable_Query(kVariableChapter) > 3) {
-				Actor_Says(kActorMcCoy, 8522, 12);
+				Actor_Says(kActorMcCoy, 8522, 12); // McCoy: Locked.
 				Actor_Face_Heading(kActorMcCoy, 307, false);
 				Loop_Actor_Travel_Stairs(kActorMcCoy, 3, false, kAnimationModeIdle);
 			} else {

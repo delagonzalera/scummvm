@@ -53,32 +53,32 @@ bool SceneScriptPS06::ClickedOn3DObject(const char *objectName, bool a2) {
 	if (Object_Query_Click("E.SCREEN03", objectName)
 	 || Object_Query_Click("E.MONITOR3", objectName)
 	) {
-		Actor_Says(kActorAnsweringMachine, 330, kAnimationModeTalk); // uploading clues
+		Actor_Says(kActorAnsweringMachine, 330, kAnimationModeTalk); // Answering Machine: Uploading personal clue database.
 		if (Actor_Clue_Query(kActorMcCoy, kClueCar)
 		 && !Actor_Clue_Query(kActorMcCoy, kClueCarRegistration1)
 		 && !Actor_Clue_Query(kActorMcCoy, kClueCarRegistration2)
 		 && !Actor_Clue_Query(kActorMcCoy, kClueCarRegistration3)
 		) {
 			Delay(2000);
-			Actor_Voice_Over(3780, kActorVoiceOver);
-			Actor_Voice_Over(3790, kActorVoiceOver);
+			Actor_Voice_Over(3780, kActorVoiceOver); // Mainframe: The Mainframe confirmed what I'd already guessed.
+			Actor_Voice_Over(3790, kActorVoiceOver); // Mainframe: The car from Chinatown was the same vehicle that had smacked the hydrant at Runciter's.
 			if (Game_Flag_Query(kFlagDektoraIsReplicant)) {
-				Actor_Voice_Over(3800, kActorVoiceOver);
-				Actor_Voice_Over(3810, kActorVoiceOver);
-				Actor_Voice_Over(3820, kActorVoiceOver);
-				Actor_Voice_Over(3830, kActorVoiceOver);
+				Actor_Voice_Over(3800, kActorVoiceOver); // Mainframe: The car was registered to a woman named Dektora.
+				Actor_Voice_Over(3810, kActorVoiceOver); // Mainframe: She'd bought it from a used-car lot in the Fourth Sector.
+				Actor_Voice_Over(3820, kActorVoiceOver); // Mainframe: I ran the name through records and came up empty.
+				Actor_Voice_Over(3830, kActorVoiceOver); // Mainframe: The used-car lot checked out clean, too. But maybe the owner could tell me something.
 				Actor_Clue_Acquire(kActorMcCoy, kClueCarRegistration1, true, -1);
 			} else if (Game_Flag_Query(kFlagGordoIsReplicant)) {
-				Actor_Voice_Over(3840, kActorVoiceOver);
-				Actor_Voice_Over(3850, kActorVoiceOver);
-				Actor_Voice_Over(3860, kActorVoiceOver);
-				Actor_Voice_Over(3870, kActorVoiceOver);
+				Actor_Voice_Over(3840, kActorVoiceOver); // Mainframe: The car was registered to a man named Gavin Kelly.
+				Actor_Voice_Over(3850, kActorVoiceOver); // Mainframe: But he'd reported it stolen two months ago.
+				Actor_Voice_Over(3860, kActorVoiceOver); // Mainframe: His file came up clean. Model citizen, doctor, no criminal record.
+				Actor_Voice_Over(3870, kActorVoiceOver); // Mainframe: I was back to square one.
 				Actor_Clue_Acquire(kActorMcCoy, kClueCarRegistration2, true, -1);
 			} else {
-				Actor_Voice_Over(3880, kActorVoiceOver);
-				Actor_Voice_Over(3890, kActorVoiceOver);
-				Actor_Voice_Over(3900, kActorVoiceOver);
-				Actor_Voice_Over(3910, kActorVoiceOver);
+				Actor_Voice_Over(3880, kActorVoiceOver); // Mainframe: The car was registered to a Blake Williams.
+				Actor_Voice_Over(3890, kActorVoiceOver); // Mainframe: Problem was there was no Blake Williams.
+				Actor_Voice_Over(3900, kActorVoiceOver); // Mainframe: Something about the name was familiar but I couldn't place it. I was back to square one.
+				Actor_Voice_Over(3910, kActorVoiceOver); // Mainframe: The only lead I had left was that Williams had bought the vehicle from a used-car lot in the Fourth Sector.
 				Actor_Clue_Acquire(kActorMcCoy, kClueCarRegistration3, true, -1);
 			}
 			Actor_Clues_Transfer_New_To_Mainframe(kActorMcCoy);
@@ -90,7 +90,7 @@ bool SceneScriptPS06::ClickedOn3DObject(const char *objectName, bool a2) {
 		} else {
 			bool transferedClues = Actor_Clues_Transfer_New_To_Mainframe(kActorMcCoy);
 			if (_vm->_cutContent && !transferedClues) {
-				Actor_Says(kActorAnsweringMachine, 370,  kAnimationModeTalk); // no clues transfered
+				Actor_Says(kActorAnsweringMachine, 370, kAnimationModeTalk); // Answering Machine: No clues transferred.
 			} else {
 				if (_vm->_cutContent) {
 					Actor_Clues_Transfer_New_From_Mainframe(kActorKlein);
@@ -98,18 +98,18 @@ bool SceneScriptPS06::ClickedOn3DObject(const char *objectName, bool a2) {
 				Ambient_Sounds_Play_Sound(kSfxDATALOAD, 50, 0, 0, 99);
 				Delay(2000);
 			}
-			Actor_Says(kActorAnsweringMachine, 340,  kAnimationModeTalk);     // downloading clues
+			Actor_Says(kActorAnsweringMachine, 340, kAnimationModeTalk); // Answering Machine: Downloading mainframe clue database.
 			transferedClues = Actor_Clues_Transfer_New_From_Mainframe(kActorMcCoy);
 			if (_vm->_cutContent && !transferedClues) {
-				Actor_Says(kActorAnsweringMachine, 370,  kAnimationModeTalk); // no clues transfered
+				Actor_Says(kActorAnsweringMachine, 370, kAnimationModeTalk); // Answering Machine: No clues transferred.
 			} else {
 				Ambient_Sounds_Play_Sound(kSfxDATALOAD, 50, 0, 0, 99);
 				Delay(2000);
 			}
 			Ambient_Sounds_Play_Sound(kSfxBEEPNEAT, 80, 0, 0, 99);
-			Actor_Says(kActorAnsweringMachine, 350, kAnimationModeTalk);          // db transfer complete
+			Actor_Says(kActorAnsweringMachine, 350, kAnimationModeTalk); // Answering Machine: Clue database transfer complete.
 			if (_vm->_cutContent && transferedClues) {
-				Actor_Says(kActorAnsweringMachine, 360, kAnimationModeTalk);      // new clues added
+				Actor_Says(kActorAnsweringMachine, 360, kAnimationModeTalk); // Answering Machine: New clues added to personal database. Please check KIA.
 			}
 			return true;
 		}

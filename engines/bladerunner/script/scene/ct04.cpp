@@ -98,9 +98,9 @@ bool SceneScriptCT04::ClickedOn3DObject(const char *objectName, bool a2) {
 				Actor_Put_In_Set(kActorTransient, kSetFreeSlotI);
 				Actor_Set_At_XYZ(kActorTransient, 0, 0, 0, 0);
 				Actor_Change_Animation_Mode(kActorMcCoy, 40);
-				Actor_Voice_Over(320, kActorVoiceOver);
-				Actor_Voice_Over(330, kActorVoiceOver);
-				Actor_Voice_Over(340, kActorVoiceOver);
+				Actor_Voice_Over(320, kActorVoiceOver); // Mainframe: I knew what I was doing wasn't right...
+				Actor_Voice_Over(330, kActorVoiceOver); // Mainframe: But I didn't have time to answer questions back at the station.
+				Actor_Voice_Over(340, kActorVoiceOver); // Mainframe: Besides specials vanished every day in this city. And no one ever missed them.
 				Game_Flag_Set(kFlagCT04HomelessBodyInDumpster);
 				Game_Flag_Set(kFlagCT04HomelessBodyInDumpsterNotChecked);
 			}
@@ -109,14 +109,14 @@ bool SceneScriptCT04::ClickedOn3DObject(const char *objectName, bool a2) {
 
 		if (Game_Flag_Query(kFlagCT04HomelessBodyInDumpster)) {
 			if (Game_Flag_Query(kFlagCT04HomelessBodyThrownAway)) {
-				Actor_Voice_Over(270, kActorVoiceOver);
-				Actor_Voice_Over(280, kActorVoiceOver);
+				Actor_Voice_Over(270, kActorVoiceOver); // Mainframe: The trash had been collected.
+				Actor_Voice_Over(280, kActorVoiceOver); // Mainframe: It was gone for good. All of it.
 			} else if (Game_Flag_Query(kFlagCT04HomelessBodyFound)) {
-				Actor_Voice_Over(250, kActorVoiceOver);
-				Actor_Voice_Over(260, kActorVoiceOver);
+				Actor_Voice_Over(250, kActorVoiceOver); // Mainframe: The body had vanished but the trash was still there.
+				Actor_Voice_Over(260, kActorVoiceOver); // Mainframe: I'd screwed up and screwed up bad. But maybe there was still a way to make it right.
 			} else {
-				Actor_Voice_Over(230, kActorVoiceOver);
-				Actor_Voice_Over(240, kActorVoiceOver);
+				Actor_Voice_Over(230, kActorVoiceOver); // Mainframe: The body was still there.
+				Actor_Voice_Over(240, kActorVoiceOver); // Mainframe: I didn't know when the trash got picked up in this neighborhood but I hoped it was soon.
 				Game_Flag_Reset(kFlagCT04HomelessBodyInDumpsterNotChecked);
 			}
 			return true;
@@ -137,8 +137,8 @@ bool SceneScriptCT04::ClickedOn3DObject(const char *objectName, bool a2) {
 			Actor_Face_Heading(kActorMcCoy, 707, false);
 			Actor_Change_Animation_Mode(kActorMcCoy, 38);
 			Ambient_Sounds_Play_Sound(kSfxGARBAGE, 45, 30, 30, 0);
-			Actor_Voice_Over(1810, kActorVoiceOver);
-			Actor_Voice_Over(1820, kActorVoiceOver);
+			Actor_Voice_Over(1810, kActorVoiceOver); // Mainframe: Nothing even remotely interesting but hell.
+			Actor_Voice_Over(1820, kActorVoiceOver); // Mainframe: If I was going to root through trash, my expectations weren't too high.
 			return true;
 		}
 	}
@@ -160,8 +160,8 @@ void SceneScriptCT04::dialogueWithHomeless() {
 
 	switch (answer) {
 	case 410: // YES
-		Actor_Says(kActorTransient, 10, 14); // Thanks. The big man. He kind of limping.
-		Actor_Says(kActorTransient, 20, 14); // That way.
+		Actor_Says(kActorTransient, 10, 14); // Transient: Thanks. The big man. He kind of limping.
+		Actor_Says(kActorTransient, 20, 14); // Transient: That way.
 		Actor_Modify_Friendliness_To_Other(kActorTransient, kActorMcCoy, 5);
 		if (Query_Difficulty_Level() != kGameDifficultyEasy) {
 			Global_Variable_Decrement(kVariableChinyen, 10);
@@ -169,8 +169,8 @@ void SceneScriptCT04::dialogueWithHomeless() {
 		break;
 
 	case 420: // NO
-		Actor_Says(kActorMcCoy, 430, 3);
-		Actor_Says(kActorTransient, 30, 14); // Hey, that'd work.
+		Actor_Says(kActorMcCoy,     430,  3); // McCoy: Sorry, pal. All I got are hundreds.
+		Actor_Says(kActorTransient,  30, 14); // Transient: Hey, that'd work.
 		Actor_Modify_Friendliness_To_Other(kActorTransient, kActorMcCoy, -5);
 		break;
 	}
@@ -180,9 +180,9 @@ bool SceneScriptCT04::ClickedOnActor(int actorId) {
 	if (actorId == kActorTransient) {
 		if (Game_Flag_Query(kFlagCT04HomelessKilledByMcCoy)) {
 			if (!Loop_Actor_Walk_To_Actor(kActorMcCoy, kActorTransient, 36, true, false)) {
-				Actor_Voice_Over(290, kActorVoiceOver);
-				Actor_Voice_Over(300, kActorVoiceOver);
-				Actor_Voice_Over(310, kActorVoiceOver);
+				Actor_Voice_Over(290, kActorVoiceOver); // Mainframe: He was just an old bum. Not Howie's cook and certainly not a Replicant.
+				Actor_Voice_Over(300, kActorVoiceOver); // Mainframe: I'd screwed up. Plain and simple.
+				Actor_Voice_Over(310, kActorVoiceOver); // Mainframe: If I was gonna get clear of this, I needed to tell Guzza. And the sooner the better.
 			}
 		} else {
 			Actor_Set_Targetable(kActorTransient, false);
@@ -190,19 +190,19 @@ bool SceneScriptCT04::ClickedOnActor(int actorId) {
 				Actor_Face_Actor(kActorMcCoy, kActorTransient, true);
 				if (!Game_Flag_Query(kFlagCT04HomelessTalk)) {
 					if (Game_Flag_Query(kFlagZubenRetired)) {
-						Actor_Says(kActorMcCoy, 435, kAnimationModeTalk);
+						Actor_Says(kActorMcCoy, 435, kAnimationModeTalk); // McCoy: Hey, pop!
 						Actor_Set_Goal_Number(kActorTransient, kGoalTransientCT04Leave);
 					} else {
 						Music_Stop(3);
-						Actor_Says(kActorMcCoy, 425, kAnimationModeTalk);
-						Actor_Says(kActorTransient, 0, 13); // Hey, maybe spare some chinyen?
+						Actor_Says(kActorMcCoy,     425, kAnimationModeTalk); // McCoy: A big guy ran past here?
+						Actor_Says(kActorTransient,   0,                 13); // Transient: Hey, maybe spare some chinyen?
 						dialogueWithHomeless();
 						Actor_Set_Goal_Number(kActorTransient, kGoalTransientCT04Leave);
 					}
 					Game_Flag_Set(kFlagCT04HomelessTalk);
 				} else {
 					Actor_Face_Actor(kActorMcCoy, kActorTransient, true);
-					Actor_Says(kActorMcCoy, 435, kAnimationModeTalk);
+					Actor_Says(kActorMcCoy, 435, kAnimationModeTalk); // McCoy: Hey, pop!
 				}
 			}
 		}

@@ -93,9 +93,9 @@ bool SceneScriptHC02::ClickedOnActor(int actorId) {
 		if (!Loop_Actor_Walk_To_XYZ(kActorMcCoy, -150.51f, 0.14f, 62.74f, 0, true, false, false)) {
 			Actor_Face_Actor(kActorMcCoy, kActorHawkersBarkeep, true);
 			if (!Game_Flag_Query(kFlagHC02HawkersBarkeepIntroduction)) {
-				Actor_Says(kActorMcCoy, 1225, 13);
+				Actor_Says(kActorMcCoy, 1225, 13); // McCoy: I got a couple of questions for you, Captain.
 				Actor_Says_With_Pause(kActorHawkersBarkeep, 0, 0.0f, 13);
-				Actor_Says(kActorHawkersBarkeep, 10, 16);
+				Actor_Says(kActorHawkersBarkeep, 10, 16); // Hawker's Barkeep: You want chit chat you hire a hooker. This ain't no social club.
 				Actor_Set_Goal_Number(kActorHawkersBarkeep, 1);
 				Actor_Change_Animation_Mode(kActorMcCoy, 23);
 				Delay(1500);
@@ -106,9 +106,9 @@ bool SceneScriptHC02::ClickedOnActor(int actorId) {
 			} else if ( Actor_Clue_Query(kActorMcCoy, kClueChinaBarSecurityCamera)
 			        && !Actor_Clue_Query(kActorMcCoy, kClueChinaBarSecurityDisc)
 			) {
-				Actor_Says(kActorMcCoy, 4545, 11);
-				Actor_Says(kActorHawkersBarkeep, 120, 12);
-				Actor_Says(kActorHawkersBarkeep, 180, 13);
+				Actor_Says(kActorMcCoy,          4545, 11); // McCoy: You got any discs from that camera?
+				Actor_Says(kActorHawkersBarkeep,  120, 12); // Hawker's Barkeep: I just serve drinks, pal.
+				Actor_Says(kActorHawkersBarkeep,  180, 13); // Hawker's Barkeep: But if you're gonna sit there until I cough it up, well, here it is.
 				Actor_Clue_Acquire(kActorMcCoy, kClueChinaBarSecurityDisc, true, kActorHawkersBarkeep);
 				Item_Pickup_Spin_Effect(kModelAnimationVideoDisc, 229, 215);
 			} else if (Actor_Clue_Query(kActorMcCoy, kClueHomelessManInterview1)
@@ -121,12 +121,12 @@ bool SceneScriptHC02::ClickedOnActor(int actorId) {
 			               || Query_Difficulty_Level() == kGameDifficultyEasy)
 			) {
 				Actor_Clue_Acquire(kActorMcCoy, kClueFlaskOfAbsinthe, true, kActorHawkersBarkeep);
-				Actor_Says(kActorMcCoy, 1230, 13);
-				Actor_Says(kActorHawkersBarkeep, 20, 12);
-				Actor_Says(kActorMcCoy, 1235, 13);
-				Actor_Says(kActorHawkersBarkeep, 30, 15);
-				Actor_Says(kActorMcCoy, 1240, 13);
-				Actor_Says(kActorHawkersBarkeep, 40, 14);
+				Actor_Says(kActorMcCoy,          1230, 13); // McCoy: What's your strongest?
+				Actor_Says(kActorHawkersBarkeep,   20, 12); // Hawker's Barkeep: Purple?
+				Actor_Says(kActorMcCoy,          1235, 13); // McCoy: Set it up to go.
+				Actor_Says(kActorHawkersBarkeep,   30, 15); // Hawker's Barkeep: What do you want, a to-go cup?
+				Actor_Says(kActorMcCoy,          1240, 13); // McCoy: How about a flask?
+				Actor_Says(kActorHawkersBarkeep,   40, 14); // Hawker's Barkeep: Cost you extra.
 				Item_Pickup_Spin_Effect(kModelAnimationFlaskOfAbsinthe, 229, 215);
 				Actor_Set_Goal_Number(kActorHawkersBarkeep, 2);
 				Actor_Change_Animation_Mode(kActorMcCoy, 23);
@@ -135,14 +135,14 @@ bool SceneScriptHC02::ClickedOnActor(int actorId) {
 				if (Query_Difficulty_Level() != kGameDifficultyEasy) {
 					Global_Variable_Decrement(kVariableChinyen, 20);
 				}
-				Actor_Says(kActorMcCoy, 1245, 13);
+				Actor_Says(kActorMcCoy, 1245, 13); // McCoy: It's for a friend.
 			} else {
 				if ( Actor_Clue_Query(kActorMcCoy, kClueMaggieBracelet)
 				 && !Game_Flag_Query(kFlagHC02HawkersBarkeepBraceletTalk)
 				) {
-					Actor_Says(kActorHawkersBarkeep, 80, 16);
-					Actor_Says(kActorMcCoy, 1265, 13);
-					Actor_Says(kActorHawkersBarkeep, 90, 13);
+					Actor_Says(kActorHawkersBarkeep,   80, 16); // Hawker's Barkeep: Nice bracelet, tough guy. Who's Maggie, your mommy?
+					Actor_Says(kActorMcCoy,          1265, 13); // McCoy: She's a dog.
+					Actor_Says(kActorHawkersBarkeep,   90, 13); // Hawker's Barkeep: So is my wife but I sure as hell don't brag about it.
 					Game_Flag_Set(kFlagHC02HawkersBarkeepBraceletTalk);
 				}
 				if (Global_Variable_Query(kVariableChinyen) > 5
@@ -152,9 +152,9 @@ bool SceneScriptHC02::ClickedOnActor(int actorId) {
 						Global_Variable_Decrement(kVariableChinyen, 5);
 					}
 					Global_Variable_Increment(kVariableMcCoyDrinks, 1);
-					Actor_Says(kActorMcCoy, 1250, 13);
+					Actor_Says(kActorMcCoy, 1250, 13); // McCoy: Pour me one.
 					Actor_Says_With_Pause(kActorHawkersBarkeep, 60, 0.8f, 14);
-					Actor_Says(kActorMcCoy, 1255, 13);
+					Actor_Says(kActorMcCoy, 1255, 13); // McCoy: One, but one good one.
 					Actor_Set_Goal_Number(kActorHawkersBarkeep, 1);
 					Actor_Change_Animation_Mode(kActorMcCoy, 23);
 					Delay(1500);
@@ -162,7 +162,7 @@ bool SceneScriptHC02::ClickedOnActor(int actorId) {
 					Delay(1500);
 				} else {
 					Actor_Says_With_Pause(kActorMcCoy, 1260, 0.3f, 13);
-					Actor_Says(kActorHawkersBarkeep, 70, 14);
+					Actor_Says(kActorHawkersBarkeep, 70, 14); // Hawker's Barkeep: This ain't a non-profit operation, buddy. No kale, no sale.
 				}
 			}
 		}

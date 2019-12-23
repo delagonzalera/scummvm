@@ -75,7 +75,7 @@ void SceneScriptCT10::checkCabinet() {
 		Sound_Play(kSfxDRAWER1, 100, 0, 0, 50);
 		Delay(1000);
 		if (Actor_Clue_Query(kActorMcCoy, kClueHoldensBadge)) {
-			Actor_Voice_Over(3700, kActorVoiceOver);
+			Actor_Voice_Over(3700, kActorVoiceOver); // Mainframe: Nothing.
 		} else {
 			Item_Pickup_Spin_Effect(kModelAnimationBadge, 435, 258);
 			Actor_Clue_Acquire(kActorMcCoy, kClueHoldensBadge, true, -1);
@@ -94,7 +94,7 @@ bool SceneScriptCT10::ClickedOn3DObject(const char *objectName, bool a2) {
 			Sound_Play(kSfxCURTAIN1, 33, 0, 0, 50);
 			Delay(3000);
 			if (Actor_Clue_Query(kActorMcCoy, kClueStrangeScale1)) {
-				Actor_Voice_Over(3700, kActorVoiceOver);
+				Actor_Voice_Over(3700, kActorVoiceOver); // Mainframe: Nothing.
 			} else {
 				Actor_Clue_Acquire(kActorMcCoy, kClueStrangeScale1, true, -1);
 				Item_Pickup_Spin_Effect(kModelAnimationStrangeScale, 364, 214);
@@ -153,9 +153,9 @@ void SceneScriptCT10::PlayerWalkedIn() {
 	Loop_Actor_Walk_To_XYZ(kActorMcCoy, -93.0f, 0.0f, -38.0f, 0, false, false, false);
 	Loop_Actor_Walk_To_XYZ(kActorMcCoy, -49.0f, 0.0f, -38.0f, 0, false, false, false);
 	if (!Game_Flag_Query(kFlagCT10Entered)) {
-		Actor_Voice_Over(450, kActorVoiceOver);
-		Actor_Voice_Over(460, kActorVoiceOver);
-		Actor_Voice_Over(470, kActorVoiceOver);
+		Actor_Voice_Over(450, kActorVoiceOver); // Mainframe: I didn't know who was working this side of the pool...
+		Actor_Voice_Over(460, kActorVoiceOver); // Mainframe: but whoever it was they'd been pretty thorough going through the joint.
+		Actor_Voice_Over(470, kActorVoiceOver); // Mainframe: I doubted if there was anything I could find that hadn't already been snagged and bagged.
 		Game_Flag_Set(kFlagCT10Entered);
 	}
 }

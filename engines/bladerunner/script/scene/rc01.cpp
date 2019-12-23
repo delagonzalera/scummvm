@@ -211,10 +211,10 @@ void SceneScriptRC01::SceneLoaded() {
 
 	if (!Game_Flag_Query(kFlagIntroPlayed)) {
 		ADQ_Flush();
-		Actor_Voice_Over(1830, kActorVoiceOver);
-		Actor_Voice_Over(1850, kActorVoiceOver);
+		Actor_Voice_Over(1830, kActorVoiceOver); // Mainframe: Animal sales was a profitable and prestigious business, since most real animals had died out after the Terran War.
+		Actor_Voice_Over(1850, kActorVoiceOver); // Mainframe: There were plenty of electric ones, though, powered by rechargeable batteries.
 		if (!Game_Flag_Query(kFlagDirectorsCut)) {
-			Actor_Voice_Over(1860, kActorVoiceOver);
+			Actor_Voice_Over(1860, kActorVoiceOver); // Mainframe: No self-respecting human would own one of those frauds.
 			I_Sez("MG: Is David Leary a self-respecting human or is he powered by rechargeable");
 			I_Sez("batteries?\n");
 		}
@@ -243,11 +243,11 @@ bool SceneScriptRC01::ClickedOn3DObject(const char *objectName, bool a2) {
 	if (Object_Query_Click("HYDRANT02", objectName)) {
 		if (!Loop_Actor_Walk_To_Scene_Object(kActorMcCoy, "HYDRANT02", 60, true, false)) {
 			if (Actor_Clue_Query(kActorMcCoy, kCluePaintTransfer)) {
-				Actor_Says(kActorMcCoy, 6975, kAnimationModeTalk);
+				Actor_Says(kActorMcCoy, 6975, kAnimationModeTalk); // McCoy: Interesting.
 			} else {
 				Actor_Face_Object(kActorMcCoy, "HYDRANT02", true);
-				Actor_Voice_Over(1880, kActorVoiceOver);
-				Actor_Voice_Over(1890, kActorVoiceOver);
+				Actor_Voice_Over(1880, kActorVoiceOver); // Mainframe: Scratches and paint flecks and I knew what they meant.
+				Actor_Voice_Over(1890, kActorVoiceOver); // Mainframe: Unless the city had bought a jet-black firetruck, somebody had a big fat traffic ticket coming.
 				I_Sez("JM: That McCoy--he's one funny guy! Jet-black fire truck, hehehehe...");
 				Actor_Clue_Acquire(kActorMcCoy, kCluePaintTransfer, true, -1);
 			}
@@ -270,8 +270,8 @@ bool SceneScriptRC01::ClickedOn3DObject(const char *objectName, bool a2) {
 #endif // BLADERUNNER_ORIGINAL_BUGS
 				Actor_Set_Goal_Number(kActorOfficerLeary, kGoalOfficerLearyDefault);
 				Actor_Face_Actor(kActorOfficerLeary, kActorMcCoy, true);
-				Actor_Says(kActorOfficerLeary, 0, 12);
-				Actor_Says(kActorMcCoy, 4495, 13);
+				Actor_Says(kActorOfficerLeary,    0, 12); // Officer Leary: I already checked for a crowbar or some kind of tool. No luck but it looks like we've got some latents.
+				Actor_Says(kActorMcCoy,        4495, 13); // McCoy: Make sure the lab boys run them through the mainframe. Human and Rep.
 				Actor_Clue_Acquire(kActorMcCoy, kClueDoorForced2, true, kActorOfficerLeary);
 #if BLADERUNNER_ORIGINAL_BUGS
 #else
@@ -288,15 +288,15 @@ bool SceneScriptRC01::ClickedOn3DObject(const char *objectName, bool a2) {
 			         && Global_Variable_Query(kVariableChapter) == 1) {
 				if (_vm->_cutContent) {
 					// keep in mind, this line in only available in Act 1 (1.TLK) unless _vm->_cutContent is selected (provided that cut content now loads all TLKs)
-					Actor_Voice_Over(1870, kActorVoiceOver);
+					Actor_Voice_Over(1870, kActorVoiceOver); // Mainframe: Whoever did it showed some serious strength. They busted the lock clean off.
 				} else {
-					Actor_Says(kActorMcCoy, 8570, 14);
+					Actor_Says(kActorMcCoy, 8570, 14); // McCoy: I've gotten all I can from that.
 				}
 				Actor_Clue_Acquire(kActorMcCoy, kClueDoorForced1, true, -1);
 			}
 #endif // BLADERUNNER_ORIGINAL_BUGS
 			else {
-				Actor_Says(kActorMcCoy, 8570, 14);
+				Actor_Says(kActorMcCoy, 8570, 14); // McCoy: I've gotten all I can from that.
 			}
 #if BLADERUNNER_ORIGINAL_BUGS
 			Actor_Clue_Acquire(kActorMcCoy, kClueDoorForced1, true, -1);
@@ -308,8 +308,8 @@ bool SceneScriptRC01::ClickedOn3DObject(const char *objectName, bool a2) {
 	if (Object_Query_Click("T-CAN01", objectName)) {
 		if (!Loop_Actor_Walk_To_Scene_Object(kActorMcCoy, "T-CAN01", 24, true, false)) {
 			Actor_Face_Object(kActorMcCoy, "T-CAN01", true);
-			Actor_Voice_Over(1810, kActorVoiceOver);
-			Actor_Voice_Over(1820, kActorVoiceOver);
+			Actor_Voice_Over(1810, kActorVoiceOver); // Mainframe: Nothing even remotely interesting but hell.
+			Actor_Voice_Over(1820, kActorVoiceOver); // Mainframe: If I was going to root through trash, my expectations weren't too high.
 		}
 		return true;
 	}
@@ -332,28 +332,28 @@ bool SceneScriptRC01::ClickedOnActor(int actorId) {
 				Actor_Set_Goal_Number(kActorOfficerLeary, kGoalOfficerLearyDefault);
 			}
 			if (Game_Flag_Query(kFlagRC01GotOfficersStatement)) {
-				Actor_Says(kActorMcCoy, 4535, 13);
+				Actor_Says(kActorMcCoy, 4535, 13); // McCoy: Find anything else out here?
 				Game_Flag_Set(kFlagRC01McCoyAndOfficerLearyTalking);
 				if (Actor_Clue_Query(kActorOfficerLeary, kClueCrowdInterviewA) && !Actor_Clue_Query(kActorMcCoy, kClueCrowdInterviewA)) {
 					Actor_Face_Object(kActorOfficerLeary, "70_1", true);
-					Actor_Says(kActorOfficerLeary, 100, 15);
+					Actor_Says(kActorOfficerLeary, 100, 15); // Officer Leary: This woman says she saw that kid who worked for Runciter hanging around with a big fat guy last week.
 					Actor_Face_Actor(kActorOfficerLeary, kActorMcCoy, true);
 					Actor_Clue_Acquire(kActorMcCoy, kClueCrowdInterviewA, true, kActorOfficerLeary);
 					Game_Flag_Reset(kFlagRC01McCoyAndOfficerLearyTalking);
 				} else if (Actor_Clue_Query(kActorOfficerLeary, kClueCrowdInterviewB) && !Actor_Clue_Query(kActorMcCoy, kClueCrowdInterviewB)) {
 					Actor_Face_Object(kActorOfficerLeary, "70_5", true);
-					Actor_Says(kActorOfficerLeary, 120, 19);
+					Actor_Says(kActorOfficerLeary, 120, 19); // Officer Leary: This guy lives across the street. Says he heard a crash late last night.
 					Actor_Face_Actor(kActorOfficerLeary, kActorMcCoy, true);
-					Actor_Says(kActorOfficerLeary, 130, 14);
+					Actor_Says(kActorOfficerLeary, 130, 14); // Officer Leary: Looked out his window and saw a black Sedan speeding away from the scene.
 					I_Sez("JM: Did it have a huge, ugly piece of chrome on it?");
 					Actor_Clue_Acquire(kActorMcCoy, kClueCrowdInterviewB, true, kActorOfficerLeary);
 					Game_Flag_Reset(kFlagRC01McCoyAndOfficerLearyTalking);
 				} else {
-					Actor_Says(kActorOfficerLeary, 90, 16);
+					Actor_Says(kActorOfficerLeary, 90, 16); // Officer Leary: Zilcho. Real action's inside. Abstract art all over the walls and ceiling.
 					I_Sez("JM: This officer has a talent for vivid metaphors.");
 					if (!Game_Flag_Query(kFlagRC01McCoyAndOfficerLearyArtMetaphor)) {
 						I_Sez("DL: What is that supposed to mean?  I didn't write this line...");
-						Actor_Says(kActorMcCoy, 4540, 16);
+						Actor_Says(kActorMcCoy, 4540, 16); // McCoy: I never did appreciate art.
 						Game_Flag_Set(kFlagRC01McCoyAndOfficerLearyArtMetaphor);
 					}
 					Game_Flag_Reset(kFlagRC01McCoyAndOfficerLearyTalking);
@@ -363,18 +363,18 @@ bool SceneScriptRC01::ClickedOnActor(int actorId) {
 				I_Sez("JM: (...mmm, donuts...)");
 				Game_Flag_Set(kFlagRC01GotOfficersStatement);
 				Actor_Clue_Acquire(kActorMcCoy, kClueOfficersStatement, true, kActorOfficerLeary);
-				Actor_Says(kActorMcCoy, 4515, 13);
+				Actor_Says(kActorMcCoy, 4515, 13); // McCoy: What do you know?
 				Game_Flag_Set(kFlagRC01McCoyAndOfficerLearyTalking);
-				Actor_Says(kActorOfficerLeary, 40, 13);
+				Actor_Says(kActorOfficerLeary, 40, 13); // Officer Leary: About 30 counts of animal murder and one of aggravated assault.
 				if (!Game_Flag_Query(kFlagRC02Entered)) {
-					Actor_Says(kActorOfficerLeary, 50, 14);
-					Actor_Says(kActorOfficerLeary, 60, 15);
+					Actor_Says(kActorOfficerLeary, 50, 14); // Officer Leary: The shop's been thrashed. You ought to see this tiger cub they got in there.
+					Actor_Says(kActorOfficerLeary, 60, 15); // Officer Leary: It's a goddamn tragedy.
 					I_Sez("MG: It's all fun and games until someone loses a tiger cub.");
-					Actor_Says(kActorMcCoy, 4520, 18);
-					Actor_Says(kActorOfficerLeary, 70, 16);
-					Actor_Says(kActorMcCoy, 4525, 14);
-					Actor_Says(kActorOfficerLeary, 80, 18);
-					Actor_Says(kActorMcCoy, 4530, 15);
+					Actor_Says(kActorMcCoy,        4520, 18); // McCoy: How's old man Runciter holding up?
+					Actor_Says(kActorOfficerLeary,   70, 16); // Officer Leary: State of shock. He's been moaning and complaining about his world caving in.
+					Actor_Says(kActorMcCoy,        4525, 14); // McCoy: You'd feel the same way, if they were your animals. How many perps?
+					Actor_Says(kActorOfficerLeary,   80, 18); // Officer Leary: At least two. Bloody footprints all over the scene.
+					Actor_Says(kActorMcCoy,        4530, 15); // McCoy: Must be a delightful sight.
 				}
 				Game_Flag_Reset(kFlagRC01McCoyAndOfficerLearyTalking);
 			}
@@ -403,15 +403,15 @@ bool SceneScriptRC01::ClickedOnItem(int itemId, bool a2) {
 			Actor_Face_Item(kActorMcCoy, kItemChromeDebris, true);
 			Actor_Clue_Acquire(kActorMcCoy, kClueChromeDebris, true, -1);
 			Actor_Face_Actor(kActorOfficerLeary, kActorMcCoy, true);
-			Actor_Says(kActorOfficerLeary, 20, 12);
+			Actor_Says(kActorOfficerLeary, 20, 12); // Officer Leary: Find something?
 			Game_Flag_Set(kFlagRC01ChromeDebrisTaken);
 			Item_Remove_From_World(kItemChromeDebris);
 			Item_Pickup_Spin_Effect(kModelAnimationChromeDebris, 426, 316);
 			I_Sez("JM: Chrome...is that what that is?");
-			Actor_Says(kActorMcCoy, 4505, 13);
+			Actor_Says(kActorMcCoy, 4505, 13); // McCoy: Piece of chrome.
 			ADQ_Flush();
-			ADQ_Add(kActorOfficerLeary, 30, -1);
-			ADQ_Add(kActorMcCoy, 4510, 13);
+			ADQ_Add(kActorOfficerLeary,   30, -1); // Officer Leary: From a car?
+			ADQ_Add(kActorMcCoy,        4510, 13); // McCoy: No, I think it's horse chrome. Bag it and tag it.
 			I_Sez("JM: It's hard to imagine that thing on either a car or a horse.");
 			I_Sez("MG: McCoy! What a witty chap...");
 			I_Sez("JM: He keeps me chuckling non-stop!\n");
@@ -448,7 +448,7 @@ bool SceneScriptRC01::ClickedOnExit(int exitId) {
 #endif // BLADERUNNER_ORIGINAL_BUGS
 		if (!walkToRC02ExitResult) {
 			if (Game_Flag_Query(kFlagRC02RunciterTalkWithGun)) {
-				Actor_Says(kActorMcCoy, 8522, 14); // Locked
+				Actor_Says(kActorMcCoy, 8522, 14); // McCoy: Locked.
 			} else {
 				switch (Global_Variable_Query(kVariableChapter)) {
 				case 1:
@@ -459,7 +459,7 @@ bool SceneScriptRC01::ClickedOnExit(int exitId) {
 				case 2:
 				case 3:
 				case 5:
-					Actor_Says(kActorMcCoy, 8522, 12);
+					Actor_Says(kActorMcCoy, 8522, 12); // McCoy: Locked.
 					break;
 				default:
 					return true;
@@ -481,11 +481,11 @@ bool SceneScriptRC01::ClickedOnExit(int exitId) {
 			if ( Game_Flag_Query(kFlagDNARowAvailable)
 			 && !Game_Flag_Query(kFlagDNARowAvailableTalk)
 			) {
-				Actor_Voice_Over(4310, kActorVoiceOver);
-				Actor_Voice_Over(4320, kActorVoiceOver);
-				Actor_Voice_Over(4330, kActorVoiceOver);
-				Actor_Voice_Over(4340, kActorVoiceOver);
-				Actor_Voice_Over(4350, kActorVoiceOver);
+				Actor_Voice_Over(4310, kActorVoiceOver); // Mainframe: I was fresh out of leads.
+				Actor_Voice_Over(4320, kActorVoiceOver); // Mainframe: Poking around Hawker's Circle had been a waste of time.
+				Actor_Voice_Over(4330, kActorVoiceOver); // Mainframe: I had nothing to connect this Izo character to the Eisenduller murder.
+				Actor_Voice_Over(4340, kActorVoiceOver); // Mainframe: But if the Replicants had done in one Tyrell scientist, maybe they'd go after another.
+				Actor_Voice_Over(4350, kActorVoiceOver); // Mainframe: And the subcontractors down on DNA Row didn't have Tyrell security to protect them.
 				Game_Flag_Set(kFlagDNARowAvailableTalk);
 			}
 			Actor_Set_Immunity_To_Obstacles(kActorMcCoy, false);
@@ -632,7 +632,7 @@ void SceneScriptRC01::interrogateCrowd() {
 		    || (Actor_Clue_Query(kActorMcCoy, kClueCrowdInterviewA)
 		        && Actor_Clue_Query(kActorMcCoy, kClueCrowdInterviewB) )
 		) {
-			Actor_Says(kActorMcCoy, 8525, 3); // generic "hmph"
+			Actor_Says(kActorMcCoy, 8525, 3); // McCoy: Hmph.
 			return;
 		}
 #endif // BLADERUNNER_ORIGINAL_BUGS
@@ -642,9 +642,9 @@ void SceneScriptRC01::interrogateCrowd() {
 			Actor_Face_Object(kActorMcCoy, "BARICADE03", true);
 			Loop_Actor_Walk_To_Actor(kActorOfficerLeary, kActorMcCoy, 36, true, false);
 			Actor_Face_Actor(kActorOfficerLeary, kActorMcCoy, true);
-			Actor_Says(kActorMcCoy, 4500, 14);
+			Actor_Says(kActorMcCoy, 4500, 14); // McCoy: Canvass the area. Maybe somebody had his eyes open.
 			I_Sez("MG: We don't want any of that abstract art oozing out onto the street.");
-			Actor_Says(kActorOfficerLeary, 10, 14);
+			Actor_Says(kActorOfficerLeary, 10, 14); // Officer Leary: I'm on it.
 			Actor_Set_Goal_Number(kActorOfficerLeary, kGoalOfficerLearyRC01WalkToCrowd);
 		}
 	}
@@ -709,9 +709,9 @@ void SceneScriptRC01::PlayerWalkedIn() {
 		if ( Game_Flag_Query(kFlagRC02Entered)
 		 && !Game_Flag_Query(kFlagRC02Left)
 		) {
-			Actor_Voice_Over(1910, kActorVoiceOver);
-			Actor_Voice_Over(1920, kActorVoiceOver);
-			Actor_Voice_Over(1930, kActorVoiceOver);
+			Actor_Voice_Over(1910, kActorVoiceOver); // Mainframe: It didn't add up. Animal murders, the lack of any theft.
+			Actor_Voice_Over(1920, kActorVoiceOver); // Mainframe: The small animals alone were worth a good chunk of change on the street.
+			Actor_Voice_Over(1930, kActorVoiceOver); // Mainframe: It seemed more like an act of vengeance.
 			Game_Flag_Set(kFlagRC02Left);
 		}
 		//return true;

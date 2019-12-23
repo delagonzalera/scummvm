@@ -98,11 +98,11 @@ bool SceneScriptUG03::ClickedOn3DObject(const char *objectName, bool a2) {
 		if (!Loop_Actor_Walk_To_Scene_Object(kActorMcCoy, "CHAIR_BACK", 36, true, false)) {
 			Actor_Face_Object(kActorMcCoy, "CHAIR_BACK", true);
 			if (!Actor_Clue_Query(kActorMcCoy, kClueScaryChair)) {
-				Actor_Voice_Over(2550, kActorVoiceOver);
-				Actor_Voice_Over(2560, kActorVoiceOver);
-				Actor_Voice_Over(2570, kActorVoiceOver);
-				Actor_Voice_Over(2580, kActorVoiceOver);
-				Actor_Voice_Over(2590, kActorVoiceOver);
+				Actor_Voice_Over(2550, kActorVoiceOver); // Mainframe: I'd seen chairs like this one before. And not just in my recurring dental nightmares.
+				Actor_Voice_Over(2560, kActorVoiceOver); // Mainframe: It was an old-time LPD "soothsayer".
+				Actor_Voice_Over(2570, kActorVoiceOver); // Mainframe: A torture device used to elicit confessions out of hardened criminals.
+				Actor_Voice_Over(2580, kActorVoiceOver); // Mainframe: Its use had been banned for ten years now...
+				Actor_Voice_Over(2590, kActorVoiceOver); // Mainframe: but most cops knew it hadn't totally disappeared off the face of the earth.
 				Actor_Clue_Acquire(kActorMcCoy, kClueScaryChair, true, -1);
 #if BLADERUNNER_ORIGINAL_BUGS
 #else
@@ -130,7 +130,7 @@ bool SceneScriptUG03::ClickedOnExit(int exitId) {
 	if (exitId == 0) {
 		if (!Loop_Actor_Walk_To_XYZ(kActorMcCoy, -139.0f, 0.0f, -13.0f, 0, true, false, false)) {
 			if (Global_Variable_Query(kVariableChapter) < 4) {
-				Actor_Says(kActorMcCoy, 8522, 14);
+				Actor_Says(kActorMcCoy, 8522, 14); // McCoy: Locked.
 			} else {
 				Ambient_Sounds_Remove_All_Non_Looping_Sounds(true);
 				Ambient_Sounds_Remove_All_Looping_Sounds(1);

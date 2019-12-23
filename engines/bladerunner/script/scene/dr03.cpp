@@ -69,38 +69,38 @@ bool SceneScriptDR03::ClickedOnActor(int actorId) {
 
 		if (!Game_Flag_Query(kFlagDR03ChewTalk1)) {
 			if (_vm->_cutContent && Random_Query(1, 2) == 1) {
-				Actor_Says(kActorMcCoy, 750, 18);
-				Actor_Says(kActorChew, 0, 14);
+				Actor_Says(kActorMcCoy, 750, 18); // McCoy: Damn, you keep it cold in here.
+				Actor_Says(kActorChew,    0, 14); // Chew: Hmph, of course cold. What do you expect, heat? Eyes go bad at room temperature. You buy winter coat. Like this, see, like this. Very comfy.
 			} else {
-				Actor_Says(kActorMcCoy, 755, 18);
-				Actor_Says(kActorChew, 10, 14);
+				Actor_Says(kActorMcCoy, 755, 18); // McCoy: Excuse me.
+				Actor_Says(kActorChew,   10, 14); // Chew: Deliveries to rear!
 			}
-			Actor_Says(kActorMcCoy, 760, 18);
-			Actor_Says(kActorChew, 20, 14);
-			Actor_Says(kActorMcCoy, 765, 18);
-			Actor_Says(kActorChew, 30, 14);
+			Actor_Says(kActorMcCoy, 760, 18); // McCoy: LPD. I got a couple of questions.
+			Actor_Says(kActorChew,   20, 14); // Chew: Hmm. Talk, talk, talk, always talk. You wait. You no take up time. Busy, busy.
+			Actor_Says(kActorMcCoy, 765, 18); // McCoy: Marcus Eisenduller is dead.
+			Actor_Says(kActorChew,   30, 14); // Chew: Eh-- Okay, we talk.  Quick, quick now. What you want?
 			Game_Flag_Set(kFlagDR03ChewTalk1);
 			return true;
 		}
 
 		if (!Actor_Clue_Query(kActorMcCoy, kClueChewInterview)) {
-			Actor_Says(kActorMcCoy, 770, 12);
-			Actor_Says(kActorChew, 110, 12);
-			Actor_Says(kActorChew, 120, 13);
-			Actor_Says(kActorMcCoy, 835, 13);
-			Actor_Says(kActorChew, 130, 14);
-			Actor_Says(kActorMcCoy, 840, 16);
-			Actor_Says(kActorChew, 140, 15);
+			Actor_Says(kActorMcCoy, 770, 12); // McCoy: You were close to Eisenduller?
+			Actor_Says(kActorChew,  110, 12); // Chew: Eisenduller? Ha, ha, no, no. No time for him. No go to lab.
+			Actor_Says(kActorChew,  120, 13); // Chew: Eisenduller test Off-World gravity. Chew work important organs. Visual Center, you see?
+			Actor_Says(kActorMcCoy, 835, 13); // McCoy: Marcus is dead.
+			Actor_Says(kActorChew,  130, 14); // Chew: Chew work hard all night, all day. No stop, no break. No OT (paid overtime).
+			Actor_Says(kActorMcCoy, 840, 16); // McCoy: Did you hear me?
+			Actor_Says(kActorChew,  140, 15); // Chew: Of course I hear you! You-- you think I'm deaf? (mumbles) Hmph, your time more important, man?
 			if (!Game_Flag_Query(kFlagDR03ChewTalkExplosion)) {
-				Actor_Says(kActorChew, 150, 13);
-				Actor_Says(kActorMcCoy, 845, 17);
-				Actor_Says(kActorChew, 170, 18);
-				Actor_Says(kActorChew, 180, 16);
-				Actor_Says(kActorMcCoy, 850, 15);
-				Actor_Says(kActorChew, 190, 14);
-				Actor_Says(kActorChew, 200, 13);
-				Actor_Says(kActorMcCoy, 855, 18);
-				Actor_Says(kActorChew, 210, 12);
+				Actor_Says(kActorChew,  150, 13); // Chew: Eisenduller dead. Moraji maybe dead. You out chasing skirts?
+				Actor_Says(kActorMcCoy, 845, 17); // McCoy: Moraji?
+				Actor_Says(kActorChew,  170, 18); // Chew: Chew eat supper with Moraji every night, no fail. Sometimes Chinese, sometimes Indian, sometimes home cook.
+				Actor_Says(kActorChew,  180, 16); // Chew: Sometimes we go up and eat with twins.
+				Actor_Says(kActorMcCoy, 850, 15); // McCoy: Moraji didn't show? Did you call him?
+				Actor_Says(kActorChew,  190, 14); // Chew: I call. I knock. Ten minutes ago. Door locked, no answer.
+				Actor_Says(kActorChew,  200, 13); // Chew: Where you come from, huh?
+				Actor_Says(kActorMcCoy, 855, 18); // McCoy: What?
+				Actor_Says(kActorChew,  210, 12); // Chew: Nothing. Nothing.
 			}
 			Actor_Clue_Acquire(kActorMcCoy, kClueChewInterview, true, kActorChew);
 			return true;
@@ -109,14 +109,14 @@ bool SceneScriptDR03::ClickedOnActor(int actorId) {
 		if (Game_Flag_Query(kFlagDR05JustExploded)
 		 && Game_Flag_Query(kFlagDR03ChewTalk1)
 		) {
-			Actor_Says(kActorMcCoy, 815, 18);
-			Actor_Says(kActorChew, 60, 14);
-			Actor_Says(kActorChew, 70, 14);
-			Actor_Says(kActorChew, 80, 14);
-			Actor_Says(kActorMcCoy, 820, 18);
-			Actor_Says(kActorChew, 90, 14);
-			Actor_Says(kActorMcCoy, 825, 18);
-			Actor_Says(kActorChew, 100, 14);
+			Actor_Says(kActorMcCoy, 815, 18); // McCoy: Listen to me!
+			Actor_Says(kActorChew,   60, 14); // Chew: Busy, busy. You not delivery man. You go away!
+			Actor_Says(kActorChew,   70, 14); // Chew: (mumbles) Distraction all day long. Never stop.
+			Actor_Says(kActorChew,   80, 14); // Chew: Loud noises on the street. Beep, beep, bonk, gonk, gonk. (sigh) Always make me drop eyes.
+			Actor_Says(kActorMcCoy, 820, 18); // McCoy: That'd be Dermo Design burning to the ground.
+			Actor_Says(kActorChew,   90, 14); // Chew: Oh, what-- what of Moraji?
+			Actor_Says(kActorMcCoy, 825, 18); // McCoy: He didn't make it.
+			Actor_Says(kActorChew,  100, 14); // Chew: You leave now, okay? Very busy. Must work. Must work, ah.
 			Game_Flag_Reset(kFlagDR05JustExploded);
 			Game_Flag_Set(kFlagDR03ChewTalkExplosion);
 			return true;
@@ -131,9 +131,9 @@ bool SceneScriptDR03::ClickedOnActor(int actorId) {
 		) {
 			dialogueWithChew();
 		} else {
-			Actor_Says(kActorMcCoy, 810, 18);
-			Actor_Says(kActorChew, 40, 14);
-			Actor_Says(kActorChew, 50, 14);
+			Actor_Says(kActorMcCoy, 810, 18); // McCoy: Tell me this.
+			Actor_Says(kActorChew,   40, 14); // Chew: Hey, LPD, you deaf or something, huh, LPD?
+			Actor_Says(kActorChew,   50, 14); // Chew: I very busy. Eyes will wait for nothing.
 		}
 		return true;
 	}
@@ -190,14 +190,14 @@ void SceneScriptDR03::ActorChangedGoal(int actorId, int newGoal, int oldGoal, bo
 void SceneScriptDR03::PlayerWalkedIn() {
 	if (!Game_Flag_Query(kFlagDR02toDR03)) {
 		if (Random_Query(1, 2) == 1) {
-			Actor_Says(kActorChew, 660, 14); // (yells) Ah!
-			Actor_Says(kActorChew, 680, 14); // What you want? I busy.
+			Actor_Says(kActorChew, 660, 14); // Chew: (yells) Ah!
+			Actor_Says(kActorChew, 680, 14); // Chew: What you want? I busy.
 		} else if (Random_Query(1, 2) == 2) {
-			Actor_Says(kActorChew, 670, 14); // Hmph. (mumbles in Chinese)
-			Actor_Says(kActorChew, 620, 14); // (yells) What you do, huh?
+			Actor_Says(kActorChew, 670, 14); // Chew: Hmph. (mumbles in Chinese)
+			Actor_Says(kActorChew, 620, 14); // Chew: (yells) What you do, huh?
 		} else {
-			Actor_Says(kActorChew, 690, 14); // Not good time now, come back later.
-			Actor_Says(kActorChew, 710, 14); // (Mumbles in Chinese)
+			Actor_Says(kActorChew, 690, 14); // Chew: Not good time now, come back later.
+			Actor_Says(kActorChew, 710, 14); // Chew: (Mumbles in Chinese)
 		}
 	}
 }
@@ -238,98 +238,98 @@ void SceneScriptDR03::dialogueWithChew() {
 
 	switch (answer) {
 	case 640: // EISENDULLER
-		Actor_Says(kActorMcCoy, 770, 12);
-		Actor_Says(kActorChew, 110, 12);
-		Actor_Says(kActorChew, 120, 13);
-		Actor_Says(kActorMcCoy, 835, 13);
-		Actor_Says(kActorChew, 130, 14);
-		Actor_Says(kActorMcCoy, 840, 16);
-		Actor_Says(kActorChew, 140, 15);
+		Actor_Says(kActorMcCoy, 770, 12); // McCoy: You were close to Eisenduller?
+		Actor_Says(kActorChew,  110, 12); // Chew: Eisenduller? Ha, ha, no, no. No time for him. No go to lab.
+		Actor_Says(kActorChew,  120, 13); // Chew: Eisenduller test Off-World gravity. Chew work important organs. Visual Center, you see?
+		Actor_Says(kActorMcCoy, 835, 13); // McCoy: Marcus is dead.
+		Actor_Says(kActorChew,  130, 14); // Chew: Chew work hard all night, all day. No stop, no break. No OT (paid overtime).
+		Actor_Says(kActorMcCoy, 840, 16); // McCoy: Did you hear me?
+		Actor_Says(kActorChew,  140, 15); // Chew: Of course I hear you! You-- you think I'm deaf? (mumbles) Hmph, your time more important, man?
 		if (!Game_Flag_Query(kFlagDR03ChewTalkExplosion)) {
-			Actor_Says(kActorChew, 150, 13);
-			Actor_Says(kActorMcCoy, 845, 17);
-			Actor_Says(kActorChew, 170, 18);
-			Actor_Says(kActorChew, 180, 16);
-			Actor_Says(kActorMcCoy, 850, 15);
-			Actor_Says(kActorChew, 190, 14);
-			Actor_Says(kActorChew, 200, 13);
-			Actor_Says(kActorMcCoy, 855, 18);
-			Actor_Says(kActorChew, 210, 12);
+			Actor_Says(kActorChew,  150, 13); // Chew: Eisenduller dead. Moraji maybe dead. You out chasing skirts?
+			Actor_Says(kActorMcCoy, 845, 17); // McCoy: Moraji?
+			Actor_Says(kActorChew,  170, 18); // Chew: Chew eat supper with Moraji every night, no fail. Sometimes Chinese, sometimes Indian, sometimes home cook.
+			Actor_Says(kActorChew,  180, 16); // Chew: Sometimes we go up and eat with twins.
+			Actor_Says(kActorMcCoy, 850, 15); // McCoy: Moraji didn't show? Did you call him?
+			Actor_Says(kActorChew,  190, 14); // Chew: I call. I knock. Ten minutes ago. Door locked, no answer.
+			Actor_Says(kActorChew,  200, 13); // Chew: Where you come from, huh?
+			Actor_Says(kActorMcCoy, 855, 18); // McCoy: What?
+			Actor_Says(kActorChew,  210, 12); // Chew: Nothing. Nothing.
 		}
 		Actor_Clue_Acquire(kActorMcCoy, kClueChewInterview, true, kActorChew);
 		break;
 
 	case 650: // TWINS
-		Actor_Says(kActorMcCoy, 775, 11);
-		Actor_Says(kActorChew, 220, 14);
-		Actor_Says(kActorMcCoy, 860, 11);
-		Actor_Says(kActorChew, 230, 14);
-		Actor_Says(kActorMcCoy, 865, 11);
-		Actor_Says(kActorChew, 240, 14);
-		Actor_Says(kActorChew, 250, 14);
+		Actor_Says(kActorMcCoy, 775, 11); // McCoy: You mentioned twins.
+		Actor_Says(kActorChew,  220, 14); // Chew: Yes, yes. Luther and Lance. Siamese twins. Live above Moraji.
+		Actor_Says(kActorMcCoy, 860, 11); // McCoy: They're genetic designers?
+		Actor_Says(kActorChew,  230, 14); // Chew: Were. Till last month. Got the boot. Shitcan.
+		Actor_Says(kActorMcCoy, 865, 11); // McCoy: From who?
+		Actor_Says(kActorChew,  240, 14); // Chew: Big boss, who else? [ speaks Chinese ] You go ask them.
+		Actor_Says(kActorChew,  250, 14); // Chew: I waste no more time. You think I nose around everybody's business, huh?
 		break;
 
 	case 660: // MORAJI
-		Actor_Says(kActorMcCoy, 780, 13);
+		Actor_Says(kActorMcCoy, 780, 13); // McCoy: Moraji was some kind of DNA designer?
 		if (Game_Flag_Query(kFlagDR03ChewTalkExplosion)) {
-			Actor_Says(kActorChew, 260, 14);
-			Actor_Says(kActorChew, 270, 13);
-			Actor_Says(kActorChew, 280, 12);
+			Actor_Says(kActorChew, 260, 14); // Chew: Yeah, subcontractor like me.
+			Actor_Says(kActorChew, 270, 13); // Chew: Heh. He funny, though. Like old movies. Moraji Master Chef.
+			Actor_Says(kActorChew, 280, 12); // Chew: Twins go crazy when he cooks. (snickers)
 		} else {
-			Actor_Says(kActorChew, 260, 14);
-			Actor_Says(kActorChew, 270, 13);
-			Actor_Says(kActorChew, 280, 12);
-			Actor_Says(kActorMcCoy, 870, 18);
-			Actor_Says(kActorChew, 290, 15);
+			Actor_Says(kActorChew,  260, 14); // Chew: Yeah, subcontractor like me.
+			Actor_Says(kActorChew,  270, 13); // Chew: Heh. He funny, though. Like old movies. Moraji Master Chef.
+			Actor_Says(kActorChew,  280, 12); // Chew: Twins go crazy when he cooks. (snickers)
+			Actor_Says(kActorMcCoy, 870, 18); // McCoy: What does he work on?
+			Actor_Says(kActorChew,  290, 15); // Chew: Skin. Did skin for Nexus-6. Beautiful work. You go see.
 			if (!Game_Flag_Query(kFlagDR05JustExploded)) {
-				Actor_Says(kActorChew, 300, 12);
+				Actor_Says(kActorChew, 300, 12); // Chew: He at "Dermo Design" across street. You find him, you tell him I wait.
 			}
 		}
 		Actor_Clue_Acquire(kActorMcCoy, kClueChewInterview, true, kActorChew);
 		break;
 
 	case 670: // TYRELL
-		Actor_Says(kActorMcCoy, 765, 12);
+		Actor_Says(kActorMcCoy, 765, 12); // McCoy: Marcus Eisenduller is dead.
 		if (_vm->_cutContent) {
 			Actor_Says_With_Pause(kActorMcCoy, 785, 0.80f, 18);
 		}
-		Actor_Says(kActorMcCoy, 790, 13);
-		Actor_Says(kActorChew, 310, 12);
-		Actor_Says(kActorChew, 320, 3);
+		Actor_Says(kActorMcCoy, 790, 13); // McCoy: You might consider knocking off work early.
+		Actor_Says(kActorChew,  310, 12); // Chew: What Nexus-6 want with me, huh? I just do eyes.
+		Actor_Says(kActorChew,  320,  3); // Chew: Busy, busy. Must make deadline. (sighs)
 		break;
 
 	case 680: // SEBASTIAN
-		Actor_Says(kActorMcCoy, 795, 3);
+		Actor_Says(kActorMcCoy, 795, 3); // McCoy: What's Sebastian been up to lately?
 		if (Game_Flag_Query(kFlagDR03ChewTalkExplosion)) {
-			Actor_Says(kActorChew, 330, 12);
-			Actor_Says(kActorChew, 340, 15);
-			Actor_Says(kActorMcCoy, 875, 16);
-			Actor_Says(kActorChew, 350, 12);
-			Actor_Says(kActorChew, 360, 15);
+			Actor_Says(kActorChew,  330, 12); // Chew: Sebastian? He do what always do. Nervous System.
+			Actor_Says(kActorChew,  340, 15); // Chew: Very important to Dr. Tyrell.
+			Actor_Says(kActorMcCoy, 875, 16); // McCoy: Where do I find him?
+			Actor_Says(kActorChew,  350, 12); // Chew: He at old building down alley. Er...
+			Actor_Says(kActorChew,  360, 15); // Chew: Bradbury Hotel, I think. You walk down alley, you find it.
 			Game_Flag_Set(kFlagBB01Available);
 		} else {
-			Actor_Says(kActorChew, 320, 13);
-			Actor_Says(kActorChew, 150, 14);
+			Actor_Says(kActorChew, 320, 13); // Chew: Busy, busy. Must make deadline. (sighs)
+			Actor_Says(kActorChew, 150, 14); // Chew: Eisenduller dead. Moraji maybe dead. You out chasing skirts?
 			Game_Flag_Set(kFlagBB01Available);
 		}
 		break;
 
 	case 690: // DONE
-		Actor_Says(kActorMcCoy, 805, 3);
+		Actor_Says(kActorMcCoy, 805, 3); // McCoy: Sorry to bother you.
 		break;
 
 	case 1270: // LANCE'S ENVELOPE
-		Actor_Says(kActorMcCoy, 800, 16);
-		Actor_Says(kActorChew, 370, 3);
-		Actor_Says(kActorMcCoy, 880, 15);
-		Actor_Says(kActorChew, 380, 13);
-		Actor_Says(kActorChew, 390, 12);
-		Actor_Says(kActorMcCoy, 885, 14);
-		Actor_Says(kActorChew, 400, 13);
-		Actor_Says(kActorChew, 410, 15);
-		Actor_Says(kActorMcCoy, 890, 18);
-		Actor_Says(kActorChew, 420, 13);
-		Actor_Says(kActorChew, 430, 12);
+		Actor_Says(kActorMcCoy, 800, 16); // McCoy: What about this Lance? What kind of guy is he?
+		Actor_Says(kActorChew,  370,  3); // Chew: Why, he like Luther. Only different. Don't know which which.
+		Actor_Says(kActorMcCoy, 880, 15); // McCoy: That so?
+		Actor_Says(kActorChew,  380, 13); // Chew: One long hair, talk a lot, tah tah tah tah tah tah, always make deal.
+		Actor_Says(kActorChew,  390, 12); // Chew: Other more quiet. Work much harder.
+		Actor_Says(kActorMcCoy, 885, 14); // McCoy: What kind of deals?
+		Actor_Says(kActorChew,  400, 13); // Chew: Sell this, sell that. No matter what weather.
+		Actor_Says(kActorChew,  410, 15); // Chew: Like salesmen. Ha. Very hard to take. No trust, no way.
+		Actor_Says(kActorMcCoy, 890, 18); // McCoy: Did Lance sell something to Runciter?
+		Actor_Says(kActorChew,  420, 13); // Chew: Who? Never heard of Runciter.
+		Actor_Says(kActorChew,  430, 12); // Chew: No time for charades. Sound like this, sound like that. Look like this. (mumbles)
 		break;
 	}
 }

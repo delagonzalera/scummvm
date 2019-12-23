@@ -588,9 +588,9 @@ void SceneScriptPS10::PlayerWalkedIn() {
 	} else {
 		Player_Set_Combat_Mode(true);
 		Loop_Actor_Walk_To_Waypoint(kActorMcCoy, 5, 0, false, true);
-		Actor_Says(kActorAnsweringMachine, 280, kAnimationModeTalk);
-		Actor_Says(kActorAnsweringMachine, 290, kAnimationModeTalk);
-		Actor_Says(kActorAnsweringMachine, 300, kAnimationModeTalk);
+		Actor_Says(kActorAnsweringMachine, 280, kAnimationModeTalk); // Answering Machine: Target and shoot all threats.
+		Actor_Says(kActorAnsweringMachine, 290, kAnimationModeTalk); // Answering Machine: Do not shoot innocents.
+		Actor_Says(kActorAnsweringMachine, 300, kAnimationModeTalk); // Answering Machine: Confirm target as hostile before shooting.
 		Police_Maze_Set_Pause_State(false);
 		//return true;
 		return;

@@ -72,13 +72,13 @@ bool SceneScriptDR05::ClickedOn3DObject(const char *objectName, bool a2) {
 		 &&  Actor_Query_Goal_Number(kActorMoraji) == kGoalMorajiDefault
 		) {
 			Actor_Face_Object(kActorMcCoy, "T2 DOORWAY", true);
-			Actor_Says(kActorMcCoy, 1020, 14);
-			Actor_Says(kActorMoraji, 90, 13);
+			Actor_Says(kActorMcCoy,  1020, 14); // McCoy: What's behind that door there?
+			Actor_Says(kActorMoraji,   90, 13); // Moraji: Are you crazy? That's a bomb on the chair!
 		} else {
 			if (!Loop_Actor_Walk_To_XYZ(kActorMcCoy, 57.61f, 0.3f, 69.27f, 0, true, false, false)) {
 				Actor_Face_Object(kActorMcCoy, "T2 DOORWAY", true);
-				Actor_Says(kActorMcCoy, 8522, 13);
-				Actor_Says(kActorMcCoy, 8521, 14);
+				Actor_Says(kActorMcCoy, 8522, 13); // McCoy: Locked.
+				Actor_Says(kActorMcCoy, 8521, 14); // McCoy: No way through here.
 			}
 		}
 
@@ -102,7 +102,7 @@ bool SceneScriptDR05::ClickedOnItem(int itemId, bool a2) {
 		) {
 			if (!Actor_Query_Goal_Number(kActorMoraji)) {
 				Actor_Says_With_Pause(kActorMcCoy, 1015, 0.1f, 12);
-				Actor_Says(kActorMoraji, 70, 13);
+				Actor_Says(kActorMoraji, 70, 13); // Moraji: No! There is no time! And he said if you touch it--
 			}
 			Actor_Set_Goal_Number(kActorMoraji, kGoalMorajiChooseFate);
 		}
@@ -168,17 +168,17 @@ void SceneScriptDR05::PlayerWalkedIn() {
 		if (!Game_Flag_Query(kFlagDR05ExplodedEntered)) {
 			Game_Flag_Set(kFlagDR05ExplodedEntered);
 			if (Game_Flag_Query(kFlagSadikIsReplicant)) {
-				Actor_Voice_Over(730, kActorVoiceOver);
-				Actor_Voice_Over(740, kActorVoiceOver);
-				Actor_Voice_Over(750, kActorVoiceOver);
-				Actor_Voice_Over(760, kActorVoiceOver);
+				Actor_Voice_Over(730, kActorVoiceOver); // Mainframe: It was something you didn't see too often.
+				Actor_Voice_Over(740, kActorVoiceOver); // Mainframe: A precise shaped explosion fashioned for minimum collateral damage.
+				Actor_Voice_Over(750, kActorVoiceOver); // Mainframe: The son-of-a-bitch was a pro. Someone with real munitions expertise.
+				Actor_Voice_Over(760, kActorVoiceOver); // Mainframe: And that expertise could only come with extensive on-the-job Off-World training.
 				Actor_Clue_Acquire(kActorMcCoy, kClueExpertBomber, true, -1);
 			} else {
-				Actor_Voice_Over(670, kActorVoiceOver);
-				Actor_Voice_Over(680, kActorVoiceOver);
-				Actor_Voice_Over(700, kActorVoiceOver);
-				Actor_Voice_Over(710, kActorVoiceOver);
-				Actor_Voice_Over(720, kActorVoiceOver);
+				Actor_Voice_Over(670, kActorVoiceOver); // Mainframe: The guy who'd set the bomb had been sloppy.
+				Actor_Voice_Over(680, kActorVoiceOver); // Mainframe: He kept the charge small enough to leave the walls standing.
+				Actor_Voice_Over(700, kActorVoiceOver); // Mainframe: If he just wanted to take out Moraji, this was overkill.
+				Actor_Voice_Over(710, kActorVoiceOver); // Mainframe: If my instincts were right, he was the same joker who lit up the Tyrell Building.
+				Actor_Voice_Over(720, kActorVoiceOver); // Mainframe: Dangerous but still an amateur.
 				Actor_Clue_Acquire(kActorMcCoy, kClueAmateurBomber, true, -1);
 			}
 		}
@@ -190,10 +190,10 @@ void SceneScriptDR05::PlayerWalkedIn() {
 	 &&  Actor_Query_Goal_Number(kActorMoraji) == kGoalMorajiDefault
 	) {
 		Actor_Face_Actor(kActorMcCoy, kActorMoraji, true);
-		Actor_Says(kActorMcCoy, 1010, 13);
+		Actor_Says(kActorMcCoy, 1010, 13); // McCoy: What's going on? Who did this?
 		Actor_Face_Item(kActorMcCoy, kItemBomb, true);
 		Player_Set_Combat_Mode(true);
-		Actor_Says(kActorMoraji, 60, 12);
+		Actor_Says(kActorMoraji, 60, 12); // Moraji: Help me, sir. Please, help me. It is going to blow.
 		Actor_Change_Animation_Mode(kActorMcCoy, kAnimationModeIdle);
 		Game_Flag_Set(kFlagDR05MorajiTalk);
 		//return true;

@@ -316,14 +316,14 @@ void AIScriptSteele::CompletedMovementTrack() {
 	case kGoalSteeleKP06Enter:
 		Player_Set_Combat_Mode(kActorMcCoy);
 		Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
-		Actor_Says(kActorMcCoy, 2265, 11);
-		Actor_Says(kActorSteele, 640, 58);
-		Actor_Says(kActorMcCoy, 2270, 12);
-		Actor_Says(kActorSteele, 650, 59);
-		Actor_Says(kActorMcCoy, 2275, 16);
-		Actor_Says(kActorMcCoy, 2280, 15);
-		Actor_Says(kActorSteele, 660, 60);
-		Actor_Says(kActorSteele, 670, 59);
+		Actor_Says(kActorMcCoy,  2265, 11); // McCoy: I'm finishing this alone, Steele.
+		Actor_Says(kActorSteele,  640, 58); // Steele: No chance.
+		Actor_Says(kActorMcCoy,  2270, 12); // McCoy: The bastard killed my dog. He tried to convince me I wasn't human.
+		Actor_Says(kActorSteele,  650, 59); // Steele: The job ain't about revenge, McCoy.
+		Actor_Says(kActorMcCoy,  2275, 16); // McCoy: If it's the money you're worried about, you can have it.
+		Actor_Says(kActorMcCoy,  2280, 15); // McCoy: But I'm doing this one alone.
+		Actor_Says(kActorSteele,  660, 60); // Steele: You're a stubborn son of a bitch.
+		Actor_Says(kActorSteele,  670, 59); // Steele: Look. I'll give you two minutes. That's all.
 		Actor_Set_Goal_Number(kActorSteele, kGoalSteeleKP06Leave);
 		Player_Set_Combat_Mode(kActorSteele);
 		Loop_Actor_Walk_To_XYZ(kActorMcCoy, -731.0f, 8.26f, -657.0f, 0, false, false, false);
@@ -345,7 +345,7 @@ void AIScriptSteele::ClickedByPlayer() {
 
 	if (goal == kGoalSteeleGone) {
 		Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
-		Actor_Says(kActorMcCoy, 8630, 14);
+		Actor_Says(kActorMcCoy, 8630, 14); // McCoy: What a waste.
 		return; //true;
 	}
 
@@ -381,18 +381,18 @@ void AIScriptSteele::ClickedByPlayer() {
 
 	switch (Random_Query(1, 3)) {
 	case 1:
-		Actor_Says(kActorMcCoy, 3970, 15);
-		Actor_Says(kActorSteele, 2700, 15);
+		Actor_Says(kActorMcCoy,  3970, 15); // McCoy: Hey.
+		Actor_Says(kActorSteele, 2700, 15); // Steele: You're horning in on my action, rookie. Take a stroll.
 		break;
 
 	case 2:
-		Actor_Says(kActorMcCoy, 3970, 15);
-		Actor_Says(kActorSteele, 2060, 15);
+		Actor_Says(kActorMcCoy,  3970, 15); // McCoy: Hey.
+		Actor_Says(kActorSteele, 2060, 15); // Steele: What are you doing here, Slim?
 		break;
 
 	case 3:
-		Actor_Says(kActorMcCoy, 3970, 15);
-		Actor_Says(kActorSteele, 1750, 15);
+		Actor_Says(kActorMcCoy,  3970, 15); // McCoy: Hey.
+		Actor_Says(kActorSteele, 1750, 15); // Steele: Been pretty busy haven't you, Slim?
 		break;
 	}
 	AI_Movement_Track_Unpause(kActorSteele);
@@ -775,21 +775,21 @@ bool AIScriptSteele::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		Actor_Change_Animation_Mode(kActorMcCoy, kAnimationModeIdle);
 		Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
 		Loop_Actor_Walk_To_Actor(kActorSteele, 0, 48, false, true);
-		Actor_Says(kActorSteele, 1860, kAnimationModeTalk);
+		Actor_Says(kActorSteele, 1860, kAnimationModeTalk); // Steele: You blew your retirement loot this time, Slim.
 		Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
-		Actor_Says(kActorMcCoy, 4825, 18);
+		Actor_Says(kActorMcCoy, 4825, 18); // McCoy: What are you doing here?
 		Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-		Actor_Says(kActorSteele, 1870, kAnimationModeTalk);
-		Actor_Says(kActorSteele, 1880, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 4830, 13);
-		Actor_Says(kActorSteele, 1890, kAnimationModeTalk);
-		Actor_Says(kActorSteele, 1900, kAnimationModeTalk);
+		Actor_Says(kActorSteele, 1870, kAnimationModeTalk); // Steele: Tracking this piece of shit.
+		Actor_Says(kActorSteele, 1880, kAnimationModeTalk); // Steele: What are you doing here besides putting your nuts on the chopping block?
+		Actor_Says(kActorMcCoy,  4830,                 13); // McCoy: Investigating Izo. Maybe we should compare notes.
+		Actor_Says(kActorSteele, 1890, kAnimationModeTalk); // Steele: Maybe you should find another line of work.
+		Actor_Says(kActorSteele, 1900, kAnimationModeTalk); // Steele: Just in case I'm not around to bail you out next time.
 		Actor_Face_Actor(kActorSteele, kActorIzo, true);
-		Actor_Says(kActorSteele, 1910, kAnimationModeTalk);
-		Actor_Says(kActorSteele, 1920, kAnimationModeTalk);
+		Actor_Says(kActorSteele, 1910, kAnimationModeTalk); // Steele: I'll wait for the uniforms. Why don't you grab yourself a slice of quiche or something.
+		Actor_Says(kActorSteele, 1920, kAnimationModeTalk); // Steele: And pick up a bottle of scotch for the real Blade Runner, will ya?
 		Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
 		Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-		Actor_Says(kActorSteele, 1930, kAnimationModeTalk);
+		Actor_Says(kActorSteele, 1930, kAnimationModeTalk); // Steele: Just kidding, Slim.
 		Actor_Set_Goal_Number(kActorSteele, kGoalSteeleLeaveRC03);
 #if BLADERUNNER_ORIGINAL_BUGS
 		Player_Gains_Control(); // redundant - causes "WARNING: Unbalanced call to BladeRunnerEngine::playerGainsControl"
@@ -807,29 +807,29 @@ bool AIScriptSteele::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		Actor_Change_Animation_Mode(kActorSteele, kAnimationModeCombatIdle);
 		_animationState = 23;
 		_animationFrame = 0;
-		Actor_Says(kActorIzo, 660, kAnimationModeTalk);
+		Actor_Says(kActorIzo, 660, kAnimationModeTalk); // Izo: Izo.
 		Actor_Says_With_Pause(kActorSteele, 2020, 0.0f, kAnimationModeCombatIdle);
 		Actor_Says_With_Pause(kActorSteele, 2030, 0.0f, kAnimationModeCombatIdle);
 		Actor_Change_Animation_Mode(kActorSteele, kAnimationModeCombatIdle);
-		Actor_Says(kActorIzo, 670, kAnimationModeTalk);
-		Actor_Says(kActorSteele, 2040, kAnimationModeCombatIdle);
-		Actor_Says(kActorIzo, 680, kAnimationModeTalk);
-		Actor_Says(kActorSteele, 2050, kAnimationModeTalk);
+		Actor_Says(kActorIzo,     670,       kAnimationModeTalk); // Izo: I'll be out of lockup within the hour.
+		Actor_Says(kActorSteele, 2040, kAnimationModeCombatIdle); // Steele: Your little skin-job friends gonna take up a collection to bail you out or you got it saved up?
+		Actor_Says(kActorIzo,     680,       kAnimationModeTalk); // Izo: Maybe I got friends in high places.
+		Actor_Says(kActorSteele, 2050,       kAnimationModeTalk); // Steele: Yeah and if my aunt had balls she'd be my uncle.
 		Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-		Actor_Says(kActorSteele, 2060, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 4845, kAnimationModeTalk);
-		Actor_Says(kActorSteele, 2070, kAnimationModeTalk);
-		Actor_Says(kActorSteele, 2080, kAnimationModeTalk);
+		Actor_Says(kActorSteele, 2060, kAnimationModeTalk); // Steele: What are you doing here, Slim?
+		Actor_Says(kActorMcCoy,  4845, kAnimationModeTalk); // McCoy: I was gonna ask you the same thing.
+		Actor_Says(kActorSteele, 2070, kAnimationModeTalk); // Steele: I've been tracking this boy for a week. He thinks he's pretty clever.
+		Actor_Says(kActorSteele, 2080, kAnimationModeTalk); // Steele: He's a material witness in a case I'm working.
 		Actor_Face_Actor(kActorSteele, kActorIzo, true);
-		Actor_Says(kActorSteele, 2090, kAnimationModeTalk);
+		Actor_Says(kActorSteele, 2090, kAnimationModeTalk); // Steele: In fact your best buddy's a Replicant, isn't he?
 		Actor_Says_With_Pause(kActorSteele, 2100, 1.0f, kAnimationModeTalk);
-		Actor_Says(kActorIzo, 690, kAnimationModeTalk);
-		Actor_Says(kActorSteele, 2110, kAnimationModeTalk);
-		Actor_Says(kActorSteele, 2120, kAnimationModeTalk);
+		Actor_Says(kActorIzo,     690, kAnimationModeTalk); // Izo: Hallucinate often?
+		Actor_Says(kActorSteele, 2110, kAnimationModeTalk); // Steele: That's okay.
+		Actor_Says(kActorSteele, 2120, kAnimationModeTalk); // Steele: You'll be giving him up to me soon enough.
 		Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-		Actor_Says(kActorSteele, 2140, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 4850, kAnimationModeTalk);
-		Actor_Says(kActorSteele, 2150, kAnimationModeTalk);
+		Actor_Says(kActorSteele, 2140, kAnimationModeTalk); // Steele: I can handle it from here, Slim. Why don't you go buy yourself a lollipop? Something else to suck on.
+		Actor_Says(kActorMcCoy,  4850, kAnimationModeTalk); // McCoy: Very clever.
+		Actor_Says(kActorSteele, 2150, kAnimationModeTalk); // Steele: But I wasn't trying to be.
 		// Scene_Exits_Enable() is done in Izo's kGoalIzoGetArrested - CompletedMovementTrack() case
 		Actor_Set_Goal_Number(kActorIzo, kGoalIzoGetArrested);
 		Actor_Set_Goal_Number(kActorSteele, kGoalSteeleLeaveRC03);
@@ -841,16 +841,16 @@ bool AIScriptSteele::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 	case kGoalSteeleIzoBlockedByMcCoy:
 		Actor_Force_Stop_Walking(kActorMcCoy);
 		Actor_Set_Goal_Number(kActorIzo, kGoalIzoRC03RunAway);
-		Actor_Says(kActorSteele, 1940, kAnimationModeTalk);
+		Actor_Says(kActorSteele, 1940, kAnimationModeTalk); // Steele: Move it!
 		Loop_Actor_Walk_To_Actor(kActorSteele, kActorMcCoy, 60, false, true);
 		Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
 		Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
-		Actor_Says(kActorSteele, 1950, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 4835, 14);
-		Actor_Says(kActorSteele, 1980, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 4840, 15);
-		Actor_Says(kActorSteele, 1990, kAnimationModeTalk);
-		Actor_Says(kActorSteele, 2000, kAnimationModeTalk);
+		Actor_Says(kActorSteele, 1950, kAnimationModeTalk); // Steele: I've been tracking Izo for a week and you ruined my whole plan in two seconds.
+		Actor_Says(kActorMcCoy,  4835,                 14); // McCoy: Sorry, I bet you can still catch him if you want.
+		Actor_Says(kActorSteele, 1980, kAnimationModeTalk); // Steele: If I didn't know any better, I'd think you wanted him to get away.
+		Actor_Says(kActorMcCoy,  4840,                 15); // McCoy: You crazy? I've been tailing him myself.
+		Actor_Says(kActorSteele, 1990, kAnimationModeTalk); // Steele: A little word of advice, Slim. Stay out of my way.
+		Actor_Says(kActorSteele, 2000, kAnimationModeTalk); // Steele: Next time I'm not gonna worry about who's in my line of fire, understand?
 		Actor_Set_Goal_Number(kActorSteele, kGoalSteeleLeaveRC03);
 		Scene_Exits_Enable();
 		return true;
@@ -923,21 +923,21 @@ bool AIScriptSteele::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 			Actor_Face_Heading(kActorMcCoy, 954, false);
 			Actor_Change_Animation_Mode(kActorSteele, kAnimationModeCombatIdle);
 			Delay(2000);
-			Actor_Says(kActorSteele, 1700, 58);
-			Actor_Says(kActorMcCoy, 3800, 3);
-			Actor_Says(kActorSteele, 1710, 59);
+			Actor_Says(kActorSteele, 1700, 58); // Steele: You see it, Slim?
+			Actor_Says(kActorMcCoy,  3800,  3); // McCoy: It's gotta be around here somewhere.
+			Actor_Says(kActorSteele, 1710, 59); // Steele: Let's smoke it out!
 			Actor_Set_Goal_Number(kActorSteele, kGoalSteeleNR11Shoot);
 			break;
 
 		case kGoalDektoraNR11WalkAway:
 			Actor_Face_Actor(kActorSteele, kActorDektora, true);
-			Actor_Says(kActorSteele, 1790, 3);
+			Actor_Says(kActorSteele, 1790, 3); // Steele: We having fun yet?
 			Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
 			Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-			Actor_Says(kActorMcCoy, 3830, 17);
-			Actor_Says(kActorSteele, 1800, 17);
-			Actor_Says(kActorMcCoy, 3835, 18);
-			Actor_Says(kActorSteele, 1810, 16);
+			Actor_Says(kActorMcCoy,  3830, 17); // McCoy: Oh, yeah.
+			Actor_Says(kActorSteele, 1800, 17); // Steele: You should have waited for me, Slim.
+			Actor_Says(kActorMcCoy,  3835, 18); // McCoy: I had the shot, so I took it.
+			Actor_Says(kActorSteele, 1810, 16); // Steele: (smacks lips) We'll see who has it next time.
 			Game_Flag_Set(kFlagDektoraRanAway);
 			Actor_Set_Goal_Number(kActorDektora, kGoalDektoraGone);
 			Actor_Set_Goal_Number(kActorSteele, kGoalSteeleNRxxGoToSpinner);
@@ -945,13 +945,13 @@ bool AIScriptSteele::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 
 		case kGoalDektoraNR11FallThroughWindow:
 			Actor_Modify_Friendliness_To_Other(kActorSteele, kActorMcCoy, 6);
-			Actor_Says(kActorSteele, 1750, 12);
-			Actor_Says(kActorMcCoy, 3815, 19);
-			Actor_Says(kActorSteele, 1760, 13);
-			Actor_Says(kActorMcCoy, 3820, 18);
-			Actor_Says(kActorSteele, 1770, 14);
-			Actor_Says(kActorSteele, 1780, 15);
-			Actor_Says(kActorMcCoy, 3825, 14);
+			Actor_Says(kActorSteele, 1750, 12); // Steele: Been pretty busy haven't you, Slim?
+			Actor_Says(kActorMcCoy,  3815, 19); // McCoy: I think we can safely say that one's in bio-mechanical purgatory.
+			Actor_Says(kActorSteele, 1760, 13); // Steele: You had to clear out everything else up here too.
+			Actor_Says(kActorMcCoy,  3820, 18); // McCoy: Hope Early's got insurance.
+			Actor_Says(kActorSteele, 1770, 14); // Steele: Putz employs Replicants, he oughta expect the worst.
+			Actor_Says(kActorSteele, 1780, 15); // Steele: (sigh) Sorry I missed all the laughs.
+			Actor_Says(kActorMcCoy,  3825, 14); // McCoy: Next time.
 			Game_Flag_Set(kFlagDektoraRanAway);
 			Actor_Set_Goal_Number(kActorDektora, kGoalDektoraGone);
 			Actor_Set_Goal_Number(kActorSteele, kGoalSteeleNRxxGoToSpinner);
@@ -1031,30 +1031,30 @@ bool AIScriptSteele::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		AI_Movement_Track_Append_Run(kActorSteele, 380, 0);
 		AI_Movement_Track_Repeat(kActorSteele);
 		Delay(500);
-		ADQ_Add(kActorLucy, 340, kAnimationModeDie);
+		ADQ_Add(kActorLucy, 340, kAnimationModeDie); // Lucy: I... dreamed... I had a dog. And... lived by a lake.
 		return true;
 
 	case kGoalSteeleHF02LucyShotBySteele:
 		AI_Movement_Track_Flush(kActorSteele);
 		Player_Loses_Control();
 		Delay(500);
-		Actor_Says(kActorSteele, 0, 14);
+		Actor_Says(kActorSteele, 0, 14); // Steele: Easy money. You missed the boat this time, Slim.
 		Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
-		Actor_Says(kActorMcCoy, 1540, 16);
-		Actor_Says(kActorSteele, 10, 13);
-		Actor_Says(kActorSteele, 20, 18);
-		Actor_Says(kActorMcCoy, 1545, 13);
+		Actor_Says(kActorMcCoy,  1540, 16); // McCoy: Hope we were right about her.
+		Actor_Says(kActorSteele,   10, 13); // Steele: I wouldn't worry about 'em.
+		Actor_Says(kActorSteele,   20, 18); // Steele: No matter how smart the make 'em, they just ain't smart enough.
+		Actor_Says(kActorMcCoy,  1545, 13); // McCoy: What'd it say?
 		Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-		Actor_Says(kActorSteele, 30, 18);
-		Actor_Says(kActorSteele, 40, 18);
-		Actor_Says(kActorMcCoy, 1550, 13);
+		Actor_Says(kActorSteele,   30, 18); // Steele: The last gasp? Something about a lake and trees.
+		Actor_Says(kActorSteele,   40, 18); // Steele: Maybe she'll see 'em in the next life.
+		Actor_Says(kActorMcCoy,  1550, 13); // McCoy: You're cruel and unusual.
 		Actor_Face_Actor(kActorSteele, kActorLucy, true);
-		Actor_Says(kActorSteele, 50, 12);
-		Actor_Says(kActorMcCoy, 1555, 13);
-		Actor_Says(kActorSteele, 60, 12);
+		Actor_Says(kActorSteele,   50, 12); // Steele: That's funny. Sometimes I actually feel bad for these poor Lolita models.
+		Actor_Says(kActorMcCoy,  1555, 13); // McCoy: You do?
+		Actor_Says(kActorSteele,   60, 12); // Steele: There ain't nothing in this world, even a skin-job, who deserves to be sold into sexual slavery.
 		Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-		Actor_Says(kActorSteele, 80, 16);
-		Actor_Says(kActorMcCoy, 1560, 13);
+		Actor_Says(kActorSteele,   80, 16); // Steele: That Tyrell is one sick dude.
+		Actor_Says(kActorMcCoy,  1560, 13); // McCoy: Commerce is our business.
 
 		Delay(500);
 		Game_Flag_Set(kFlagSpinnerMissing);
@@ -1083,31 +1083,31 @@ bool AIScriptSteele::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 
 	case kGoalSteeleHF02LucyShotByMcCoy:
 		Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
-		Actor_Says(kActorMcCoy, 1560, 14);
+		Actor_Says(kActorMcCoy, 1560, 14); // McCoy: Commerce is our business.
 		Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-		Actor_Says(kActorSteele, 100, 13);
-		Actor_Says(kActorMcCoy, 1575, 13);
-		Actor_Says(kActorSteele, 120, 15);
+		Actor_Says(kActorSteele,  100, 13); // Steele: Unless Tyrell can design a faster brain processor, I'm gonna get pretty damn bored with this gig.
+		Actor_Says(kActorMcCoy,  1575, 13); // McCoy: You don't feel bad about juicing a little girl?
+		Actor_Says(kActorSteele,  120, 15); // Steele: She was an it, Slim. Don't you forget that.
 		Actor_Set_Goal_Number(kActorSteele, kGoalSteeleHFxxGoToSpinner);
 		return true;
 
 	case kGoalSteeleHF02LucyLostByMcCoy:
 		Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-		Actor_Says(kActorSteele, 150, 13);
+		Actor_Says(kActorSteele, 150, 13); // Steele: What happened? Where is it?
 		Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
-		Actor_Says(kActorMcCoy, 1580, 13);
-		Actor_Says(kActorSteele, 160, 14);
-		Actor_Says(kActorMcCoy, 1585, 16);
-		Actor_Says(kActorSteele, 170, 16);
-		Actor_Says(kActorSteele, 180, 17);
-		Actor_Says(kActorMcCoy, 1590, 17);
-		Actor_Says(kActorSteele, 200, 15);
+		Actor_Says(kActorMcCoy,  1580, 13); // McCoy: She got away.
+		Actor_Says(kActorSteele,  160, 14); // Steele: How the hell did it get away? We had it cornered.
+		Actor_Says(kActorMcCoy,  1585, 16); // McCoy: This one must be pretty damn clever.
+		Actor_Says(kActorSteele,  170, 16); // Steele: What's the problem, Slim?
+		Actor_Says(kActorSteele,  180, 17); // Steele: If you can't even retire a freaking Lolita, how do you expect to dance with a combat Six?
+		Actor_Says(kActorMcCoy,  1590, 17); // McCoy: I don't plan to dance with one, that's for sure.
+		Actor_Says(kActorSteele,  200, 15); // Steele: Don't even ask me who'd be doing the leading, Rookie.
 		Actor_Set_Goal_Number(kActorSteele, kGoalSteeleHFxxGoToSpinner);
 		return true;
 
 	case kGoalSteeleHFxxGoToSpinner:
-		Actor_Says(kActorSteele, 130, 13);
-		Actor_Says(kActorSteele, 140, 13);
+		Actor_Says(kActorSteele, 130, 13); // Steele: Let's go find your Spinner. Report in.
+		Actor_Says(kActorSteele, 140, 13); // Steele: Maybe Guzza's got some answers about those guys who grabbed you up.
 
 		Delay(500);
 		Game_Flag_Set(kFlagSpinnerMissing);
@@ -1153,14 +1153,14 @@ bool AIScriptSteele::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		Actor_Set_Goal_Number(kActorGordo, kGoalGordoNR01Die);
 		Delay(1500);
 		Player_Set_Combat_Mode(false);
-		Actor_Says(kActorSteele, 1070, 14);
+		Actor_Says(kActorSteele, 1070, 14); // Steele: Guess whose killer instinct wasn't quite killer enough.
 		Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-		Actor_Says(kActorSteele, 1260, 16);
-		Actor_Says(kActorSteele, 1270, 13);
+		Actor_Says(kActorSteele, 1260, 16); // Steele: Screwed the pooch, Slim.
+		Actor_Says(kActorSteele, 1270, 13); // Steele: If you were just a little faster, the retirement money would have been yours.
 		Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
-		Actor_Says(kActorMcCoy, 3065, 18);
-		Actor_Says(kActorSteele, 1280, 13);
-		Actor_Says(kActorSteele, 1290, 13);
+		Actor_Says(kActorMcCoy,  3065, 18); // McCoy: You mean we're not gonna share?
+		Actor_Says(kActorSteele, 1280, 13); // Steele: This is the real world, Slim. Not some candy-ass video game.
+		Actor_Says(kActorSteele, 1290, 13); // Steele: I better call this in. Your vehicle close by?
 		Game_Flag_Set(kFlagGordoRanAway);
 		Player_Gains_Control();
 		if (Game_Flag_Query(kFlagSpinnerAtHF01)) {
@@ -1183,7 +1183,7 @@ bool AIScriptSteele::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		Actor_Change_Animation_Mode(kActorMcCoy, kAnimationModeDie);
 		Actor_Retired_Here(kActorMcCoy, 12, 12, true, -1);
 		Actor_Set_Goal_Number(kActorGordo, kGoalGordoNR01ReleaseHostage);
-		Actor_Says(kActorSteele, 1250, kAnimationModeTalk);
+		Actor_Says(kActorSteele, 1250, kAnimationModeTalk); // Steele: Oh, shit! Somebody call an ambulance.
 		return true;
 
 	case kGoalSteeleNR01McCoyShotGordo:
@@ -1200,17 +1200,17 @@ bool AIScriptSteele::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		Actor_Change_Animation_Mode(kActorSteele, kAnimationModeIdle);
 		Actor_Change_Animation_Mode(kActorMcCoy, kAnimationModeIdle);
 		Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-		Actor_Says(kActorSteele, 1080, 17);
+		Actor_Says(kActorSteele, 1080, 17); // Steele: I really must be sick. I actually live for those moments.
 		Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
-		Actor_Says(kActorMcCoy, 3025, 14);
-		Actor_Says(kActorSteele, 1090, 16);
+		Actor_Says(kActorMcCoy,  3025, 14); // McCoy: We'll split the retirement money, in case you're wondering.
+		Actor_Says(kActorSteele, 1090, 16); // Steele: Nah, you nailed it. This one's yours, Slim.
 		Actor_Face_Actor(kActorSteele, kActorGordo, true);
-		Actor_Says(kActorSteele, 1100, 13);
-		Actor_Says(kActorSteele, 1110, 17);
-		Actor_Says(kActorMcCoy, 3030, 19);
+		Actor_Says(kActorSteele, 1100, 13); // Steele: Pathetic. Maybe he wasn't a combat model after all.
+		Actor_Says(kActorSteele, 1110, 17); // Steele: Heard Tyrell was making a few lounge act versions. You know, for the troop shows Off-World.
+		Actor_Says(kActorMcCoy,  3030, 19); // McCoy: His act certainly left room for improvement.
 		Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-		Actor_Says(kActorSteele, 1130, 15);
-		Actor_Says(kActorSteele, 1140, 12);
+		Actor_Says(kActorSteele, 1130, 15); // Steele: They can't all be Jerry Lewis.
+		Actor_Says(kActorSteele, 1140, 12); // Steele: Let's call a uniform and have 'em clean this up. Your vehicle close by?
 		Player_Gains_Control();
 		Actor_Set_Goal_Number(kActorSteele, kGoalSteeleTalkAboutMissingSpinner);
 		return true;
@@ -1230,18 +1230,18 @@ bool AIScriptSteele::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 
 	case kGoalSteeleNR01TalkAboutShotGun:
 		Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-		Actor_Says(kActorSteele, 1160, 15);
+		Actor_Says(kActorSteele, 1160, 15); // Steele: Dah! What the hell?! Now we'll never catch it.
 		Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
-		Actor_Says(kActorMcCoy, 3035, 14);
-		Actor_Says(kActorSteele, 1170, 16);
-		Actor_Says(kActorMcCoy, 3040, 15);
-		Actor_Says(kActorSteele, 1180, 16);
-		Actor_Says(kActorMcCoy, 3045, 15);
-		Actor_Says(kActorMcCoy, 3055, 15);
-		Actor_Says(kActorSteele, 1190, 16);
-		Actor_Says(kActorMcCoy, 3060, 15);
-		Actor_Says(kActorSteele, 1200, 16);
-		Actor_Says(kActorSteele, 1210, 14);
+		Actor_Says(kActorMcCoy,  3035, 14); // McCoy: You were gonna shoot!
+		Actor_Says(kActorSteele, 1170, 16); // Steele: Damn straight!
+		Actor_Says(kActorMcCoy,  3040, 15); // McCoy: What about the hostage?
+		Actor_Says(kActorSteele, 1180, 16); // Steele: A small price to pay to juice that skin-job.
+		Actor_Says(kActorMcCoy,  3045, 15); // McCoy: You think Bryant is gonna keep you on if you start wasting civilians in the middle of the street?
+		Actor_Says(kActorMcCoy,  3055, 15); // McCoy: I just saved your job, Steele.
+		Actor_Says(kActorSteele, 1190, 16); // Steele: I can't believe you took a shot at me!
+		Actor_Says(kActorMcCoy,  3060, 15); // McCoy: At your gun. There's a difference.
+		Actor_Says(kActorSteele, 1200, 16); // Steele: Yeah, about three inches!
+		Actor_Says(kActorSteele, 1210, 14); // Steele: We'd better call this in. Maybe we can seal off the sewers and get a search team out here. Your vehicle close by?
 		Actor_Modify_Friendliness_To_Other(kActorSteele, kActorMcCoy, -5);
 		Actor_Modify_Friendliness_To_Other(kActorClovis, kActorMcCoy, 2);
 		Player_Set_Combat_Mode(false);
@@ -1282,34 +1282,34 @@ bool AIScriptSteele::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		return true;
 
 	case kGoalSteeleTalkAboutMissingSpinner:
-		Actor_Says(kActorMcCoy, 2970, 15);
+		Actor_Says(kActorMcCoy, 2970, 15); // McCoy: It's around here somewhere.
 		Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-		Actor_Says(kActorSteele, 840, 16);
-		Actor_Says(kActorMcCoy, 2975, 15);
-		Actor_Says(kActorSteele, 850, 16);
-		Actor_Says(kActorDispatcher, 0, kAnimationModeTalk);
-		Actor_Says(kActorDispatcher, 10, kAnimationModeTalk);
+		Actor_Says(kActorSteele,      840,                 16); // Steele: Where'd you park it?
+		Actor_Says(kActorMcCoy,      2975,                 15); // McCoy: I'm telling you. It was right here. Damn thing must have been stolen.
+		Actor_Says(kActorSteele,      850,                 16); // Steele: Maybe you're living in an alternate reality, Slim.
+		Actor_Says(kActorDispatcher,    0, kAnimationModeTalk); // Dispatcher: Attention all units. All points bulletin has been issued for: Ray McCoy. Formerly BR-61661.
+		Actor_Says(kActorDispatcher,   10, kAnimationModeTalk); // Dispatcher: Confirm one civilian kill. Izo. Considered armed and dangerous.
 		Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
-		Actor_Says(kActorMcCoy, 2980, 12);
-		Actor_Says(kActorSteele, 860, 14);
-		Actor_Says(kActorMcCoy, 2985, 13);
-		Actor_Says(kActorSteele, 870, 15);
-		Actor_Says(kActorMcCoy, 2990, 16);
-		Actor_Says(kActorSteele, 880, 17);
-		Actor_Says(kActorSteele, 890, 18);
-		Actor_Says(kActorMcCoy, 2995, 12);
-		Actor_Says(kActorSteele, 900, 13);
-		Actor_Says(kActorMcCoy, 3000, 13);
-		Actor_Says(kActorSteele, 920, 12);
-		Actor_Says(kActorDispatcher, 30, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 3005, 14);
-		Actor_Says(kActorSteele, 930, 16);
-		Actor_Says(kActorSteele, 950, 13);
-		Actor_Says(kActorMcCoy, 3010, 15);
-		Actor_Says(kActorSteele, 960, 15);
-		Actor_Says(kActorSteele, 970, 13);
-		Actor_Says(kActorMcCoy, 3015, 12);
-		Actor_Says(kActorSteele, 980, 17);
+		Actor_Says(kActorMcCoy,      2980,                 12); // McCoy: What the hell is that?
+		Actor_Says(kActorSteele,      860,                 14); // Steele: Maybe they just want to bring you in for questioning.
+		Actor_Says(kActorMcCoy,      2985,                 13); // McCoy: I didn't kill Izo.
+		Actor_Says(kActorSteele,      870,                 15); // Steele: Hm, maybe they... think you're not what you think you are.
+		Actor_Says(kActorMcCoy,      2990,                 16); // McCoy: Are you saying I'm a Rep? Come off it!
+		Actor_Says(kActorSteele,      880,                 17); // Steele: The look on your face after that last one?
+		Actor_Says(kActorSteele,      890,                 18); // Steele: The minute you start to feel something for skin-jobs you're in big trouble.
+		Actor_Says(kActorMcCoy,      2995,                 12); // McCoy: Maybe I just got too much empathy.
+		Actor_Says(kActorSteele,      900,                 13); // Steele: In all the wrong places.
+		Actor_Says(kActorMcCoy,      3000,                 13); // McCoy: You wanna put me on the Machine?
+		Actor_Says(kActorSteele,      920,                 12); // Steele: Hey! I don't want anything, Slim. You're the one they want.
+		Actor_Says(kActorDispatcher,   30, kAnimationModeTalk); // Dispatcher: Detective Steele BR-61354 report to Headquarters immediately. Code Blue.
+		Actor_Says(kActorMcCoy,      3005,                 14); // McCoy: What are you gonna do? Take me in?
+		Actor_Says(kActorSteele,      930,                 16); // Steele: No matter what they say, you're not on my list yet, Slim. You know what that means.
+		Actor_Says(kActorSteele,      950,                 13); // Steele: And there's no use juicing you, if I can't make some honest chinyen off it, you know?
+		Actor_Says(kActorMcCoy,      3010,                 15); // McCoy: I never appreciated your baser instincts so much.
+		Actor_Says(kActorSteele,      960,                 15); // Steele: Guzza must have messed up somehow. I'll check it out, see what's going on and then...
+		Actor_Says(kActorSteele,      970,                 13); // Steele: We'll be meeting again, Slim. You can bank on it.
+		Actor_Says(kActorMcCoy,      3015,                 12); // McCoy: You got a deal.
+		Actor_Says(kActorSteele,      980,                 17); // Steele: Now get cracking. Before I change my mind.
 		if (Player_Query_Current_Scene() == kSceneNR01) {
 			Actor_Set_Goal_Number(kActorSteele, kGoalSteeleNR01StartChapter4);
 		} else {
@@ -1375,7 +1375,7 @@ bool AIScriptSteele::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 
 	case kGoalSteeleKP03Walk:
 		Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
-		Actor_Says(kActorSteele, 430, 14);
+		Actor_Says(kActorSteele, 430, 14); // Steele: I don't like it. Smells like ambush territory.
 		Actor_Change_Animation_Mode(kActorSteele, kAnimationModeCombatIdle);
 		Delay(4000);
 		Async_Actor_Walk_To_XYZ(kActorSteele, -109.0f, -36.55f, 26.0f, 0, false);
@@ -1400,17 +1400,17 @@ bool AIScriptSteele::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		Loop_Actor_Walk_To_Actor(kActorMcCoy, kActorSteele, 36, false, true);
 		Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
 		if (Game_Flag_Query(kFlagMcCoyIsHelpingReplicants)) {
-			Actor_Says(kActorSteele, 400, 3);
-			Actor_Says(kActorMcCoy, 2165, 14);
-			Actor_Says(kActorSteele, 410, 3);
-			Actor_Says(kActorMcCoy, 2170, 14);
-			Actor_Says(kActorSteele, 420, 3);
+			Actor_Says(kActorSteele,  400,  3); // Steele: How could you... double cross me?
+			Actor_Says(kActorMcCoy,  2165, 14); // McCoy: You should have left them alone.
+			Actor_Says(kActorSteele,  410,  3); // Steele: My job... had my orders.
+			Actor_Says(kActorMcCoy,  2170, 14); // McCoy: And my animal? Guzza tell you to get rid of her? Or did you do that on your own?
+			Actor_Says(kActorSteele,  420,  3); // Steele: Eat shit, Slim.
 		} else {
-			Actor_Says(kActorSteele, 440, 3);
-			Actor_Says(kActorMcCoy, 2175, 14);
-			Actor_Says(kActorSteele, 450, 3);
-			Actor_Says(kActorSteele, 460, 3);
-			Actor_Says(kActorSteele, 470, 3);
+			Actor_Says(kActorSteele,  440,  3); // Steele: Always hated close spaces.
+			Actor_Says(kActorMcCoy,  2175, 14); // McCoy: Hold on, I'll get an ambulance out here.
+			Actor_Says(kActorSteele,  450,  3); // Steele: Oh, I screwed the pooch this time, Slim.
+			Actor_Says(kActorSteele,  460,  3); // Steele: Promise you'll waste Clovis.
+			Actor_Says(kActorSteele,  470,  3); // Steele: Taught you pretty well, didn't I?
 		}
 		AI_Countdown_Timer_Start(kActorSteele, kActorTimerAIScriptCustomTask1, 3);
 		return true;
@@ -1439,14 +1439,14 @@ bool AIScriptSteele::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		Game_Flag_Reset(kFlagSteeleSmoking);
 		Delay(2000);
 		Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-		Actor_Says(kActorSteele, 360, -1);
+		Actor_Says(kActorSteele, 360, -1); // Steele: About time you got here.
 		Loop_Actor_Walk_To_Actor(kActorMcCoy, kActorSteele, 48, false, false);
-		Actor_Says(kActorMcCoy, 2150, 14);
-		Actor_Says(kActorSteele, 370, 15);
-		Actor_Says(kActorMcCoy, 2155, 12);
-		Actor_Says(kActorSteele, 380, 16);
-		Actor_Says(kActorMcCoy, 2160, 18);
-		Actor_Says(kActorSteele, 390, 13);
+		Actor_Says(kActorMcCoy,  2150, 14); // McCoy: If I was a Nexus-6, you'd be dead.
+		Actor_Says(kActorSteele,  370, 15); // Steele: No, you'd be dead. I heard you stumbling around back there ten minutes ago.
+		Actor_Says(kActorMcCoy,  2155, 12); // McCoy: I got a little hung up. Where's the moonbus?
+		Actor_Says(kActorSteele,  380, 16); // Steele: Real close. You're ready to take care of business?
+		Actor_Says(kActorMcCoy,  2160, 18); // McCoy: Hell, yeah.
+		Actor_Says(kActorSteele,  390, 13); // Steele: There's gonna be a hot time in the old town tonight.
 		Actor_Set_Goal_Number(kActorSteele, kGoalSteeleKP01Leave);
 		return true;
 

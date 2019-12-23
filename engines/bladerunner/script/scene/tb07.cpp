@@ -234,55 +234,55 @@ void SceneScriptTB07::McCoyTalkWithRachaelAndTyrell() {
 	Outtake_Play(kOuttakeRachel, true, -1);
 	Loop_Actor_Walk_To_XYZ(kActorRachael, -146.15f, 12.0f, -5.84f, 0, false, false, false);
 	Actor_Face_Actor(kActorRachael, kActorMcCoy, true);
-	Actor_Says(kActorRachael, 480, 14);
+	Actor_Says(kActorRachael, 480, 14); // Rachael: Beautiful isn't it?
 	Actor_Face_Actor(kActorMcCoy, kActorRachael, true);
-	Actor_Says(kActorMcCoy, 5315, 9);
-	Actor_Says(kActorRachael, 490, 3);
+	Actor_Says(kActorMcCoy,   5315, 9); // McCoy: The owl or the view?
+	Actor_Says(kActorRachael,  490, 3); // Rachael: Both.
 	Actor_Face_Heading(kActorMcCoy, 178, true);
-	Actor_Says(kActorMcCoy, 5320, 15);
+	Actor_Says(kActorMcCoy, 5320, 15); // McCoy: The view is amazing. The owl, (sigh) well...
 	Actor_Says_With_Pause(kActorMcCoy, 5325, 1.0f, 19);
 	Actor_Start_Speech_Sample(kActorRachael, 500);
 	Loop_Actor_Walk_To_XYZ(kActorRachael, -60.15f, 12.0f, 60.84f, 0, false, false, false);
 	Actor_Face_Actor(kActorRachael, kActorMcCoy, true);
 	Actor_Face_Actor(kActorMcCoy, kActorRachael, true);
-	Actor_Says(kActorMcCoy, 5330, 14);
-	Actor_Says(kActorRachael, 510, 12);
-	Actor_Says(kActorMcCoy, 5335, 16);
-	Actor_Says(kActorRachael, 520, 17);
-	Actor_Says(kActorMcCoy, 5340, 3);
+	Actor_Says(kActorMcCoy,   5330, 14); // McCoy: Owls are extinct. Who told you the model was real?
+	Actor_Says(kActorRachael,  510, 12); // Rachael: Dr. Tyrell.
+	Actor_Says(kActorMcCoy,   5335, 16); // McCoy: He's wrong or lying. Check your Sidney's.
+	Actor_Says(kActorRachael,  520, 17); // Rachael: Eldon wouldn't make up something like that.
+	Actor_Says(kActorMcCoy,   5340,  3); // McCoy: You're Tyrell's assistant?
 	Actor_Start_Speech_Sample(kActorRachael, 530);
 	Loop_Actor_Walk_To_XYZ(kActorRachael, -4.15f, 12.0f, 54.73f, 0, false, false, false);
-	Actor_Says(kActorRachael, 540, 16);
-	Actor_Says(kActorMcCoy, 5345, 18);
-	Actor_Says(kActorRachael, 550, 13);
-	Actor_Says(kActorRachael, 570, 18);
+	Actor_Says(kActorRachael,  540, 16); // Rachael: I'm fully familiar with all Tyrell operations.
+	Actor_Says(kActorMcCoy,   5345, 18); // McCoy: He does know I'm a cop, right? Blade Runner unit?
+	Actor_Says(kActorRachael,  550, 13); // Rachael: Dr. Tyrell has already met with one Blade Runner today and has important business to attend to.
+	Actor_Says(kActorRachael,  570, 18); // Rachael: Your department should coordinate its efforts better.
 	Actor_Says_With_Pause(kActorMcCoy, 5350, 0.0f, 18);
-	Actor_Says(kActorRachael, 580, 16);
-	Actor_Says(kActorMcCoy, 5355, 16);
-	Actor_Says(kActorRachael, 590, 17);
-	Actor_Says(kActorMcCoy, 5360, 17);
-	Actor_Says(kActorMcCoy, 5365, 13);
+	Actor_Says(kActorRachael,  580, 16); // Rachael: You may speak to me or you may leave. I can't offer you any other choices.
+	Actor_Says(kActorMcCoy,   5355, 16); // McCoy: Fair enough. I wanted to ask about Marcus Eisenduller.
+	Actor_Says(kActorRachael,  590, 17); // Rachael: I can't tell you who killed him, if that's what you're asking.
+	Actor_Says(kActorMcCoy,   5360, 17); // McCoy: We've already got a suspect.
+	Actor_Says(kActorMcCoy,   5365, 13); // McCoy: What I want to know is why the killer would be interested in Replicant DNA information.
 	Actor_Says_With_Pause(kActorRachael, 600, 1.0f, 12);
-	Actor_Says(kActorMcCoy, 5370, 3);
+	Actor_Says(kActorMcCoy, 5370, 3); // McCoy: Oh, yeah? Why is that?
 	Loop_Actor_Walk_To_XYZ(kActorRachael, -24.15f, 12.0f, -10.84f, 0, false, false, false);
-	Actor_Says(kActorRachael, 610, 13);
+	Actor_Says(kActorRachael, 610, 13); // Rachael: Your suspect is obviously a Replicant. A very dangerous one.
 	Actor_Face_Actor(kActorMcCoy, kActorRachael, true);
-	Actor_Says(kActorMcCoy, 5375, 18);
-	Actor_Says(kActorMcCoy, 5380, 19);
+	Actor_Says(kActorMcCoy, 5375, 18); // McCoy: I thought Replicants were safe! "More human than human".
+	Actor_Says(kActorMcCoy, 5380, 19); // McCoy: Isn't Dr. Tyrell pushing to make it legal to use Rep labor to clean up the Kipple?
 	Actor_Face_Actor(kActorRachael, kActorMcCoy, true);
-	Actor_Says(kActorRachael, 620, 18);
+	Actor_Says(kActorRachael, 620, 18); // Rachael: Are we here to discuss corporate policy or Marcus Eisenduller's murder?
 	Actor_Says_With_Pause(kActorMcCoy, 5385, 2.0f, 12);
 	Actor_Says_With_Pause(kActorMcCoy, 5390, 2.0f, 14);
-	Actor_Says(kActorMcCoy, 5395, 15);
+	Actor_Says(kActorMcCoy, 5395, 15); // McCoy: Yeah, I guess you would have. 50 people dead.
 	Actor_Says_With_Pause(kActorRachael, 630, 0.0f, 14);
-	Actor_Says(kActorMcCoy, 5400, 18);
-	Actor_Says(kActorMcCoy, 5405, 3);
-	Actor_Says(kActorRachael, 640, 12);
-	Actor_Says(kActorMcCoy, 5410, 16);
-	Actor_Says(kActorRachael, 650, 15);
+	Actor_Says(kActorMcCoy,   5400, 18); // McCoy: I'm surprised you are not doing spin control.
+	Actor_Says(kActorMcCoy,   5405,  3); // McCoy: The public gets nervous when your pets wander around the city without a leash.
+	Actor_Says(kActorRachael,  640, 12); // Rachael: Replicants aren't pets.
+	Actor_Says(kActorMcCoy,   5410, 16); // McCoy: Right. Pets live longer and don't go around killing people.
+	Actor_Says(kActorRachael,  650, 15); // Rachael: They-- There are safeguards in the design.
 	Actor_Says_With_Pause(kActorMcCoy, 5415, 1.0f, 17);
-	Actor_Says(kActorMcCoy, 5420, 14);
-	Actor_Says(kActorRachael, 660, 15);
+	Actor_Says(kActorMcCoy,   5420, 14); // McCoy: I'd probably get a little crazy too but I don't think I'd start killing people.
+	Actor_Says(kActorRachael,  660, 15); // Rachael: Wouldn't you?
 	Actor_Put_In_Set(kActorTyrell, kSetTB07);
 	Actor_Set_At_XYZ(kActorTyrell, 68.0f, 12.0f, 288.0f, 0);
 	Actor_Change_Animation_Mode(kActorTyrell, kAnimationModeIdle);
@@ -293,28 +293,28 @@ void SceneScriptTB07::McCoyTalkWithRachaelAndTyrell() {
 	Actor_Face_Actor(kActorTyrell, kActorMcCoy, true);
 	Actor_Face_Actor(kActorMcCoy, kActorTyrell, true);
 	Actor_Face_Actor(kActorRachael, kActorTyrell, true);
-	Actor_Says(kActorTyrell, 10, 12);
-	Actor_Says(kActorTyrell, 20, 3);
-	Actor_Says(kActorTyrell, 30, 12);
-	Actor_Says(kActorMcCoy, 5425, 18);
+	Actor_Says(kActorTyrell,   10, 12); // Tyrell: I've given it the purity and innocence of childhood.
+	Actor_Says(kActorTyrell,   20,  3); // Tyrell: And all the joy and despair that comes with a real existence.
+	Actor_Says(kActorTyrell,   30, 12); // Tyrell: That's hardly a death sentence. That's life.
+	Actor_Says(kActorMcCoy,  5425, 18); // McCoy: I thought you weren't meeting with any more Blade Runners today.
 	Actor_Set_Goal_Number(kActorRachael, kGoalRachaelLeavesAfterTyrellMeeting);
-	Actor_Says(kActorTyrell, 40, 15);
+	Actor_Says(kActorTyrell, 40, 15); // Tyrell: Well I decided to make an exception, Mr. eh... McCoy, isn't it?
 	Actor_Start_Speech_Sample(kActorTyrell, 50);
 	Loop_Actor_Walk_To_XYZ(kActorTyrell, -10.0f, 12.0f, 100.0f, 0, false, false, false);
 	Actor_Face_Actor(kActorTyrell, kActorMcCoy, true);
 	Actor_Face_Actor(kActorMcCoy, kActorTyrell, true);
-	Actor_Says(kActorMcCoy, 5430, 17);
-	Actor_Says(kActorMcCoy, 5435, 16);
-	Actor_Says(kActorTyrell, 60, 14);
+	Actor_Says(kActorMcCoy,  5430, 17); // McCoy: Not really, no.
+	Actor_Says(kActorMcCoy,  5435, 16); // McCoy: I do see why a Replicant who has an identity would want to steal Eisenduller's files.
+	Actor_Says(kActorTyrell,   60, 14); // Tyrell: Please, enlighten me.
 	Actor_Face_Actor(kActorMcCoy, kActorTyrell, true);
-	Actor_Says(kActorMcCoy, 5440, 14);
-	Actor_Says(kActorTyrell, 70, 13);
-	Actor_Says(kActorMcCoy, 5445, 15);
+	Actor_Says(kActorMcCoy,  5440, 14); // McCoy: They want more life.
+	Actor_Says(kActorTyrell,   70, 13); // Tyrell: They're wasting their time.
+	Actor_Says(kActorMcCoy,  5445, 15); // McCoy: They're gonna come for you. Just like they came for Eisenduller.
 	Actor_Says_With_Pause(kActorTyrell, 80, 1.0f, 12);
-	Actor_Says(kActorTyrell, 90, 15);
+	Actor_Says(kActorTyrell, 90, 15); // Tyrell: Have I given you what you came here for?
 	Actor_Says_With_Pause(kActorMcCoy, 5450, 1.0f, 15);
-	Actor_Says(kActorMcCoy, 5455, 12);
-	Actor_Says(kActorTyrell, 100, 14);
+	Actor_Says(kActorMcCoy,  5455, 12); // McCoy: Yeah, maybe.
+	Actor_Says(kActorTyrell,  100, 14); // Tyrell: Then if you'll excuse me I have a stockholder meeting to attend.
 	Actor_Clue_Acquire(kActorMcCoy, kClueRachaelInterview, false, kActorRachael);
 	Actor_Clue_Acquire(kActorMcCoy, kClueTyrellInterview, false, kActorTyrell);
 	Loop_Actor_Walk_To_XYZ(kActorTyrell, -260.15f, 12.0f, -19.16f, 0, false, false, false);

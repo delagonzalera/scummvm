@@ -105,8 +105,8 @@ bool SceneScriptBB11::ClickedOn2DRegion(int region) {
 		if (!Game_Flag_Query(kFlagMcCoyCommentsOnFans) && (region == 0 || region == 1) ) {
 			Game_Flag_Set(kFlagMcCoyCommentsOnFans);
 			Actor_Face_Heading(kActorMcCoy, 550, false);
-			Actor_Voice_Over(3740, kActorVoiceOver);
-			Actor_Voice_Over(3750, kActorVoiceOver);
+			Actor_Voice_Over(3740, kActorVoiceOver); // Mainframe: Fans. They were supposed to clear out the air toxins, but they sure didn't work too well.
+			Actor_Voice_Over(3750, kActorVoiceOver); // Mainframe: Someone said that in the old world they were actually used to keep an area cool.
 			Scene_2D_Region_Remove(0);
 			Scene_2D_Region_Remove(1);
 			return true;

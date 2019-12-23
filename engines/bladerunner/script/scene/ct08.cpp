@@ -115,9 +115,9 @@ bool SceneScriptCT08::ClickedOnItem(int itemId, bool a2) {
 				Actor_Clue_Acquire(kActorMcCoy, kClueCheese, true, -1);
 				Item_Pickup_Spin_Effect(kModelAnimationCheese, 266, 328);
 				Item_Remove_From_World(kItemCheese);
-				Actor_Voice_Over(480, kActorVoiceOver);
-				Actor_Voice_Over(490, kActorVoiceOver);
-				Actor_Voice_Over(500, kActorVoiceOver);
+				Actor_Voice_Over(480, kActorVoiceOver); // Mainframe: It felt and smelled like real cheese.
+				Actor_Voice_Over(490, kActorVoiceOver); // Mainframe: Dairy products were choice contraband. Scarce and mucho expensive.
+				Actor_Voice_Over(500, kActorVoiceOver); // Mainframe: Selling them was a Class A felony.
 			}
 		}
 		return true;

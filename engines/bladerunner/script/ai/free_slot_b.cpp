@@ -157,14 +157,14 @@ void AIScriptFreeSlotB::ClickedByPlayer() {
 	Actor_Face_Actor(kActorMcCoy, kActorFreeSlotB, true);
 	if (_vm->_cutContent && !Game_Flag_Query(kFlagMcCoyCommentsOnHoodooRats)) {
 		Game_Flag_Set(kFlagMcCoyCommentsOnHoodooRats);
-		Actor_Voice_Over(1060, kActorVoiceOver);  // Hoodoo rats
-		Actor_Voice_Over(1080, kActorVoiceOver);
-		Actor_Voice_Over(1090, kActorVoiceOver);
+		Actor_Voice_Over(1060, kActorVoiceOver); // Mainframe: Hoodoo Rats. The only mammals that still existed in the wild here on earth.
+		Actor_Voice_Over(1080, kActorVoiceOver); // Mainframe: The Kipple was their natural turf.
+		Actor_Voice_Over(1090, kActorVoiceOver); // Mainframe: They could eat raw toxins for breakfast and still keep their fighting weight for lunch.
 	} else {
 		if (Random_Query(1, 2) == 1) {
-			Actor_Says(kActorMcCoy, 8655, 16);
+			Actor_Says(kActorMcCoy, 8655, 16); // McCoy: What smells in here?
 		} else {
-			Actor_Says(kActorMcCoy, 8665, 16);
+			Actor_Says(kActorMcCoy, 8665, 16); // McCoy: Disgusting.
 		}
 	}
 }

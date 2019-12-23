@@ -173,41 +173,41 @@ void SceneScriptBB05::PlayerWalkedIn() {
 	if (Actor_Query_Goal_Number(kActorSebastian) == 200) {
 		Actor_Face_Actor(kActorSebastian, kActorMcCoy, true);
 		Actor_Face_Actor(kActorMcCoy, kActorSebastian, true);
-		Actor_Says(kActorSebastian, 120, 13);
-		Actor_Says(kActorMcCoy, 7030, 15);
-		Actor_Says(kActorSebastian, 130, 17);
-		Actor_Says(kActorSebastian, 140, 16);
-		Actor_Says(kActorSebastian, 150, 14);
-		Actor_Says(kActorSebastian, 160, 15);
-		Actor_Says(kActorMcCoy, 7035, 14);
-		Actor_Says(kActorSebastian, 170, 12);
-		Actor_Says(kActorMcCoy, 7040, 14);
-		Actor_Says(kActorSebastian, 180, 16);
-		Actor_Says(kActorMcCoy, 7045, 14);
+		Actor_Says(kActorSebastian,  120, 13); // Sebastian: I don't think they took anything. I don't really have anything here of any value.
+		Actor_Says(kActorMcCoy,     7030, 15); // McCoy: You work for Tyrell Corporation?
+		Actor_Says(kActorSebastian,  130, 17); // Sebastian: Yes, sir. I'm one of the principal design engineers for Dr. Tyrell.
+		Actor_Says(kActorSebastian,  140, 16); // Sebastian: He's a very nice man. You know he even fronted me the money to buy this building.
+		Actor_Says(kActorSebastian,  150, 14); // Sebastian: It's a landmark, you know.
+		Actor_Says(kActorSebastian,  160, 15); // Sebastian: You really should see the front edifice. They put some amazing detail into it.
+		Actor_Says(kActorMcCoy,     7035, 14); // McCoy: You feeling all right?
+		Actor_Says(kActorSebastian,  170, 12); // Sebastian: Oh, sure. I'm fine.
+		Actor_Says(kActorMcCoy,     7040, 14); // McCoy: You wouldn't be hiding anybody, would you?
+		Actor_Says(kActorSebastian,  180, 16); // Sebastian: No, sir. There's nobody here, but me and my friends.
+		Actor_Says(kActorMcCoy,     7045, 14); // McCoy: What friends?
 		if (Game_Flag_Query(kFlagGeneralDollShot)) {
-			Actor_Says(kActorSebastian, 190, 15);
-			Actor_Says(kActorMcCoy, 7050, 17);
-			Actor_Says(kActorSebastian, 200, 16);
+			Actor_Says(kActorSebastian,  190, 15); // Sebastian: Just the friends I've made. They're kinda like toys, but they got their own personalities.
+			Actor_Says(kActorMcCoy,     7050, 17); // McCoy: No kidding.
+			Actor_Says(kActorSebastian,  200, 16); // Sebastian: Those burglars you're looking for must have shot up the General.
 			Actor_Says_With_Pause(kActorSebastian, 210, 1.5f, 14);
-			Actor_Says(kActorMcCoy, 7055, 15);
+			Actor_Says(kActorMcCoy, 7055, 15); // McCoy: Uh, I'm sorry to hear that.
 		} else {
 			Actor_Put_In_Set(kActorGeneralDoll, kSetBB05);
 			Actor_Set_At_Waypoint(kActorGeneralDoll, 134, 0);
 			Loop_Actor_Walk_To_Waypoint(kActorGeneralDoll, 135, 0, false, false);
-			Actor_Says(kActorGeneralDoll, 0, kAnimationModeTalk);
+			Actor_Says(kActorGeneralDoll, 0, kAnimationModeTalk); // General Doll: Good evening, JF.
 			Actor_Face_Actor(kActorMcCoy, kActorGeneralDoll, true);
 			Actor_Face_Actor(kActorSebastian, kActorGeneralDoll, true);
-			Actor_Says(kActorSebastian, 220, 13);
+			Actor_Says(kActorSebastian, 220, 13); // Sebastian: Evening, General.
 			Loop_Actor_Walk_To_Waypoint(kActorGeneralDoll, 134, 0, false, false);
 			Actor_Face_Actor(kActorSebastian, kActorMcCoy, true);
 			Actor_Face_Actor(kActorMcCoy, kActorSebastian, true);
-			Actor_Says(kActorSebastian, 230, 15);
-			Actor_Says(kActorMcCoy, 7060, 17);
-			Actor_Says(kActorSebastian, 240, 12);
+			Actor_Says(kActorSebastian,  230, 15); // Sebastian: See? I make friends.
+			Actor_Says(kActorMcCoy,     7060, 17); // McCoy: He almost looks real.
+			Actor_Says(kActorSebastian,  240, 12); // Sebastian: He's plenty real enough for me. And real good company, too.
 		}
-		Actor_Says(kActorMcCoy, 7065, 16);
-		Actor_Says(kActorSebastian, 250, 16);
-		Actor_Says(kActorMcCoy, 7070, 18);
+		Actor_Says(kActorMcCoy,     7065, 16); // McCoy: Look, I gotta check the premises again. Maybe they left something behind.
+		Actor_Says(kActorSebastian,  250, 16); // Sebastian: Well, if you want to take a look go on ahead. I can't stop you. But please be careful in my lab.
+		Actor_Says(kActorMcCoy,     7070, 18); // McCoy: You got it.
 		Actor_Set_Goal_Number(kActorSebastian, 205);
 		Actor_Set_Goal_Number(kActorGeneralDoll, 201);
 		Actor_Set_Goal_Number(kActorBryant, 101);

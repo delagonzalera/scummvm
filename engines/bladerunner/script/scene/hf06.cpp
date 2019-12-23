@@ -79,16 +79,16 @@ bool SceneScriptHF06::ClickedOn3DObject(const char *objectName, bool a2) {
 			 && Actor_Query_Goal_Number(kActorDektora) != kGoalDektoraGone
 			) {
 				Actor_Face_Actor(kActorDektora, kActorMcCoy, true);
-				Actor_Says(kActorDektora, 210, 12);
-				Actor_Says(kActorMcCoy, 2125, 12);
+				Actor_Says(kActorDektora,  210, 12); // Dektora: Can you get it working?
+				Actor_Says(kActorMcCoy,   2125, 12); // McCoy: Ah, we'll have to find something else. Maybe a ground car.
 			} else if (Actor_Query_In_Set(kActorLucy, kSetHF06)
 			        && Actor_Query_Goal_Number(kActorLucy) != kGoalLucyGone
 			) {
 				Actor_Face_Actor(kActorLucy, kActorMcCoy, true);
-				Actor_Says(kActorLucy, 490, 18);
-				Actor_Says(kActorMcCoy, 2125, 12);
+				Actor_Says(kActorLucy,   490, 18); // Lucy: Can you get it working?
+				Actor_Says(kActorMcCoy, 2125, 12); // McCoy: Ah, we'll have to find something else. Maybe a ground car.
 			} else {
-				Actor_Says(kActorMcCoy, 8635, 12);
+				Actor_Says(kActorMcCoy, 8635, 12); // McCoy: That sucks.
 			}
 		}
 		return false;
@@ -99,7 +99,7 @@ bool SceneScriptHF06::ClickedOn3DObject(const char *objectName, bool a2) {
 	) {
 		if (!Loop_Actor_Walk_To_XYZ(kActorMcCoy, 290.0f, 367.93f, 318.0f, 0, true, false, false)) {
 			Actor_Face_Heading(kActorMcCoy, 85, true);
-			Actor_Says(kActorMcCoy, 8522, 0);
+			Actor_Says(kActorMcCoy, 8522, 0); // McCoy: Locked.
 		}
 		return false;
 	}
@@ -107,7 +107,7 @@ bool SceneScriptHF06::ClickedOn3DObject(const char *objectName, bool a2) {
 	if (Object_Query_Click("BOX23", objectName)) {
 		if (!Loop_Actor_Walk_To_XYZ(kActorMcCoy, 63.0f, 367.93f, 120.0f, 0, true, false, false)) {
 			Actor_Face_Heading(kActorMcCoy, 568, true);
-			Actor_Says(kActorMcCoy, 8522, 0);
+			Actor_Says(kActorMcCoy, 8522, 0); // McCoy: Locked.
 		}
 		return false;
 	}
@@ -121,8 +121,8 @@ bool SceneScriptHF06::ClickedOnActor(int actorId) {
 		Actor_Face_Actor(kActorLucy, kActorMcCoy, true);
 		Actor_Face_Actor(kActorMcCoy, kActorLucy, true);
 		if (Game_Flag_Query(kFlagHF06SteelInterruption)) {
-			Actor_Says(kActorLucy, 390, 18);
-			Actor_Says(kActorMcCoy, 2115, 17);
+			Actor_Says(kActorLucy,   390, 18); // Lucy: I'm scared, Ray.
+			Actor_Says(kActorMcCoy, 2115, 17); // McCoy: Let's go. There's nothing here for us anymore.
 		}
 	} else if (actorId == kActorDektora
 	        && Actor_Query_Goal_Number(kActorDektora) != kGoalDektoraGone
@@ -130,8 +130,8 @@ bool SceneScriptHF06::ClickedOnActor(int actorId) {
 		Actor_Face_Actor(kActorDektora, kActorMcCoy, true);
 		Actor_Face_Actor(kActorMcCoy, kActorDektora, true);
 		if (Game_Flag_Query(kFlagHF06SteelInterruption)) {
-			Actor_Says(kActorDektora, 100, 3);
-			Actor_Says(kActorMcCoy, 2115, 17);
+			Actor_Says(kActorDektora,  100,  3); // Dektora: I'm afraid, Ray.
+			Actor_Says(kActorMcCoy,   2115, 17); // McCoy: Let's go. There's nothing here for us anymore.
 		}
 	}
 	return false;
@@ -169,10 +169,10 @@ void SceneScriptHF06::ActorChangedGoal(int actorId, int newGoal, int oldGoal, bo
 	 && newGoal == kGoalSteeleGone
 	) {
 		Loop_Actor_Walk_To_Actor(kActorMcCoy, kActorSteele, 24, false, false);
-		Actor_Says(kActorSteele, 250, -1);
-		Actor_Says(kActorMcCoy, 2120, kAnimationModeCombatIdle);
-		Actor_Says(kActorSteele, 260, -1);
-		Actor_Says(kActorSteele, 270, -1);
+		Actor_Says(kActorSteele,  250,                       -1); // Steele: (cough) Nice shot there, Slim.
+		Actor_Says(kActorMcCoy,  2120, kAnimationModeCombatIdle); // McCoy: You couldn't leave well enough alone.
+		Actor_Says(kActorSteele,  260,                       -1); // Steele: I'll see you again. Real soon.
+		Actor_Says(kActorSteele,  270,                       -1); // Steele: (laughs) Oh, I forgot. You Reps don't have a soul.
 
 		int otherActorId = -1;
 		if (Actor_Query_In_Set(kActorDektora, kSetHF06)
@@ -189,15 +189,15 @@ void SceneScriptHF06::ActorChangedGoal(int actorId, int newGoal, int oldGoal, bo
 			Music_Play(kMusicLoveSong, 35, 0, 3, -1, 0, 0);
 			Player_Set_Combat_Mode(false);
 			Delay(1000);
-			Actor_Voice_Over(990, kActorVoiceOver);
-			Actor_Voice_Over(1000, kActorVoiceOver);
-			Actor_Voice_Over(1010, kActorVoiceOver);
+			Actor_Voice_Over(990, kActorVoiceOver); // Mainframe: Everything I'd ever been close to was dead.
+			Actor_Voice_Over(1000, kActorVoiceOver); // Mainframe: There wasn't anything left for me now.
+			Actor_Voice_Over(1010, kActorVoiceOver); // Mainframe: And there was no going back to the Unit after I dispatched Crystal.
 			Loop_Actor_Walk_To_Actor(kActorMcCoy, otherActorId, 24, false, false);
 			Item_Pickup_Spin_Effect(kModelAnimationBomb, 355, 200);
-			Actor_Voice_Over(1020, kActorVoiceOver);
-			Actor_Voice_Over(1030, kActorVoiceOver);
-			Actor_Voice_Over(1040, kActorVoiceOver);
-			Actor_Voice_Over(1050, kActorVoiceOver);
+			Actor_Voice_Over(1020, kActorVoiceOver); // Mainframe: It was one of Sadik's bombs. Was it a lie?
+			Actor_Voice_Over(1030, kActorVoiceOver); // Mainframe: Had she been planning to kill me all along?
+			Actor_Voice_Over(1040, kActorVoiceOver); // Mainframe: Or was it just insurance? Something extra to defend herself.
+			Actor_Voice_Over(1050, kActorVoiceOver); // Mainframe: I'd never know.
 			Actor_Clue_Acquire(kActorMcCoy, kClueBomb, true, -1);
 		}
 
@@ -274,12 +274,12 @@ void SceneScriptHF06::steelInterruption() {
 	Actor_Set_Targetable(kActorSteele, true);
 	Actor_Face_Actor(actorId, kActorSteele, true);
 	if (actorId == kActorDektora) {
-		Actor_Says(kActorDektora, 90, 13);
+		Actor_Says(kActorDektora, 90, 13); // Dektora: Ray!?
 	} else if (actorId == kActorLucy) {
-		Actor_Says(kActorLucy, 380, 13);
+		Actor_Says(kActorLucy, 380, 13); // Lucy: Ray.
 	}
-	Actor_Says(kActorMcCoy, 6230, 0);
-	Actor_Says(kActorSteele, 280, 58);
+	Actor_Says(kActorMcCoy,  6230,  0); // McCoy: What?
+	Actor_Says(kActorSteele,  280, 58); // Steele: Evening, Slim.
 	Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
 	Player_Set_Combat_Mode(true);
 	Actor_Change_Animation_Mode(kActorMcCoy, kAnimationModeCombatAim);
@@ -287,17 +287,17 @@ void SceneScriptHF06::steelInterruption() {
 	Loop_Actor_Walk_To_XYZ(kActorSteele, 92.0f, 367.93f, 107.0f, 0, false, false, false);
 	Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
 	Actor_Change_Animation_Mode(kActorSteele, kAnimationModeCombatIdle);
-	Actor_Says(kActorSteele, 290, 58);
-	Actor_Says(kActorMcCoy, 2130, -1);
-	Actor_Says(kActorSteele, 300, 59);
-	Actor_Says(kActorMcCoy, 2135, -1);
-	Actor_Says(kActorSteele, 310, 60);
-	Actor_Says(kActorMcCoy, 2140, -1);
-	Actor_Says(kActorSteele, 320, 59);
-	Actor_Says(kActorMcCoy, 2145, -1);
-	Actor_Says(kActorSteele, 330, 58);
-	Actor_Says(kActorSteele, 340, 58);
-	Actor_Says(kActorSteele, 350, 58);
+	Actor_Says(kActorSteele,  290, 58); // Steele: Thanks for bringing her here. Makes my end a hell of a lot easier.
+	Actor_Says(kActorMcCoy,  2130, -1); // McCoy: You're the coldest person I've ever seen when it comes to killing.
+	Actor_Says(kActorSteele,  300, 59); // Steele: I'll take that as a compliment.
+	Actor_Says(kActorMcCoy,  2135, -1); // McCoy: How did it feel to kill an innocent animal.
+	Actor_Says(kActorSteele,  310, 60); // Steele: Wake up, Slim. The mutt was a Replicant. Just like its master.
+	Actor_Says(kActorMcCoy,  2140, -1); // McCoy: Bullshit.
+	Actor_Says(kActorSteele,  320, 59); // Steele: You're more confused than the damn dog was when I pulled the plug.
+	Actor_Says(kActorMcCoy,  2145, -1); // McCoy: She was real, Steele. No two ways about it.
+	Actor_Says(kActorSteele,  330, 58); // Steele: Nobody gives a damn.
+	Actor_Says(kActorSteele,  340, 58); // Steele: All three of you'd be nothing but a memory anyhow.
+	Actor_Says(kActorSteele,  350, 58); // Steele: And I'll be a rich lady.
 	Actor_Change_Animation_Mode(kActorSteele, kAnimationModeCombatIdle);
 	Game_Flag_Set(kFlagNotUsed644);
 	Actor_Set_Goal_Number(kActorSteele, kGoalSteeleHF06Attack);

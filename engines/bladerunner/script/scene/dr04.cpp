@@ -112,15 +112,15 @@ bool SceneScriptDR04::ClickedOnActor(int actorId) {
 		if (Actor_Query_Goal_Number(kActorMoraji) == kGoalMorajiLayDown) {
 			if (!Loop_Actor_Walk_To_Waypoint(kActorMcCoy, 109, 0, true, true)) {
 				Actor_Face_Actor(kActorMcCoy, kActorMoraji, true);
-				Actor_Says(kActorMcCoy, 945, 13);
-				Actor_Says(kActorMoraji, 0, kAnimationModeTalk);
-				Actor_Says(kActorMoraji, 10, kAnimationModeTalk);
-				Actor_Says(kActorMcCoy, 950, 13);
-				Actor_Says(kActorMoraji, 20, kAnimationModeTalk);
-				Actor_Says(kActorMoraji, 30, kAnimationModeTalk);
-				Actor_Says(kActorMcCoy, 955, 13);
+				Actor_Says(kActorMcCoy,  945,                 13); // McCoy: Hold on. An ambulance will be coming.
+				Actor_Says(kActorMoraji,   0, kAnimationModeTalk); // Moraji: You must warn the twins.
+				Actor_Says(kActorMoraji,  10, kAnimationModeTalk); // Moraji: Up-- Up there. Up... the stairs.
+				Actor_Says(kActorMcCoy,  950,                 13); // McCoy: The twins? Did they do this?
+				Actor_Says(kActorMoraji,  20, kAnimationModeTalk); // Moraji: No. Tall man with dreadlocks, the bomber.
+				Actor_Says(kActorMoraji,  30, kAnimationModeTalk); // Moraji: And another with beard. Piercing eyes.
+				Actor_Says(kActorMcCoy,  955,                 13); // McCoy: What did they want?
 				Actor_Says_With_Pause(kActorMoraji, 40, 0.0f, kAnimationModeTalk);
-				Actor_Says(kActorMoraji, 50, kAnimationModeTalk);
+				Actor_Says(kActorMoraji, 50, kAnimationModeTalk); // Moraji: Told them about the twins.
 				Actor_Clue_Acquire(kActorMcCoy, kClueMorajiInterview, true, kActorMoraji);
 				Actor_Set_Goal_Number(kActorMoraji, kGoalMorajiDie);
 				Actor_Set_Goal_Number(kActorOfficerGrayford, kGoalOfficerGrayfordArrivesToDR04); // Grayford arrives at scene of Moraji corpse

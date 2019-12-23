@@ -118,16 +118,16 @@ bool SceneScriptKP03::ClickedOn3DObject(const char *objectName, bool combatMode)
 				Scene_Loop_Set_Default(kKP03MainLoopBombNoWire);
 				Scene_Loop_Start_Special(kSceneLoopModeOnce, kKP03MainLoopBombInactive, false);
 				if (_vm->_cutContent) {
-					Actor_Voice_Over(1100, kActorVoiceOver); // I'd been lucky this time.
+					Actor_Voice_Over(1100, kActorVoiceOver); // Mainframe: I'd been lucky this time.
 				}
-				Actor_Voice_Over(1110, kActorVoiceOver);
-				Actor_Voice_Over(1120, kActorVoiceOver);
+				Actor_Voice_Over(1110, kActorVoiceOver); // Mainframe: I knew a trap when I saw one.
+				Actor_Voice_Over(1120, kActorVoiceOver); // Mainframe: This was Sadik's work for sure.
 				if (_vm->_cutContent) {
-					Actor_Voice_Over(1130, kActorVoiceOver); // One false step and...
+					Actor_Voice_Over(1130, kActorVoiceOver); // Mainframe: One false step and the whole radioactive pile would come tumbling down.
 				}
 			} else {
 				Actor_Face_Object(kActorMcCoy, "BRACK MID", true);
-				Actor_Says(kActorMcCoy, 8580, 13);
+				Actor_Says(kActorMcCoy, 8580, 13); // McCoy: Nothing else there.
 			}
 		}
 		return true;
@@ -296,24 +296,24 @@ void SceneScriptKP03::DialogueQueueFlushed(int a1) {
 
 void SceneScriptKP03::saveSteele() {
 	Player_Loses_Control();
-	Actor_Says(kActorMcCoy, 2180, 14);
+	Actor_Says(kActorMcCoy, 2180, 14); // McCoy: Look out!
 	Actor_Set_Goal_Number(kActorSteele, kGoalSteeleKP03StopWalking);
-	Actor_Says(kActorSteele, 480, 60);
+	Actor_Says(kActorSteele, 480, 60); // Steele: What?
 	Actor_Face_Object(kActorMcCoy, "BRACK MID", true);
-	Actor_Says(kActorMcCoy, 2185, 14);
+	Actor_Says(kActorMcCoy, 2185, 14); // McCoy: There's a trigger there. See it? And what's that blinking?
 	Loop_Actor_Walk_To_XYZ(kActorSteele, -137.0f, -36.55f, 26.0f, 0, false, false, false);
 	Actor_Face_Object(kActorSteele, "BRACK MID", true);
-	Actor_Says(kActorSteele, 490, 58);
-	Actor_Says(kActorMcCoy, 2190, 14);
-	Actor_Says(kActorSteele, 500, 58);
-	Actor_Says(kActorSteele, 510, 59);
-	Actor_Says(kActorSteele, 520, 60);
+	Actor_Says(kActorSteele,  490, 58); // Steele: Crafty little suckers.
+	Actor_Says(kActorMcCoy,  2190, 14); // McCoy: Careful! Could be on a timer.
+	Actor_Says(kActorSteele,  500, 58); // Steele: Looks like Sadik's work. Same setup as the one at the Rep Manufacturing Plant.
+	Actor_Says(kActorSteele,  510, 59); // Steele: Step around it, we should clear it.
+	Actor_Says(kActorSteele,  520, 60); // Steele: All this Kipple gives me the heebie-jeebies. I need room to breathe.
 	Game_Flag_Set(kFlagKP03BombDisarmed);
 	Game_Flag_Reset(kFlagKP03BombActive);
 	Scene_Loop_Set_Default(kKP03MainLoopBombNoWire);
 	Scene_Loop_Start_Special(kSceneLoopModeOnce, kKP03MainLoopBombNoWire, false);
 	Actor_Set_Goal_Number(kActorSteele, kGoalSteeleKP03Leave);
-	Actor_Says(kActorMcCoy, 2195, 14);
+	Actor_Says(kActorMcCoy, 2195, 14); // McCoy: Take a deep breath around here, you'll cough up a lung.
 	Ambient_Sounds_Play_Sound(kSfxLABMISC6, 40, -60, -60, 0);
 	Loop_Actor_Walk_To_XYZ(kActorMcCoy, 1.0f, -36.55f, 111.0f, 0, false, false, false);
 	Actor_Set_Goal_Number(kActorSteele, kGoalSteeleKP05Enter);

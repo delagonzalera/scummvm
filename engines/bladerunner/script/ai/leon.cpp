@@ -98,7 +98,7 @@ void AIScriptLeon::ClickedByPlayer() {
 		Player_Loses_Control();
 		Actor_Face_Actor(kActorMcCoy, kActorLeon, true);
 		ADQ_Flush();
-		Actor_Says(kActorMcCoy, 495, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy, 495, kAnimationModeTalk); // McCoy: Excuse me, fellas.
 		Actor_Set_Goal_Number(kActorLeon, kGoalLeonReleaseDeskClerk);
 		//return true;
 	}
@@ -141,7 +141,7 @@ void AIScriptLeon::OtherAgentEnteredCombatMode(int otherActorId, int combatMode)
 		Game_Flag_Set(kFlagCT09LeonInterrupted);
 		Player_Loses_Control();
 		Actor_Face_Actor(kActorMcCoy, kActorLeon, true);
-		Actor_Says(kActorMcCoy, 500, kAnimationModeCombatAim);
+		Actor_Says(kActorMcCoy, 500, kAnimationModeCombatAim); // McCoy: Put the hotel manager down nice and slow.
 		Actor_Set_Goal_Number(kActorLeon, kGoalLeonReleaseDeskClerk);
 		//return true;
 	}
@@ -176,11 +176,11 @@ bool AIScriptLeon::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		Actor_Put_In_Set(kActorLeon, kSetCT09);
 		Actor_Set_At_XYZ(kActorLeon, 264.0f, 348.52f, 827.0f, 0);
 		Actor_Face_Actor(kActorDeskClerk, kActorLeon, true);
-		ADQ_Add(kActorLeon, 0, 16);
-		ADQ_Add(kActorDeskClerk, 0, 58);
-		ADQ_Add(kActorLeon, 10, 15);
-		ADQ_Add(kActorDeskClerk, 10, 58);
-		ADQ_Add(kActorLeon, 20, 16);
+		ADQ_Add(kActorLeon,       0, 16); // Leon: You let them in my room?
+		ADQ_Add(kActorDeskClerk,  0, 58); // Desk Clerk: They had a warrant, mister. What was I supposed to do?
+		ADQ_Add(kActorLeon,      10, 15); // Leon: They took my pictures.
+		ADQ_Add(kActorDeskClerk, 10, 58); // Desk Clerk: Couldn't stop 'em.
+		ADQ_Add(kActorLeon,      20, 16); // Leon: How about me? You think I'm easier to stop?
 		return true;
 
 	case kGoalLeonReleaseDeskClerk:
@@ -191,49 +191,49 @@ bool AIScriptLeon::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 	case kGoalLeonTalkToMcCoy:
 		Actor_Face_Actor(kActorLeon, kActorMcCoy, true);
 		Player_Set_Combat_Mode(false);
-		Actor_Says(kActorLeon, 30, 12);
+		Actor_Says(kActorLeon, 30, 12); // Leon: Who the hell are you?
 		Actor_Face_Actor(kActorMcCoy, kActorLeon, true);
 		if (Player_Query_Combat_Mode()) {
 			Player_Set_Combat_Mode(false);
 		}
-		Actor_Says(kActorMcCoy, 505, 23);
-		Actor_Says(kActorLeon, 60, 13);
+		Actor_Says(kActorMcCoy, 505, 23); // McCoy: McCoy, LPD.
+		Actor_Says(kActorLeon,   60, 13); // Leon: LPD, huh? Maybe you guys can return something to me.
 		Player_Gains_Control();
 		Loop_Actor_Walk_To_XYZ(kActorLeon, 233.0f, 349.0f, 849.0f, 0, false, false, false);
 		Actor_Face_Actor(kActorLeon, kActorMcCoy, true);
 		Actor_Face_Actor(kActorMcCoy, kActorLeon, true);
-		Actor_Says(kActorMcCoy, 515, 18);
+		Actor_Says(kActorMcCoy, 515, 18); // McCoy: How do you know we got it?
 		Actor_Says_With_Pause(kActorLeon, 70, 0.3f, 12);
-		Actor_Says(kActorMcCoy, 520, 15);
-		Actor_Says(kActorLeon, 80, 12);
+		Actor_Says(kActorMcCoy, 520, 15); // McCoy: What other guy?
+		Actor_Says(kActorLeon,   80, 12); // Leon: Don't play dumb.
 		Loop_Actor_Walk_To_XYZ(kActorLeon, 198.0f, 349.0f, 865.0f, 0, false, false, false);
 		Actor_Face_Actor(kActorLeon, kActorMcCoy, true);
 		Actor_Face_Actor(kActorMcCoy, kActorLeon, true);
 		if (Actor_Clue_Query(kActorMcCoy, kClueWantedPoster)) { // there is no way how to obtain this poster
 			Actor_Says_With_Pause(kActorMcCoy, 525, 0.2f, 14);
-			Actor_Says(kActorLeon, 90, 13);
-			Actor_Says(kActorMcCoy, 530, 16);
+			Actor_Says(kActorLeon,   90, 13); // Leon: I ain't seen you.
+			Actor_Says(kActorMcCoy, 530, 16); // McCoy: On a wanted poster!
 			Actor_Set_Goal_Number(kActorLeon, kGoalLeonApproachMcCoy);
 		} else {
 			Actor_Says_With_Pause(kActorMcCoy, 535, 0.8f, 17);
-			Actor_Says(kActorLeon, 100, 13);
+			Actor_Says(kActorLeon, 100, 13); // Leon: Nothing, I just thought you were gonna arrest me. That's all.
 			Actor_Says_With_Pause(kActorMcCoy, 540, 0.0f, 19);
-			Actor_Says(kActorLeon, 110, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 550, 17);
-			Actor_Says(kActorMcCoy, 555, 18);
-			Actor_Says(kActorLeon, 120, 13);
-			Actor_Says(kActorMcCoy, 560, kAnimationModeTalk);
+			Actor_Says(kActorLeon,  110, kAnimationModeTalk); // Leon: Can't help you there, friend.
+			Actor_Says(kActorMcCoy, 550,                 17); // McCoy: Maybe the clerk can tell me who was renting that room back there.
+			Actor_Says(kActorMcCoy, 555,                 18); // McCoy: Why were you hassling him?
+			Actor_Says(kActorLeon,  120,                 13); // Leon: He let these creeps in my room. I'm a very private person.
+			Actor_Says(kActorMcCoy, 560, kAnimationModeTalk); // McCoy: What do they got against you?
 			Actor_Says_With_Pause(kActorLeon, 130, 0.8f, kAnimationModeTalk);
 			Actor_Face_Current_Camera(kActorMcCoy, true);
-			Actor_Says(kActorMcCoy, 565, 18);
+			Actor_Says(kActorMcCoy, 565, 18); // McCoy: We're all innocents, aren't we?
 			Actor_Face_Actor(kActorMcCoy, kActorLeon, true);
-			Actor_Says(kActorLeon, 140, 12);
+			Actor_Says(kActorLeon, 140, 12); // Leon: Damn straight. And I don't like people asking questions either.
 			Actor_Says_With_Pause(kActorMcCoy, 570, 0.0f, 17);
 			Actor_Says_With_Pause(kActorMcCoy, 575, 1.2f, 13);
-			Actor_Says(kActorLeon, 150, kAnimationModeTalk);
-			Actor_Says(kActorMcCoy, 580, kAnimationModeTalk);
-			Actor_Says(kActorLeon, 160, 13);
-			Actor_Says(kActorLeon, 170, 12);
+			Actor_Says(kActorLeon,  150, kAnimationModeTalk); // Leon: A Rasta? What's that?
+			Actor_Says(kActorMcCoy, 580, kAnimationModeTalk); // McCoy: He's got dreadlocks. Talks with an accent.
+			Actor_Says(kActorLeon,  160,                 13); // Leon: Oh. No, I ain't seen no one like that. Look, my mother's waiting for me.
+			Actor_Says(kActorLeon,  170,                 12); // Leon: You stick around. Maybe the manager will come back.
 			Actor_Set_Goal_Number(kActorLeon, kGoalLeonLeave);
 		}
 		return true;
@@ -243,9 +243,9 @@ bool AIScriptLeon::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 
 	case kGoalLeonPunchMcCoy:
 		Player_Loses_Control();
-		Actor_Says(kActorLeon, 40, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 510, kAnimationModeTalk);
-		Actor_Says(kActorLeon, 50, kAnimationModeTalk);
+		Actor_Says(kActorLeon,   40, kAnimationModeTalk); // Leon: LPD, huh? You wouldn't be a Blade Runner would ya?
+		Actor_Says(kActorMcCoy, 510, kAnimationModeTalk); // McCoy: I'm thinking of changing jobs.
+		Actor_Says(kActorLeon,   50, kAnimationModeTalk); // Leon: You should have done it long ago. Now you're out of time, LPD. Good night!
 		Actor_Change_Animation_Mode(kActorLeon, kAnimationModeCombatAttack);
 		return false;
 

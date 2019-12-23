@@ -80,22 +80,22 @@ bool SceneScriptPS05::MouseClick(int x, int y) {
 bool SceneScriptPS05::ClickedOn3DObject(const char *objectName, bool a2) {
 	if (Object_Query_Click("WATER FOUNTAIN", objectName) && !Loop_Actor_Walk_To_Scene_Object(kActorMcCoy, "WATER FOUNTAIN", 12, true, false)) {
 		Actor_Face_Object(kActorMcCoy, "WATER FOUNTAIN", true);
-		Actor_Says(kActorMcCoy, 3490, 18);
+		Actor_Says(kActorMcCoy, 3490, 18); // McCoy: Here's what I need.
 	}
 	if (Object_Query_Click("ASHTRAY", objectName) && !Loop_Actor_Walk_To_XYZ(kActorMcCoy, 662.0f, 0.37f, -180.0f, 0, true, false, false)) {
 		Actor_Face_Object(kActorMcCoy, "ASHTRAY", true);
-		Actor_Voice_Over(1770, kActorVoiceOver);
-		Actor_Voice_Over(1780, kActorVoiceOver);
-		Actor_Voice_Over(1790, kActorVoiceOver);
+		Actor_Voice_Over(1770, kActorVoiceOver); // Mainframe: Lucky Strikes. Crystal's brand.
+		Actor_Voice_Over(1780, kActorVoiceOver); // Mainframe: I knew she was spending a lot of time in the training maze these days
+		Actor_Voice_Over(1790, kActorVoiceOver); // Mainframe: even though she'd already gotten close to a perfect score.
 	}
 	if (Object_Query_Click("WIRE BASKET", objectName) && !Loop_Actor_Walk_To_Scene_Object(kActorMcCoy, "WIRE BASKET", 12, true, false)) {
 		Actor_Face_Object(kActorMcCoy, "WIRE BASKET", true);
-		Actor_Voice_Over(1810, kActorVoiceOver);
-		Actor_Voice_Over(1820, kActorVoiceOver);
+		Actor_Voice_Over(1810, kActorVoiceOver); // Mainframe: Nothing even remotely interesting but hell.
+		Actor_Voice_Over(1820, kActorVoiceOver); // Mainframe: If I was going to root through trash, my expectations weren't too high.
 	}
 	if (Object_Query_Click("WANTED POSTERS", objectName) && !Loop_Actor_Walk_To_Scene_Object(kActorMcCoy, "WANTED POSTERS", 12, true, false)) {
 		Actor_Face_Object(kActorMcCoy, "WANTED POSTERS", true);
-		Actor_Voice_Over(1800, kActorVoiceOver);
+		Actor_Voice_Over(1800, kActorVoiceOver); // Mainframe: Old copies of case files, notices and memos. The usual station junk.
 	}
 	return false;
 }
@@ -212,25 +212,25 @@ void SceneScriptPS05::turnOnTV() {
 	case 0:
 		if (!Game_Flag_Query(kFlagPS05TV0)) {
 			Overlay_Play("PS05OVER", 0, true, false, 0);
-			ADQ_Add(kActorNewscaster, 0, kAnimationModeTalk);
-			ADQ_Add(kActorNewscaster, 10, kAnimationModeTalk);
-			ADQ_Add(kActorNewscaster, 20, kAnimationModeTalk);
-			ADQ_Add(kActorNewscaster, 30, kAnimationModeTalk);
-			ADQ_Add(kActorTyrell, 430, kAnimationModeTalk);
-			ADQ_Add(kActorTyrell, 440, kAnimationModeTalk);
-			ADQ_Add(kActorTyrell, 450, kAnimationModeTalk);
-			ADQ_Add(kActorTyrell, 460, kAnimationModeTalk);
+			ADQ_Add(kActorNewscaster,   0, kAnimationModeTalk); // Newscaster: The Tyrell Corporation today recalled the last four functioning entertainment model
+			ADQ_Add(kActorNewscaster,  10, kAnimationModeTalk); // Newscaster: Nexus-Five Replicants from Off-World service.
+			ADQ_Add(kActorNewscaster,  20, kAnimationModeTalk); // Newscaster: Dr Eldon Tyrell speaking at a share holders meeting
+			ADQ_Add(kActorNewscaster,  30, kAnimationModeTalk); // Newscaster: denied allegations that the model was defective and possibly dangerous.
+			ADQ_Add(kActorTyrell,     430, kAnimationModeTalk); // Tyrell: The simple fact is that the model wasn't performing its designated function.
+			ADQ_Add(kActorTyrell,     440, kAnimationModeTalk); // Tyrell: There was one isolated incident of violence a couple of years ago...
+			ADQ_Add(kActorTyrell,     450, kAnimationModeTalk); // Tyrell: but the individual unit in question was immediately retired from service.
+			ADQ_Add(kActorTyrell,     460, kAnimationModeTalk); // Tyrell: No, the problem is far from anything sinister. The entertainment model just isn't funny.
 			Game_Flag_Set(kFlagPS05TV0);
 		}
 		break;
 	case 1:
 		if (!Game_Flag_Query(kFlagPS05TV1)) {
 			Overlay_Play("PS05OVER", 0, true, false, 0);
-			ADQ_Add(kActorNewscaster, 40, kAnimationModeTalk);
-			ADQ_Add(kActorNewscaster, 50, kAnimationModeTalk);
-			ADQ_Add(kActorNewscaster, 60, kAnimationModeTalk);
-			ADQ_Add(kActorNewscaster, 70, kAnimationModeTalk);
-			ADQ_Add(kActorNewscaster, 80, kAnimationModeTalk);
+			ADQ_Add(kActorNewscaster, 40, kAnimationModeTalk); // Newscaster: Violent street crime in the city rose again last year by a whopping 26 percent
+			ADQ_Add(kActorNewscaster, 50, kAnimationModeTalk); // Newscaster: according to the latest figures from the Department of Justice.
+			ADQ_Add(kActorNewscaster, 60, kAnimationModeTalk); // Newscaster: Governor Kolvig attributed the change to the dramatic increase in the number of Specials
+			ADQ_Add(kActorNewscaster, 70, kAnimationModeTalk); // Newscaster: registered as city residents and promised a tough new set of standards...
+			ADQ_Add(kActorNewscaster, 80, kAnimationModeTalk); // Newscaster: for the City Immigration Bureau by next month.
 			Game_Flag_Set(kFlagPS05TV1);
 		}
 		break;
@@ -238,24 +238,24 @@ void SceneScriptPS05::turnOnTV() {
 		if (!Game_Flag_Query(kFlagPS05TV2)) {
 			Overlay_Play("PS05OVER", 0, true, false, 0);
 			if (Actor_Query_Friendliness_To_Other(kActorClovis, kActorMcCoy) > Actor_Query_Friendliness_To_Other(kActorSteele, kActorMcCoy)) {
-				ADQ_Add(kActorNewscaster, 120, kAnimationModeTalk);
-				ADQ_Add(kActorNewscaster, 130, kAnimationModeTalk);
-				ADQ_Add(kActorNewscaster, 140, kAnimationModeTalk);
-				ADQ_Add(kActorNewscaster, 150, kAnimationModeTalk);
+				ADQ_Add(kActorNewscaster, 120, kAnimationModeTalk); // Newscaster: A Blade Runner foiled a rogue Replicant's escape today
+				ADQ_Add(kActorNewscaster, 130, kAnimationModeTalk); // Newscaster: Retiring it in the Fourth Sector before it could hurt anyone.
+				ADQ_Add(kActorNewscaster, 140, kAnimationModeTalk); // Newscaster: Our man on the scene got this exclusive reaction from Edison Guzza
+				ADQ_Add(kActorNewscaster, 150, kAnimationModeTalk); // Newscaster: supervisor of the LPD Rep Detect unit.
 				if (_vm->_cutContent && Random_Query(1, 3) == 1) {
-					ADQ_Add(kActorGuzza, 1600, kAnimationModeTalk);
+					ADQ_Add(kActorGuzza, 1600, kAnimationModeTalk); // Guzza: No comment.
 				} else {
-					ADQ_Add(kActorGuzza, 1570, kAnimationModeTalk);
-					ADQ_Add(kActorGuzza, 1580, kAnimationModeTalk);
-					ADQ_Add(kActorGuzza, 1590, kAnimationModeTalk);
+					ADQ_Add(kActorGuzza, 1570, kAnimationModeTalk); // Guzza: The detective on the case handled it by the book.
+					ADQ_Add(kActorGuzza, 1580, kAnimationModeTalk); // Guzza: He investigated a lead at Taffy's, tested the alleged Replicant
+					ADQ_Add(kActorGuzza, 1590, kAnimationModeTalk); // Guzza: and retired it exactly the way he is supposed to.
 				}
 			} else {
-				ADQ_Add(kActorNewscaster, 90, kAnimationModeTalk);
-				ADQ_Add(kActorNewscaster, 100, kAnimationModeTalk);
-				ADQ_Add(kActorNewscaster, 110, kAnimationModeTalk);
-				ADQ_Add(kActorGuzza, 1540, kAnimationModeTalk);
-				ADQ_Add(kActorGuzza, 1550, kAnimationModeTalk);
-				ADQ_Add(kActorGuzza, 1560, kAnimationModeTalk);
+				ADQ_Add(kActorNewscaster,   90, kAnimationModeTalk); // Newscaster: Another retirement in the Fourth Sector today
+				ADQ_Add(kActorNewscaster,  100, kAnimationModeTalk); // Newscaster: as a Blade Runner shot an alleged Replicant in the middle of a crowded street.
+				ADQ_Add(kActorNewscaster,  110, kAnimationModeTalk); // Newscaster: Lieutenant Edison Guzza, supervisor of the LPD's Rep Detect Unit, had this to say...
+				ADQ_Add(kActorGuzza,      1540, kAnimationModeTalk); // Guzza: It was a good clean take-down.
+				ADQ_Add(kActorGuzza,      1550, kAnimationModeTalk); // Guzza: The public should thank us for retiring these skin-jobs before they get into the real trouble.
+				ADQ_Add(kActorGuzza,      1560, kAnimationModeTalk); // Guzza: You want to get that thing out of my face before it ends up shooting film where the sun don't shine?
 			}
 			Game_Flag_Set(kFlagPS05TV2);
 		}
@@ -263,26 +263,26 @@ void SceneScriptPS05::turnOnTV() {
 	case 3:
 		if (!Game_Flag_Query(kFlagPS05TV3)) {
 			Overlay_Play("PS05OVER", 0, true, false, 0);
-			ADQ_Add(kActorNewscaster, 170, kAnimationModeTalk);
-			ADQ_Add(kActorNewscaster, 180, kAnimationModeTalk);
-			ADQ_Add(kActorNewscaster, 190, kAnimationModeTalk);
-			ADQ_Add(kActorNewscaster, 200, kAnimationModeTalk);
-			ADQ_Add(kActorNewscaster, 210, kAnimationModeTalk);
-			ADQ_Add(kActorNewscaster, 220, kAnimationModeTalk);
-			ADQ_Add(kActorGovernorKolvig, 80, kAnimationModeTalk);
-			ADQ_Add(kActorGovernorKolvig, 90, kAnimationModeTalk);
-			ADQ_Add(kActorGovernorKolvig, 100, kAnimationModeTalk);
-			ADQ_Add(kActorGovernorKolvig, 110, kAnimationModeTalk);
-			ADQ_Add(kActorGovernorKolvig, 120, kAnimationModeTalk);
-			ADQ_Add(kActorGovernorKolvig, 130, kAnimationModeTalk);
+			ADQ_Add(kActorNewscaster,     170, kAnimationModeTalk); // Newscaster: During his last election campaign, Governor Kolvig promised
+			ADQ_Add(kActorNewscaster,     180, kAnimationModeTalk); // Newscaster: a bold new plan of action
+			ADQ_Add(kActorNewscaster,     190, kAnimationModeTalk); // Newscaster: to clean up the worst regions of the highly toxic debris that surrounds our city.
+			ADQ_Add(kActorNewscaster,     200, kAnimationModeTalk); // Newscaster: The so called Kipple.
+			ADQ_Add(kActorNewscaster,     210, kAnimationModeTalk); // Newscaster: Just how much progress has been made since then?
+			ADQ_Add(kActorNewscaster,     220, kAnimationModeTalk); // Newscaster: We spoke to the governor just before his weekly meeting with the City Council.
+			ADQ_Add(kActorGovernorKolvig,  80, kAnimationModeTalk); // Governor Kolvig: Our studies have shown that the Kipple's effect upon Los Angeles is minor.
+			ADQ_Add(kActorGovernorKolvig,  90, kAnimationModeTalk); // Governor Kolvig: The radiation and toxic waste is contained in relatively small pockets...
+			ADQ_Add(kActorGovernorKolvig, 100, kAnimationModeTalk); // Governor Kolvig: all miles distant from the city center.
+			ADQ_Add(kActorGovernorKolvig, 110, kAnimationModeTalk); // Governor Kolvig: Nevertheless, cleaning things up out there is a worthwhile goal.
+			ADQ_Add(kActorGovernorKolvig, 120, kAnimationModeTalk); // Governor Kolvig: Especially, with the thousands of specials living on the city fringes.
+			ADQ_Add(kActorGovernorKolvig, 130, kAnimationModeTalk); // Governor Kolvig: For now, all I can say is that we're looking at several options and I'm sure everyone will be pleasantly surprised by our final proposal.
 			Game_Flag_Set(kFlagPS05TV3);
 		}
 		break;
 	case 4:
 		if (!Game_Flag_Query(kFlagPS05TV4)) {
 			Overlay_Play("PS05OVER", 0, true, false, 0);
-			ADQ_Add(kActorNewscaster, 230, kAnimationModeTalk);
-			ADQ_Add(kActorNewscaster, 240, kAnimationModeTalk);
+			ADQ_Add(kActorNewscaster, 230, kAnimationModeTalk); // Newscaster: A homeless man was discovered in a Chinatown dumpster this morning apparently the victim of foul play.
+			ADQ_Add(kActorNewscaster, 240, kAnimationModeTalk); // Newscaster: Chief Bryant promised a full investigation and dismissed allegations that the LPD has been lax in following up on crimes in the 4rth Sector.
 			Game_Flag_Set(kFlagPS05TV4);
 		}
 		break;

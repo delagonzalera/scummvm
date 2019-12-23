@@ -345,13 +345,13 @@ bool AIScriptEarlyQ::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		Actor_Face_Actor(kActorMcCoy, kActorEarlyQ, true);
 		Actor_Change_Animation_Mode(kActorMcCoy, kAnimationModeCombatIdle);
 		_vm->_aiScripts->callChangeAnimationMode(kActorMcCoy, kAnimationModeCombatAim);
-		Actor_Says(kActorEarlyQ, 130, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 3400, kAnimationModeCombatAim);
+		Actor_Says(kActorEarlyQ,  130,      kAnimationModeTalk); // Early Q: (grunts) Whoa!
+		Actor_Says(kActorMcCoy,  3400, kAnimationModeCombatAim); // McCoy: Cough up some dirt, Early. Or I'm taking this disc downtown.
 		Actor_Says_With_Pause(kActorEarlyQ, 140, 1.0f, kAnimationModeTalk);
 		Actor_Says_With_Pause(kActorEarlyQ, 150, 1.0f, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 3405, kAnimationModeCombatAim);
-		Actor_Says(kActorEarlyQ, 160, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 3410, kAnimationModeCombatAim);
+		Actor_Says(kActorMcCoy,  3405, kAnimationModeCombatAim); // McCoy: Sit down.
+		Actor_Says(kActorEarlyQ,  160,      kAnimationModeTalk); // Early Q: I'll throw in a night with one of my dancers.
+		Actor_Says(kActorMcCoy,  3410, kAnimationModeCombatAim); // McCoy: Sit down!
 		_vm->_aiScripts->callChangeAnimationMode(kActorMcCoy, kAnimationModeCombatIdle);
 		Loop_Actor_Walk_To_XYZ(kActorMcCoy, 31.22f, 0.0f, 267.51f, 0, true, false, false);
 		Actor_Set_Goal_Number(kActorEarlyQ, kGoalEarlyQNR04SitDown);
@@ -373,7 +373,7 @@ bool AIScriptEarlyQ::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		Delay(2000);
 		Actor_Set_At_XYZ(kActorEarlyQ, 109.0, 0.0, 374.0, 0);
 		Actor_Retired_Here(kActorEarlyQ, 12, 12, true, -1);
-		Actor_Voice_Over(4180, kActorVoiceOver);
+		Actor_Voice_Over(4180, kActorVoiceOver); // Mainframe: Scorpions.
 		Scene_Exits_Enable();
 		break;
 
@@ -383,9 +383,9 @@ bool AIScriptEarlyQ::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		break;
 
 	case kGoalEarlyQNR04TakeDisk:
-		Actor_Says(kActorEarlyQ, 0, kAnimationModeTalk);
-		Actor_Says(kActorEarlyQ, 10, kAnimationModeTalk);
-		Actor_Says(kActorEarlyQ, 20, kAnimationModeTalk);
+		Actor_Says(kActorEarlyQ,  0, kAnimationModeTalk); // Early Q: Jeez Louise, McCoy. You look awful.
+		Actor_Says(kActorEarlyQ, 10, kAnimationModeTalk); // Early Q: I'll take the disc. Thanks.
+		Actor_Says(kActorEarlyQ, 20, kAnimationModeTalk); // Early Q: Don't worry about a thing, General. Old Early is going to stitch you right up.
 		Actor_Clue_Lose(kActorMcCoy, kClueEarlyQsClub);
 		Scene_Exits_Enable();
 		Player_Gains_Control();
@@ -444,8 +444,8 @@ bool AIScriptEarlyQ::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 
 	case kGoalEarlyQNR05AnnouceDektora:
 		if (Player_Query_Current_Scene() == kSceneNR05) {
-			Actor_Says(kActorEarlyQ, 670, kAnimationModeTalk);
-			Actor_Says(kActorEarlyQ, 690, kAnimationModeTalk);
+			Actor_Says(kActorEarlyQ, 670, kAnimationModeTalk); // Early Q: Ladies and Gentlemen! Yours truly, the ever ebullient Early Q presents the wondrous, mysterious Hecuba.
+			Actor_Says(kActorEarlyQ, 690, kAnimationModeTalk); // Early Q: Singing and performing the sacred Thanatos dance of the ancient swamps.
 			Actor_Set_Goal_Number(kActorDektora, kGoalDektoraNR08Dance);
 			Actor_Set_Goal_Number(kActorEarlyQ, kGoalEarlyQNR05UnlockNR08);
 			Actor_Set_Goal_Number(kActorHanoi, kGoalHanoiNR08WatchShow);

@@ -139,12 +139,12 @@ bool AIScriptHolloway::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 
 	case kGoalHollowayApproachMcCoy:
 		Scene_Exits_Disable();
-		Actor_Says(kActorHolloway, 20, kAnimationModeTalk);
+		Actor_Says(kActorHolloway, 20, kAnimationModeTalk); // Holloway: This is the troublemaker?
 		Actor_Face_Actor(kActorHolloway, kActorMcCoy, true);
 		if (Player_Query_Combat_Mode()) {
 			Actor_Set_Goal_Number(kActorHolloway, kGoalHollowayKnockOutMcCoy);
 		} else {
-			Actor_Says(kActorHolloway, 30, kAnimationModeTalk);
+			Actor_Says(kActorHolloway, 30, kAnimationModeTalk); // Holloway: Put your hands on top of your head.
 			Actor_Face_Actor(kActorMcCoy, kActorHolloway, true);
 			AI_Countdown_Timer_Reset(kActorHolloway, kActorTimerAIScriptCustomTask0);
 			AI_Countdown_Timer_Start(kActorHolloway, kActorTimerAIScriptCustomTask0, 1);
@@ -153,14 +153,14 @@ bool AIScriptHolloway::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 
 	case kGoalHollowayTalkToMcCoy:
 		Actor_Face_Actor(kActorMcCoy, kActorHolloway, true);
-		Actor_Says(kActorMcCoy, 6130, 15);
-		Actor_Says(kActorHolloway, 40, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 6135, 13);
-		Actor_Says(kActorHolloway, 50, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 6140, 16);
-		Actor_Says(kActorHolloway, 60, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 6145, 12);
-		Actor_Says(kActorHolloway, 70, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy,    6130,                 15); // McCoy: That's right. Ray McCoy. Rep Detect. BR-61661.
+		Actor_Says(kActorHolloway,   40, kAnimationModeTalk); // Holloway: Never heard of you.
+		Actor_Says(kActorMcCoy,    6135,                 13); // McCoy: I report to Lieutenant Guzza. Call him!
+		Actor_Says(kActorHolloway,   50, kAnimationModeTalk); // Holloway: I work for you? Let's go.
+		Actor_Says(kActorMcCoy,    6140,                 16); // McCoy: Where's your squad car?
+		Actor_Says(kActorHolloway,   60, kAnimationModeTalk); // Holloway: Shut your mouth.
+		Actor_Says(kActorMcCoy,    6145,                 12); // McCoy: Which precinct are we going to?
+		Actor_Says(kActorHolloway,   70, kAnimationModeTalk); // Holloway: I'll tell you which one.
 		Actor_Set_Goal_Number(kActorHolloway, kGoalHollowayKnockOutMcCoy);
 		break;
 

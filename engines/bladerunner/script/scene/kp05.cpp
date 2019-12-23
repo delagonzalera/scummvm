@@ -149,24 +149,24 @@ void SceneScriptKP05::PlayerWalkedIn() {
 	if (Actor_Query_Goal_Number(kActorSteele) == 450) {
 		Scene_Exits_Disable();
 		Actor_Face_Actor(kActorSteele, kActorMcCoy, true);
-		Actor_Says(kActorSteele, 530, 15);
-		Actor_Says(kActorSteele, 540, 16);
+		Actor_Says(kActorSteele, 530, 15); // Steele: You almost got away with it, Slim.
+		Actor_Says(kActorSteele, 540, 16); // Steele: And I expected so much more from you.
 		Actor_Face_Actor(kActorMcCoy, kActorSteele, true);
 		Player_Set_Combat_Mode(true);
-		Actor_Says(kActorMcCoy, 2200, 3);
-		Actor_Says(kActorSteele, 550, 17);
-		Actor_Says(kActorMcCoy, 2205, 3);
-		Actor_Says(kActorSteele, 560, 15);
-		Actor_Says(kActorSteele, 570, 16);
-		Actor_Says(kActorSteele, 580, 13);
-		Actor_Says(kActorMcCoy, 2210, 3);
-		Actor_Says(kActorSteele, 590, 13);
-		Actor_Says(kActorMcCoy, 2215, 3);
-		Actor_Says(kActorSteele, 600, 16);
-		Actor_Says(kActorSteele, 610, 15);
-		Actor_Says(kActorMcCoy, 2220, 3);
-		Actor_Says(kActorSteele, 620, 15);
-		Actor_Says(kActorSteele, 630, 17);
+		Actor_Says(kActorMcCoy,  2200,  3); // McCoy: Why did you have to kill her?
+		Actor_Says(kActorSteele,  550, 17); // Steele: Who, the mutt? The artificial pet of a Replicant? What'd you think I'd do?
+		Actor_Says(kActorMcCoy,  2205,  3); // McCoy: Show some mercy?
+		Actor_Says(kActorSteele,  560, 15); // Steele: Well, I guess that's why you're there and I'm here.
+		Actor_Says(kActorSteele,  570, 16); // Steele: Now, why don't you explain to me what you're doing out here, Slim.
+		Actor_Says(kActorSteele,  580, 13); // Steele: Maybe you can ease my suspicious mind.
+		Actor_Says(kActorMcCoy,  2210,  3); // McCoy: I'm just checking it out.
+		Actor_Says(kActorSteele,  590, 13); // Steele: Just doing a little sightseeing?
+		Actor_Says(kActorMcCoy,  2215,  3); // McCoy: That's right.
+		Actor_Says(kActorSteele,  600, 16); // Steele: Right. And not fifty yards from your pal Clovis and the moonbus you hijacked.
+		Actor_Says(kActorSteele,  610, 15); // Steele: You're not convincing me too good, Slim.
+		Actor_Says(kActorMcCoy,  2220,  3); // McCoy: You gonna shoot me down right here?
+		Actor_Says(kActorSteele,  620, 15); // Steele: It's as good a place as any.
+		Actor_Says(kActorSteele,  630, 17); // Steele: Maybe you wanna go on the Machine now? See if you can answer this question.
 		Non_Player_Actor_Combat_Mode_On(kActorSteele, kActorCombatStateIdle, true, kActorMcCoy, 9, kAnimationModeCombatIdle, kAnimationModeCombatWalk, kAnimationModeCombatRun, 0, -1, -1, 20, 240, false);
 	}
 }

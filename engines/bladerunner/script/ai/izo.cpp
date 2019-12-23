@@ -183,7 +183,7 @@ void AIScriptIzo::ReceivedClue(int clueId, int fromActorId) {
 void AIScriptIzo::ClickedByPlayer() {
 	if (Actor_Query_Goal_Number(kActorIzo) > 500) { // Dead
 		Actor_Face_Actor(kActorMcCoy, kActorIzo, true);
-		Actor_Says(kActorMcCoy, 8585, 13);
+		Actor_Says(kActorMcCoy, 8585, 13); // McCoy: Nothing more to find.
 		return; //true;
 	}
 
@@ -193,18 +193,18 @@ void AIScriptIzo::ClickedByPlayer() {
 		Player_Loses_Control();
 		Actor_Set_Goal_Number(kActorIzo, kGoalIzoStopRunning);
 		Actor_Face_Actor(kActorMcCoy, kActorIzo, true);
-		Actor_Says(kActorMcCoy, 5460, 16);
+		Actor_Says(kActorMcCoy, 5460, 16); // McCoy: Hold it a second! I just want to talk!
 		Actor_Face_Actor(kActorIzo, kActorMcCoy, true);
-		Actor_Says(kActorIzo, 700, 17);
-		Actor_Says(kActorMcCoy, 5465, 14);
+		Actor_Says(kActorIzo,    700, 17); // Izo: That's as far as you need to go, McCoy.
+		Actor_Says(kActorMcCoy, 5465, 14); // McCoy: Okay, just cool out a second!
 		dialogueWithIzo();
 	}
 
 	if (Actor_Query_Goal_Number(kActorIzo) == kGoalIzoRC03Walk) {
 		Actor_Face_Actor(kActorMcCoy, kActorIzo, true);
-		Actor_Says(kActorMcCoy, 2715, 14);
+		Actor_Says(kActorMcCoy, 2715, 14); // McCoy: Hold it!
 		Actor_Set_Goal_Number(kActorIzo, kGoalIzoRC03Run);
-		Actor_Says(kActorMcCoy, 1800, 14);
+		Actor_Says(kActorMcCoy, 1800, 14); // McCoy: No, wait!
 #if BLADERUNNER_ORIGINAL_BUGS
 		Actor_Set_Goal_Number(kActorSteele, kGoalSteeleApprehendIzo);
 #else
@@ -1100,39 +1100,39 @@ void AIScriptIzo::dialogueWithIzo() {
 
 	switch (input) {
 	case 0: // MOTIVES -> Should be "LET GO"?
-		Actor_Says(kActorMcCoy, 5470, 15); // Get lost, Izo. Take off.
-		Actor_Says(kActorIzo, 710, 13);    //
+		Actor_Says(kActorMcCoy, 5470, 15); // McCoy: Get lost, Izo. Take off.
+		Actor_Says(kActorIzo,    710, 13); // Izo: You're a better man than I imagined.
 		Actor_Set_Goal_Number(kActorIzo, kGoalIzoEscape);
 		Player_Gains_Control();
 		break;
 
 	case 10: // LUCY -> Should be split to "WEAPONS" AND "CRYSTAL" (if Replicant)?
 		if (Game_Flag_Query(kFlagIzoIsReplicant)) {
-			Actor_Says(kActorMcCoy, 5475, 18); // Listen, there's another Blade Runner after you and she won't stop to talk.
-			Actor_Says(kActorIzo, 720, 12);
-			Actor_Says(kActorMcCoy, 5485, 13); // Where did you get the hardware, Izo?
-			Actor_Says(kActorIzo, 740, 14);
-			Actor_Says(kActorMcCoy, 5495, 12);
-			Actor_Says(kActorIzo, 750, 15);
-			Actor_Says(kActorIzo, 760, 17);
-			Actor_Says(kActorMcCoy, 5500, 12);
-			Actor_Says(kActorIzo, 770, 15);
-			Actor_Says(kActorIzo, 780, 15);
-			Actor_Says(kActorMcCoy, 5505, 12); // I need to talk to Clovis.
-			Actor_Says(kActorIzo, 790, 15);
+			Actor_Says(kActorMcCoy, 5475, 18); // McCoy: Listen, there's another Blade Runner after you and she won't stop to talk.
+			Actor_Says(kActorIzo,    720, 12); // Izo: I know. She came into the store once.
+			Actor_Says(kActorMcCoy, 5485, 13); // McCoy: Where did you get the hardware, Izo?
+			Actor_Says(kActorIzo,    740, 14); // Izo: That I can't tell you. But I'd like to think I'm protected at the highest levels.
+			Actor_Says(kActorMcCoy, 5495, 12); // McCoy: Oh, yeah?
+			Actor_Says(kActorIzo,    750, 15); // Izo: Clovis is looking for you, McCoy.
+			Actor_Says(kActorIzo,    760, 17); // Izo: He knows all about you. Knows what happened with Zuben.
+			Actor_Says(kActorMcCoy, 5500, 12); // McCoy: Is Clovis the Tyrell bomber?
+			Actor_Says(kActorIzo,    770, 15); // Izo: You really are groping in the dark.
+			Actor_Says(kActorIzo,    780, 15); // Izo: No. The bomb belonged to Sadik. It was his signature.
+			Actor_Says(kActorMcCoy, 5505, 12); // McCoy: I need to talk to Clovis.
+			Actor_Says(kActorIzo,    790, 15); // Izo: I'll tell him you helped me. That's as much as I can do.
 		} else {
-			Actor_Says(kActorMcCoy, 5510, 15); // Where did you get the hardware, Izo?
-			Actor_Says(kActorIzo, 820, 13);
-			Actor_Says(kActorMcCoy, 5520, 13);
-			Actor_Says(kActorIzo, 830, 13);
-			Actor_Says(kActorIzo, 840, 13);
+			Actor_Says(kActorMcCoy, 5510, 15); // McCoy: Where did you get the hardware, Izo?
+			Actor_Says(kActorIzo,    820, 13); // Izo: That I can't tell. But maybe I'm protected at the highest levels.
+			Actor_Says(kActorMcCoy, 5520, 13); // McCoy: Oh, yeah?
+			Actor_Says(kActorIzo,    830, 13); // Izo: I got some... friends who'll probably want to meet you.
+			Actor_Says(kActorIzo,    840, 13); // Izo: You'll be hearing from them soon enough.
 		}
 		Actor_Set_Goal_Number(kActorIzo, kGoalIzoEscape);
 		Player_Gains_Control();
 		break;
 
 	case 20: // REFERENCE -> Should be VOIGT-KAMPFF
-		Actor_Says(kActorMcCoy, 5480, 18); // Look, just come along with me. You’re gonna have to take a little personality test.
+		Actor_Says(kActorMcCoy, 5480, 18); // McCoy: Look, just come along with me. You're gonna have to take a little personality test.
 		Actor_Set_Goal_Number(kActorIzo, kGoalIzoEscape);
 		Player_Gains_Control();
 		break;

@@ -94,23 +94,23 @@ bool SceneScriptDR06::ClickedOn3DObject(const char *objectName, bool a2) {
 	if (Object_Query_Click("X2_MON01A04", objectName)) {
 		if (Actor_Clue_Query(kActorMcCoy, kClueAnsweringMachineMessage)) {
 			Actor_Face_Object(kActorMcCoy, "X2_MON01A04", true);
-			Actor_Says(kActorMcCoy, 8570, 13);
+			Actor_Says(kActorMcCoy, 8570, 13); // McCoy: I've gotten all I can from that.
 		} else {
 			if (!Loop_Actor_Walk_To_XYZ(kActorMcCoy, -684.94f, 136.6f, -1136.12f, 0, true, false, false)) {
 				Actor_Face_Object(kActorMcCoy, "X2_MON01A04", true);
-				Actor_Says(kActorAnsweringMachine, 10, 3);
-				Actor_Says(kActorAnsweringMachine, 20, 3);
-				Actor_Says(kActorAnsweringMachine, 30, 3);
-				Actor_Says(kActorMcCoy, 1025, 13);
-				Actor_Says(kActorSebastian, 0, 3);
-				Actor_Says(kActorSebastian, 10, 3);
-				Actor_Says(kActorSebastian, 20, 3);
-				Actor_Says(kActorSebastian, 30, 3);
-				Actor_Says(kActorSebastian, 40, 3);
-				Actor_Says(kActorSebastian, 50, 3);
-				Actor_Says(kActorAnsweringMachine, 40, 3);
-				Actor_Says(kActorMcCoy, 1030, 13);
-				Actor_Says(kActorAnsweringMachine, 50, 3);
+				Actor_Says(kActorAnsweringMachine,   10,  3); // Answering Machine: Hello, Luther. Hello, Lance.
+				Actor_Says(kActorAnsweringMachine,   20,  3); // Answering Machine: You have no new messages and one saved voice-only message.
+				Actor_Says(kActorAnsweringMachine,   30,  3); // Answering Machine: Would you like to hear the saved message again?
+				Actor_Says(kActorMcCoy,            1025, 13); // McCoy: Absolutely.
+				Actor_Says(kActorSebastian,           0,  3); // Sebastian: Hello, it's J. F. Sebastian. I hope you guys are all right.
+				Actor_Says(kActorSebastian,          10,  3); // Sebastian: I tried to talk to Dr. Tyrell about, eh, about your reinstatement, reemployment...
+				Actor_Says(kActorSebastian,          20,  3); // Sebastian: but I haven't been able to get through to him yet.
+				Actor_Says(kActorSebastian,          30,  3); // Sebastian: He's kind of angry and you know what a "cool customer" he is.
+				Actor_Says(kActorSebastian,          40,  3); // Sebastian: I don't know what happened between you guys, but I'm still trying.
+				Actor_Says(kActorSebastian,          50,  3); // Sebastian: If you want to get together, I'm still at the Bradbury. I'll be here all night.
+				Actor_Says(kActorAnsweringMachine,   40,  3); // Answering Machine: Message saved automatically. To delete please state your deletion security number.
+				Actor_Says(kActorMcCoy,            1030, 13); // McCoy: Not right now, thanks.
+				Actor_Says(kActorAnsweringMachine,   50,  3); // Answering Machine: The pleasure is all ours at Zino Bell.
 				Actor_Clue_Acquire(kActorMcCoy, kClueAnsweringMachineMessage, true, kActorAnsweringMachine);
 			}
 		}
@@ -127,13 +127,13 @@ bool SceneScriptDR06::ClickedOn3DObject(const char *objectName, bool a2) {
 				Actor_Set_Goal_Number(kActorMcCoy, kGoalMcCoyCallWithGuzza);
 				Game_Flag_Set(kFlagCallWithGuzza);
 			} else if (!Game_Flag_Query(kFlagDR06VidphoneChecked)) {
-				Actor_Voice_Over(770, kActorVoiceOver);
-				Actor_Voice_Over(780, kActorVoiceOver);
-				Actor_Voice_Over(790, kActorVoiceOver);
-				Actor_Voice_Over(800, kActorVoiceOver);
+				Actor_Voice_Over(770, kActorVoiceOver); // Mainframe: The VidPhone  was one of those old Zenith jobs.
+				Actor_Voice_Over(780, kActorVoiceOver); // Mainframe: The last electronic tech that was still produced on this continent.
+				Actor_Voice_Over(790, kActorVoiceOver); // Mainframe: In Mexico to be exact.
+				Actor_Voice_Over(800, kActorVoiceOver); // Mainframe: No wonder this sucker was on the blink.
 				Game_Flag_Set(kFlagDR06VidphoneChecked);
 			} else {
-				Actor_Says(kActorMcCoy, 8570, 13);
+				Actor_Says(kActorMcCoy, 8570, 13); // McCoy: I've gotten all I can from that.
 			}
 		}
 		return true;
@@ -143,8 +143,8 @@ bool SceneScriptDR06::ClickedOn3DObject(const char *objectName, bool a2) {
 	 && !Game_Flag_Query(kFlagDR06KeyboardChecked)) {
 		Loop_Actor_Walk_To_XYZ(kActorMcCoy, -655.57f, 136.6f, -1092.64f, 0, true, false, false);
 		Actor_Face_Object(kActorMcCoy, "X2_KEYBRD02", true);
-		Actor_Voice_Over(830, kActorVoiceOver);
-		Actor_Voice_Over(840, kActorVoiceOver);
+		Actor_Voice_Over(830, kActorVoiceOver); // Mainframe: Half the work space was tidy, the other half a total disaster area.
+		Actor_Voice_Over(840, kActorVoiceOver); // Mainframe: The tenants were clearly the oddest of odd couples.
 		Game_Flag_Set(kFlagDR06KeyboardChecked);
 		return true;
 	}
@@ -153,8 +153,8 @@ bool SceneScriptDR06::ClickedOn3DObject(const char *objectName, bool a2) {
 	 && !Game_Flag_Query(kFlagDR06KeyboardChecked)) {
 		Loop_Actor_Walk_To_XYZ(kActorMcCoy, -655.57f, 136.6f, -1092.64f, 0, true, false, false);
 		Actor_Face_Object(kActorMcCoy, "X2KEYBRD02", true);
-		Actor_Voice_Over(830, kActorVoiceOver);
-		Actor_Voice_Over(840, kActorVoiceOver);
+		Actor_Voice_Over(830, kActorVoiceOver); // Mainframe: Half the work space was tidy, the other half a total disaster area.
+		Actor_Voice_Over(840, kActorVoiceOver); // Mainframe: The tenants were clearly the oddest of odd couples.
 		Game_Flag_Set(kFlagDR06KeyboardChecked);
 		return true;
 	}
@@ -172,11 +172,11 @@ bool SceneScriptDR06::ClickedOn3DObject(const char *objectName, bool a2) {
 				Game_Flag_Set(kFlagDR06MannequinHeadOpen);
 				Sound_Play(kSfxCEMENTL1, 100, 0, 0, 50);
 				if (!Actor_Clue_Query(kActorMcCoy, kClueEnvelope)) {
-					Actor_Voice_Over(850, kActorVoiceOver);
+					Actor_Voice_Over(850, kActorVoiceOver); // Mainframe: I recognized the logo on the envelope.
 					Item_Pickup_Spin_Effect(kModelAnimationEnvelope, 171, 280);
-					Actor_Voice_Over(860, kActorVoiceOver);
-					Actor_Voice_Over(870, kActorVoiceOver);
-					Actor_Voice_Over(880, kActorVoiceOver);
+					Actor_Voice_Over(860, kActorVoiceOver); // Mainframe: It was definitely Runciter's animal sales.
+					Actor_Voice_Over(870, kActorVoiceOver); // Mainframe: But I didn't expect to find hundreds of chinyen inside.
+					Actor_Voice_Over(880, kActorVoiceOver); // Mainframe: I didn't know what it was for but I'd bet the farm it wasn't on Runciter's books.
 					Actor_Clue_Acquire(kActorMcCoy, kClueEnvelope, true, kActorLance);
 					if (Query_Difficulty_Level() != kGameDifficultyEasy) {
 						Global_Variable_Increment(kVariableChinyen, 200);
@@ -198,7 +198,7 @@ bool SceneScriptDR06::ClickedOn3DObject(const char *objectName, bool a2) {
 	}
 
 	Actor_Face_Object(kActorMcCoy, "X2_MON01D01", true); //a bug? or why?
-	Actor_Says(kActorMcCoy, 8525, 13);
+	Actor_Says(kActorMcCoy, 8525, 13); // McCoy: Hmph.
 	return true;
 }
 
@@ -234,8 +234,8 @@ if (_vm->_cutContent) {
 		if (!Game_Flag_Query(kFlagMcCoyCommentsOnStatues) && (region == 0 || region == 1 || region == 2) ) {
 			Game_Flag_Set(kFlagMcCoyCommentsOnStatues);
 			Actor_Face_Heading(kActorMcCoy, 88, true);
-			Actor_Voice_Over(810, kActorVoiceOver);
-			Actor_Voice_Over(820, kActorVoiceOver);
+			Actor_Voice_Over(810, kActorVoiceOver); // Mainframe: They certainly looked good.
+			Actor_Voice_Over(820, kActorVoiceOver); // Mainframe: I didn't know art from Kipple but I did know that real people were never that perfect.
 			Scene_2D_Region_Remove(0);
 			Scene_2D_Region_Remove(1);
 			Scene_2D_Region_Remove(2);

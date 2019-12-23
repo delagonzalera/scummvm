@@ -152,8 +152,8 @@ void SceneScriptKP02::PlayerWalkedIn() {
 	if (_vm->_cutContent && !Game_Flag_Query(kFlagKP02DispatchOnToxicKipple)) {
 		Game_Flag_Set(kFlagKP02DispatchOnToxicKipple);
 		ADQ_Add_Pause(Random_Query(0, 1) * 1000);
-		ADQ_Add(kActorDispatcher, 300, kAnimationModeTalk);
-		ADQ_Add(kActorDispatcher, 310, kAnimationModeTalk);
+		ADQ_Add(kActorDispatcher, 300, kAnimationModeTalk); // Dispatcher: LA to all outer Kipple units. Stand by for toxic advisory.
+		ADQ_Add(kActorDispatcher, 310, kAnimationModeTalk); // Dispatcher: Meteorology reports level of toxic contamination reaching extremely hazardous conditions in the North and West areas. All units use appropriate protective attire until advisory canceled.
 	}
 	//return false;
 }

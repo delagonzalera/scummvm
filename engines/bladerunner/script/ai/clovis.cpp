@@ -132,7 +132,7 @@ void AIScriptClovis::ReceivedClue(int clueId, int fromActorId) {
 void AIScriptClovis::ClickedByPlayer() {
 	if (Actor_Query_Goal_Number(kActorClovis) == kGoalClovisGone) {
 		Actor_Face_Actor(kActorMcCoy, kActorClovis, true);
-		Actor_Says(kActorMcCoy, 8630, 16);
+		Actor_Says(kActorMcCoy, 8630, 16); // McCoy: What a waste.
 	}
 }
 
@@ -170,7 +170,7 @@ bool AIScriptClovis::ShotAtAndHit() {
 			Actor_Set_Goal_Number(kActorClovis, kGoalClovisGone);
 			shotAnim();
 			Actor_Set_Targetable(kActorClovis, false);
-			ADQ_Add(kActorMcCoy, 2340, -1);
+			ADQ_Add(kActorMcCoy, 2340, -1); // McCoy: I never did like poetry.
 			Music_Stop(3);
 		} else if (Actor_Query_Goal_Number(kActorClovis) == kGoalClovisKP07Wait
 		        || Actor_Query_Goal_Number(kActorClovis) == kGoalClovisKP07LayDown
@@ -271,32 +271,32 @@ bool AIScriptClovis::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 
 	case kGoalClovisBB11TalkWithSadik:
 		Actor_Set_Goal_Number(kActorSadik, kGoalSadikBB11TalkWithClovis);
-		Actor_Says(kActorClovis, 10, 15);
-		Actor_Says(kActorSadik, 0, kAnimationModeTalk);
+		Actor_Says(kActorClovis, 10,                 15); // Clovis: Enough!
+		Actor_Says(kActorSadik,   0, kAnimationModeTalk); // Sadik: How you think he found us, man?
 		Actor_Face_Actor(kActorClovis, kActorSadik, true);
-		Actor_Says(kActorClovis, 20, 13);
-		Actor_Says(kActorClovis, 30, 12);
+		Actor_Says(kActorClovis, 20, 13); // Clovis: One of the Design sub-cons must have talked.
+		Actor_Says(kActorClovis, 30, 12); // Clovis: Unstable personalities to say the least.
 		Actor_Face_Actor(kActorSadik, kActorClovis, true);
-		Actor_Says(kActorSadik, 10, kAnimationModeTalk);
-		Actor_Says(kActorClovis, 40, 17);
-		Actor_Says(kActorSadik, 20, kAnimationModeTalk);
+		Actor_Says(kActorSadik,  10, kAnimationModeTalk); // Sadik: I told you we should have blown up the whole block.
+		Actor_Says(kActorClovis, 40,                 17); // Clovis: It would have created problems down the line.
+		Actor_Says(kActorSadik,  20, kAnimationModeTalk); // Sadik: We got problem now, man.
 		Actor_Face_Actor(kActorClovis, kActorMcCoy, true);
 		Actor_Face_Actor(kActorSadik, kActorMcCoy, true);
-		Actor_Says(kActorClovis, 50, 14);
+		Actor_Says(kActorClovis, 50, 14); // Clovis: This one? He's not a problem. He's an opportunity.
 		Actor_Change_Animation_Mode(kActorClovis, kAnimationModeSit);
 		return true;
 
 	case kGoalClovisBB11TalkToMcCoy:
-		Actor_Says(kActorClovis, 60, 30);
-		Actor_Says(kActorSadik, 30, kAnimationModeTalk);
-		Actor_Says(kActorClovis, 70, 30);
-		Actor_Says(kActorClovis, 80, 30);
+		Actor_Says(kActorClovis, 60,                 30); // Clovis: You're weak my friend. I expected so much more from you.
+		Actor_Says(kActorSadik,  30, kAnimationModeTalk); // Sadik: I'm thinking our brother not hearing too good.
+		Actor_Says(kActorClovis, 70,                 30); // Clovis: Oh, he hears us.
+		Actor_Says(kActorClovis, 80,                 30); // Clovis: Isn't that right, McCoy?
 		Actor_Change_Animation_Mode(kActorClovis, 29);
-		Actor_Says(kActorSadik, 40, kAnimationModeTalk);
-		Actor_Says(kActorSadik, 50, kAnimationModeTalk);
-		Actor_Says(kActorClovis, 90, 13);
+		Actor_Says(kActorSadik,  40, kAnimationModeTalk); // Sadik: You ready to give up fruitless nightmare, man?
+		Actor_Says(kActorSadik,  50, kAnimationModeTalk); // Sadik: Come back to family?
+		Actor_Says(kActorClovis, 90,                 13); // Clovis: He doesn't have a choice.
 		Actor_Face_Current_Camera(5, true);
-		Actor_Says(kActorClovis, 100, 17);
+		Actor_Says(kActorClovis, 100, 17); // Clovis: He never did.
 		Delay(1000);
 		if (!Game_Flag_Query(kFlagSadikIsReplicant)) {
 			Actor_Clue_Acquire(kActorMcCoy, kClueStaggeredbyPunches, true, kActorSadik);
@@ -386,13 +386,13 @@ bool AIScriptClovis::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		return true;
 
 	case kGoalClovisKP06TalkToMcCoy:
-		Actor_Says(kActorClovis, 110, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 2255, kAnimationModeTalk);
-		Actor_Says(kActorClovis, 120, kAnimationModeTalk);
-		Actor_Says(kActorClovis, 130, kAnimationModeTalk);
-		Actor_Says(kActorClovis, 140, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 2260, kAnimationModeTalk);
-		Actor_Says(kActorClovis, 150, kAnimationModeTalk);
+		Actor_Says(kActorClovis,  110, kAnimationModeTalk); // Clovis: She wasn't real, McCoy! Just another part of Tyrell's experiment.
+		Actor_Says(kActorMcCoy,  2255, kAnimationModeTalk); // McCoy: She was innocent, you bastard!
+		Actor_Says(kActorClovis,  120, kAnimationModeTalk); // Clovis: Can't see it yet? You came down to Terra with us, McCoy.
+		Actor_Says(kActorClovis,  130, kAnimationModeTalk); // Clovis: The police got a hold of you and Tyrell created your past.
+		Actor_Says(kActorClovis,  140, kAnimationModeTalk); // Clovis: They made you the experiment.
+		Actor_Says(kActorMcCoy,  2260, kAnimationModeTalk); // McCoy: That line almost worked before, Clovis.
+		Actor_Says(kActorClovis,  150, kAnimationModeTalk); // Clovis: Come join me. Our final party before returning to the heavens.
 		Actor_Set_Goal_Number(kActorClovis, kGoalClovisKP07Wait);
 		return true;
 
@@ -419,50 +419,50 @@ bool AIScriptClovis::GoalChanged(int currentGoalNumber, int newGoalNumber) {
 		return true;
 
 	case kGoalClovisKP07TalkToMcCoy:
-		Actor_Says(kActorMcCoy, 2345, 16);
-		Actor_Says(kActorClovis, 170, -1);
-		Actor_Says(kActorClovis, 180, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 2350, 17);
+		Actor_Says(kActorMcCoy,  2345,                 16); // McCoy: They're all dead. You're the last one.
+		Actor_Says(kActorClovis,  170,                 -1); // Clovis: I wish I could just leave... Just power up this ship and fly away.
+		Actor_Says(kActorClovis,  180, kAnimationModeTalk); // Clovis: (coughs) But there's nowhere else to go. And no more time.
+		Actor_Says(kActorMcCoy,  2350,                 17); // McCoy: You want me to feel sorry for you.
 		if (!Game_Flag_Query(kFlagMcCoyAttackedReplicants)) {
-			Actor_Says(kActorMcCoy, 2355, 11);
+			Actor_Says(kActorMcCoy, 2355, 11); // McCoy: But after what you did to Maggie? No way.
 		}
-		Actor_Says(kActorClovis, 190, -1);
-		Actor_Says(kActorClovis, 200, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 2360, 18);
-		Actor_Says(kActorClovis, 210, kAnimationModeTalk);
-		Actor_Says(kActorClovis, 220, -1);
+		Actor_Says(kActorClovis,  190,                 -1); // Clovis: And what about you, Ray McCoy?(coughs) After what you did to my family.
+		Actor_Says(kActorClovis,  200, kAnimationModeTalk); // Clovis: To my friends. Do you not also seek forgiveness?
+		Actor_Says(kActorMcCoy,  2360,                 18); // McCoy: I don't need to.
+		Actor_Says(kActorClovis,  210, kAnimationModeTalk); // Clovis: (coughs) I thought I could cheat my destiny.
+		Actor_Says(kActorClovis,  220,                 -1); // Clovis: I should have cherished what little time I had instead of wasting it in one precious minute... on revenge. (coughs)
 		Actor_Set_Goal_Number(kActorClovis, kGoalClovisKP07SayFinalWords);
 		return true;
 
 	case kGoalClovisKP07SayFinalWords:
-		ADQ_Add(kActorClovis, 240, -1);
-		ADQ_Add(kActorClovis, 250, -1);
-		ADQ_Add(kActorClovis, 260, -1);
-		ADQ_Add(kActorClovis, 270, -1);
+		ADQ_Add(kActorClovis, 240, -1); // Clovis: "My hands are labour'd day and night, And Ease comes never in my sight." (coughs)
+		ADQ_Add(kActorClovis, 250, -1); // Clovis: "My Wife has no indulgence given, Except what comes to her from heaven."
+		ADQ_Add(kActorClovis, 260, -1); // Clovis: "We eat little, we drink less; This earth breeds not our happiness" (coughs)
+		ADQ_Add(kActorClovis, 270, -1); // Clovis: "Another Sun... feeds our life's streams, We are not warmed with thy beams;" (coughs)
 		ADQ_Add_Pause(1000);
-		ADQ_Add(kActorClovis, 280, -1);
-		ADQ_Add(kActorClovis, 290, -1);
-		ADQ_Add(kActorClovis, 300, -1);
+		ADQ_Add(kActorClovis, 280, -1); // Clovis: Thou measurest not the Time to me...
+		ADQ_Add(kActorClovis, 290, -1); // Clovis: Nor yet the Space that I do see. (coughs)
+		ADQ_Add(kActorClovis, 300, -1); // Clovis: "My Mind is not with thy light array'd. Thy terrors shall not make me afraid."
 		return true;
 
 	case kGoalClovisKP07FlyAway:
-		Actor_Says(kActorMcCoy, 8501, kAnimationModeTalk);
+		Actor_Says(kActorMcCoy, 8501, kAnimationModeTalk); // McCoy: DNA information?
 #if BLADERUNNER_ORIGINAL_BUGS
 #else
 		Actor_Face_Actor(kActorClovis, kActorMcCoy, true);
 #endif // BLADERUNNER_ORIGINAL_BUGS
-		Actor_Says(kActorClovis, 1260, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 8502, kAnimationModeTalk);
-		Actor_Says(kActorClovis, 1270, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 8504, kAnimationModeTalk);
-		Actor_Says(kActorClovis, 1290, kAnimationModeTalk);
-		Actor_Says(kActorMcCoy, 8505, kAnimationModeTalk);
-		Actor_Says(kActorClovis, 1300, kAnimationModeTalk);
+		Actor_Says(kActorClovis, 1260, kAnimationModeTalk); // Clovis: We have some of it.
+		Actor_Says(kActorMcCoy,  8502, kAnimationModeTalk); // McCoy: I hope it's enough.
+		Actor_Says(kActorClovis, 1270, kAnimationModeTalk); // Clovis: It will have to be.
+		Actor_Says(kActorMcCoy,  8504, kAnimationModeTalk); // McCoy: I've got questions of my own.
+		Actor_Says(kActorClovis, 1290, kAnimationModeTalk); // Clovis: No doubt. But answers will take time. And time is precious. To all of us.
+		Actor_Says(kActorMcCoy,  8505, kAnimationModeTalk); // McCoy: It's true then. You've-- We've only got four years.
+		Actor_Says(kActorClovis, 1300, kAnimationModeTalk); // Clovis: Yes. Of course, I could be hit by lightning tomorrow but with the information Tyrell gave you... who knows, brother? It may just be enough to make a difference.
 #if BLADERUNNER_ORIGINAL_BUGS
 #else
 		Actor_Face_Heading(kActorClovis, 780, true);
 #endif // BLADERUNNER_ORIGINAL_BUGS
-		Actor_Says(kActorClovis, 1310, kAnimationModeTalk);
+		Actor_Says(kActorClovis, 1310, kAnimationModeTalk); // Clovis: He's a hunter no more. He has come home. It's time to go, my friend.
 		Ambient_Sounds_Remove_All_Non_Looping_Sounds(true);
 		Ambient_Sounds_Remove_All_Looping_Sounds(1);
 		Outtake_Play(kOuttakeEnd4A, false, -1);

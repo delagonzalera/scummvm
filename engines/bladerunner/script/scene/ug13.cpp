@@ -157,12 +157,12 @@ bool SceneScriptUG13::ClickedOnActor(int actorId) {
 				if (!Game_Flag_Query(kFlagUG13HomelessTalk1)) {
 					Actor_Face_Actor(kActorMcCoy, kActorTransient, true);
 					Game_Flag_Set(kFlagUG13HomelessTalk1);
-					Actor_Says(kActorMcCoy, 5560, 13); // hey
+					Actor_Says(kActorMcCoy, 5560, 13); // McCoy: Hey.
 					Actor_Says_With_Pause(kActorMcCoy, 5565, 3.0f, 18); // haven't i seen...?
-					Actor_Says(kActorTransient, 70, 31); // Ah, always chasing.
-					Actor_Says(kActorTransient, 80, 32); // Got that big dumb lox...
-					Actor_Says(kActorMcCoy, 5570, kAnimationModeTalk); // small world...
-					Actor_Says(kActorTransient, 90, 32); // Hm, guess so
+					Actor_Says(kActorTransient,   70,                 31); // Transient: Ah, always chasing. That your name? Chaser?
+					Actor_Says(kActorTransient,   80,                 32); // Transient: Got that big dumb lox out the back of the sushi bar remember?
+					Actor_Says(kActorMcCoy,     5570, kAnimationModeTalk); // McCoy: Small world, ain't it?
+					Actor_Says(kActorTransient,   90,                 32); // Transient: Hm, guess so. Then again, I ain't the one standing in your living room.
 				} else if (!Actor_Clue_Query(kActorMcCoy, kClueHomelessManInterview1) || !Actor_Clue_Query(kActorMcCoy, kClueHomelessManInterview2)) {
 					dialogueWithHomeless1();
 				} else {
@@ -171,17 +171,17 @@ bool SceneScriptUG13::ClickedOnActor(int actorId) {
 						dialogueWithHomeless1();
 					} else {
 						Actor_Face_Actor(kActorMcCoy, kActorTransient, true);
-						Actor_Says(kActorMcCoy, 5600, 14);               // Let me ask you
-						Actor_Says(kActorTransient, 100, 53);            // sleeping, mumbling
-						Actor_Says(kActorMcCoy, 5605, 18);               // I'm talking to you...
+						Actor_Says(kActorMcCoy,     5600, 14); // McCoy: Let me ask you something.
+						Actor_Says(kActorTransient,  100, 53); // Transient: Hm... got to be... damn tasty...
+						Actor_Says(kActorMcCoy,     5605, 18); // McCoy: I'm-- I'm talking to you here.
 						Actor_Start_Speech_Sample(kActorTransient, 110); // sleeping, mumbling
 						Actor_Set_Goal_Number(kActorTransient, 395);
 					}
 				}
 			} else if (Random_Query(0, 1) == 1) {
-				Actor_Says(kActorMcCoy, 8590, 16);
+				Actor_Says(kActorMcCoy, 8590, 16); // McCoy: Not the talkative type.
 			} else {
-				Actor_Says(kActorMcCoy, 8655, 15);
+				Actor_Says(kActorMcCoy, 8655, 15); // McCoy: What smells in here?
 			}
 		}
 	}
@@ -195,12 +195,12 @@ bool SceneScriptUG13::ClickedOnItem(int itemId, bool a2) {
 			Actor_Clue_Acquire(kActorMcCoy, kClueOriginalRequisitionForm, true, -1);
 			Item_Remove_From_World(kItemWeaponsOrderForm);
 			Item_Pickup_Spin_Effect(kModelAnimationOriginalRequisitionForm, 426, 316);
-			Actor_Voice_Over(3950, kActorVoiceOver);
-			Actor_Voice_Over(3960, kActorVoiceOver);
-			Actor_Voice_Over(3970, kActorVoiceOver);
-			Actor_Voice_Over(3980, kActorVoiceOver);
-			Actor_Voice_Over(3990, kActorVoiceOver);
-			Actor_Voice_Over(4000, kActorVoiceOver);
+			Actor_Voice_Over(3950, kActorVoiceOver); // Mainframe: The paper was a copy of the requisition form for the station's new shipment of guns.
+			Actor_Voice_Over(3960, kActorVoiceOver); // Mainframe: But it was for three cases instead of two.
+			Actor_Voice_Over(3970, kActorVoiceOver); // Mainframe: It all smelled pretty damn fishy and Guzza was the guy mixing up the tartar sauce.
+			Actor_Voice_Over(3980, kActorVoiceOver); // Mainframe: If this copy of the shipping form was right...
+			Actor_Voice_Over(3990, kActorVoiceOver); // Mainframe: the LPD should have gotten three cases of weapons not two.
+			Actor_Voice_Over(4000, kActorVoiceOver); // Mainframe: Guns were getting swiped somewhere along the line.
 			return true;
 		}
 	}
@@ -243,10 +243,10 @@ bool SceneScriptUG13::ClickedOnExit(int exitId) {
 					    || Actor_Query_Goal_Number(kActorTransient) == 395
 					    || Actor_Query_Goal_Number(kActorTransient) == 599
 					) {
-						Actor_Says(kActorMcCoy, 8522, 14); // Locked
+						Actor_Says(kActorMcCoy, 8522, 14); // McCoy: Locked.
 					} else {
-						Actor_Says(kActorMcCoy, 5555, 14); // How do I get this thing open?
-						Actor_Says(kActorTransient, 60, 31); // Nah, it only happens when they want it to open.
+						Actor_Says(kActorMcCoy,     5555, 14); // McCoy: How do I get this thing open?
+						Actor_Says(kActorTransient,   60, 31); // Transient: Nah, it only happens when they want it to open.
 					}
 					// turn back
 					Actor_Face_Heading(kActorMcCoy, 325, false);
@@ -329,7 +329,7 @@ void SceneScriptUG13::PlayerWalkedIn() {
 	) {
 		if (!Game_Flag_Query(kFlagUG13Entered)) {
 			Game_Flag_Set(kFlagUG13Entered);
-			Actor_Says(kActorTransient, 50, kAnimationModeTalk); // Hey, another one? ...
+			Actor_Says(kActorTransient, 50, kAnimationModeTalk); // Transient: Hey, another one? Ain't you ever heard of private property?
 		} else {
 			if (Random_Query(1, 3) == 1) {
 				Actor_Set_Goal_Number(kActorTransient, 395);
@@ -359,21 +359,21 @@ void SceneScriptUG13::DialogueQueueFlushed(int a1) {
 void SceneScriptUG13::talkAboutGuzza() {
 	Actor_Clue_Acquire(kActorMcCoy, kClueHomelessManInterview2, false, kActorTransient);
 	Actor_Modify_Friendliness_To_Other(kActorTransient, kActorMcCoy, -10);
-	Actor_Says(kActorTransient, 220, 30); // Bunch of times. Last time weren't that long ago.
-	Actor_Says(kActorMcCoy, 5640, 19);    // What was he doing?
-	Actor_Says(kActorTransient, 230, 33); // Collecting guns like always.
-	Actor_Says(kActorMcCoy, 5645, 16);    // Handguns? A blaster like mine?
-	Actor_Says(kActorTransient, 240, 30); // Handguns, rifles. A whole armful. Took them through that gate.
+	Actor_Says(kActorTransient,  220, 30); // Transient: Bunch of times. Last time weren't that long ago.
+	Actor_Says(kActorMcCoy,     5640, 19); // McCoy: What was he doing?
+	Actor_Says(kActorTransient,  230, 33); // Transient: Collecting guns like always.
+	Actor_Says(kActorMcCoy,     5645, 16); // McCoy: Handguns? A blaster like mine?
+	Actor_Says(kActorTransient,  240, 30); // Transient: Handguns, rifles. A whole armful. Took them through that gate.
 #if BLADERUNNER_ORIGINAL_BUGS
-	Actor_Says(kActorTransient, 250, 33); // Dumped them it a sewer. They're gone now. You sure you ain't got nothing to drink?
+	Actor_Says(kActorTransient, 250, 33); // Transient: Dumped them in a sewer. They're gone now. You sure you ain't got nothing to drink?
 #else
 	if (!Actor_Clue_Query(kActorTransient, kClueFlaskOfAbsinthe)) {
-		Actor_Says(kActorTransient, 250, 33); // Dumped them it a sewer. They're gone now. You sure you ain't got nothing to drink?
+		Actor_Says(kActorTransient, 250, 33); // Transient: Dumped them in a sewer. They're gone now. You sure you ain't got nothing to drink?
 	}
 #endif // BLADERUNNER_ORIGINAL_BUGS
 
-	Actor_Says(kActorMcCoy, 5650, 14);    // Can you describe him?
-	Actor_Says(kActorTransient, 260, 32); // Eh, rough guy. Barks out orders a lot. Everybody listens when he's around. A natural.
+	Actor_Says(kActorMcCoy,     5650, 14); // McCoy: Can you describe him?
+	Actor_Says(kActorTransient,  260, 32); // Transient: Eh, rough guy. Barks out orders a lot. Everybody listens when he's around. A natural.
 }
 
 void SceneScriptUG13::dialogueWithHomeless1() {
@@ -397,54 +397,54 @@ void SceneScriptUG13::dialogueWithHomeless1() {
 		Actor_Face_Actor(kActorMcCoy, kActorTransient, true);
 		Actor_Clue_Acquire(kActorMcCoy, kClueHomelessManInterview1, false, kActorTransient);
 		Actor_Modify_Friendliness_To_Other(kActorTransient, kActorMcCoy, -5);
-		Actor_Says(kActorMcCoy, 5575, 16); // You said another one...
+		Actor_Says(kActorMcCoy, 5575, 16); // McCoy: You said another one, when I came down the elevator.
 		if (_vm->_cutContent) {
-			Actor_Says(kActorTransient, 130, 31); // You got something...?
-			Actor_Says(kActorMcCoy, 5580, 14); // A lot of people...?
+			Actor_Says(kActorTransient,  130, 31); // Transient: You got something so's I can wet my whistle?
+			Actor_Says(kActorMcCoy,     5580, 14); // McCoy: A lot of people come around here?
 		}
-		Actor_Says(kActorTransient, 120, 31); // None of that are people...
+		Actor_Says(kActorTransient, 120, 31); // Transient: None of that are people. Artificials.
 		if (_vm->_cutContent) {
-			Actor_Says(kActorTransient, 380, 32); // Skin-jobs, okay?
+			Actor_Says(kActorTransient, 380, 32); // Transient: Skin-jobs, okay? For the most part. All right if I got back to my book now?
 		}
-		Actor_Says(kActorMcCoy, 5610, 15); // How do you know...?
-		Actor_Says(kActorTransient, 140, 32); // Are you kidding?
+		Actor_Says(kActorMcCoy,     5610, 15); // McCoy: How do you know they were Replicants?
+		Actor_Says(kActorTransient,  140, 32); // Transient: Are you kidding? I can spot a skin-job at a hundred paces in the dark.
 		if (_vm->_cutContent) {
-			Actor_Says(kActorTransient, 150, 31); // Something funny about their eyes.
+			Actor_Says(kActorTransient, 150, 31); // Transient: Something funny about their eyes.
 		}
-		Actor_Says(kActorMcCoy, 5615, 18); // Describe them...
-		Actor_Says(kActorTransient, 160, 33); // Sure you don't got that drink?
-		Actor_Says(kActorMcCoy, 5620, 9); // Maybe later
-		Actor_Says(kActorTransient, 170, 30); //Well, there's the Japanese guy with the coat and the glasses.
-		Actor_Says(kActorMcCoy, 5625, 12); // Skinny...?
-		Actor_Says(kActorTransient, 180, 32); // Yeah! And the guy with the muscles and the funny hair.
-		Actor_Says(kActorMcCoy, 5630, 18); // Dreadlocks?
-		Actor_Says(kActorTransient, 190, 32); // Right! Seen them twice. And a two headed guy and a fat man.
-		Actor_Says(kActorMcCoy, 5635, 15); // Fat man?
-		Actor_Says(kActorTransient, 200, 31); // Nah, the other fat man. You know him.
+		Actor_Says(kActorMcCoy,     5615, 18); // McCoy: Describe 'em to me.
+		Actor_Says(kActorTransient,  160, 33); // Transient: Sure you don't got that drink?
+		Actor_Says(kActorMcCoy,     5620,  9); // McCoy: Maybe later.
+		Actor_Says(kActorTransient,  170, 30); // Transient: Well, there's the Japanese guy with the coat and the glasses.
+		Actor_Says(kActorMcCoy,     5625, 12); // McCoy: Skinny guy, blond hair, pony tail?
+		Actor_Says(kActorTransient,  180, 32); // Transient: Yeah! And the guy with the muscles and the funny hair.
+		Actor_Says(kActorMcCoy,     5630, 18); // McCoy: Dreadlocks?
+		Actor_Says(kActorTransient,  190, 32); // Transient: Right! Seen them twice. And a two headed guy and a fat man.
+		Actor_Says(kActorMcCoy,     5635, 15); // McCoy: Fat man? The one I was chasing from the sushi bar.
+		Actor_Says(kActorTransient,  200, 31); // Transient: Nah, the other fat man. You know him. Rough voice, always eating.
 		if (_vm->_cutContent) {
-			Actor_Says(kActorTransient, 210, 31); // Saw him wail...
+			Actor_Says(kActorTransient, 210, 31); // Transient: Saw him wail on the Jap guy once.
 		}
 		break;
 
 	case 1330: // FAT MAN
-		Actor_Says(kActorMcCoy, 5585, 16); // How many times have you seen the fat man down here?
+		Actor_Says(kActorMcCoy, 5585, 16); // McCoy: How many times have you seen the fat man down here?
 		talkAboutGuzza();
 		break;
 
 	case 1340: // SEWERS
 		Actor_Modify_Friendliness_To_Other(kActorTransient, kActorMcCoy, -10);
-		Actor_Says(kActorMcCoy, 5590, 15); // This is where...?
-		Actor_Says(kActorTransient, 270, 31); // You could call it that.
-		Actor_Says(kActorMcCoy, 5655, 16); // You know your way...?
-		Actor_Says(kActorTransient, 280, 32); // You got anything to drink? My throat's awful dry.
+		Actor_Says(kActorMcCoy,     5590, 15); // McCoy: This is where you live?
+		Actor_Says(kActorTransient,  270, 31); // Transient: You could call it that.
+		Actor_Says(kActorMcCoy,     5655, 16); // McCoy: You know your way around down here?
+		Actor_Says(kActorTransient,  280, 32); // Transient: You got anything to drink? My throat's awful dry.
 		break;
 
 	case 1350: // GIVE FLASK
 		Actor_Clue_Acquire(kActorTransient, kClueFlaskOfAbsinthe, false, kActorMcCoy);
 		Actor_Says_With_Pause(kActorMcCoy, 5595, 1.0f, 23); // You still thirsty, pal?
 		Item_Pickup_Spin_Effect(kModelAnimationFlaskOfAbsinthe, 193, 325);
-		Actor_Says(kActorTransient, 290, 33); // Mucho obligado, senor.
-		Actor_Says(kActorMcCoy, 5660, 13); // Stay with me for a minute, pal.
+		Actor_Says(kActorTransient,  290, 33); // Transient: Mucho obligado, se~nor.
+		Actor_Says(kActorMcCoy,     5660, 13); // McCoy: Stay with me for a minute, pal.
 		Actor_Clue_Lose(kActorMcCoy, kClueFlaskOfAbsinthe);
 		dialogueWithHomeless2();
 		break;
@@ -454,9 +454,9 @@ void SceneScriptUG13::dialogueWithHomeless1() {
 
 	default:
 		Actor_Face_Actor(kActorMcCoy, kActorTransient, true);
-		Actor_Says(kActorMcCoy, 5600, 14);               // Let me ask you
-		Actor_Says(kActorTransient, 100, 53);            // sleeping, mumbling
-		Actor_Says(kActorMcCoy, 5605, 18);               // I'm talking to you...
+		Actor_Says(kActorMcCoy,     5600, 14); // McCoy: Let me ask you something.
+		Actor_Says(kActorTransient,  100, 53); // Transient: Hm... got to be... damn tasty...
+		Actor_Says(kActorMcCoy,     5605, 18); // McCoy: I'm-- I'm talking to you here.
 		Actor_Start_Speech_Sample(kActorTransient, 110); // sleeping, mumbling
 		Actor_Set_Goal_Number(kActorTransient, 395);
 		break;
@@ -478,26 +478,26 @@ void SceneScriptUG13::dialogueWithHomeless2() {
 
 	switch (answer) {
 	case 1370: // DIRECTIONS
-		Actor_Says(kActorMcCoy, 5665, 16); // This place is a maze
-		Actor_Says(kActorTransient, 300, 32); // This is the sewers, man.
-		Actor_Says(kActorMcCoy, 5680, 19); // So what? I just follow my nose?
-		Actor_Says(kActorTransient, 310, 33); // Noses get a little overworked down here.
-		Actor_Says(kActorTransient, 330, 30); // You can get to it all from down here.
+		Actor_Says(kActorMcCoy,     5665, 16); // McCoy: This place is a maze. Can you give me some directions?
+		Actor_Says(kActorTransient,  300, 32); // Transient: This is the sewers, man.
+		Actor_Says(kActorMcCoy,     5680, 19); // McCoy: So what? I just follow my nose?
+		Actor_Says(kActorTransient,  310, 33); // Transient: Noses get a little overworked down here. No, this is the real city. The arteries, the veins, the blood.
+		Actor_Says(kActorTransient,  330, 30); // Transient: You can get to it all from down here. Just look for what you need.
 		Actor_Start_Speech_Sample(kActorTransient, 110); // sleeping, mumbling
 		Actor_Set_Goal_Number(kActorTransient, 395);
-		Actor_Says(kActorMcCoy, 5685, 18); // Triple-A...
+		Actor_Says(kActorMcCoy, 5685, 18); // McCoy: Triple-A you ain't.
 		break;
 
 	case 1380: // FAT MAN
 		if (Actor_Clue_Query(kActorMcCoy, kClueHomelessManInterview2)) {
-			Actor_Says(kActorMcCoy, 5670, 9); // About that fat man you saw.
-			Actor_Says(kActorTransient, 340, 31); // You're "kid".
-			Actor_Says(kActorMcCoy, 5690, 19); // Huh?
-			Actor_Says(kActorTransient, 350, 32); // No, you're his kid. That's what it is.
-			Actor_Says(kActorMcCoy, 5695, 14); // How's that?
-			Actor_Says(kActorTransient, 360, 33); // Hell, I seen you guys together. Three weeks ago.
-			Actor_Voice_Over(2710, kActorVoiceOver);
-			Actor_Voice_Over(2730, kActorVoiceOver);
+			Actor_Says(kActorMcCoy,     5670,  9); // McCoy: About that fat man you saw.
+			Actor_Says(kActorTransient,  340, 31); // Transient: You're "kid".
+			Actor_Says(kActorMcCoy,     5690, 19); // McCoy: Huh?
+			Actor_Says(kActorTransient,  350, 32); // Transient: No, you're his kid. That's what it is.
+			Actor_Says(kActorMcCoy,     5695, 14); // McCoy: How's that?
+			Actor_Says(kActorTransient,  360, 33); // Transient: Hell, I seen you guys together. Three weeks ago. At the speech. You remember.
+			Actor_Voice_Over(2710, kActorVoiceOver); // Mainframe: I remembered all right. Half the LPD had special duty that weekend working the security detail for Governor Kolvig's speech.
+			Actor_Voice_Over(2730, kActorVoiceOver); // Mainframe: And Guzza had been the lieutenant in charge.
 			Actor_Clue_Acquire(kActorMcCoy, kClueHomelessManKid, false, kActorTransient);
 		} else {
 			// McCoy could also have asked about "Fat Man" before he gives the flask of absinthe
@@ -506,17 +506,17 @@ void SceneScriptUG13::dialogueWithHomeless2() {
 #if BLADERUNNER_ORIGINAL_BUGS
 #else
 			// Re-use this line here, so the question is not so abrupt
-			Actor_Says(kActorMcCoy, 5670, 9); // About that fat man you saw.
+			Actor_Says(kActorMcCoy, 5670, 9); // McCoy: About that fat man you saw.
 #endif // BLADERUNNER_ORIGINAL_BUGS
-			Actor_Says(kActorMcCoy, 5700, 15); // He been down here a lot?
+			Actor_Says(kActorMcCoy, 5700, 15); // McCoy: He been down here a lot?
 			talkAboutGuzza();
 		}
 		break;
 
 	case 1390: // REPLICANTS
-		Actor_Says(kActorMcCoy, 5675, 9); // You say this place is crawling with Reps...
-		Actor_Says(kActorTransient, 370, 32); // They ain't too bad. You don't mess with them, they don't mess with you.
-		Actor_Says(kActorMcCoy, 5705, 10); // Uh-huh.
+		Actor_Says(kActorMcCoy,     5675,  9); // McCoy: You say this place is crawling with Reps and you're still hanging around?
+		Actor_Says(kActorTransient,  370, 32); // Transient: They ain't too bad. You don't mess with them, they don't mess with you.
+		Actor_Says(kActorMcCoy,     5705, 10); // McCoy: Uh-huh.
 		break;
 	}
 }

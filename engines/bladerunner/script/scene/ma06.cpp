@@ -125,14 +125,14 @@ void SceneScriptMA06::PlayerWalkedIn() {
 			Ambient_Sounds_Adjust_Looping_Sound(kSfxELEAMB3, 10, 0, 1);
 			Ambient_Sounds_Adjust_Looping_Sound(kSfxAPRTFAN1, 10, 0, 1);
 
-			Actor_Says(kActorAnsweringMachine, 80, 3);     // your floor number please
-			Actor_Says(kActorMcCoy, 2940, 18);             // McCoy: McCoy 88F
+			Actor_Says(kActorAnsweringMachine,   80,  3); // Answering Machine: Your floor number, please.
+			Actor_Says(kActorMcCoy,            2940, 18); // McCoy: McCoy, 88F.
 			Game_Flag_Set(kFlagMA06ToMA02);                // to McCoy's Apartment
-			Actor_Says(kActorAnsweringMachine, 90, 3);     // 88 thank you
+			Actor_Says(kActorAnsweringMachine, 90, 3); // Answering Machine: Eighty-eight. Thank you.
 			Actor_Face_Actor(kActorMcCoy, kActorRachael, true);
-			Actor_Says(kActorMcCoy, 2710, 14);             // Excuse me
+			Actor_Says(kActorMcCoy, 2710, 14); // McCoy: Excuse me.
 
-			Actor_Says(kActorMcCoy, 2730, 12);             // RachaelRight
+			Actor_Says(kActorMcCoy, 2730, 12); // McCoy: Rachael, right?
 			AI_Movement_Track_Pause(kActorRachael);
 			Actor_Set_Goal_Number(kActorRachael, kGoalRachaelIsInsideElevatorStartTalkAct3);
 
@@ -146,8 +146,8 @@ void SceneScriptMA06::PlayerWalkedIn() {
 			Ambient_Sounds_Remove_Looping_Sound(kSfxAPRTFAN1, 1);         // stop other ambient
 			Ambient_Sounds_Remove_Looping_Sound(kSfxELEAMB3,  1);         // stop other ambient
 			Actor_Says_With_Pause(kActorRachael, 300, 1.0f, 14);  // GoodbyeMcCoy
-			Actor_Says(kActorRachael, 310, 14);                   // Isnt ThisYourFloor --
-			Actor_Says(kActorMcCoy, 2860, 14);                    // YouTakeCareOfYoursel
+			Actor_Says(kActorRachael,  310, 14); // Rachael: Isn't this your floor?
+			Actor_Says(kActorMcCoy,   2860, 14); // McCoy: You take care of yourself.
 
 			Set_Enter(kSetMA02_MA04, kSceneMA02);
 			Scene_Loop_Start_Special(kSceneLoopModeChangeSet, kMA06LoopDoorClose, true);
@@ -167,7 +167,7 @@ void SceneScriptMA06::PlayerWalkedIn() {
 			Ambient_Sounds_Adjust_Looping_Sound(kSfxELEAMB3, 10, 0, 1);
 			Ambient_Sounds_Adjust_Looping_Sound(kSfxAPRTFAN1, 10, 0, 1);
 
-			Actor_Says(kActorAnsweringMachine, 80, 3);      // your floor number please
+			Actor_Says(kActorAnsweringMachine, 80, 3); // Answering Machine: Your floor number, please.
 			Actor_Set_Goal_Number(kActorRachael, kGoalRachaelIsInsideElevatorStartTalkAct4);
 			//
 			Delay(500);
@@ -255,7 +255,7 @@ void SceneScriptMA06::activateElevator() {
 			break;
 		}
 
-		Actor_Says(kActorAnsweringMachine, 80, kAnimationModeTalk);
+		Actor_Says(kActorAnsweringMachine, 80, kAnimationModeTalk); // Answering Machine: Your floor number, please.
 		Player_Gains_Control();
 		int floorLevel = Elevator_Activate(kElevatorMA);
 #if BLADERUNNER_ORIGINAL_BUGS
@@ -278,21 +278,21 @@ void SceneScriptMA06::activateElevator() {
 			} else {
 				Sound_Play(kSfxELEBAD1, 100, 0, 0, 50);
 				Delay(500);
-				Actor_Says(kActorAnsweringMachine, 610, 3);
+				Actor_Says(kActorAnsweringMachine, 610, 3); // Answering Machine: Destination Locked.
 			}
 		} else { // floorLevel == 0
-			Actor_Says(kActorMcCoy, 2940, 18);
+			Actor_Says(kActorMcCoy, 2940, 18); // McCoy: McCoy, 88F.
 			if (Global_Variable_Query(kVariableChapter) == 4
 			 && Game_Flag_Query(kFlagMA02RajifTalk)
 			) {
 				Sound_Play(kSfxELEBAD1, 100, 0, 0, 50);
 				Delay(500);
-				Actor_Says(kActorAnsweringMachine, 610, kAnimationModeTalk);
+				Actor_Says(kActorAnsweringMachine, 610, kAnimationModeTalk); // Answering Machine: Destination Locked.
 				Delay(500);
-				Actor_Says(kActorMcCoy, 8527, kAnimationModeTalk);
+				Actor_Says(kActorMcCoy, 8527, kAnimationModeTalk); // McCoy: Strange.
 			} else {
 				Game_Flag_Set(kFlagMA06ToMA02);
-				Actor_Says(kActorAnsweringMachine, 90, 3);
+				Actor_Says(kActorAnsweringMachine, 90, 3); // Answering Machine: Eighty-eight. Thank you.
 			}
 		}
 	}
